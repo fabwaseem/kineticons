@@ -111,9 +111,10 @@ const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon
         }`}
         style={look.color && !on ? { color: look.color } : undefined}
       >
-        <KineticIcon icon={icon} variant={look.variant} size={look.size} strokeWidth={look.stroke ?? undefined} trigger={look.trigger} loopEvery={2200} />
+        <KineticIcon icon={icon} variant={look.variant} size={look.size} strokeWidth={look.stroke ?? undefined} trigger={look.trigger} loopEvery={2200} css={false} />
         {look.labels && <span className="w-full truncate text-center text-[12px] text-muted group-hover:text-ink">{icon.name}</span>}
       </button>
     </div>
   );
 });
+

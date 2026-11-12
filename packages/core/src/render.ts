@@ -1,4 +1,5 @@
 import type { IconDef, Part, Trigger, Variant } from "./types";
+import { partClass } from "./motion";
 
 /**
  * An SVG element as plain data: what every framework package turns into its own elements, and what the string
@@ -107,6 +108,14 @@ export function render(def: IconDef, o: RenderOptions = {}): SvgNode {
   }
 
   const content = def.motion?.root && !wrapped ? [el("g", { "data-p": "root" }, body)] : body;
+  // each moving part also carries its icon-specific class, which the motion CSS aims at (see partClass)
+  const tag = (n: SvgNode | null): void => {
+    if (!n) return;
+    const p = n.attrs["data-p"];
+    if (p != null) n.attrs.class = [n.attrs.class, partClass(def.name, String(p))].filter(Boolean).join(" ");
+    n.children?.forEach(tag);
+  };
+  content.forEach((n) => tag(n as SvgNode | null));
   return el(
     "svg",
     {
@@ -119,7 +128,7 @@ export function render(def: IconDef, o: RenderOptions = {}): SvgNode {
       "stroke-width": sw,
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
-      class: ["ki", o.className].filter(Boolean).join(" "),
+      class: ["ki", `ki-${def.name}`, o.className].filter(Boolean).join(" "),
       "data-icon": def.name,
       "data-variant": variant,
       "data-trigger": o.trigger ?? "hover",

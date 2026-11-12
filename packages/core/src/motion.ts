@@ -56,21 +56,27 @@ export function iconCss(def: IconDef): string {
   const rest: string[] = [];
   const on: string[] = [];
   for (const [part, m] of Object.entries(def.motion ?? {})) {
-    const [r, o] = partCss(part, m);
+    const [r, o] = partCss(def.name, part, m);
     if (r) rest.push(r);
     if (o) on.push(o);
   }
-  const svg = `svg.ki[data-icon="${def.name}"]`;
   const out: string[] = [];
-  if (rest.length) out.push(`${svg}{${rest.join("")}}`);
-  if (on.length) out.push(`:is(${ACTIVE})[data-icon="${def.name}"]{${on.join("")}}`);
+  // nested under the icon's own class, so only this icon's <svg> is ever tested against these rules
+  const root = `.ki-${def.name}`;
+  if (rest.length) out.push(`svg${root}{${rest.join("")}}`);
+  if (on.length) out.push(`:is(${ACTIVE})${root}{${on.join("")}}`);
   if (def.keyframes) out.push(def.keyframes.trim());
   return out.join("\n");
 }
 
+/** The class a part of an icon carries (`ki-bell__clapper`; the <svg> itself carries `ki-bell`). Rules aim at these
+ * rather than at `[data-p]` or `[data-icon]`: browsers file class selectors by name, so an element is only tested
+ * against its own icon's rules, not every icon's. */
+export const partClass = (icon: string, part: string): string => `ki-${icon}__${part.replace(/[^\w-]/g, "_")}`;
+
 /** A part's rules: at rest, and while its icon is active (each nested under its icon). "root" is the icon itself. */
-function partCss(part: string, m: PartMotion): [string, string] {
-  const sel = `[data-p="${part}"]`;
+function partCss(icon: string, part: string, m: PartMotion): [string, string] {
+  const sel = `.${partClass(icon, part)}`;
   const rest: string[] = [];
   if (m.origin) rest.push(`transform-origin:${m.origin}`);
   if (m.box) rest.push(`transform-box:${m.box}`);

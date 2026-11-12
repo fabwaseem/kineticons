@@ -99,6 +99,8 @@ if (!which) {
   const frames = new Map<string, string>();
   for (const icon of ICONS) {
     if (names.has(icon.name)) bad(icon.name, "two icons have this name");
+    // an icon's <svg> carries the class ki-<name>, which must not clash with the library's own classes
+    if (["trigger", "tone", "halo", "mark", "mark-leg"].includes(icon.name) || icon.name.includes("__")) bad(icon.name, "this name clashes with a ki- class");
     names.add(icon.name);
     if (!icon.title || !icon.tags.length) bad(icon.name, "no title or tags");
     for (const v of VARIANTS) {

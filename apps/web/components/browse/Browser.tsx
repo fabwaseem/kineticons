@@ -96,6 +96,8 @@ export default function Browser() {
 
   return (
     <div className="mx-auto flex w-full max-w-[1920px] gap-6 px-4 sm:px-6">
+      {/* every icon's motion in one stylesheet: the grid's icons bring none of their own */}
+      <link rel="stylesheet" href="/kineticons.css" precedence="default" />
       {/* the sidebar: customize, then categories */}
       <aside aria-label="Customize and filter" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h))] w-[256px] shrink-0 overflow-y-auto py-6 pr-2 [scrollbar-width:thin] lg:block">
         <Customize look={look} patch={patch} reset={reset} />

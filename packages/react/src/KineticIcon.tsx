@@ -21,6 +21,9 @@ export interface KineticIconProps extends Omit<SVGProps<SVGSVGElement>, "childre
   loopEvery?: number;
   /** an accessible name; the icon is then announced as an image (otherwise it is hidden from screen readers) */
   title?: string;
+  /** false: leave the icon's CSS out, for pages that load every icon's motion at once (`@kineticons/static/kineticons.css`).
+   * Many icons each bringing a stylesheet slow a page down; one stylesheet does not. Default true. */
+  css?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -40,11 +43,11 @@ function toElement(n: SvgNode, key: number | undefined, extra?: Record<string, u
  * icons work in Server Components with no client code. React 18 has no such hoisting: there the CSS is injected. */
 const HOISTS = Number(React.version.split(".")[0]) >= 19;
 
-function useLegacyStyles(icon: IconDef) {
+function useLegacyStyles(icon: IconDef, on: boolean) {
   // a constant branch (the React version never changes at runtime), so hooks are called in the same order every time
   // eslint-disable-next-line react-hooks/rules-of-hooks
   // (read off the namespace: a named import of a client hook would stop the module loading in a Server Component)
-  if (!HOISTS) React.useInsertionEffect(() => injectStyles(icon), [icon]);
+  if (!HOISTS) React.useInsertionEffect(() => void (on && injectStyles(icon)), [icon, on]);
 }
 
 /**
@@ -53,11 +56,11 @@ function useLegacyStyles(icon: IconDef) {
  *   <button className="ki-trigger"><KineticIcon icon={bell} variant="duotone" /> Notifications</button>
  */
 export const KineticIcon = forwardRef<SVGSVGElement, KineticIconProps>(function KineticIcon(
-  { icon, variant, size, strokeWidth, trigger = "hover", active, loopEvery = 1800, title, className, style, ...rest },
+  { icon, variant, size, strokeWidth, trigger = "hover", active, loopEvery = 1800, title, className, style, css = true, ...rest },
   ref,
 ) {
-  useLegacyStyles(icon);
-  if (trigger === "loop") return <LoopIcon ref={ref} icon={icon} every={loopEvery} {...{ variant, size, strokeWidth, title, className, style, ...rest }} />;
+  useLegacyStyles(icon, css);
+  if (trigger === "loop") return <LoopIcon ref={ref} icon={icon} every={loopEvery} {...{ variant, size, strokeWidth, title, className, style, css, ...rest }} />;
   const px = typeof size === "string" ? parseFloat(size) : size;
   const node = render(icon, { variant, size: px, strokeWidth, trigger, active, title, className });
   const labelled = rest["aria-label"] != null || rest["aria-labelledby"] != null;
@@ -68,7 +71,7 @@ export const KineticIcon = forwardRef<SVGSVGElement, KineticIconProps>(function 
     ...(labelled ? { "aria-hidden": undefined, role: rest.role ?? "img" } : {}),
     ...rest,
   });
-  if (!HOISTS) return svg;
+  if (!HOISTS || !css) return svg;
   return (
     <>
       <style href="kineticons" precedence="kineticons">{baseCss()}</style>
