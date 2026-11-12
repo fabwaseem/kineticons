@@ -1,0 +1,68 @@
+{
+  "name": "@kineticons/core",
+  "version": "0.1.0",
+  "description": "The drawing and motion behind Kineticons: 2,000+ rounded, animated icons in outline, duotone and filled, without a framework.",
+  "keywords": [
+    "icons",
+    "svg",
+    "animated",
+    "animation",
+    "motion",
+    "duotone",
+    "icon-set",
+    "kineticons"
+  ],
+  "license": "MIT",
+  "author": "Waseem Anjum",
+  "homepage": "https://kineticons.fabwaseem.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabwaseem/kineticons.git",
+    "directory": "packages/core"
+  },
+  "bugs": "https://github.com/fabwaseem/kineticons/issues",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./icons": {
+      "import": {
+        "types": "./dist/all-icons.d.mts",
+        "default": "./dist/all-icons.mjs"
+      },
+      "require": {
+        "types": "./dist/all-icons.d.cts",
+        "default": "./dist/all-icons.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "lint:package": "publint && attw --pack . --profile node16"
+  },
+  "devDependencies": {
+    "tsdown": "^0.20.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

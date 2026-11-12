@@ -1,0 +1,662 @@
+credit-card-minus — "Remove card" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-credit-card-minus-draw 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-credit-card-minus-swipe 650ms cubic-bezier(.22,1,.36,1) 150ms"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-credit-card-minus-swipe 650ms cubic-bezier(.22,1,.36,1) 150ms"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-credit-card-minus-swipe 650ms cubic-bezier(.22,1,.36,1) 150ms"}})
+    p0 (fill area) body: M22 13V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.536L13.25 17A2.75 2.75 0 0 1 16 14.25H22Z
+    p0 line: M22 13V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h8.536
+    p1 detail: M22 10H2
+    p2 detail: M6 14h2
+    p3 line: M16 17h6
+
+credit-card-plus — "Add card" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-credit-card-plus-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"from":{"strokeDasharray":1},"animation":"mi-credit-card-plus-draw 350ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-credit-card-plus-swipe 650ms cubic-bezier(.22,1,.36,1) 200ms"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-credit-card-plus-swipe 650ms cubic-bezier(.22,1,.36,1) 200ms"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-credit-card-plus-swipe 650ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 (fill area) body: M22 11.354V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.536L13.25 17A2.75 2.75 0 0 1 16 14.25L16.25 14A2.75 2.75 0 0 1 19 11.25H22Z
+    p0 line: M22 11.354V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2h8.536
+    p1 detail: M22 10H2
+    p2 detail: M6 14h2
+    p3 line: M16 17h6
+    p4 line: M19 14v6
+
+credit-card-x — "Card declined" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-credit-card-x-draw 320ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"from":{"strokeDasharray":1},"animation":"mi-credit-card-x-draw 320ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p0":{"animation":"mi-credit-card-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"},"p1":{"animation":"mi-credit-card-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"},"p2":{"animation":"mi-credit-card-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"}})
+    p0 (fill area) body: M22 11.75V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8.5L13.75 14.5A2.75 2.75 0 0 1 16.5 11.75H22Z
+    p0 line: M12.5 19H4a2 2 0 01-2-2V7a2 2 0 012-2h16a2 2 0 012 2v3.5
+    p1 detail: M2 10h20
+    p2 detail: M6 14h2
+    p3 line: m16.5 14.5 5 5
+    p4 line: m21.5 14.5-5 5
+
+dam — "Dam" (now: {"p0":{"animation":"mi-dam-flow 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-dam-flow 800ms cubic-bezier(.22,1,.36,1) 120ms"},"p5":{"from":{"strokeDasharray":1},"animation":"mi-dam-draw 250ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-dam-draw 250ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-dam-draw 250ms cubic-bezier(.22,1,.36,1) 160ms backwards"},"p4":{"from":{"strokeDasharray":1},"animation":"mi-dam-draw 250ms cubic-bezier(.22,1,.36,1) 240ms backwards"}})
+    p0 line: M11 11.31c1.17.56 1.54 1.69 3.5 1.69 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1
+    p1 line: M11.75 18c.35.5 1.45 1 2.75 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1
+    p2 line: M2 10h4
+    p3 line: M2 14h4
+    p4 line: M2 18h4
+    p5 line: M2 6h4
+    p6 body: M7 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1L10 4a1 1 0 0 0-1-1z
+
+database-arrow-down — "Database download" (now: {"p0":{"animation":"mi-database-arrow-down-through 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-database-arrow-down-through 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"animation":"mi-database-arrow-down-dip 500ms cubic-bezier(.22,1,.36,1) 300ms"}})
+    p0 line: m16 19 3 3 3-3
+    p1 line: M19 16v6
+    p2 line: M21 12.536V5
+    p3 line: M3 12A9 3 0 0 0 15.182 14.806
+    p4 line: M3 5V19A9 3 0 0 0 13.318 21.968
+    p5 body: M3 5 A9 3 0 1 0 21 5 A9 3 0 1 0 3 5 Z
+
+database-arrow-up — "Database upload" (now: {"p0":{"animation":"mi-database-arrow-up-through 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-database-arrow-up-through 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"animation":"mi-database-arrow-up-lift 600ms cubic-bezier(.22,1,.36,1) 80ms"}})
+    p0 line: M19 22v-6
+    p1 line: M21 12.536V5
+    p2 line: m22 19-3-3-3 3
+    p3 line: M3 12A9 3 0 0 0 14.457 14.886
+    p4 line: M3 5V19A9 3 0 0 0 13.318 21.968
+    p5 body: M3 5 A9 3 0 1 0 21 5 A9 3 0 1 0 3 5 Z
+
+database-check — "Database ok" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-database-check-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"animation":"mi-database-check-lift 600ms cubic-bezier(.22,1,.36,1) 250ms"}})
+    p0 line: m16 19 2 2 4-4
+    p1 line: M21 13.127V5
+    p2 line: M3 12A9 3 0 0 0 21 12
+    p3 line: M3 5V19A9 3 0 0 0 13.318 21.968
+    p4 body: M3 5 A9 3 0 1 0 21 5 A9 3 0 1 0 3 5 Z
+
+database-cog — "Database settings" (now: {"p0":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p6":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p7":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p11":{"box":"view-box","origin":"18px 18px","animation":"mi-database-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p12":{"animation":"mi-database-cog-lift 600ms cubic-bezier(.22,1,.36,1) 80ms"}})
+    p0 line: m14.305 19.53.923-.382
+    p1 line: m15.228 16.852-.923-.383
+    p2 line: m16.852 15.228-.383-.923
+    p3 line: m16.852 20.772-.383.924
+    p4 line: m19.148 15.228.383-.923
+    p5 line: m19.53 21.696-.382-.924
+    p6 line: m20.772 16.852.924-.383
+    p7 line: m20.772 19.148.924.383
+    p8 line: M21 10.5V5
+    p9 line: M3 12a9 3 0 0 0 7.599 2.963
+    p10 line: M3 5v14a9 3 0 0 0 8.148 2.987
+    p11 body: M15 18 A3 3 0 1 0 21 18 A3 3 0 1 0 15 18 Z
+    p12 body: M3 5 A9 3 0 1 0 21 5 A9 3 0 1 0 3 5 Z
+
+database-minus — "Remove database" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-database-minus-draw 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"animation":"mi-database-minus-lift 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 line: M21 15V5
+    p1 line: M22 19h-6
+    p2 line: M3 12A9 3 0 0 0 21 12
+    p3 line: M3 5V19A9 3 0 0 0 13.318 21.968
+    p4 body: M3 5 A9 3 0 1 0 21 5 A9 3 0 1 0 3 5 Z
+
+database-x — "Database error" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-database-x-draw 320ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-database-x-draw 320ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p1":{"animation":"mi-database-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"},"p2":{"animation":"mi-database-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"},"p4":{"animation":"mi-database-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"},"p5":{"animation":"mi-database-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"},"p6":{"animation":"mi-database-x-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"}})
+    p0 line: m17 17 5 5
+    p1 line: M19.323 13.744A9 3 0 0 0 21 12
+    p2 line: M21 13.127V5
+    p3 line: m22 17-5 5
+    p4 line: M3 12A9 3 0 0 0 13.563 14.954
+    p5 line: M3 5V19A9 3 0 0 0 13 21.981
+    p6 body: M3 5 A9 3 0 1 0 21 5 A9 3 0 1 0 3 5 Z
+
+decimals-arrow-left — "Fewer decimals" (now: {"p0":{"animation":"mi-decimals-arrow-left-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-decimals-arrow-left-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"origin":"0% 50%","animation":"mi-decimals-arrow-left-squeeze 600ms cubic-bezier(.22,1,.36,1) 80ms"}})
+    p0 line: m13 21-3-3 3-3
+    p1 line: M20 18H10
+    p2 line: M3 11h.01
+    p3 body: M8.5 3 H8.5 A2.5 2.5 0 0 1 11 5.5 V8.5 A2.5 2.5 0 0 1 8.5 11 H8.5 A2.5 2.5 0 0 1 6 8.5 V5.5 A2.5 2.5 0 0 1 8.5 3 Z
+
+decimals-arrow-right — "More decimals" (now: {"p0":{"animation":"mi-decimals-arrow-right-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-decimals-arrow-right-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-decimals-arrow-right-pop 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: M10 18h10
+    p1 line: m17 21 3-3-3-3
+    p2 line: M3 11h.01
+    p3 body: M17.5 3 H17.5 A2.5 2.5 0 0 1 20 5.5 V8.5 A2.5 2.5 0 0 1 17.5 11 H17.5 A2.5 2.5 0 0 1 15 8.5 V5.5 A2.5 2.5 0 0 1 17.5 3 Z
+    p4 body: M8.5 3 H8.5 A2.5 2.5 0 0 1 11 5.5 V8.5 A2.5 2.5 0 0 1 8.5 11 H8.5 A2.5 2.5 0 0 1 6 8.5 V5.5 A2.5 2.5 0 0 1 8.5 3 Z
+
+diagram-flow-horizontal — "Flow diagram" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-diagram-flow-horizontal-draw 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-diagram-flow-horizontal-draw 400ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p3":{"animation":"mi-diagram-flow-horizontal-pop 400ms cubic-bezier(.22,1,.36,1) 320ms backwards"},"p2":{"animation":"mi-diagram-flow-horizontal-pop 400ms cubic-bezier(.22,1,.36,1) 400ms backwards"}})
+    p0 line: M8 12h.5a3.5 3.5 0 013.5 3.5 3.5 3.5 0 003.5 3.5h.5
+    p1 line: M8.5 12A3.5 3.5 0 0012 8.5 3.5 3.5 0 0115.5 5h.5
+    p2 body: M17 16 H21 A1 1 0 0 1 22 17 V21 A1 1 0 0 1 21 22 H17 A1 1 0 0 1 16 21 V17 A1 1 0 0 1 17 16 Z
+    p3 body: M17 2 H21 A1 1 0 0 1 22 3 V7 A1 1 0 0 1 21 8 H17 A1 1 0 0 1 16 7 V3 A1 1 0 0 1 17 2 Z
+    p4 body: M3 9 H7 A1 1 0 0 1 8 10 V14 A1 1 0 0 1 7 15 H3 A1 1 0 0 1 2 14 V10 A1 1 0 0 1 3 9 Z
+
+diameter — "Diameter" (now: {"p1":{"animation":"mi-diameter-pop 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-diameter-draw 400ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p0":{"animation":"mi-diameter-pop 350ms cubic-bezier(.22,1,.36,1) 450ms backwards"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-diameter-ring 700ms cubic-bezier(.22,1,.36,1) 100ms"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-diameter-ring 700ms cubic-bezier(.22,1,.36,1) 100ms"}})
+    p0 body: M17 19 A2 2 0 1 0 21 19 A2 2 0 1 0 17 19 Z
+    p1 body: M3 5 A2 2 0 1 0 7 5 A2 2 0 1 0 3 5 Z
+    p2 line: M6.48 3.66a10 10 0 0 1 13.86 13.86
+    p3 line: m6.41 6.41 11.18 11.18
+    p4 line: M3.66 6.48a10 10 0 0 0 13.86 13.86
+
+diamond-minus — "Diamond minus" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-diamond-minus-draw 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-diamond-minus-knock 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 body: M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z
+    p1 detail: M8 12h8
+
+diamond-percent — "Discount tag" (now: {"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-diamond-percent-turn 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-diamond-percent-swell 500ms cubic-bezier(.22,1,.36,1) 150ms"},"p3":{"animation":"mi-diamond-percent-swell 500ms cubic-bezier(.22,1,.36,1) 250ms"}})
+    p0 body: M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0Z
+    p1 detail: M9.2 9.2h.01
+    p2 detail: m14.5 9.5-5 5
+    p3 detail: M14.7 14.8h.01
+
+diamond-plus — "Diamond plus" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-diamond-plus-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-diamond-plus-draw 350ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p1":{"animation":"mi-diamond-plus-knock 600ms cubic-bezier(.22,1,.36,1) 300ms"}})
+    p0 detail: M12 8v8
+    p1 body: M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41L13.7 2.71a2.41 2.41 0 0 0-3.41 0z
+    p2 detail: M8 12h8
+
+dice-five — "Dice five" (now: {"p0":{"animation":"mi-dice-five-tip 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-dice-five-pop 350ms cubic-bezier(.22,1,.36,1) 100ms backwards"},"p1":{"animation":"mi-dice-five-pop 350ms cubic-bezier(.22,1,.36,1) 170ms backwards"},"p5":{"animation":"mi-dice-five-pop 350ms cubic-bezier(.22,1,.36,1) 240ms backwards"},"p3":{"animation":"mi-dice-five-pop 350ms cubic-bezier(.22,1,.36,1) 310ms backwards"},"p4":{"animation":"mi-dice-five-pop 350ms cubic-bezier(.22,1,.36,1) 380ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M16 8h.01
+    p2 detail: M8 8h.01
+    p3 detail: M8 16h.01
+    p4 detail: M16 16h.01
+    p5 detail: M12 12h.01
+
+dice-four — "Dice four" (now: {"p0":{"animation":"mi-dice-four-tip 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-dice-four-pop 350ms cubic-bezier(.22,1,.36,1) 100ms backwards"},"p1":{"animation":"mi-dice-four-pop 350ms cubic-bezier(.22,1,.36,1) 170ms backwards"},"p3":{"animation":"mi-dice-four-pop 350ms cubic-bezier(.22,1,.36,1) 240ms backwards"},"p4":{"animation":"mi-dice-four-pop 350ms cubic-bezier(.22,1,.36,1) 310ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M16 8h.01
+    p2 detail: M8 8h.01
+    p3 detail: M8 16h.01
+    p4 detail: M16 16h.01
+
+dice-one — "Dice one" (now: {"p0":{"animation":"mi-dice-one-tip 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-dice-one-pop 350ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M12 12h.01
+
+dice-six — "Dice six" (now: {"p0":{"animation":"mi-dice-six-tip 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"animation":"mi-dice-six-pop 350ms cubic-bezier(.22,1,.36,1) 100ms backwards"},"p1":{"animation":"mi-dice-six-pop 350ms cubic-bezier(.22,1,.36,1) 170ms backwards"},"p5":{"animation":"mi-dice-six-pop 350ms cubic-bezier(.22,1,.36,1) 240ms backwards"},"p2":{"animation":"mi-dice-six-pop 350ms cubic-bezier(.22,1,.36,1) 310ms backwards"},"p6":{"animation":"mi-dice-six-pop 350ms cubic-bezier(.22,1,.36,1) 380ms backwards"},"p3":{"animation":"mi-dice-six-pop 350ms cubic-bezier(.22,1,.36,1) 450ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M16 8h.01
+    p2 detail: M16 12h.01
+    p3 detail: M16 16h.01
+    p4 detail: M8 8h.01
+    p5 detail: M8 12h.01
+    p6 detail: M8 16h.01
+
+dice-two — "Dice two" (now: {"p0":{"animation":"mi-dice-two-tip 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-dice-two-pop 350ms cubic-bezier(.22,1,.36,1) 100ms backwards"},"p2":{"animation":"mi-dice-two-pop 350ms cubic-bezier(.22,1,.36,1) 170ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M15 9h.01
+    p2 detail: M9 15h.01
+
+disc-2 — "Disc label" (now: {"p1":{"animation":"mi-disc-2-label 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-disc-2-swell 500ms cubic-bezier(.22,1,.36,1) 120ms"},"p0":{"animation":"mi-disc-2-ring 600ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 body: M2 12 A10 10 0 1 0 22 12 A10 10 0 1 0 2 12 Z
+    p1 detail: M8 12 A4 4 0 1 0 16 12 A4 4 0 1 0 8 12 Z
+    p2 detail: M12 12h.01
+
+disc-3 — "Disc grooves" (now: {"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-disc-3-turn 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-disc-3-turn 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-disc-3-hole 550ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 body: M2 12 A10 10 0 1 0 22 12 A10 10 0 1 0 2 12 Z
+    p1 detail: M6 12c0-1.7.7-3.2 1.8-4.2
+    p2 detail: M10 12 A2 2 0 1 0 14 12 A2 2 0 1 0 10 12 Z
+    p3 detail: M18 12c0 1.7-.7 3.2-1.8 4.2
+
+dna-off — "No DNA" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-dna-off-draw 420ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p1":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p2":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p4":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p5":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p6":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p7":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p8":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p9":{"animation":"mi-dna-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 line: M15 2c-1.35 1.5-2.092 3-2.5 4.5L14 8
+    p1 line: m17 6-2.891-2.891
+    p2 line: M2 15c3.333-3 6.667-3 10-3
+    p3 line: m2 2 20 20
+    p4 line: m20 9 .891.891
+    p5 line: M22 9c-1.5 1.35-3 2.092-4.5 2.5l-1-1
+    p6 line: M3.109 14.109 4 15
+    p7 line: m6.5 12.5 1 1
+    p8 line: m7 18 2.891 2.891
+    p9 line: M9 22c1.35-1.5 2.092-3 2.5-4.5L10 16
+
+dome — "Dome" (now: {"p4":{"origin":"50% 100%","animation":"mi-dome-rise 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-dome-spire 600ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 detail: M10 21v-3a2 2 0 014 0v3
+    p1 line: M12 2v2
+    p2 detail: M18 12v9
+    p3 body: M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2v-6a1 1 0 011-1h18a1 1 0 011 1z
+    p4 line: M4 12a8 8 0 0116 0
+    p5 detail: M6 12v9
+
+door-closed-cog — "Door settings" (now: {"p0":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p6":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p8":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p9":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p11":{"box":"view-box","origin":"18px 18px","animation":"mi-door-closed-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p10":{"animation":"mi-door-closed-cog-handle 500ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p4 (fill area) body: M7 3h10a2 2 0 0 1 2 2v5.35L11.5 12.5V21H5V5a2 2 0 0 1 2-2Z
+    p0 line: m14.305 19.53.923-.382
+    p1 line: m15.229 16.852-.924-.383
+    p2 line: m16.852 15.228-.383-.923
+    p3 line: m16.852 20.773-.383.924
+    p4 line: M19 10.35V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16
+    p5 line: m19.148 15.228.383-.923
+    p6 line: m19.53 21.697-.382-.924
+    p7 line: M2 21h8.58
+    p8 line: m20.773 16.852.922-.383
+    p9 line: m20.773 19.148.922.383
+    p10 detail: M9 12h.01
+    p11 body: M15 18 A3 3 0 1 0 21 18 A3 3 0 1 0 15 18 Z
+
+door-closed-locked — "Locked door" (now: {"p2":{"animation":"mi-door-closed-locked-shackle 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"origin":"50% 0%","animation":"mi-door-closed-locked-rattle 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-door-closed-locked-handle 500ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M7 3h10a2 2 0 0 1 2 2v3L18 9.25A4.75 4.75 0 0 0 13.886 11.625L11.25 14.5V21H5V5a2 2 0 0 1 2-2Z
+    p0 line: M19 8V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16
+    p1 line: M2 21h8
+    p2 line: M20 16v-2a2 2 0 00-4 0v2
+    p3 detail: M9 12h.01
+    p4 body: M15 16 H21 A1 1 0 0 1 22 17 V20 A1 1 0 0 1 21 21 H15 A1 1 0 0 1 14 20 V17 A1 1 0 0 1 15 16 Z
+
+door-closed-package — "Delivered to the door" (now: {"p4":{"animation":"mi-door-closed-package-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-door-closed-package-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"mi-door-closed-package-knock 600ms cubic-bezier(.22,1,.36,1) 250ms"},"p3":{"animation":"mi-door-closed-package-knock 600ms cubic-bezier(.22,1,.36,1) 250ms"}})
+    p1 (fill area) body: M7 3h10a2 2 0 0 1 2 2v4L15 10.25A3.75 3.75 0 0 0 11.25 14V21H5V5a2 2 0 0 1 2-2Z
+    p0 detail: M18 13v3
+    p1 line: M19 9V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16
+    p2 line: M2 21h8
+    p3 detail: M9 12h.01
+    p4 body: M15 13 H21 A1 1 0 0 1 22 14 V20 A1 1 0 0 1 21 21 H15 A1 1 0 0 1 14 20 V14 A1 1 0 0 1 15 13 Z
+
+door-stairwell — "Stairwell" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-door-stairwell-undraw 300ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-door-stairwell-draw 300ms cubic-bezier(.22,1,.36,1) 140ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-door-stairwell-undraw 300ms cubic-bezier(.22,1,.36,1) 280ms backwards"}})
+    p2 (fill area) body: M7 3h10a2 2 0 0 1 2 2v16H5V5a2 2 0 0 1 2-2Z
+    p0 detail: M12 17v-3a1 1 0 011-1h6
+    p1 detail: M19 17h-9a1 1 0 00-1 1v3
+    p2 line: M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16
+    p3 detail: M19 9h-3a1 1 0 00-1 1v3
+    p4 line: M22 21H2
+
+download-tray — "Download to tray" (now: {"p0":{"animation":"mi-download-tray-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"animation":"mi-download-tray-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"origin":"50% 100%","animation":"mi-download-tray-give 650ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M12 15V3
+    p1 line: M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4
+    p2 line: m7 10 5 5 5-5
+
+earbuds-off — "Earbuds off" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-earbuds-off-draw 420ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-earbuds-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p1":{"animation":"mi-earbuds-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"},"p2":{"animation":"mi-earbuds-off-shake 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 line: M10 10v9a2 2 0 01-4 0v-8a5 5 0 01-3.75-1.693A1 1 0 012 8.646V5.354a1 1 0 01.25-.661 5 5 0 011.359-1.084
+    p1 line: M14 14v5a2 2 90 004 0v-1
+    p2 line: M18 12.343V11a5 5 90 003.75-1.693 1 1 90 00.25-.661V5.354a1 1 90 00-.25-.661A5 5 90 0018 3a4 4 90 00-4 4v1.343
+    p3 line: m2 2 20 20
+
+earth-lock — "Private world" (now: {"p4":{"animation":"mi-earth-lock-shackle 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"origin":"50% 0%","animation":"mi-earth-lock-rattle 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-earth-lock-turn 750ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-earth-lock-turn 750ms cubic-bezier(.22,1,.36,1) 60ms"},"p0":{"animation":"mi-earth-lock-turn 750ms cubic-bezier(.22,1,.36,1) 120ms"}})
+    p0 line: M7 3.34V5a3 3 0 0 0 3 3
+    p1 line: M11 21.95V18a2 2 0 0 0-2-2 2 2 0 0 1-2-2v-1a2 2 0 0 0-2-2H2.05
+    p2 line: M21.54 15H17a2 2 0 0 0-2 2v4.54
+    p3 line: M12 2a10 10 0 1 0 9.54 13
+    p4 line: M20 6V4a2 2 0 1 0-4 0v2
+    p5 body: M15 6 H21 A1 1 0 0 1 22 7 V10 A1 1 0 0 1 21 11 H15 A1 1 0 0 1 14 10 V7 A1 1 0 0 1 15 6 Z
+
+egg-off — "No eggs" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-egg-off-draw 420ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"box":"view-box","origin":"12px 22px","animation":"mi-egg-off-wobble 800ms cubic-bezier(.22,1,.36,1) 150ms"},"p2":{"box":"view-box","origin":"12px 22px","animation":"mi-egg-off-wobble 800ms cubic-bezier(.22,1,.36,1) 150ms"}})
+    p2 (fill area) body: M12 2c4 0 8 6 8 12a8 8 0 0 1-16 0c0-6 4-12 8-12Z
+    p0 line knock: m2 2 20 20
+    p1 line: M20 14.347V14c0-6-4-12-8-12-1.078 0-2.157.436-3.157 1.19
+    p2 line: M6.206 6.21C4.871 8.4 4 11.2 4 14a8 8 0 0 0 14.568 4.568
+
+ellipse — "Ellipse" (now: {"p0":{"animation":"mi-ellipse-stretch 650ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 body: M2 12 A10 6 0 1 0 22 12 A10 6 0 1 0 2 12 Z
+
+emirati-dirham — "Dirham" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-emirati-dirham-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-emirati-dirham-draw 350ms cubic-bezier(.22,1,.36,1) 100ms backwards"},"p0":{"animation":"mi-emirati-dirham-settle 600ms cubic-bezier(.22,1,.36,1) 150ms"}})
+    p0 body: M11 4a8 8 0 0 1 0 16H6.406A.4.4 0 0 1 6 19.594V4.406A.4.4 0 0 1 6.406 4z
+    p1 line knock: M4 10h17
+    p2 line knock: M4 14h17
+
+engine — "Engine" (now: {"p4":{"animation":"mi-engine-rev 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-engine-rev 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-engine-rev 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-engine-hop 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-engine-hop 600ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M10 3h6
+    p1 line: M13 3v4
+    p2 line: M2 10v6
+    p3 line: M2 13h4
+    p4 body: M6 16a2 2 0 002 2h1a2 2 0 011.6.8l.3.4a2 2 0 001.6.8h2.264a2 2 0 001.789-1.106l1.67-3.341a1 1 0 01.895-.553H21a1 1 0 001-1v-4a1 1 0 00-1-1h-3.5a1 1 0 01-.8-.4l-.9-1.2A1 1 0 0015 7h-4a1 1 0 00-.8.4l-.9 1.2a1 1 0 01-.8.4H7a1 1 0 00-1 1z
+
+equal-approximately — "Approximately" (now: {"p1":{"animation":"mi-equal-approximately-right 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-equal-approximately-left 700ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 line: M5 15a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0
+    p1 line: M5 9a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0
+
+equal-approximately-not — "Not approximately" (now: {"p1":{"animation":"mi-equal-approximately-not-up 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-equal-approximately-not-down 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-equal-approximately-not-draw 400ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p0 line: M5 15a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0
+    p1 line: M5 9a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0
+    p2 line: M19 5 L5 19
+
+equal-not — "Not equal" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-equal-not-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-equal-not-undraw 350ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-equal-not-draw 400ms cubic-bezier(.22,1,.36,1) 220ms backwards"}})
+    p0 line: M5 9 L19 9
+    p1 line: M5 15 L19 15
+    p2 line: M19 5 L5 19
+
+exclamation-mark — "Exclamation mark" (now: {"p0":{"origin":"50% 100%","animation":"mi-exclamation-mark-jump 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-exclamation-mark-swell 500ms cubic-bezier(.22,1,.36,1) 150ms"}})
+    p0 line: M12 15V4
+    p1 line: M12 20h.01
+
+external-link — "Open link" (now: {"p0":{"animation":"mi-external-link-through 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-external-link-through 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-external-link-ring 600ms cubic-bezier(.22,1,.36,1) 250ms"}})
+    p2 (fill area) body: M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6Z
+    p0 line: M15 3h6v6
+    p1 line knock: M10 14 21 3
+    p2 line: M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6
+
+eye-dashed — "Partly visible" (now: {"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p6":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p7":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"},"p8":{"box":"view-box","origin":"12px 12px","animation":"mi-eye-dashed-blink 500ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M13.054 18.946a11 11 0 0 1-2.11 0
+    p1 line: M13.054 5.054a11 11 0 0 0-2.11-.001
+    p2 line: M17.072 6.274a11 11 0 0 1 1.753 1.173
+    p3 line: M18.825 16.552a11 11 0 0 1-1.753 1.174
+    p4 line: M2.514 13.303a11 11 0 0 1-.452-.954 1 1 0 0 1 0-.697 11 11 0 0 1 .45-.955
+    p5 line: M21.485 10.697a11 11 0 0 1 .453.955 1 1 0 0 1 0 .697 11 11 0 0 1-.453.954
+    p6 line: M5.173 7.448a11 11 0 0 1 1.753-1.174
+    p7 line: M6.926 17.726a11 11 0 0 1-1.753-1.174
+    p8 body: M9 12 A3 3 0 1 0 15 12 A3 3 0 1 0 9 12 Z
+
+faucet — "Faucet" (now: {"p0":{"box":"view-box","origin":"12px 6px","animation":"mi-faucet-turn 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"12px 6px","animation":"mi-faucet-turn 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p6":{"box":"view-box","origin":"12px 6px","animation":"mi-faucet-turn 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"18px 15px","animation":"mi-faucet-tip 650ms cubic-bezier(.22,1,.36,1) 120ms"}})
+    p0 line: M10.083 5.428 5.57 4.083a2 2 0 10.001 3.834l4.512-1.345
+    p1 line: M12 8v3
+    p2 line: m13.917 5.428 4.511-1.345a2 2 0 110 3.834l-4.51-1.345
+    p3 line: M18 17v-4.006
+    p4 line: M22 11v8
+    p5 line: M22 12h-3a1 1 0 00-1 .994h-2.539a4 4 0 00-6.915-.012L7 13a5 5 0 00-5 5v1a1 1 0 001 1h2a1 1 0 001-1v-1a1 1 0 01.995-1l1.552.018a4 4 0 006.907 0L18 17a1 1 0 001 1h3
+    p6 body: M10 6 A2 2 0 1 0 14 6 A2 2 0 1 0 10 6 Z
+
+fence — "Fence" (now: {"p0":{"origin":"50% 100%","animation":"mi-fence-post 550ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"origin":"50% 100%","animation":"mi-fence-post 550ms cubic-bezier(.22,1,.36,1) 100ms"},"p6":{"origin":"50% 100%","animation":"mi-fence-post 550ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 body: M4 3 2 5v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z
+    p1 line: M6 8h4
+    p2 line: M6 18h4
+    p3 body: m12 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z
+    p4 line: M14 8h4
+    p5 line: M14 18h4
+    p6 body: m20 3-2 2v15c0 .6.4 1 1 1h2c.6 0 1-.4 1-1V5Z
+
+file-axis-3d — "3D file" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-file-axis-3d-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-axis-3d-draw 300ms cubic-bezier(.22,1,.36,1) 300ms backwards"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: m8 18 4-4
+    p3 detail: M8 10v8h8
+
+file-badge — "Certificate" (now: {"p3":{"box":"view-box","origin":"6px 11px","animation":"mi-file-badge-swing 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"6px 11px","animation":"mi-file-badge-swing 800ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3L6 8.25A5.75 5.75 0 0 1 11.75 14V22Z
+    p0 line: M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.3
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m7.69 16.479 1.29 4.88a.5.5 0 0 1-.698.591l-1.843-.849a1 1 0 0 0-.879.001l-1.846.85a.5.5 0 0 1-.692-.593l1.29-4.88
+    p3 body: M3 14 A3 3 0 1 0 9 14 A3 3 0 1 0 3 14 Z
+
+file-box — "Package file" (now: {"p3":{"animation":"mi-file-box-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"animation":"mi-file-box-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"animation":"mi-file-box-drop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"mi-file-box-knock 600ms cubic-bezier(.22,1,.36,1) 220ms"},"p0":{"animation":"mi-file-box-knock 600ms cubic-bezier(.22,1,.36,1) 220ms"}})
+    p1 (fill area) body: M14.692 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.804L9.3 8.4L14.75 11.6V22Z
+    p0 detail: M14 2v5a1 1 0 001 1h5
+    p1 line: M14.692 22H18a2 2 0 002-2V8a2.4 2.4 0 00-.706-1.706l-3.588-3.588A2.4 2.4 0 0014 2H6a2 2 0 00-2 2v3.804
+    p2 detail: M2.264 13.752 7 16.5l4.737-2.748
+    p3 body: M2.995 13.014A2 2 0 002 14.744v3.516a2 2 0 00.996 1.73l3 1.74a2 2 0 002.008 0l3-1.74A2 2 0 0012 18.26v-3.517a2 2 0 00-.995-1.73l-3-1.742a2 2 0 00-1.892-.064z
+    p4 detail: M7 16.5V22
+
+file-braces-corner — "JSON file" (now: {"p2":{"to":{"transform":"translateX(-1px)"}},"p3":{"to":{"transform":"translateX(1px)"}}})
+    p0 (fill area) body: M14 22h4a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v6L11 11.25L13.75 14V22Z
+    p0 line: M14 22h4a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v6
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M5 14a1 1 0 0 0-1 1v2a1 1 0 0 1-1 1 1 1 0 0 1 1 1v2a1 1 0 0 0 1 1
+    p3 line: M9 22a1 1 0 0 0 1-1v-2a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-2a1 1 0 0 0-1-1
+
+file-chart-column-increasing — "Growth report" (now: {"p2":{"origin":"50% 100%","animation":"mi-file-chart-column-increasing-grow 500ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"origin":"50% 100%","animation":"mi-file-chart-column-increasing-grow 500ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p4":{"origin":"50% 100%","animation":"mi-file-chart-column-increasing-grow 500ms cubic-bezier(.22,1,.36,1) 160ms backwards"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: M8 18v-2
+    p3 detail: M12 18v-4
+    p4 detail: M16 18v-6
+
+file-chart-line — "Trend report" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-chart-line-undraw 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: m16 13-3.5 3.5-2-2L8 17
+
+file-chart-pie — "Pie report" (now: {"p3":{"animation":"mi-file-chart-pie-lift 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-chart-pie-draw 500ms cubic-bezier(.22,1,.36,1) 0ms backwards"}})
+    p0 (fill area) body: M15.941 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.512L12 7.2l5.3 5.5v9.3Z
+    p0 line: M15.941 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.512
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M4.017 11.512a6 6 0 1 0 8.466 8.475
+    p3 body: M9 16a1 1 0 0 1-1-1v-4c0-.552.45-1.008.995-.917a6 6 0 0 1 4.922 4.922c.091.544-.365.995-.917.995z
+
+file-check-center — "Approved file" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-check-center-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-file-check-center-knock 600ms cubic-bezier(.22,1,.36,1) 300ms"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: m9 15 2 2 4-4
+
+file-code-corner — "Code file corner" (now: {"p2":{"to":{"transform":"translateX(-1px)"}},"p3":{"to":{"transform":"translateX(1px)"}}})
+    p0 (fill area) body: M14.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v8.15L14.65 14Z
+    p0 line: M4 12.15V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3.35
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m5 16-3 3 3 3
+    p3 line: m9 22 3-3-3-3
+
+file-database — "Database file" (now: {"p4":{"animation":"mi-file-database-lift 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-file-database-mid 600ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p3 (fill area) body: M15.57 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v2.3L14.75 7.25V22Z
+    p0 line: M12 12v8a5 2 0 01-10 0v-8
+    p1 line: M12 16a5 2 0 01-10 0
+    p2 line: M14 2v5a1 1 0 001 1h5
+    p3 line: M4 6.3V4a2 2 0 012-2h8a2.4 2.4 0 011.706.706l3.588 3.588A2.4 2.4 0 0120 8v12a2 2 0 01-2 2h-2.43
+    p4 body: M2 12 A5 2 0 1 0 12 12 A5 2 0 1 0 2 12 Z
+
+file-digit — "Binary file" (now: {"p4":{"animation":"mi-file-digit-flip 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"12px 19px","animation":"mi-file-digit-flip 600ms cubic-bezier(.22,1,.36,1) 120ms"},"p3":{"box":"view-box","origin":"12px 19px","animation":"mi-file-digit-flip 600ms cubic-bezier(.22,1,.36,1) 120ms"}})
+    p0 (fill area) body: M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-1.25V13.25Z
+    p0 line: M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M10 16h2v6
+    p3 line: M10 22h4
+    p4 body: M4 16 H4 A2 2 0 0 1 6 18 V20 A2 2 0 0 1 4 22 H4 A2 2 0 0 1 2 20 V18 A2 2 0 0 1 4 16 Z
+
+file-heart — "Favourite file" (now: {"p2":{"animation":"mi-file-heart-beat 800ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7L10.5 11L13.75 14V22Z
+    p0 line: M13 22h5a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v7
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 body: M3.62 18.8A2.25 2.25 0 1 1 7 15.836a2.25 2.25 0 1 1 3.38 2.966l-2.626 2.856a1 1 0 0 1-1.507 0z
+
+file-input — "Import file" (now: {"p2":{"animation":"mi-file-input-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-file-input-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-file-input-take 500ms cubic-bezier(.22,1,.36,1) 150ms"}})
+    p0 (fill area) body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2Z
+    p0 line: M4 11V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-1
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line knock: M2 15h10
+    p3 line knock: m9 18 3-3-3-3
+
+file-minus-corner — "Remove file corner" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-minus-corner-draw 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-file-minus-corner-knock 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 (fill area) body: M20 14V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h5.25V18A2.75 2.75 0 0 1 14 15.25H20Z
+    p0 line: M20 14V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M14 18h6
+
+file-music — "Music file" (now: {"p2":{"box":"view-box","origin":"6px 20px","animation":"mi-file-music-bob 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"6px 20px","animation":"mi-file-music-bob 600ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35L5.25 13A2.75 2.75 0 0 1 9.213 10.532L12.213 12.006A2.75 2.75 0 0 1 13.75 14.474V22Z
+    p0 line: M11.65 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v10.35
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M8 20v-7l3 1.474
+    p3 body: M4 20 A2 2 0 1 0 8 20 A2 2 0 1 0 4 20 Z
+
+file-output — "Export file" (now: {"p2":{"animation":"mi-file-output-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-file-output-push 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-file-output-give 500ms cubic-bezier(.22,1,.36,1) 80ms"}})
+    p0 (fill area) body: M4.226 20.925A2 2 0 0 0 6 22h12a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.127L5 8.25A2.75 2.75 0 0 1 7.75 11V17A2.75 2.75 0 0 1 5 19.75Z
+    p0 line: M4.226 20.925A2 2 0 0 0 6 22h12a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v3.127
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m5 11-3 3
+    p3 line knock: m5 17-3-3h10
+
+file-pen-line — "Sign document" (now: {"p0":{"box":"view-box","origin":"13.3px 17.6px","animation":"mi-file-pen-line-write 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-file-pen-line-draw 300ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p2 (fill area) body: M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516L10.27 13.84V20.73H17.2L20 17.93Z
+    p0 body: M14.364 13.634a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506l4.013-4.009a1 1 0 0 0-3.004-3.004z
+    p1 detail: M14.487 7.858A1 1 0 0 1 14 7V2
+    p2 line: M20 19.645V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l2.516 2.516
+    p3 detail: M8 18h1
+
+file-plus-corner — "New file corner" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-plus-corner-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-file-plus-corner-draw 350ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 (fill area) body: M11.35 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5.35L17 13.25A2.75 2.75 0 0 0 14.25 16L14 16.25A2.75 2.75 0 0 0 11.25 19Z
+    p0 line: M11.35 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5.35
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M14 19h6
+    p3 line: M17 16v6
+
+file-scan — "Scan file" (now: {"p2":{"to":{"transform":"translate(.8px,.8px)"}},"p3":{"to":{"transform":"translate(.8px,-.8px)"}},"p4":{"to":{"transform":"translate(-.8px,.8px)"}},"p5":{"to":{"transform":"translate(-.8px,-.8px)"}}})
+    p0 (fill area) body: M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35L11.25 20V11.25H20Z
+    p0 line: M20 10V8a2.4 2.4 0 0 0-.706-1.704l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.35
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M16 14a2 2 0 0 0-2 2
+    p3 line: M16 22a2 2 0 0 1-2-2
+    p4 line: M20 14a2 2 0 0 1 2 2
+    p5 line: M20 22a2 2 0 0 0 2-2
+
+file-search-corner — "Find in file" (now: {"p2":{"animation":"mi-file-search-corner-search 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-file-search-corner-search 800ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.589 3.588A2.4 2.4 0 0 1 20 8v3.25H16A5.75 5.75 0 0 0 10.25 17Z
+    p0 line: M11.1 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.589 3.588A2.4 2.4 0 0 1 20 8v3.25
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m21 22-2.88-2.88
+    p3 body: M13 17 A3 3 0 1 0 19 17 A3 3 0 1 0 13 17 Z
+
+file-signal — "Audio level file" (now: {"p2":{"animation":"mi-file-signal-swell 450ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-file-signal-ripple 650ms cubic-bezier(.22,1,.36,1) 80ms"},"p4":{"animation":"mi-file-signal-ripple 650ms cubic-bezier(.22,1,.36,1) 180ms"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: M8 15h.01
+    p3 detail: M11.5 13.5a2.5 2.5 0 0 1 0 3
+    p4 detail: M15 12a5 5 0 0 1 0 6
+
+file-sliders — "File settings sliders" (now: {"p3":{"animation":"mi-file-sliders-right 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"animation":"mi-file-sliders-left 800ms cubic-bezier(.22,1,.36,1) 80ms"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: M8 12h8
+    p3 detail: M10 11v2
+    p4 detail: M8 17h8
+    p5 detail: M14 16v2
+
+file-stack — "File stack" (now: {"p2":{"to":{"transform":"translate(.7px,-.7px)"}},"p0":{"to":{"transform":"translate(-.7px,.7px)"},"delay":40}})
+    p0 line: M11 21a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1
+    p1 line: M16 16a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1
+    p2 body: M21 6a2 2 0 0 0-.586-1.414l-2-2A2 2 0 0 0 17 2h-3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1z
+
+file-symlink — "File shortcut" (now: {"p2":{"animation":"mi-file-symlink-push 600ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M4 11V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h7
+    p1 line: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m10 18 3-3-3-3
+
+file-type — "Text file" (now: {"p2":{"box":"view-box","origin":"12px 15px","animation":"mi-file-type-stamp 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"12px 15px","animation":"mi-file-type-stamp 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"box":"view-box","origin":"12px 15px","animation":"mi-file-type-stamp 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-file-type-knock 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 body: M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 detail: M11 18h2
+    p3 detail: M12 12v6
+    p4 detail: M9 13v-.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v.5
+
+file-type-corner — "Text file corner" (now: {"p2":{"box":"view-box","origin":"7px 18px","animation":"mi-file-type-corner-stamp 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"7px 18px","animation":"mi-file-type-corner-stamp 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"box":"view-box","origin":"7px 18px","animation":"mi-file-type-corner-stamp 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-file-type-corner-knock 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 (fill area) body: M12 22h6a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v6L11 11.25A2.75 2.75 0 0 1 13.75 14V22Z
+    p0 line: M12 22h6a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v6
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M3 16v-1.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5V16
+    p3 line: M6 22h2
+    p4 line: M7 14v8
+
+file-video-camera — "Video recording file" (now: {"p3":{"animation":"mi-file-video-camera-roll 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"origin":"0% 50%","animation":"mi-file-video-camera-lens 600ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 (fill area) body: M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-1.25V13.25Z
+    p0 line: M4 12V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m10 17.843 3.033-1.755a.64.64 0 0 1 .967.56v4.704a.65.65 0 0 1-.967.56L10 20.157
+    p3 body: M4 16 H9 A1 1 0 0 1 10 17 V21 A1 1 0 0 1 9 22 H4 A1 1 0 0 1 3 21 V17 A1 1 0 0 1 4 16 Z
+
+file-volume — "Sound file" (now: {"p3":{"animation":"mi-file-volume-pulse 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-file-volume-ripple 650ms cubic-bezier(.22,1,.36,1) 100ms"}})
+    p0 (fill area) body: M4 11.55V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-2.25V11.25H4Z
+    p0 line: M4 11.55V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-1.95
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M12 15a5 5 0 0 1 0 6
+    p3 body: M8 14.502a.5.5 0 0 0-.826-.381l-1.893 1.631a1 1 0 0 1-.651.243H3.5a.5.5 0 0 0-.5.501v3.006a.5.5 0 0 0 .5.501h1.129a1 1 0 0 1 .652.243l1.893 1.633a.5.5 0 0 0 .826-.38z
+
+file-x-corner — "File error corner" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-file-x-corner-draw 320ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-file-x-corner-draw 320ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p0":{"animation":"mi-file-x-corner-shiver 500ms cubic-bezier(.22,1,.36,1) 350ms"}})
+    p0 (fill area) body: M11 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v6.25H15A2.75 2.75 0 0 0 12.25 17Z
+    p0 line: M11 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: m15 17 5 5
+    p3 line: m20 17-5 5
+
+fish-off — "No fish" (now: {"p1":{"box":"view-box","origin":"7px 12px","animation":"mi-fish-off-tail 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-fish-off-flop 700ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M18 12.47v.03m0-.5v.47m-.475 5.056A6.744 6.744 0 0 1 15 18c-3.56 0-7.56-2.53-8.5-6 .348-1.28 1.114-2.433 2.121-3.38m3.444-2.088A8.802 8.802 0 0 1 15 6c3.56 0 6.06 2.54 7 6-.309 1.14-.786 2.177-1.413 3.058
+    p1 line: M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33m7.48-4.372A9.77 9.77 0 0 1 16 6.07m0 11.86a9.77 9.77 0 0 1-1.728-3.618
+    p2 line: m16.01 17.93-.23 1.4A2 2 0 0 1 13.8 21H9.5a5.96 5.96 0 0 0 1.49-3.98M8.53 3h5.27a2 2 0 0 1 1.98 1.67l.23 1.4M2 2l20 20
+
+fish-symbol — "Fish symbol" (now: {"p0":{"animation":"mi-fish-symbol-swim 800ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M2 16s9-15 20-4C11 23 2 8 2 8
+
+fishing-hook — "Fishing hook" (now: {"p0":{"box":"view-box","origin":"22px 7px","animation":"mi-fishing-hook-swing 900ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"22px 7px","animation":"mi-fishing-hook-swing 900ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"22px 7px","animation":"mi-fishing-hook-swing 900ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: m17.586 11.414-5.93 5.93a1 1 0 0 1-8-8l3.137-3.137a.707.707 0 0 1 1.207.5V10
+    p1 line: M20.414 8.586 22 7
+    p2 body: M17 10 A2 2 0 1 0 21 10 A2 2 0 1 0 17 10 Z
+
+fishing-rod — "Fishing rod" (now: {"p1":{"box":"view-box","origin":"6px 15px","animation":"mi-fishing-rod-flick 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"box":"view-box","origin":"6px 15px","animation":"mi-fishing-rod-flick 700ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-fishing-rod-bob 800ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M4 11h1
+    p1 line: M8 15a2 2 0 0 1-4 0V3a1 1 0 0 1 1-1h.5C14 2 20 9 20 18v4
+    p2 body: M16 18 A2 2 0 1 0 20 18 A2 2 0 1 0 16 18 Z
+
+flag-off — "Flag off" (now: {"p0":{"box":"view-box","origin":"4px 12px","animation":"mi-flag-off-droop 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"4px 12px","animation":"mi-flag-off-droop 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-flag-off-draw 420ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p3 (fill area) body: M4 4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528Z
+    p0 line: M16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528
+    p1 line knock: m2 2 20 20
+    p2 line: M4 22V4
+    p3 line: M7.656 2H8c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10.347
+
+flag-triangle-left — "Pennant left" (now: {"p0":{"box":"view-box","origin":"18px 8px","animation":"mi-flag-triangle-left-wave 850ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M18 2.8a.8.8 0 0 0-1.17-.71L5.45 7.78a.8.8 0 0 0 0 1.44L18 15.5Z
+    p0 line: M18 22V2.8a.8.8 0 0 0-1.17-.71L5.45 7.78a.8.8 0 0 0 0 1.44L18 15.5
+
+flag-triangle-right — "Pennant" (now: {"p0":{"box":"view-box","origin":"6px 8px","animation":"mi-flag-triangle-right-wave 850ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M6 2.8a.8.8 0 0 1 1.17-.71l11.38 5.69a.8.8 0 0 1 0 1.44L6 15.5Z
+    p0 line: M6 22V2.8a.8.8 0 0 1 1.17-.71l11.38 5.69a.8.8 0 0 1 0 1.44L6 15.5
+
+flame-kindling — "Campfire" (now: {"p0":{"origin":"50% 100%","animation":"mi-flame-kindling-flicker 900ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-flame-kindling-settle 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-flame-kindling-settle 600ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 body: M12 2c1 3 2.5 3.5 3.5 4.5A5 5 0 0 1 17 10a5 5 0 1 1-10 0c0-.3 0-.6.1-.9a2 2 0 1 0 3.3-2C8 4.5 11 2 12 2Z
+    p1 line: m5 22 14-4
+    p2 line: m5 18 14 4
+
+flashlight-off — "Flashlight off" (now: {"p1":{"animation":"mi-flashlight-off-click 450ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-flashlight-off-draw 420ms cubic-bezier(.22,1,.36,1) 150ms backwards"},"p0":{"animation":"mi-flashlight-off-dim 600ms cubic-bezier(.22,1,.36,1) 100ms"},"p2":{"animation":"mi-flashlight-off-dim 600ms cubic-bezier(.22,1,.36,1) 100ms"},"p4":{"animation":"mi-flashlight-off-dim 600ms cubic-bezier(.22,1,.36,1) 100ms"}})
+    p0 line: M11.652 6H18
+    p1 line: M12 13v1
+    p2 line: M16 16v4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-8a4 4 0 0 0-.8-2.4l-.6-.8A3 3 0 0 1 6 7V6
+    p3 line: m2 2 20 20
+    p4 line: M7.649 2H17a1 1 0 0 1 1 1v4a3 3 0 0 1-.6 1.8l-.6.8a4 4 0 0 0-.55 1.007
+
+flask-off — "No lab" (now: {"p0":{"box":"view-box","origin":"12px 22px","animation":"mi-flask-off-tip 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"12px 22px","animation":"mi-flask-off-tip 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"12px 22px","animation":"mi-flask-off-tip 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"12px 22px","animation":"mi-flask-off-tip 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"box":"view-box","origin":"12px 15px","animation":"mi-flask-off-slosh 800ms cubic-bezier(.22,1,.36,1) 60ms"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-flask-off-draw 420ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p3 (fill area) body: M14 2v6a2 2 0 0 0 .245.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.755-2.96l5.51-10.08A2 2 0 0 0 10 8V2Z
+    p0 line: M10 2v2.343
+    p1 line: M14 2v6.343
+    p2 line knock: m2 2 20 20
+    p3 line: M20 20a2 2 0 0 1-2 2H6a2 2 0 0 1-1.755-2.96l5.227-9.563
+    p4 line knock: M6.453 15H15
+    p5 line: M8.5 2h7
+
+flask-round — "Round flask" (now: {"p0":{"box":"view-box","origin":"12px 22px","animation":"mi-flask-round-tip 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"12px 22px","animation":"mi-flask-round-tip 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"12px 15px","animation":"mi-flask-round-slosh 800ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 (fill area) body: M10 2v6.292a7 7 0 1 0 4 0V2Z
+    p0 line: M10 2v6.292a7 7 0 1 0 4 0V2
+    p1 detail: M5 15h14
+    p2 line: M8.5 2h7
+
+flip-horizontal-2 — "Mirror sideways" (now: {"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-flip-horizontal-2-flip 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-flip-horizontal-2-flip 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-flip-horizontal-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-flip-horizontal-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-flip-horizontal-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-flip-horizontal-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M10 12H8
+    p1 line: M16 12h-2
+    p2 line: M22 12h-2
+    p3 line: M4 12H2
+    p4 body: M7.298 20.288A1 1 0 008 22h8a1 1 0 00.703-1.712l-3.991-3.99a1 1 0 00-1.424-.001z
+    p5 body: M7.298 3.712A1 1 0 018 2h8a1 1 0 01.703 1.712l-3.991 3.99a1 1 0 01-1.424.001z
+
+flip-vertical-2 — "Mirror upside down" (now: {"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-flip-vertical-2-flip 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-flip-vertical-2-flip 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-flip-vertical-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-flip-vertical-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-flip-vertical-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"animation":"mi-flip-vertical-2-dash 850ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 line: M12 14v2
+    p1 line: M12 20v2
+    p2 line: M12 2v2
+    p3 line: M12 8v2
+    p4 body: M20.288 16.703A1 1 0 0022 16V8a1 1 0 00-1.712-.703l-3.99 3.991a1 1 0 00-.001 1.424z
+    p5 body: M3.712 16.703A1 1 0 012 16V8a1 1 0 011.712-.703l3.99 3.991a1 1 0 01.001 1.424z
+
+flower-2 — "Tulip flower" (now: {"p0":{"box":"view-box","origin":"12px 8px","animation":"mi-flower-2-bloom 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-flower-2-core 700ms cubic-bezier(.22,1,.36,1) 60ms"},"p3":{"box":"view-box","origin":"12px 22px","animation":"mi-flower-2-right 800ms cubic-bezier(.22,1,.36,1) 100ms"},"p4":{"box":"view-box","origin":"12px 22px","animation":"mi-flower-2-left 800ms cubic-bezier(.22,1,.36,1) 100ms"}})
+    p0 line: M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1
+    p1 body: M10 8 A2 2 0 1 0 14 8 A2 2 0 1 0 10 8 Z
+    p2 line: M12 10v12
+    p3 body: M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z
+    p4 body: M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z
+
+folder-bookmark — "Bookmarked folder" (now: {"p0":{"origin":"50% 0%","animation":"mi-folder-bookmark-unroll 600ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"mi-folder-bookmark-knock 600ms cubic-bezier(.22,1,.36,1) 250ms"}})
+    p0 detail: M12 6v7.751a.25.25 0 00.407.195l2.28-1.834a.5.5 0 01.627 0l2.28 1.834a.25.25 0 00.406-.195V6
+    p1 body: M20 20a2 2 0 002-2V8a2 2 0 00-2-2h-7.9a2 2 0 01-1.69-.9L9.6 3.9A2 2 0 007.93 3H4a2 2 0 00-2 2v13a2 2 0 002 2z
+
+folder-clock — "Recent folder" (now: {"p0":{"box":"view-box","origin":"16px 16px","animation":"mi-folder-clock-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"mi-folder-clock-tick 800ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p1 (fill area) body: M7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2L17.204 7.333A8.75 8.75 0 0 0 7.25 16L7 20Z
+    p0 detail: M16 14v2.2l1.6 1
+    p1 line: M7 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2
+    p2 body: M10 16 A6 6 0 1 0 22 16 A6 6 0 1 0 10 16 Z
+
+folder-closed — "Closed folder" (now: {"p0":{"to":{"d":"path(\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 2.6A2 2 0 0 0 7.93 1.7H4a2 2 0 0 0-2 2v14.3a2 2 0 0 0 2 2Z\")"},"animation":"mi-folder-closed-bob 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"animation":"mi-folder-closed-bob 650ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 body: M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z
+    p1 detail: M2 10h20
+
+folder-cog — "Folder settings" (now: {"p1":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p4":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p5":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p6":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p7":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p8":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p9":{"box":"view-box","origin":"18px 18px","animation":"mi-folder-cog-turn 800ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-folder-cog-knock 600ms cubic-bezier(.22,1,.36,1) 200ms"}})
+    p0 (fill area) body: M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3H11.7V20Z
+    p0 line: M10.3 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.98a2 2 0 0 1 1.69.9l.66 1.2A2 2 0 0 0 12 6h8a2 2 0 0 1 2 2v3.3
+    p1 line: m14.305 19.53.923-.382
+    p2 line: m15.228 16.852-.923-.383
+    p3 line: m16.852 15.228-.383-.923
+    p4 line: m16.852 20.772-.383.924
+    p5 line: m19.148 15.228.383-.923
+    p6 line: m19.53 21.696-.382-.924
+    p7 line: m20.772 16.852.924-.383
+    p8 line: m20.772 19.148.924.383
+    p9 body: M15 18 A3 3 0 1 0 21 18 A3 3 0 1 0 15 18 Z
+
+folder-dot — "Folder with dot" (now: {"p1":{"animation":"mi-folder-dot-swell 550ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-folder-dot-knock 600ms cubic-bezier(.22,1,.36,1) 100ms"}})
+    p0 body: M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z
+    p1 detail: M11 13 A1 1 0 1 0 13 13 A1 1 0 1 0 11 13 Z
+
+folder-git — "Git folder" (now: {"p3":{"from":{"strokeDasharray":1},"animation":"mi-folder-git-draw 250ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-folder-git-commit 500ms cubic-bezier(.22,1,.36,1) 180ms"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-folder-git-draw 250ms cubic-bezier(.22,1,.36,1) 320ms backwards"}})
+    p0 detail: M10 13 A2 2 0 1 0 14 13 A2 2 0 1 0 10 13 Z
+    p1 body: M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z
+    p2 detail: M14 13h3
+    p3 detail: M7 13h3
+
+folder-pen — "Rename folder" (now: {"p1":{"box":"view-box","origin":"2.5px 21.2px","animation":"mi-folder-pen-write 700ms cubic-bezier(.22,1,.36,1) 0ms"}})
+    p0 (fill area) body: M2 11.5V5a2 2 0 0 1 2-2h3.9c.7 0 1.3.3 1.7.9l.8 1.2c.4.6 1 .9 1.7.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-9.5L13.32 15.57A4.87 4.87 0 0 0 13.32 8.68A4.87 4.87 0 0 0 6.43 8.68L2 13.11Z
+    p0 line: M2 11.5V5a2 2 0 0 1 2-2h3.9c.7 0 1.3.3 1.7.9l.8 1.2c.4.6 1 .9 1.7.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-9.5
+    p1 body: M11.378 13.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z
+
+square-divide — "Divide in a square" (now: {"p3":{"to":{"transform":"translateY(-1.5px)"}},"p2":{"to":{"transform":"translateY(1.5px)"}},"p1":{"to":{"transform":"scaleX(1.12)"},"delay":40}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M8 12 L16 12
+    p2 detail: M12 16 L12 16
+    p3 detail: M12 8 L12 8
+
+square-dot — "Dot in a square" (now: {"p1":{"animation":"mi-square-dot-swell 550ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"mi-square-dot-ring 600ms cubic-bezier(.22,1,.36,1) 60ms"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M11 12 A1 1 0 1 0 13 12 A1 1 0 1 0 11 12 Z
+
+square-equal — "Equals in a square" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-square-equal-draw 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-square-equal-undraw 400ms cubic-bezier(.22,1,.36,1) 90ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M7 10h10
+    p2 detail: M7 14h10

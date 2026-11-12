@@ -1,0 +1,70 @@
+{
+  "name": "@kineticons/svelte",
+  "version": "0.1.0",
+  "description": "2,000+ rounded Svelte 5 icons in outline, duotone and filled, each with a motion of its own.",
+  "keywords": [
+    "icons",
+    "svg",
+    "animated",
+    "animation",
+    "motion",
+    "duotone",
+    "icon-set",
+    "kineticons",
+    "svelte",
+    "svelte5",
+    "sveltekit",
+    "svelte-component"
+  ],
+  "license": "MIT",
+  "author": "Waseem Anjum",
+  "homepage": "https://kineticons.fabwaseem.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabwaseem/kineticons.git",
+    "directory": "packages/svelte"
+  },
+  "bugs": "https://github.com/fabwaseem/kineticons/issues",
+  "type": "module",
+  "sideEffects": false,
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./icons": {
+      "types": "./dist/icons.d.ts",
+      "default": "./dist/icons.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsx ../../scripts/build-packages.ts && svelte-package -i src/lib -o dist",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json",
+    "lint:package": "publint"
+  },
+  "dependencies": {
+    "@kineticons/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "svelte": "^5.0.0",
+    "@sveltejs/package": "^2.3.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

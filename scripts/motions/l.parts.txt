@@ -1,0 +1,638 @@
+basket — "Basket" (now: {"p0":{"animation":"mi-basket-dip 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-basket-dip 600ms cubic-bezier(.22,1,.36,1)"},"p3":{"animation":"mi-basket-dip 600ms cubic-bezier(.22,1,.36,1)"},"p4":{"animation":"mi-basket-dip 600ms cubic-bezier(.22,1,.36,1)"},"p6":{"animation":"mi-basket-dip 600ms cubic-bezier(.22,1,.36,1)"},"p5":{"origin":"0% 100%","animation":"mi-basket-left 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"origin":"100% 100%","animation":"mi-basket-right 700ms cubic-bezier(.22,1,.36,1)"}})
+    p3 (fill area) body: M3.5 11h17.1l-1.7 7.4a2 2 0 0 1-2 1.6H7.1a2 2 0 0 1-2-1.6Z
+    p0 detail: m15 11-1 9
+    p1 line: m19 11-4-7
+    p2 line: M2 11h20
+    p3 line: m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4
+    p4 detail: M4.5 15.5h15
+    p5 line: m5 11 4-7
+    p6 detail: m9 11 1 9
+
+bezier — "Pen tool" (now: {"p0":{"animation":"mi-bezier-pull 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-bezier-bend .7s cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z
+    p1 line: M5 17A12 12 0 0 1 17 5
+    p2 body: M17 5 A2 2 0 1 0 21 5 A2 2 0 1 0 17 5 Z
+    p3 body: M3 19 A2 2 0 1 0 7 19 A2 2 0 1 0 3 19 Z
+
+cart — "Cart" (now: {"p0":{"animation":"mi-cart-roll 700ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-cart-roll 700ms cubic-bezier(.22,1,.36,1)"},"p3":{"animation":"mi-cart-roll 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-cart-basket 700ms cubic-bezier(.22,1,.36,1)"}})
+    p1 (fill area) body: M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25Z
+    p0 line: m2.05 2.05 1.099-.028a1 1 0 0 1 1.008.815l2.69 14.347A1 1 0 0 0 7.83 18H18
+    p1 line: M4.563 5h16.435a1 1 0 0 1 .981 1.204l-1.026 6.226A2 2 0 0 1 18.962 14H6.25
+    p2 body: M16 20 A2 2 0 1 0 20 20 A2 2 0 1 0 16 20 Z
+    p3 body: M6 20 A2 2 0 1 0 10 20 A2 2 0 1 0 6 20 Z
+
+cart-minus — "Remove from cart" (now: {"p0":{"animation":"mi-cart-minus-lift 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-cart-minus-rise 500ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p2":{"animation":"mi-cart-minus-rise 500ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p3":{"animation":"mi-cart-minus-rise 500ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: M16 5h6
+    p1 line: m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18
+    p2 line: M4.564 5H12
+    p3 line: M6.25 14h12.712a2 2 0 001.991-1.57l.514-3.113
+    p4 body: M16 20 A2 2 0 1 0 20 20 A2 2 0 1 0 16 20 Z
+    p5 body: M6 20 A2 2 0 1 0 10 20 A2 2 0 1 0 6 20 Z
+
+cart-plus — "Add to cart" (now: {"p0":{"animation":"mi-cart-plus-drop 550ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-cart-plus-drop 550ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-cart-plus-dip 500ms cubic-bezier(.22,1,.36,1) 260ms backwards"},"p3":{"animation":"mi-cart-plus-dip 500ms cubic-bezier(.22,1,.36,1) 260ms backwards"},"p4":{"animation":"mi-cart-plus-dip 500ms cubic-bezier(.22,1,.36,1) 260ms backwards"}})
+    p0 line: M16 5h6
+    p1 line: M19 2v6
+    p2 line: m2.05 2.05 1.099-.028a1 1 0 011.008.815l2.69 14.347A1 1 0 007.83 18H18
+    p3 line: M4.564 5H12
+    p4 line: M6.25 14h12.712a2 2 0 001.991-1.57l.172-1.041
+    p5 body: M16 20 A2 2 0 1 0 20 20 A2 2 0 1 0 16 20 Z
+    p6 body: M6 20 A2 2 0 1 0 10 20 A2 2 0 1 0 6 20 Z
+
+dimensions — "Dimensions" (now: {"p1":{"animation":"mi-dimensions-tl 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-dimensions-br 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M12 7H7v5
+    p2 detail: M12 17h5v-5
+
+franc — "Franc" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-franc-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-franc-draw 280ms cubic-bezier(.22,1,.36,1) 260ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-franc-draw 280ms cubic-bezier(.22,1,.36,1) 340ms backwards"}})
+    p0 line: M10 10h7
+    p1 line: M10 20V5a1 1 0 011-1h7
+    p2 line: M6 16h9
+
+merge-cells — "Merge cells" (now: {"p3":{"animation":"mi-merge-cells-down 650ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-merge-cells-up 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"origin":"50% 0%","animation":"mi-merge-cells-shrink 650ms cubic-bezier(.22,1,.36,1)"},"p0":{"origin":"50% 100%","animation":"mi-merge-cells-shrink 650ms cubic-bezier(.22,1,.36,1)"}})
+    p0 detail: M12 21v-6
+    p1 detail: M12 9V3
+    p2 detail: M3 15h18
+    p3 detail: M3 9h18
+    p4 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+
+padding — "Padding" (now: {"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-padding-breathe 650ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-padding-breathe 650ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-padding-breathe 650ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-padding-breathe 650ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: M14 17h-4
+    p2 detail: M14 7h-4
+    p3 detail: M17 14v-4
+    p4 detail: M7 14v-4
+
+phone-charging — "Charging" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-phone-charging-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-phone-charging-jolt 500ms cubic-bezier(.22,1,.36,1) 250ms backwards"}})
+    p0 body: M7 2 H17 A2 2 0 0 1 19 4 V20 A2 2 0 0 1 17 22 H7 A2 2 0 0 1 5 20 V4 A2 2 0 0 1 7 2 Z
+    p1 detail: M12.667 8 10 12h4l-2.667 4
+
+phone-nfc — "Tap to pay" (now: {"p0":{"animation":"mi-phone-nfc-tap 500ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-phone-nfc-wave 450ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p2":{"animation":"mi-phone-nfc-wave 450ms cubic-bezier(.22,1,.36,1) 160ms backwards"},"p3":{"animation":"mi-phone-nfc-wave 450ms cubic-bezier(.22,1,.36,1) 240ms backwards"}})
+    p0 body: M3 6 H8 A1 1 0 0 1 9 7 V17 A1 1 0 0 1 8 18 H3 A1 1 0 0 1 2 17 V7 A1 1 0 0 1 3 6 Z
+    p1 line: M13 8.32a7.43 7.43 0 0 1 0 7.36
+    p2 line: M16.46 6.21a11.76 11.76 0 0 1 0 11.58
+    p3 line: M19.91 4.1a15.91 15.91 0 0 1 .01 15.8
+
+pills — "Pills" (now: {"p0":{"box":"view-box","origin":"7px 7px","animation":"mi-pills-roll 800ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"7px 7px","animation":"mi-pills-roll 800ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"17px 17px","animation":"mi-pills-roll 800ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p2":{"box":"view-box","origin":"17px 17px","animation":"mi-pills-roll 800ms cubic-bezier(.22,1,.36,1) 90ms backwards"}})
+    p0 body: M2 7 A5 5 0 1 0 12 7 A5 5 0 1 0 2 7 Z
+    p1 body: M12 17 A5 5 0 1 0 22 17 A5 5 0 1 0 12 17 Z
+    p2 detail: M12 17h10
+    p3 detail: m3.46 10.54 7.08-7.08
+
+radical — "Square root" (now: {"p1":{"origin":"50% 100%","animation":"mi-radical-bump 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-radical-draw 600ms cubic-bezier(.22,1,.36,1) 60ms backwards"}})
+    p0 detail: M7 12h2l2 5 2-10h4
+    p1 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+
+round-corner — "Corner radius" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-round-corner-draw 500ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"origin":"100% 0%","animation":"mi-round-corner-settle 600ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p1 (fill area) body: M13 3a8 8 0 0 1 8 8v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z
+    p0 line: M21 11a8 8 0 0 0-8-8
+    p1 line: M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4
+
+shape-exclude — "Exclude" (now: {"p1":{"animation":"mi-shape-exclude-tl 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-shape-exclude-br 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M16 12v2a2 2 0 0 1-2 2H9a1 1 0 0 0-1 1v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h0
+    p1 line: M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a1 1 0 0 1-1 1h-5a2 2 0 0 0-2 2v2
+
+shape-intersect — "Intersect" (now: {"p4":{"animation":"mi-shape-intersect-tl 600ms cubic-bezier(.22,1,.36,1)"},"p10":{"animation":"mi-shape-intersect-tl 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shape-intersect-tl 600ms cubic-bezier(.22,1,.36,1)"},"p3":{"animation":"mi-shape-intersect-tl 600ms cubic-bezier(.22,1,.36,1)"},"p8":{"animation":"mi-shape-intersect-tl 600ms cubic-bezier(.22,1,.36,1)"},"p5":{"animation":"mi-shape-intersect-br 600ms cubic-bezier(.22,1,.36,1)"},"p6":{"animation":"mi-shape-intersect-br 600ms cubic-bezier(.22,1,.36,1)"},"p7":{"animation":"mi-shape-intersect-br 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-shape-intersect-br 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-shape-intersect-br 600ms cubic-bezier(.22,1,.36,1)"},"p9":{"animation":"mi-shape-intersect-pop 500ms cubic-bezier(.22,1,.36,1) 200ms backwards"}})
+    p0 line: M10 22a2 2 0 0 1-2-2
+    p1 line: M14 2a2 2 0 0 1 2 2
+    p2 line: M16 22h-2
+    p3 line: M2 10V8
+    p4 line: M2 4a2 2 0 0 1 2-2
+    p5 line: M20 8a2 2 0 0 1 2 2
+    p6 line: M22 14v2
+    p7 line: M22 20a2 2 0 0 1-2 2
+    p8 line: M4 16a2 2 0 0 1-2-2
+    p9 body: M8 10a2 2 0 0 1 2-2h5a1 1 0 0 1 1 1v5a2 2 0 0 1-2 2H9a1 1 0 0 1-1-1z
+    p10 line: M8 2h2
+
+shape-subtract — "Subtract" (now: {"p0":{"animation":"mi-shape-subtract-front 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shape-subtract-front 600ms cubic-bezier(.22,1,.36,1)"},"p3":{"animation":"mi-shape-subtract-front 600ms cubic-bezier(.22,1,.36,1)"},"p4":{"animation":"mi-shape-subtract-front 600ms cubic-bezier(.22,1,.36,1)"},"p5":{"animation":"mi-shape-subtract-front 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"origin":"0% 0%","animation":"mi-shape-subtract-back 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M10 22a2 2 0 0 1-2-2
+    p1 line: M16 22h-2
+    p2 body: M16 4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-5a2 2 0 0 1 2-2h5a1 1 0 0 0 1-1z
+    p3 line: M20 8a2 2 0 0 1 2 2
+    p4 line: M22 14v2
+    p5 line: M22 20a2 2 0 0 1-2 2
+
+shape-unite — "Union" (now: {"p0":{"animation":"mi-shape-unite-join 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a1 1 0 0 0 1 1h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-3a1 1 0 0 0-1-1z
+
+shield-ban — "Blocked" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-shield-ban-draw 420ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-shield-ban-shake 550ms cubic-bezier(.22,1,.36,1) 200ms backwards"}})
+    p0 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p1 detail: m4.243 5.21 14.39 12.472
+
+shield-cog — "Security settings" (now: {"p0":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p5":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p7":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p8":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p9":{"box":"view-box","origin":"12.077px 11.695px","animation":"mi-shield-cog-turn 750ms cubic-bezier(.22,1,.36,1)"},"p6":{"origin":"50% 100%","animation":"mi-shield-cog-bump 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 detail: m10.929 14.467-.383.924
+    p1 detail: M10.929 8.923 10.546 8
+    p2 detail: M13.225 8.923 13.608 8
+    p3 detail: m13.607 15.391-.382-.924
+    p4 detail: m14.849 10.547.923-.383
+    p5 detail: m14.849 12.843.923.383
+    p6 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p7 detail: m9.305 10.547-.923-.383
+    p8 detail: m9.305 12.843-.923.383
+    p9 detail: M9.077 11.695 A3 3 0 1 0 15.077 11.695 A3 3 0 1 0 9.077 11.695 Z
+
+shield-half — "Partly protected" (now: {"p0":{"origin":"50% 100%","animation":"mi-shield-half-rock 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-shield-half-draw 500ms cubic-bezier(.22,1,.36,1) 60ms backwards"}})
+    p0 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p1 detail: M12 22V2
+
+shield-lock — "Secure" (now: {"p2":{"animation":"mi-shield-lock-drop 550ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shield-lock-drop 550ms cubic-bezier(.22,1,.36,1) 70ms backwards"},"p0":{"animation":"mi-shield-lock-knock 600ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p0 line: M20 9.807V6a1 1 0 00-1-1c-2 0-4.49-1.19-6.24-2.72a1.17 1.17 0 00-1.52 0C9.5 3.8 7 5 5 5a1 1 0 00-1 1v7c0 3.88 2.107 6.254 5 7.796
+    p1 line: M19 17v-2a2 2 0 00-4 0v2
+    p2 body: M14 17 H20 A1 1 0 0 1 21 18 V21 A1 1 0 0 1 20 22 H14 A1 1 0 0 1 13 21 V18 A1 1 0 0 1 14 17 Z
+
+shield-minus — "Remove protection" (now: {"p0":{"origin":"50% 100%","animation":"mi-shield-minus-bump 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-shield-minus-draw 400ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p1 detail: M9 12h6
+
+shield-off — "Protection off" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-shield-off-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"mi-shield-off-a 650ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p2":{"animation":"mi-shield-off-b 650ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: m2 2 20 20
+    p1 line: M5 5a1 1 0 0 0-1 1v7c0 5 3.5 7.5 7.67 8.94a1 1 0 0 0 .67.01c2.35-.82 4.48-1.97 5.9-3.71
+    p2 line: M9.309 3.652A12.252 12.252 0 0 0 11.24 2.28a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1v7a9.784 9.784 0 0 1-.08 1.264
+
+shield-plus — "Add protection" (now: {"p0":{"origin":"50% 100%","animation":"mi-shield-plus-bump 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shield-plus-grow 500ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p2":{"animation":"mi-shield-plus-grow 500ms cubic-bezier(.22,1,.36,1) 160ms backwards"}})
+    p0 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p1 detail: M9 12h6
+    p2 detail: M12 9v6
+
+shield-user — "Account security" (now: {"p0":{"origin":"50% 100%","animation":"mi-shield-user-bump 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shield-user-rise 550ms cubic-bezier(.22,1,.36,1) 40ms backwards"},"p2":{"animation":"mi-shield-user-rise 550ms cubic-bezier(.22,1,.36,1) 130ms backwards"}})
+    p0 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p1 detail: M6.376 18.91a6 6 0 0 1 11.249.003
+    p2 detail: M8 11 A4 4 0 1 0 16 11 A4 4 0 1 0 8 11 Z
+
+shield-x — "Not protected" (now: {"p0":{"origin":"50% 100%","animation":"mi-shield-x-bump 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-shield-x-draw 360ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-shield-x-draw 360ms cubic-bezier(.22,1,.36,1) 200ms backwards"}})
+    p0 body: M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z
+    p1 detail: m14.5 9.5-5 5
+    p2 detail: m9.5 9.5 5 5
+
+ship — "Ship" (now: {"p0":{"box":"view-box","origin":"12px 19px","animation":"mi-ship-rock 900ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12px 19px","animation":"mi-ship-rock 900ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12px 19px","animation":"mi-ship-rock 900ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 19px","animation":"mi-ship-rock 900ms cubic-bezier(.22,1,.36,1)"},"p4":{"animation":"mi-ship-waves 900ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M12 2v2
+    p1 line: M12 9.189V13
+    p2 line: M19 12V6a2 2 0 00-2-2H7a2 2 0 00-2 2v6
+    p3 line: M19.38 19A11.6 11.6 0 0021 13l-8.188-3.639a2 2 0 00-1.624 0L3 13.001a11.6 11.6 0 002.81 7.76
+    p4 line: M2 20c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1
+
+ship-wheel — "Ship wheel" (now: {"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p6":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p7":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p8":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"},"p9":{"box":"view-box","origin":"12px 12px","animation":"mi-ship-wheel-turn 850ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M4 12 A8 8 0 1 0 20 12 A8 8 0 1 0 4 12 Z
+    p1 line knock: M12 2v7.5
+    p2 line knock: m19 5-5.23 5.23
+    p3 line knock: M22 12h-7.5
+    p4 line knock: m19 19-5.23-5.23
+    p5 line knock: M12 14.5V22
+    p6 line knock: M10.23 13.77 5 19
+    p7 line knock: M9.5 12H2
+    p8 line knock: M10.23 10.23 5 5
+    p9 line knock: M9.5 12 A2.5 2.5 0 1 0 14.5 12 A2.5 2.5 0 1 0 9.5 12 Z
+
+shirt — "Shirt" (now: {"p0":{"animation":"mi-shirt-flap .7s cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z
+
+shopping-bag — "Shopping bag" (now: {"p2":{"animation":"mi-shopping-bag-hop 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shopping-bag-hop 650ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-shopping-bag-hop 650ms cubic-bezier(.22,1,.36,1) 70ms backwards"}})
+    p0 detail: M16 10a4 4 0 0 1-8 0
+    p1 detail: M3.103 6.034h17.794
+    p2 body: M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z
+
+shovel — "Shovel" (now: {"p1":{"box":"view-box","origin":"19px 5px","animation":"mi-shovel-dig 800ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"19px 5px","animation":"mi-shovel-dig 800ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-shovel-grip 800ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M21.56 4.56a1.5 1.5 0 0 1 0 2.122l-.47.47a3 3 0 0 1-4.212-.03 3 3 0 0 1 0-4.243l.44-.44a1.5 1.5 0 0 1 2.121 0z
+    p1 body: M3 22a1 1 0 0 1-1-1v-3.586a1 1 0 0 1 .293-.707l3.355-3.355a1.205 1.205 0 0 1 1.704 0l3.296 3.296a1.205 1.205 0 0 1 0 1.704l-3.355 3.355a1 1 0 0 1-.707.293z
+    p2 line: m9 15 7.879-7.878
+
+shower — "Shower" (now: {"p1":{"box":"view-box","origin":"6px 6px","animation":"mi-shower-head 500ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"6px 6px","animation":"mi-shower-head 500ms cubic-bezier(.22,1,.36,1)"},"p5":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p6":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p4":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p3":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p8":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p7":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 280ms backwards"},"p9":{"animation":"mi-shower-drop 450ms cubic-bezier(.22,1,.36,1) 280ms backwards"}})
+    p0 line: m4 4 2.5 2.5
+    p1 line: M13.5 6.5a4.95 4.95 0 0 0-7 7
+    p2 line: M15 5 5 15
+    p3 line: M14 17v.01
+    p4 line: M10 16v.01
+    p5 line: M13 13v.01
+    p6 line: M16 10v.01
+    p7 line: M11 20v.01
+    p8 line: M17 14v.01
+    p9 line: M20 11v.01
+
+shredder — "Shredder" (now: {"p0":{"animation":"mi-shredder-feed 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shredder-feed 650ms cubic-bezier(.22,1,.36,1)"},"p6":{"origin":"50% 0%","animation":"mi-shredder-strip 500ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p2":{"origin":"50% 0%","animation":"mi-shredder-strip 500ms cubic-bezier(.22,1,.36,1) 140ms backwards"},"p3":{"origin":"50% 0%","animation":"mi-shredder-strip 500ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p4":{"origin":"50% 0%","animation":"mi-shredder-strip 500ms cubic-bezier(.22,1,.36,1) 260ms backwards"}})
+    p0 (fill area) body: M4 13V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5Z
+    p0 line: M4 13V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v5
+    p1 detail: M14 2v5a1 1 0 0 0 1 1h5
+    p2 line: M10 22v-5
+    p3 line: M14 19v-2
+    p4 line: M18 20v-3
+    p5 line: M2 13h20
+    p6 line: M6 20v-3
+
+shrimp — "Shrimp" (now: {"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-shrimp-curl 750ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-shrimp-curl 750ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-shrimp-curl 750ms cubic-bezier(.22,1,.36,1)"},"p2":{"origin":"100% 0%","animation":"mi-shrimp-flick 650ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p4":{"origin":"100% 100%","animation":"mi-shrimp-legs 600ms cubic-bezier(.22,1,.36,1) 40ms backwards"}})
+    p0 line: M10 2a3.28 3.28 0 003.227 1.798l6.17-.561A1 1 0 1119.614 8H8.5a6.44 6.44 0 00-5.63 9.75A6.5 6.5 0 008.5 21c1.38 0 2-.5 2.5-1
+    p1 line: M10 8a8.5 8.5 0 000 8
+    p2 line: M11 22c-.5-.5-1.12-1-2.5-1a1 1 0 010-5H12a7 7 0 007-7V8
+    p3 line: M13 12h.01
+    p4 line: M8 16c-2 0-4.5-4-4-6
+
+shrink — "Shrink" (now: {"p0":{"animation":"mi-shrink-br 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-shrink-bl 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-shrink-tr 600ms cubic-bezier(.22,1,.36,1)"},"p3":{"animation":"mi-shrink-tl 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: m15 15 6 6m-6-6v4.8m0-4.8h4.8
+    p1 line: M9 19.8V15m0 0H4.2M9 15l-6 6
+    p2 line: M15 4.2V9m0 0h4.8M15 9l6-6
+    p3 line: M9 4.2V9m0 0H4.2M9 9 3 3
+
+shrub — "Shrub" (now: {"p2":{"box":"view-box","origin":"12px 22px","animation":"mi-shrub-sway 800ms cubic-bezier(.22,1,.36,1)"},"p0":{"box":"view-box","origin":"12px 22px","animation":"mi-shrub-branch 800ms cubic-bezier(.22,1,.36,1) 40ms backwards"},"p1":{"box":"view-box","origin":"12px 22px","animation":"mi-shrub-branch 800ms cubic-bezier(.22,1,.36,1) 40ms backwards"}})
+    p0 line knock: M12 22v-5.172a2 2 0 0 0-.586-1.414L9.5 13.5
+    p1 line knock: M14.5 14.5 12 17
+    p2 body: M17 8.8A6 6 0 0 1 13.8 20H10A6.5 6.5 0 0 1 7 8a5 5 0 0 1 10 0z
+
+sigma — "Sum" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-sigma-draw 650ms cubic-bezier(.22,1,.36,1) 0ms backwards"}})
+    p0 line: M18 7V5a1 1 0 0 0-1-1H6.5a.5.5 0 0 0-.4.8l4.5 6a2 2 0 0 1 0 2.4l-4.5 6a.5.5 0 0 0 .4.8H17a1 1 0 0 0 1-1v-2
+
+signal — "Signal" (now: {"p0":{"animation":"mi-signal-dot 400ms cubic-bezier(.22,1,.36,1)"},"p1":{"origin":"50% 100%","animation":"mi-signal-bar 450ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p2":{"origin":"50% 100%","animation":"mi-signal-bar 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p3":{"origin":"50% 100%","animation":"mi-signal-bar 450ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p4":{"origin":"50% 100%","animation":"mi-signal-bar 450ms cubic-bezier(.22,1,.36,1) 240ms backwards"}})
+    p0 line: M2 20h.01
+    p1 line: M7 20v-4
+    p2 line: M12 20v-8
+    p3 line: M17 20V8
+    p4 line: M22 4v16
+
+signature — "Signature" (now: {"p1":{"from":{"strokeDasharray":1},"animation":"mi-signature-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-signature-draw 800ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p0 line: m21 17-2.156-1.868A.5.5 0 0 0 18 15.5v.5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1c0-2.545-3.991-3.97-8.5-4a1 1 0 0 0 0 5c4.153 0 4.745-11.295 5.708-13.5a2.5 2.5 0 1 1 3.31 3.284
+    p1 line: M3 21h18
+
+signpost — "Signpost" (now: {"p2":{"box":"view-box","origin":"12px 9.5px","animation":"mi-signpost-swing 850ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-signpost-post 850ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M12 13v8
+    p1 line: M12 3v3
+    p2 body: M2.354 10.354a1.207 1.207 0 0 1 0-1.708l2.06-2.06A2 2 0 0 1 5.828 6h12.344a2 2 0 0 1 1.414.586l2.06 2.06a1.207 1.207 0 0 1 0 1.708l-2.06 2.06a2 2 0 0 1-1.414.586H5.828a2 2 0 0 1-1.414-.586z
+
+siren — "Siren" (now: {"p7":{"animation":"mi-siren-flash 800ms cubic-bezier(.22,1,.36,1)"},"p0":{"origin":"50% 100%","animation":"mi-siren-dome 800ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-siren-ray 800ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-siren-ray 800ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-siren-ray 800ms cubic-bezier(.22,1,.36,1)"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-siren-ray 800ms cubic-bezier(.22,1,.36,1)"},"p6":{"box":"view-box","origin":"12px 12px","animation":"mi-siren-ray 800ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M7 18v-6a5 5 0 1 1 10 0v6
+    p1 body: M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z
+    p2 line: M21 12h1
+    p3 line: M18.5 4.5 18 5
+    p4 line: M2 12h1
+    p5 line: M12 2v1
+    p6 line: m4.929 4.929.707.707
+    p7 line: M12 12v6
+
+skip-back — "Previous" (now: {"p0":{"animation":"mi-skip-back-tri 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-skip-back-bar 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z
+    p1 line: M3 20V4
+
+skip-forward — "Next" (now: {"p1":{"animation":"mi-skip-forward-tri 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-skip-forward-bar 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M21 4v16
+    p1 body: M6.029 4.285A2 2 0 0 0 3 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z
+
+slice — "Slice" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-slice-draw 650ms cubic-bezier(.22,1,.36,1) 0ms backwards"}})
+    p0 line: M11 16.586V19a1 1 0 0 1-1 1H2L18.37 3.63a1 1 0 1 1 3 3l-9.663 9.663a1 1 0 0 1-1.414 0L8 14
+
+smartphone — "Phone" (now: {"p0":{"animation":"mi-smartphone-buzz 550ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-smartphone-dot 550ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M7 2 H17 A2 2 0 0 1 19 4 V20 A2 2 0 0 1 17 22 H7 A2 2 0 0 1 5 20 V4 A2 2 0 0 1 7 2 Z
+    p1 detail: M12 18h.01
+
+snail — "Slow" (now: {"p2":{"animation":"mi-snail-body 850ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-snail-shell 850ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-snail-shell 850ms cubic-bezier(.22,1,.36,1)"},"p3":{"origin":"100% 100%","animation":"mi-snail-feeler 650ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p4":{"origin":"0% 100%","animation":"mi-snail-feeler 650ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 detail: M2 13a6 6 0 1 0 12 0 4 4 0 1 0-8 0 2 2 0 0 0 4 0
+    p1 body: M2 13 A8 8 0 1 0 18 13 A8 8 0 1 0 2 13 Z
+    p2 line: M2 21h12c4.4 0 8-3.6 8-8V7a2 2 0 1 0-4 0v6
+    p3 line: M18 3 19.1 5.2
+    p4 line: M22 3 20.9 5.2
+
+sneaker — "Sneaker" (now: {"p2":{"box":"view-box","origin":"20px 20px","animation":"mi-sneaker-step 700ms cubic-bezier(.22,1,.36,1)"},"p0":{"box":"view-box","origin":"20px 20px","animation":"mi-sneaker-step 700ms cubic-bezier(.22,1,.36,1) 50ms backwards"},"p1":{"animation":"mi-sneaker-stripe 700ms cubic-bezier(.22,1,.36,1) 50ms backwards"}})
+    p0 line: m15 10.42 4.8-5.07
+    p1 line: M19 18h3
+    p2 line: M9.5 22 21.414 9.415A2 2 0 0 0 21.2 6.4l-5.61-4.208A1 1 0 0 0 14 3v2a2 2 0 0 1-1.394 1.906L8.677 8.053A1 1 0 0 0 8 9c-.155 6.393-2.082 9-4 9a2 2 0 0 0 0 4h14
+
+snowflake — "Snow" (now: {"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p6":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p7":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p8":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p9":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p10":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"},"p11":{"box":"view-box","origin":"12px 12px","animation":"mi-snowflake-turn 850ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: m10 20-1.25-2.5L6 18
+    p1 line: M10 4 8.75 6.5 6 6
+    p2 line: m14 20 1.25-2.5L18 18
+    p3 line: m14 4 1.25 2.5L18 6
+    p4 line: m17 21-3-6h-4
+    p5 line: m17 3-3 6 1.5 3
+    p6 line: M2 12h6.5L10 9
+    p7 line: m20 10-1.5 2 1.5 2
+    p8 line: M22 12h-6.5L14 15
+    p9 line: m4 10 1.5 2L4 14
+    p10 line: m7 21 3-6-1.5-3
+    p11 line: m7 3 3 6h4
+
+soap — "Hand wash" (now: {"p0":{"animation":"mi-soap-pump 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-soap-pump 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"origin":"50% 100%","animation":"mi-soap-drop 650ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p0 line: M10.5 2v4
+    p1 line: M14 2H7a2 2 0 0 0-2 2
+    p2 body: M19.29 14.76A6.67 6.67 0 0 1 17 11a6.6 6.6 0 0 1-2.29 3.76c-1.15.92-1.71 2.04-1.71 3.19 0 2.22 1.8 4.05 4 4.05s4-1.83 4-4.05c0-1.16-.57-2.26-1.71-3.19
+    p3 line: M9.607 21H6a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h7V7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3
+
+sofa — "Sofa" (now: {"p1":{"origin":"50% 100%","animation":"mi-sofa-seat 650ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-sofa-back 650ms cubic-bezier(.22,1,.36,1) 60ms backwards"}})
+    p0 line: M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3
+    p1 body: M2 16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v1.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5V11a2 2 0 0 0-4 0z
+    p2 line: M4 18v2
+    p3 line: M20 18v2
+    p4 line: M12 4v9
+
+solar-panel — "Solar panel" (now: {"p5":{"box":"view-box","origin":"3px 2px","animation":"mi-solar-panel-sun 700ms cubic-bezier(.22,1,.36,1)"},"p0":{"box":"view-box","origin":"3px 2px","animation":"mi-solar-panel-ray 700ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"3px 2px","animation":"mi-solar-panel-ray 700ms cubic-bezier(.22,1,.36,1)"},"p6":{"box":"view-box","origin":"3px 2px","animation":"mi-solar-panel-ray 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-solar-panel-panel 600ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p2":{"animation":"mi-solar-panel-panel 600ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p4":{"animation":"mi-solar-panel-panel 600ms cubic-bezier(.22,1,.36,1) 180ms backwards"}})
+    p0 line: M11 2h2
+    p1 line knock: m14.28 14-4.56 8
+    p2 line knock: m21 22-1.558-4H4.558
+    p3 line: M3 10v2
+    p4 body: M6.245 15.04A2 2 0 0 1 8 14h12a1 1 0 0 1 .864 1.505l-3.11 5.457A2 2 0 0 1 16 22H4a1 1 0 0 1-.863-1.506z
+    p5 line: M7 2a4 4 0 0 1-4 4
+    p6 line: m8.66 7.66 1.41 1.41
+
+soup — "Soup" (now: {"p4":{"animation":"mi-soup-steam 550ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-soup-steam 550ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p1":{"animation":"mi-soup-steam 550ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p2":{"origin":"0% 100%","animation":"mi-soup-spoon 650ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M11.248 3c.273.1.808.53.747 1.36-.05.83-.938 1.2-.989 2.02-.06.78.333 1.24.727 1.62
+    p1 line: M16.252 3c.268.1.794.53.745 1.36-.06.83-.923 1.2-.993 2.02-.05.78.338 1.24.725 1.62
+    p2 line: M19.5 12 22 6
+    p3 body: M4 12a1 1 0 00-.99 1.133A9 9 0 0012 21a9 9 0 008.99-7.867A1 1 0 0020 12z
+    p4 line: M6.252 3c.268.1.794.53.745 1.36-.06.83-.923 1.2-.993 2.02-.05.78.338 1.24.735 1.62
+    p5 line: M7 21h10
+
+space — "Space" (now: {"p0":{"animation":"mi-space-press .5s cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1
+
+spade — "Spade" (now: {"p1":{"origin":"50% 100%","animation":"mi-spade-pop 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"origin":"50% 100%","animation":"mi-spade-stem 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M12 18v4
+    p1 body: M2 14.499a5.5 5.5 0 0 0 9.591 3.675.6.6 0 0 1 .818.001A5.5 5.5 0 0 0 22 14.5c0-2.29-1.5-4-3-5.5l-5.492-5.312a2 2 0 0 0-3-.02L5 8.999c-1.5 1.5-3 3.2-3 5.5
+
+sparkle — "Sparkle" (now: {"p0":{"animation":"mi-sparkle-twinkle 700ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z
+
+speaker — "Speaker" (now: {"p2":{"animation":"mi-speaker-cone 700ms cubic-bezier(.22,1,.36,1)"},"p3":{"animation":"mi-speaker-cap 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-speaker-tweet 700ms cubic-bezier(.22,1,.36,1) 60ms backwards"}})
+    p0 body: M6 2 H18 A2 2 0 0 1 20 4 V20 A2 2 0 0 1 18 22 H6 A2 2 0 0 1 4 20 V4 A2 2 0 0 1 6 2 Z
+    p1 detail: M12 6h.01
+    p2 detail: M8 14 A4 4 0 1 0 16 14 A4 4 0 1 0 8 14 Z
+    p3 detail: M12 14h.01
+
+speech — "Speech" (now: {"p0":{"box":"view-box","origin":"6px 20px","animation":"mi-speech-nod 650ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-speech-wave 450ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p1":{"animation":"mi-speech-wave 450ms cubic-bezier(.22,1,.36,1) 170ms backwards"}})
+    p0 line: M8.8 20v-4.1l1.9.2a2.3 2.3 0 0 0 2.164-2.1V8.3A5.37 5.37 0 0 0 2 8.25c0 2.8.656 3.054 1 4.55a5.77 5.77 0 0 1 .029 2.758L2 20
+    p1 line: M19.8 17.8a7.5 7.5 0 0 0 .003-10.603
+    p2 line: M17 15a3.5 3.5 0 0 0-.025-4.975
+
+spell-check — "Spell check" (now: {"p1":{"animation":"mi-spell-check-hop 500ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-spell-check-hop 500ms cubic-bezier(.22,1,.36,1)"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-spell-check-draw 420ms cubic-bezier(.22,1,.36,1) 180ms backwards"}})
+    p0 line: m20 15-5.5 5.5L12 18
+    p1 line: m4 16 6-12 5.115 10.23
+    p2 line: M6 12h8
+
+spline — "Curve" (now: {"p1":{"animation":"mi-spline-point 400ms cubic-bezier(.22,1,.36,1)"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-spline-draw 500ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p0":{"animation":"mi-spline-point 400ms cubic-bezier(.22,1,.36,1) 480ms backwards"}})
+    p0 body: M17 5 A2 2 0 1 0 21 5 A2 2 0 1 0 17 5 Z
+    p1 body: M3 19 A2 2 0 1 0 7 19 A2 2 0 1 0 3 19 Z
+    p2 line: M5 17A12 12 0 0 1 17 5
+
+split — "Split" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-split-draw 450ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-split-draw 350ms cubic-bezier(.22,1,.36,1) 220ms backwards"},"p1":{"animation":"mi-split-left 600ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p0":{"animation":"mi-split-right 600ms cubic-bezier(.22,1,.36,1) 200ms backwards"}})
+    p0 line: M16 3h5v5
+    p1 line: M8 3H3v5
+    p2 line: M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3
+    p3 line: m15 9 6-6
+
+split-cells — "Split cells" (now: {"p2":{"animation":"mi-split-cells-up 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-split-cells-down 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-split-cells-draw 350ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p0 detail: M12 15V9
+    p1 detail: M3 15h18
+    p2 detail: M3 9h18
+    p3 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+
+split-horizontal — "Split view" (now: {"p2":{"animation":"mi-split-horizontal-left 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-split-horizontal-right 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-split-horizontal-mid 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M12 2v20
+    p1 line: M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3
+    p2 line: M8 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3
+
+spool — "Thread" (now: {"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-spool-wind 800ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-spool-wind 800ms cubic-bezier(.22,1,.36,1) 40ms backwards"}})
+    p0 line: M17 13.44 4.442 17.082A2 2 0 0 0 4.982 21H19a2 2 0 0 0 .558-3.921l-1.115-.32A2 2 0 0 1 17 14.837V7.66
+    p1 line: m7 10.56 12.558-3.642A2 2 0 0 0 19.018 3H5a2 2 0 0 0-.558 3.921l1.115.32A2 2 0 0 1 7 9.163v7.178
+
+spotlight — "Spotlight" (now: {"p3":{"box":"view-box","origin":"8px 9px","animation":"mi-spotlight-swing 750ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"8px 9px","animation":"mi-spotlight-swing 750ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"8px 9px","animation":"mi-spotlight-beam 750ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"8px 9px","animation":"mi-spotlight-beam 750ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p0":{"box":"view-box","origin":"8px 9px","animation":"mi-spotlight-beam 750ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: M15.295 19.562 16 22
+    p1 line: m17 16 3.758 2.098
+    p2 line: m19 12.5 3.026-.598
+    p3 body: M7.61 6.3a3 3 0 0 0-3.92 1.3l-1.38 2.79a3 3 0 0 0 1.3 3.91l6.89 3.597a1 1 0 0 0 1.342-.447l3.106-6.211a1 1 0 0 0-.447-1.341z
+    p4 line knock: M8 9V2
+
+spray-can — "Spray" (now: {"p6":{"box":"view-box","origin":"17px 22px","animation":"mi-spray-can-shake 450ms cubic-bezier(.22,1,.36,1)"},"p7":{"box":"view-box","origin":"17px 22px","animation":"mi-spray-can-shake 450ms cubic-bezier(.22,1,.36,1)"},"p8":{"box":"view-box","origin":"17px 22px","animation":"mi-spray-can-shake 450ms cubic-bezier(.22,1,.36,1)"},"p9":{"box":"view-box","origin":"17px 22px","animation":"mi-spray-can-shake 450ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-spray-can-puff 400ms cubic-bezier(.22,1,.36,1) 300ms backwards"},"p1":{"animation":"mi-spray-can-puff 400ms cubic-bezier(.22,1,.36,1) 370ms backwards"},"p4":{"animation":"mi-spray-can-puff 400ms cubic-bezier(.22,1,.36,1) 370ms backwards"},"p0":{"animation":"mi-spray-can-puff 400ms cubic-bezier(.22,1,.36,1) 440ms backwards"},"p3":{"animation":"mi-spray-can-puff 400ms cubic-bezier(.22,1,.36,1) 440ms backwards"},"p5":{"animation":"mi-spray-can-puff 400ms cubic-bezier(.22,1,.36,1) 440ms backwards"}})
+    p7 (fill area) body: M15 9h4l2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11Z
+    p0 line: M3 3h.01
+    p1 line: M7 5h.01
+    p2 line: M11 7h.01
+    p3 line: M3 7h.01
+    p4 line: M7 9h.01
+    p5 line: M3 11h.01
+    p6 body: M15 5 H19 A0 0 0 0 1 19 5 V9 A0 0 0 0 1 19 9 H15 A0 0 0 0 1 15 9 V5 A0 0 0 0 1 15 5 Z
+    p7 line: m19 9 2 2v10c0 .6-.4 1-1 1h-6c-.6 0-1-.4-1-1V11l2-2
+    p8 detail: m13 14 8-2
+    p9 detail: m13 19 8-2
+
+sprout — "Grow" (now: {"p0":{"origin":"50% 100%","animation":"mi-sprout-grow 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"origin":"100% 100%","animation":"mi-sprout-leaf 650ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 line: M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3
+    p1 body: M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4
+    p2 line: M5 21h14
+
+square-stack — "Stack" (now: {"p0":{"animation":"mi-square-stack-back 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-square-stack-mid 650ms cubic-bezier(.22,1,.36,1) 30ms backwards"},"p2":{"animation":"mi-square-stack-front 650ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M4 10c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2
+    p1 line: M10 16c-1.1 0-2-.9-2-2v-4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2
+    p2 body: M16 14 H20 A2 2 0 0 1 22 16 V20 A2 2 0 0 1 20 22 H16 A2 2 0 0 1 14 20 V16 A2 2 0 0 1 16 14 Z
+
+square-x — "Close box" (now: {"p0":{"origin":"50% 100%","animation":"mi-square-x-bump 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-square-x-draw 340ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-square-x-draw 340ms cubic-bezier(.22,1,.36,1) 190ms backwards"}})
+    p0 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p1 detail: m15 9-6 6
+    p2 detail: m9 9 6 6
+
+squircle — "Squircle" (now: {"p0":{"origin":"50% 100%","animation":"mi-squircle-squash 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9
+
+squirrel — "Squirrel" (now: {"p3":{"box":"view-box","origin":"12px 22px","animation":"mi-squirrel-flick 750ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"16px 17px","animation":"mi-squirrel-head 700ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p2":{"box":"view-box","origin":"16px 17px","animation":"mi-squirrel-head 700ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p0":{"animation":"mi-squirrel-paw 600ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 line: M15.236 22a3 3 0 0 0-2.2-5
+    p1 line: M16 20a3 3 0 0 1 3-3h1a2 2 0 0 0 2-2v-2a4 4 0 0 0-4-4V4
+    p2 line: M18 13h.01
+    p3 line: M18 6a4 4 0 0 0-4 4 7 7 0 0 0-7 7c0-5 4-5 4-10.5a4.5 4.5 0 1 0-9 0 2.5 2.5 0 0 0 5 0C7 10 3 11 3 17c0 2.8 2.2 5 5 5h10
+
+stamp — "Stamp" (now: {"p1":{"animation":"mi-stamp-press 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-stamp-press 600ms cubic-bezier(.22,1,.36,1) 40ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-stamp-draw 300ms cubic-bezier(.22,1,.36,1) 220ms backwards"}})
+    p0 (fill area) body: M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13Z
+    p0 line: M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13
+    p1 body: M20 15.5a2.5 2.5 0 0 0-2.5-2.5h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1z
+    p2 line: M5 22h14
+
+star-half — "Half star" (now: {"p0":{"origin":"100% 50%","animation":"mi-star-half-twinkle 600ms cubic-bezier(.22,1,.36,1)"}})
+    p0 (fill area) body: M12 18.338a2.1 2.1 0 0 0-.987.244L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16l2.309-4.679A.53.53 0 0 1 12 2Z
+    p0 line: M12 18.338a2.1 2.1 0 0 0-.987.244L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.12 2.12 0 0 0 1.597-1.16l2.309-4.679A.53.53 0 0 1 12 2
+
+star-off — "Unfavorite" (now: {"p2":{"from":{"strokeDasharray":1},"animation":"mi-star-off-draw 420ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"mi-star-off-a 650ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p1":{"animation":"mi-star-off-b 650ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: m10.344 4.688 1.181-2.393a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.237 3.152
+    p1 line: m17.945 17.945.43 2.505a.53.53 0 0 1-.771.56l-4.618-2.428a2.12 2.12 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a8 8 0 0 0 .4-.099
+    p2 line: m2 2 20 20
+
+step-back — "Step back" (now: {"p0":{"animation":"mi-step-back-step 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-step-back-step 600ms cubic-bezier(.22,1,.36,1) 70ms backwards"}})
+    p0 body: M13.971 4.285A2 2 0 0 1 17 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z
+    p1 line: M21 20V4
+
+step-forward — "Step forward" (now: {"p0":{"animation":"mi-step-forward-step 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-step-forward-step 600ms cubic-bezier(.22,1,.36,1) 70ms backwards"}})
+    p0 body: M10.029 4.285A2 2 0 0 0 7 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z
+    p1 line: M3 4v16
+
+stethoscope — "Stethoscope" (now: {"p3":{"box":"view-box","origin":"8px 15px","animation":"mi-stethoscope-swing 800ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"8px 15px","animation":"mi-stethoscope-swing 800ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-stethoscope-ear 500ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p1":{"animation":"mi-stethoscope-ear 500ms cubic-bezier(.22,1,.36,1) 80ms backwards"}})
+    p0 line: M11 2v2
+    p1 line: M5 2v2
+    p2 line: M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1
+    p3 line: M8 15a6 6 0 0 0 12 0v-3
+    p4 body: M18 10 A2 2 0 1 0 22 10 A2 2 0 1 0 18 10 Z
+
+sticker — "Sticker" (now: {"p1":{"origin":"0% 100%","animation":"mi-sticker-peel 650ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-sticker-blink 450ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p3":{"animation":"mi-sticker-blink 450ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p4":{"origin":"50% 0%","animation":"mi-sticker-smile 550ms cubic-bezier(.22,1,.36,1) 60ms backwards"}})
+    p0 body: M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z
+    p1 detail: M15 3v5a1 1 0 0 0 1 1h5
+    p2 detail: M8 13h.01
+    p3 detail: M16 13h.01
+    p4 detail: M10 16s.8 1 2 1c1.3 0 2-1 2-1
+
+sticky-note — "Note" (now: {"p0":{"origin":"0% 100%","animation":"mi-sticky-note-tip 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"origin":"0% 100%","animation":"mi-sticky-note-flutter 700ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M21 9a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 15 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2z
+    p1 detail: M15 3v5a1 1 0 0 0 1 1h5
+
+store — "Store" (now: {"p1":{"origin":"50% 0%","animation":"mi-store-awning 700ms cubic-bezier(.22,1,.36,1)"},"p0":{"origin":"0% 50%","animation":"mi-store-door 700ms cubic-bezier(.22,1,.36,1) 80ms backwards"}})
+    p2 (fill area) body: M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05Z
+    p0 detail: M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5
+    p1 body: M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244
+    p2 line: M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05
+
+stretch — "Stretch" (now: {"p0":{"animation":"mi-stretch-bar 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-stretch-bar 600ms cubic-bezier(.22,1,.36,1) 70ms backwards"}})
+    p0 body: M4 4 H20 A2 2 0 0 1 22 6 V8 A2 2 0 0 1 20 10 H4 A2 2 0 0 1 2 8 V6 A2 2 0 0 1 4 4 Z
+    p1 body: M4 14 H20 A2 2 0 0 1 22 16 V18 A2 2 0 0 1 20 20 H4 A2 2 0 0 1 2 18 V16 A2 2 0 0 1 4 14 Z
+
+strikethrough — "Strikethrough" (now: {"p0":{"animation":"mi-strikethrough-up 600ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-strikethrough-down 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-strikethrough-draw 400ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: M16 4H9a3 3 0 0 0-2.83 4
+    p1 line: M14 12a4 4 0 0 1 0 8H6
+    p2 line: M4 12 L20 12
+
+subscript — "Subscript" (now: {"p0":{"animation":"mi-subscript-x 500ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-subscript-x 500ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-subscript-drop 550ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 line: m4 5 8 8
+    p1 line: m12 5-8 8
+    p2 line: M20 19h-4c0-1.5.44-2 1.5-2.5S20 15.33 20 14c0-.47-.17-.93-.48-1.29a2.11 2.11 0 0 0-2.62-.44c-.42.24-.74.62-.9 1.07
+
+summary — "Summary" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-summary-draw 320ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"from":{"strokeDasharray":1},"animation":"mi-summary-draw 380ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-summary-draw 320ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p1":{"animation":"mi-summary-push 550ms cubic-bezier(.22,1,.36,1) 250ms backwards"}})
+    p0 line: M15 4H7
+    p1 line: m18 16 3 3-3 3
+    p2 line: M3 4v13a2 2 0 0 0 2 2h16
+    p3 line: M7 14h7
+    p4 line: M7 9h12
+
+sun-dim — "Dim" (now: {"p0":{"animation":"mi-sun-dim-core 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1)"},"p5":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 30ms backwards"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p6":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p7":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 150ms backwards"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p8":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-dim-ray 600ms cubic-bezier(.22,1,.36,1) 210ms backwards"}})
+    p0 body: M8 12 A4 4 0 1 0 16 12 A4 4 0 1 0 8 12 Z
+    p1 line: M12 4h.01
+    p2 line: M20 12h.01
+    p3 line: M12 20h.01
+    p4 line: M4 12h.01
+    p5 line: M17.657 6.343h.01
+    p6 line: M17.657 17.657h.01
+    p7 line: M6.343 17.657h.01
+    p8 line: M6.343 6.343h.01
+
+sun-moon — "Auto theme" (now: {"p0":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-moon-rays 800ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-moon-rays 800ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-moon-rays 800ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-moon-rays 800ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"12px 12px","animation":"mi-sun-moon-moon 800ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M12 2v2
+    p1 body: M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715
+    p2 line: M16 12a4 4 0 0 0-4-4
+    p3 line: m19 5-1.256 1.256
+    p4 line: M20 12h2
+
+sunrise — "Sunrise" (now: {"p7":{"animation":"mi-sunrise-rise 600ms cubic-bezier(.22,1,.36,1)"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-sunrise-draw 400ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p6":{"animation":"mi-sunrise-arrow 550ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p2":{"animation":"mi-sunrise-ray 400ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p3":{"animation":"mi-sunrise-ray 400ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p1":{"animation":"mi-sunrise-ray 400ms cubic-bezier(.22,1,.36,1) 280ms backwards"},"p4":{"animation":"mi-sunrise-ray 400ms cubic-bezier(.22,1,.36,1) 280ms backwards"}})
+    p0 line: M12 2v8
+    p1 line: m4.93 10.93 1.41 1.41
+    p2 line: M2 18h2
+    p3 line: M20 18h2
+    p4 line: m19.07 10.93-1.41 1.41
+    p5 line: M22 22H2
+    p6 line: m8 6 4-4 4 4
+    p7 line: M16 18a4 4 0 0 0-8 0
+
+sunset — "Sunset" (now: {"p0":{"animation":"mi-sunset-arrow 750ms cubic-bezier(.22,1,.36,1)"},"p6":{"animation":"mi-sunset-arrow 750ms cubic-bezier(.22,1,.36,1)"},"p7":{"animation":"mi-sunset-set 750ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p1":{"animation":"mi-sunset-dim 750ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p2":{"animation":"mi-sunset-dim 750ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p3":{"animation":"mi-sunset-dim 750ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p4":{"animation":"mi-sunset-dim 750ms cubic-bezier(.22,1,.36,1) 60ms backwards"}})
+    p0 line: M12 10V2
+    p1 line: m4.93 10.93 1.41 1.41
+    p2 line: M2 18h2
+    p3 line: M20 18h2
+    p4 line: m19.07 10.93-1.41 1.41
+    p5 line: M22 22H2
+    p6 line: m16 6-4 4-4-4
+    p7 line: M16 18a4 4 0 0 0-8 0
+
+superscript — "Superscript" (now: {"p0":{"animation":"mi-superscript-x 500ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-superscript-x 500ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-superscript-rise 550ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 line: m4 19 8-8
+    p1 line: m12 19-8-8
+    p2 line: M20 12h-4c0-1.5.442-2 1.5-2.5S20 8.334 20 7.002c0-.472-.17-.93-.484-1.29a2.105 2.105 0 0 0-2.617-.436c-.42.239-.738.614-.899 1.06
+
+swatches — "Swatches" (now: {"p0":{"origin":"50% 100%","animation":"mi-swatches-front 700ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"7px 21px","animation":"mi-swatches-front 700ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"7px 17px","animation":"mi-swatches-fan 700ms cubic-bezier(.22,1,.36,1) 40ms backwards"},"p1":{"animation":"mi-swatches-slide 700ms cubic-bezier(.22,1,.36,1) 80ms backwards"}})
+    p0 body: M11 17a4 4 0 0 1-8 0V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2Z
+    p1 line: M16.7 13H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H7
+    p2 detail: M 7 17h.01
+    p3 line: m11 8 2.3-2.3a2.4 2.4 0 0 1 3.404.004L18.6 7.6a2.4 2.4 0 0 1 .026 3.434L9.9 19.8
+
+switch-camera — "Switch camera" (now: {"p3":{"box":"view-box","origin":"12px 12px","animation":"mi-switch-camera-swap 800ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"12px 12px","animation":"mi-switch-camera-swap 800ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-switch-camera-flip 800ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: M11 19H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5
+    p1 line: M13 5h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5
+    p2 body: M9 12 A3 3 0 1 0 15 12 A3 3 0 1 0 9 12 Z
+    p3 line: m18 22-3-3 3-3
+    p4 line: m6 2 3 3-3 3
+
+sword — "Sword" (now: {"p3":{"box":"view-box","origin":"5px 19px","animation":"mi-sword-blade 700ms cubic-bezier(.22,1,.36,1)"},"p0":{"box":"view-box","origin":"5px 19px","animation":"mi-sword-blade 700ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"5px 19px","animation":"mi-sword-grip 700ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"5px 19px","animation":"mi-sword-grip 700ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: m11 19-6-6
+    p1 line: m5 21-2-2
+    p2 line: m8 16-4 4
+    p3 line: M9.5 17.5 20.414 6.586A2 2 0 0021 5.172V3h-2.172a2 2 0 00-1.414.586L6.5 14.5
+
+swords — "Battle" (now: {"p0":{"box":"view-box","origin":"18px 18px","animation":"mi-swords-a 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"box":"view-box","origin":"18px 18px","animation":"mi-swords-a 650ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"18px 18px","animation":"mi-swords-a 650ms cubic-bezier(.22,1,.36,1)"},"p4":{"box":"view-box","origin":"18px 18px","animation":"mi-swords-a 650ms cubic-bezier(.22,1,.36,1)"},"p2":{"box":"view-box","origin":"6px 18px","animation":"mi-swords-b 650ms cubic-bezier(.22,1,.36,1)"},"p5":{"box":"view-box","origin":"6px 18px","animation":"mi-swords-b 650ms cubic-bezier(.22,1,.36,1)"},"p6":{"box":"view-box","origin":"6px 18px","animation":"mi-swords-b 650ms cubic-bezier(.22,1,.36,1)"},"p7":{"box":"view-box","origin":"6px 18px","animation":"mi-swords-b 650ms cubic-bezier(.22,1,.36,1)"}})
+    p0 line: m13 19 6-6
+    p1 line: M14.5 17.5 3.586 6.586A2 2 0 013 5.172V3h2.172a2 2 0 011.414.586L17.5 14.5
+    p2 line: m14.828 6.172 2.586-2.586A2 2 0 0118.828 3H21v2.172a2 2 0 01-.586 1.414l-2.586 2.586
+    p3 line: m16 16 4 4
+    p4 line: m19 21 2-2
+    p5 line: m5 14 4 4
+    p6 line: m5 21-2-2
+    p7 line: M7.5 16.5 4 20
+
+syringe — "Vaccine" (now: {"p0":{"animation":"mi-syringe-push 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-syringe-push 650ms cubic-bezier(.22,1,.36,1)"},"p4":{"animation":"mi-syringe-jab 650ms cubic-bezier(.22,1,.36,1) 120ms backwards"}})
+    p0 line: m18 2 4 4
+    p1 line: m17 7 3-3
+    p2 line: M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5
+    p3 line: m9 11 4 4
+    p4 line: m5 19-3 3
+    p5 line: m14 4 6 6
+
+table — "Table" (now: {"p1":{"origin":"50% 100%","animation":"mi-table-bump 600ms cubic-bezier(.22,1,.36,1)"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-table-draw 350ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p3":{"from":{"strokeDasharray":1},"animation":"mi-table-draw 350ms cubic-bezier(.22,1,.36,1) 140ms backwards"},"p0":{"from":{"strokeDasharray":1},"animation":"mi-table-draw 350ms cubic-bezier(.22,1,.36,1) 220ms backwards"}})
+    p0 detail: M12 3v18
+    p1 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+    p2 detail: M3 9h18
+    p3 detail: M3 15h18
+
+table-of-contents — "Contents" (now: {"p0":{"from":{"strokeDasharray":1},"animation":"mi-table-of-contents-draw 350ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-table-of-contents-draw 350ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-table-of-contents-draw 350ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p3":{"animation":"mi-table-of-contents-dot 400ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p4":{"animation":"mi-table-of-contents-dot 400ms cubic-bezier(.22,1,.36,1) 210ms backwards"},"p5":{"animation":"mi-table-of-contents-dot 400ms cubic-bezier(.22,1,.36,1) 300ms backwards"}})
+    p0 line: M16 5H3
+    p1 line: M16 12H3
+    p2 line: M16 19H3
+    p3 line: M21 5h.01
+    p4 line: M21 12h.01
+    p5 line: M21 19h.01
+
+tablet — "Tablet" (now: {"p0":{"origin":"50% 100%","animation":"mi-tablet-tip 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-tablet-dot 500ms cubic-bezier(.22,1,.36,1) 100ms backwards"}})
+    p0 body: M6 2 H18 A2 2 0 0 1 20 4 V20 A2 2 0 0 1 18 22 H6 A2 2 0 0 1 4 20 V4 A2 2 0 0 1 6 2 Z
+    p1 detail: M12 18 L12.01 18
+
+tablet-phone — "Devices" (now: {"p0":{"animation":"mi-tablet-phone-phone 650ms cubic-bezier(.22,1,.36,1)"},"p2":{"animation":"mi-tablet-phone-phone 650ms cubic-bezier(.22,1,.36,1)"},"p1":{"animation":"mi-tablet-phone-tablet 650ms cubic-bezier(.22,1,.36,1)"}})
+    p0 body: M5 8 H11 A2 2 0 0 1 13 10 V20 A2 2 0 0 1 11 22 H5 A2 2 0 0 1 3 20 V10 A2 2 0 0 1 5 8 Z
+    p1 line: M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4
+    p2 detail: M8 18h.01
+
+tag-plus — "Add tag" (now: {"p1":{"box":"view-box","origin":"7.5px 7.5px","animation":"mi-tag-plus-swing 750ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"7.5px 7.5px","animation":"mi-tag-plus-swing 750ms cubic-bezier(.22,1,.36,1)"},"p0":{"animation":"mi-tag-plus-grow 500ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p2":{"animation":"mi-tag-plus-grow 500ms cubic-bezier(.22,1,.36,1) 200ms backwards"}})
+    p0 line: M16 13h6
+    p1 line: m16.5 6.5-3.914-3.914A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l1.79-1.79
+    p2 line: M19 10v6
+    p3 line: M7 7.5 A0.5 0.5 0 1 0 8 7.5 A0.5 0.5 0 1 0 7 7.5 Z
+
+tag-x — "Remove tag" (now: {"p0":{"box":"view-box","origin":"7.5px 7.5px","animation":"mi-tag-x-swing 750ms cubic-bezier(.22,1,.36,1)"},"p3":{"box":"view-box","origin":"7.5px 7.5px","animation":"mi-tag-x-swing 750ms cubic-bezier(.22,1,.36,1)"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-tag-x-draw 320ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p2":{"from":{"strokeDasharray":1},"animation":"mi-tag-x-draw 320ms cubic-bezier(.22,1,.36,1) 230ms backwards"}})
+    p0 line: m16.5 6.5-3.914-3.914A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.43 2.43 0 0 0 3.42 0l1.79-1.79
+    p1 line: m16.5 10.5 5 5
+    p2 line: m21.5 10.5-5 5
+    p3 line: M7 7.5 A0.5 0.5 0 1 0 8 7.5 A0.5 0.5 0 1 0 7 7.5 Z
+
+terminal-square — "Terminal" (now: {"p0":{"animation":"mi-terminal-square-prompt 500ms cubic-bezier(.22,1,.36,1)"},"p1":{"from":{"strokeDasharray":1},"animation":"mi-terminal-square-draw 320ms cubic-bezier(.22,1,.36,1) 150ms backwards"}})
+    p0 detail: m7 11 2-2-2-2
+    p1 detail: M11 13h4
+    p2 body: M5 3 H19 A2 2 0 0 1 21 5 V19 A2 2 0 0 1 19 21 H5 A2 2 0 0 1 3 19 V5 A2 2 0 0 1 5 3 Z
+
+text-select — "Select text" (now: {"p9":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1)"},"p14":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 40ms backwards"},"p1":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 80ms backwards"},"p2":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p5":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 160ms backwards"},"p3":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 200ms backwards"},"p4":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 240ms backwards"},"p0":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 280ms backwards"},"p13":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 320ms backwards"},"p8":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 360ms backwards"},"p6":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 400ms backwards"},"p7":{"animation":"mi-text-select-dash 450ms cubic-bezier(.22,1,.36,1) 440ms backwards"},"p12":{"from":{"strokeDasharray":1},"animation":"mi-text-select-draw 350ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p10":{"from":{"strokeDasharray":1},"animation":"mi-text-select-draw 350ms cubic-bezier(.22,1,.36,1) 160ms backwards"},"p11":{"from":{"strokeDasharray":1},"animation":"mi-text-select-draw 300ms cubic-bezier(.22,1,.36,1) 260ms backwards"}})
+    p0 line: M14 21h1
+    p1 line: M14 3h1
+    p2 line: M19 3a2 2 0 0 1 2 2
+    p3 line: M21 14v1
+    p4 line: M21 19a2 2 0 0 1-2 2
+    p5 line: M21 9v1
+    p6 line: M3 14v1
+    p7 line: M3 9v1
+    p8 line: M5 21a2 2 0 0 1-2-2
+    p9 line: M5 3a2 2 0 0 0-2 2
+    p10 line: M7 12h10
+    p11 line: M7 16h6
+    p12 line: M7 8h8
+    p13 line: M9 21h1
+    p14 line: M9 3h1

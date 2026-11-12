@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Check every icon and motion
+        run: pnpm check
+      - name: Build the packages
+        run: pnpm build
+      - name: Typecheck
+        run: pnpm -r --filter "./packages/**" typecheck
+      - name: Lint the packages for publishing
+        run: pnpm lint:packages
+      - name: Build the website
+        run: pnpm --filter web build

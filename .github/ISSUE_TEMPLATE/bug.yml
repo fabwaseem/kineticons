@@ -1,0 +1,28 @@
+name: Bug report
+description: Something drawn, moving or behaving wrongly
+labels: [bug]
+body:
+  - type: input
+    id: package
+    attributes:
+      label: Package and version
+      placeholder: kineticons 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: icons
+    attributes:
+      label: Icon names, if it is about particular icons
+      placeholder: bell, file-lock
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens, and what you expected
+      description: Steps to reproduce, and a screenshot or recording if it is visual.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Browser and framework
+      placeholder: Chrome 131, Next.js 16

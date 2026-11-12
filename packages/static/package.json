@@ -1,0 +1,50 @@
+{
+  "name": "@kineticons/static",
+  "version": "0.1.0",
+  "description": "2,000+ animated SVG icons in outline, duotone and filled, one stylesheet for their motion, and a JSON index. For plain HTML, any framework and CDNs.",
+  "keywords": [
+    "icons",
+    "svg",
+    "svg-icons",
+    "animated",
+    "animation",
+    "motion",
+    "duotone",
+    "css",
+    "cdn",
+    "kineticons"
+  ],
+  "license": "MIT",
+  "author": "Waseem Anjum",
+  "homepage": "https://kineticons.fabwaseem.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabwaseem/kineticons.git",
+    "directory": "packages/static"
+  },
+  "bugs": "https://github.com/fabwaseem/kineticons/issues",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    "./kineticons.css": "./kineticons.css",
+    "./icons.json": "./icons.json",
+    "./svg/*": "./svg/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "svg",
+    "kineticons.css",
+    "icons.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsx ../../scripts/build-static.ts",
+    "lint:package": "publint"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "commonjs"
+}
