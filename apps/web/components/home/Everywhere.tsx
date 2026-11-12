@@ -72,7 +72,7 @@ export function Everywhere() {
   const [tab, setTab] = useState<Tab>("react");
   const s = SNIPPETS[tab];
   return (
-    <section className="mx-auto max-w-[1240px] px-4 py-28 sm:px-6" aria-labelledby="use-title">
+    <section className="mx-auto max-w-[1280px] px-4 py-28 sm:px-6" aria-labelledby="use-title">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.25fr] lg:items-center">
         <Reveal>
           <SectionHead

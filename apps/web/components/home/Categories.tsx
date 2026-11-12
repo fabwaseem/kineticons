@@ -36,7 +36,7 @@ const SAMPLES: Record<string, IconDef[]> = {
 /** Every category, with how many icons it holds: a way into the browser. */
 export function Categories() {
   return (
-    <section className="mx-auto max-w-[1240px] px-4 pb-28 sm:px-6" aria-labelledby="cats-title">
+    <section className="mx-auto max-w-[1280px] px-4 pb-28 sm:px-6" aria-labelledby="cats-title">
       <Reveal>
         <SectionHead title={<span id="cats-title">Something for every screen</span>} text="From app chrome to weather, food and finance. Start from a category, or search by what the icon shows." />
       </Reveal>

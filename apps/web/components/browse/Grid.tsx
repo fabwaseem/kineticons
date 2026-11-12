@@ -106,13 +106,17 @@ const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon
         title={icon.title}
         aria-label={`${icon.title} (${icon.name})`}
         aria-pressed={on}
-        className={`ki-trigger group flex h-full w-full flex-col items-center justify-center gap-2.5 rounded-[16px] border px-2 outline-none transition-[background-color,border-color,color] duration-200 focus-visible:border-[color-mix(in_srgb,var(--accent)_60%,transparent)] focus-visible:bg-surface ${
+        className={`ki-trigger group relative flex h-full w-full flex-col items-center justify-center gap-2.5 rounded-[16px] border px-2 outline-none transition-[background-color,border-color,color] duration-200 focus-visible:border-[color-mix(in_srgb,var(--accent)_60%,transparent)] focus-visible:bg-surface ${
           on ? "border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-accent-soft text-accent-ink" : "border-transparent text-ink-2 hover:border-line hover:bg-surface"
         }`}
         style={look.color && !on ? { color: look.color } : undefined}
       >
         <KineticIcon icon={icon} variant={look.variant} size={look.size} strokeWidth={look.stroke ?? undefined} trigger={look.trigger} loopEvery={2200} css={false} />
-        {look.labels && <span className="w-full truncate text-center text-[12px] text-muted group-hover:text-ink">{icon.name}</span>}
+        {look.labels ? (
+          <span className="w-full truncate text-center text-[12px] text-muted group-hover:text-ink">{icon.name}</span>
+        ) : (
+          <span className="pointer-events-none absolute inset-x-1 bottom-1 truncate text-center text-[10.5px] text-faint opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">{icon.name}</span>
+        )}
       </button>
     </div>
   );

@@ -43,7 +43,7 @@ export function Playground() {
   return (
     <section className="night relative overflow-hidden" aria-labelledby="play-title">
       <div aria-hidden className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full opacity-50 blur-[90px]" style={{ background: "radial-gradient(closest-side, rgba(255,107,61,.35), rgba(124,92,255,.18), transparent)" }} />
-      <div className="relative mx-auto max-w-[1240px] px-4 py-28 sm:px-6">
+      <div className="relative mx-auto max-w-[1280px] px-4 py-28 sm:px-6">
         <SectionHead
           title={<span id="play-title">Make them yours</span>}
           text="Size, stroke, colour, style and when they move: every icon takes the same few settings. Try them here; the code under the controls follows along."

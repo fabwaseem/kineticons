@@ -5,7 +5,7 @@ import { Reveal, SectionHead } from "@/components/ui/bits";
 
 export function Faq() {
   return (
-    <section className="mx-auto max-w-[1240px] px-4 pb-28 sm:px-6" aria-labelledby="faq-title">
+    <section className="mx-auto max-w-[1280px] px-4 pb-28 sm:px-6" aria-labelledby="faq-title">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
         <Reveal>
           <SectionHead title={<span id="faq-title">Questions</span>} text="What people ask before they use the icons in their product." />

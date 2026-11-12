@@ -2,14 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { KineticIcon } from "kineticons";
-import {
-  arrowRight, search,
-} from "@kineticons/core/icons";
-import { fmt, ICON_COUNT } from "@/lib/categories";
-import { Button, reducedMotion } from "@/components/ui/bits";
-import { openPalette } from "@/components/ui/palette-bus";
+import { arrowRight } from "@kineticons/core/icons";
+import { CATEGORIES, fmt, ICON_COUNT } from "@/lib/categories";
+import { Button, CopyButton, reducedMotion } from "@/components/ui/bits";
 import { prefetchCatalog } from "@/lib/catalog";
 import { FIELD } from "./fieldIcons";
+import { HeroSearch } from "./HeroSearch";
 
 const RADIUS = 120; // px around the pointer that wakes icons
 const HOLD = 720; // ms an icon stays awake, so its motion plays through
@@ -45,6 +43,7 @@ export function Hero() {
   useEffect(() => {
     const field = fieldRef.current;
     if (!field || reducedMotion()) return;
+    const host = field.parentElement!;
     let cells: { el: SVGElement; x: number; y: number }[] = [];
     const until = new Map<SVGElement, number>();
     let raf = 0;
@@ -85,11 +84,16 @@ export function Hero() {
       const r = field.getBoundingClientRect();
       px = e.clientX - r.left;
       py = e.clientY - r.top;
+      const hr = host.getBoundingClientRect();
+      host.style.setProperty("--mx", `${e.clientX - hr.left}px`);
+      host.style.setProperty("--my", `${e.clientY - hr.top}px`);
+      host.style.setProperty("--glow", "1");
       lastMove = performance.now();
       schedule();
     };
     const onLeave = () => {
       px = py = -1e4;
+      host.style.setProperty("--glow", "0");
     };
     // the wave: a diagonal sweep, each icon woken as it passes
     const timers: number[] = [];
@@ -116,7 +120,6 @@ export function Hero() {
     ro.observe(field);
     const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting));
     io.observe(field);
-    const host = field.parentElement!;
     host.addEventListener("pointermove", onMove);
     host.addEventListener("pointerdown", onMove);
     host.addEventListener("pointerleave", onLeave);
@@ -163,31 +166,67 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto flex min-h-[min(860px,calc(100svh-24px))] max-w-[980px] flex-col items-center justify-center px-6 pt-10 pb-24 text-center">
-        <h1 id="hero-title" className="display rise text-[clamp(48px,8.4vw,112px)] text-ink" style={{ animationDelay: "60ms" }}>
+      {/* a soft light that follows the pointer across the field */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 transition-opacity duration-700"
+        style={{ opacity: "var(--glow, 0)", background: "radial-gradient(420px circle at var(--mx, 50%) var(--my, 40%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%)" }}
+      />
+
+      <div className="mx-auto flex min-h-[min(900px,calc(100svh-24px))] max-w-[1040px] flex-col items-center justify-center px-6 pt-12 pb-20 text-center">
+        <a
+          href="/icons"
+          onMouseEnter={prefetchCatalog}
+          className="rise group inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 py-1 pr-3 pl-1 text-[13px] text-ink-2 shadow-sm backdrop-blur transition-colors hover:border-line-strong"
+          style={{ animationDelay: "0ms" }}
+        >
+          <span className="rounded-full bg-accent px-2 py-0.5 text-[11.5px] font-semibold text-white">New</span>
+          {fmt(ICON_COUNT)} icons, in Figma and VS Code too
+          <span className="text-faint transition-transform group-hover:translate-x-0.5">→</span>
+        </a>
+        <h1 id="hero-title" className="display rise mt-7 text-[clamp(50px,8.8vw,124px)] text-ink" style={{ animationDelay: "80ms" }}>
           Icons that move
           <br />
           like they mean it
         </h1>
-        <p className="rise mt-7 max-w-[600px] text-[clamp(16px,1.6vw,19px)] leading-relaxed text-ink-2" style={{ animationDelay: "180ms" }}>
-          {fmt(ICON_COUNT)} rounded icons in outline, duotone and filled. Each has a motion of its own: a bell swings from its top, a padlock’s shackle
-          drops shut, a battery fills up.
+        <p className="rise mt-7 max-w-[620px] text-[clamp(16px,1.6vw,19px)] leading-relaxed text-ink-2" style={{ animationDelay: "200ms" }}>
+          {fmt(ICON_COUNT)} rounded icons in outline, duotone and filled. Each has a motion of its own: a bell swings from its top, a padlock’s shackle drops
+          shut, a battery fills up.
         </p>
-        <div className="rise mt-9 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "300ms" }}>
+
+        <div className="rise relative z-10 mt-10 w-full max-w-[600px]" style={{ animationDelay: "320ms" }}>
+          <HeroSearch />
+        </div>
+
+        <div className="rise mt-5 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "420ms" }}>
           <Button to="/icons" size="lg" className="pr-4">
             <span onMouseEnter={prefetchCatalog} className="contents">
               Browse the icons
               <KineticIcon icon={arrowRight} size={18} />
             </span>
           </Button>
-          <Button variant="secondary" size="lg" onClick={openPalette}>
-            <KineticIcon icon={search} size={18} />
-            Search icons
-          </Button>
+          <span className="card inline-flex h-12 items-center gap-3 rounded-[14px] pr-1.5 pl-4 font-mono text-[13.5px] text-ink-2">
+            <span>
+              <span className="text-faint">$</span> npm i kineticons
+            </span>
+            <CopyButton text="npm i kineticons" compact label="Copy the install command" />
+          </span>
         </div>
-        <p className="rise mt-6 hidden text-[13px] text-faint md:block" style={{ animationDelay: "420ms" }}>
-          Move your pointer across the page to wake the icons.
-        </p>
+
+        <dl className="rise mt-14 grid grid-cols-2 gap-x-10 gap-y-4 text-left sm:grid-cols-4" style={{ animationDelay: "540ms" }}>
+          {[
+            [fmt(ICON_COUNT), "icons"],
+            ["3", "styles each"],
+            [String(CATEGORIES.length), "categories"],
+            ["4", "frameworks"],
+          ].map(([n, l]) => (
+            <div key={l} className="border-l border-line-strong pl-4">
+              <dt className="sr-only">{l}</dt>
+              <dd className="display text-[30px] leading-none text-ink tabular">{n}</dd>
+              <dd className="mt-1.5 text-[12.5px] text-muted">{l}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
       <style>{`.field svg.ki{color:var(--faint);opacity:.55;transition:color .5s var(--ease-smooth),opacity .5s var(--ease-smooth)}
 .field svg.ki[data-active]{color:var(--accent);opacity:1;transition-duration:.15s}`}</style>

@@ -196,13 +196,13 @@ export default function Browser() {
 
       {/* the details: docked on wide screens */}
       {openIcon && (
-        <aside aria-labelledby="panel-title" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h))] w-[400px] shrink-0 overflow-y-auto border-l border-line py-6 pl-6 [scrollbar-width:thin] 2xl:block">
+        <aside aria-labelledby="panel-title" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h))] w-[380px] shrink-0 overflow-y-auto border-l border-line py-6 pl-6 [scrollbar-width:thin] xl:block 2xl:w-[420px]">
           <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
         </aside>
       )}
       {/* ...and a drawer below that width */}
       {openIcon && (
-        <Drawer label={openIcon.title} onClose={() => set({ icon: null })} className="2xl:hidden">
+        <Drawer label={openIcon.title} onClose={() => set({ icon: null })} className="xl:hidden">
           <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
         </Drawer>
       )}
