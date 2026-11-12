@@ -101,6 +101,8 @@ version from `package.json`). It needs the `@kineticons` scope on jsr.io with th
 
 - **Iconify**: `@kineticons/static/iconify.json` is the icon set at rest (prefix `kineticons`, `-duotone` and `-filled`
   suffixes), built by `scripts/build-static.ts`. Iconify imports it from npm.
+- **Figma**: `npx tsx scripts/figma-sheets.ts` writes `dist/figma/kineticons-<style>.svg` (every icon of a style on a
+  grid, each a group named after the icon) to drag into the Figma file, where each group becomes a component.
 - **GitHub releases**: one per version, opened by `scripts/publish.mjs` with the React package's changelog section.
 - **Editors**: `extensions/vscode` (VS Code Marketplace and Open VSX) and `extensions/raycast` (Raycast Store); each
   README says how to publish.
