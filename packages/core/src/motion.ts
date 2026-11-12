@@ -29,7 +29,7 @@ const css = (d?: Decl): string => {
 };
 
 /** What an icon moves with when pointed at or focused: anything marked `ki-trigger`, and the controls icons sit in. */
-export const TRIGGERS = `:is(.ki-trigger,button,a,summary,[role="button"],[role="tab"],[role="menuitem"],[role="option"],[role="checkbox"],[role="radio"],[role="switch"])`;
+export const TRIGGERS: string = `:is(.ki-trigger,button,a,summary,[role="button"],[role="tab"],[role="menuitem"],[role="option"],[role="checkbox"],[role="radio"],[role="switch"])`;
 
 /** Where an icon is active: pointed at or focused (itself, or the control around it), or set active. */
 const ACTIVE = `${TRIGGERS}:is(:hover,:focus-visible) svg.ki[data-trigger="hover"],svg.ki[data-trigger="hover"]:hover,svg.ki[data-active="true"]:not([data-trigger="none"])`;

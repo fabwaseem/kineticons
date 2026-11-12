@@ -55,8 +55,12 @@ jobs:
       - run: pnpm build
       - run: pnpm lint:packages
 
-      - name: Publish to npm
+      - name: Publish to npm, tag, GitHub release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/publish.mjs
 
-      - name: Push release tags
-        run: git push origin --tags
+      # JSR (jsr.io) gets @kineticons/core too; a JSR hiccup never blocks an npm release
+      - name: Publish core to JSR
+        continue-on-error: true
+        run: node scripts/publish-jsr.mjs

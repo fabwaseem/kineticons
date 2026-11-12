@@ -12,7 +12,8 @@
     "duotone",
     "css",
     "cdn",
-    "kineticons"
+    "kineticons",
+    "iconify"
   ],
   "license": "MIT",
   "author": "Waseem Anjum",
@@ -29,6 +30,7 @@
   "exports": {
     "./kineticons.css": "./kineticons.css",
     "./icons.json": "./icons.json",
+    "./iconify.json": "./iconify.json",
     "./svg/*": "./svg/*",
     "./package.json": "./package.json"
   },
@@ -36,6 +38,7 @@
     "svg",
     "kineticons.css",
     "icons.json",
+    "iconify.json",
     "README.md",
     "LICENSE"
   ],

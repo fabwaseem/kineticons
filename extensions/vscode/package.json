@@ -1,0 +1,78 @@
+{
+  "name": "kineticons",
+  "displayName": "Kineticons",
+  "description": "Search 2,000+ animated Kineticons and insert them as React, Vue or Svelte components or as plain SVG.",
+  "version": "0.1.0",
+  "publisher": "fabwaseem",
+  "license": "MIT",
+  "author": "Waseem Anjum",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#15131c",
+    "theme": "dark"
+  },
+  "homepage": "https://kineticons.fabwaseem.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabwaseem/kineticons.git",
+    "directory": "extensions/vscode"
+  },
+  "bugs": {
+    "url": "https://github.com/fabwaseem/kineticons/issues"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "icons",
+    "svg",
+    "animated icons",
+    "react",
+    "vue",
+    "svelte",
+    "duotone",
+    "kineticons"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "kineticons.insertIcon",
+        "title": "Insert icon",
+        "category": "Kineticons"
+      },
+      {
+        "command": "kineticons.copySvg",
+        "title": "Copy SVG",
+        "category": "Kineticons"
+      },
+      {
+        "command": "kineticons.openInBrowser",
+        "title": "Open in browser",
+        "category": "Kineticons"
+      }
+    ]
+  },
+  "scripts": {
+    "media": "node scripts/prepare-media.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run media && npm run typecheck && node esbuild.mjs",
+    "test": "node esbuild.mjs --test && node --test out/snippets.test.cjs",
+    "vscode:prepublish": "npm run build",
+    "package": "npx @vscode/vsce package --no-dependencies",
+    "publish:vsce": "npx @vscode/vsce publish --no-dependencies",
+    "publish:ovsx": "npx ovsx publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@kineticons/static": "^0.1.0",
+    "@types/node": "^20.19.0",
+    "@types/vscode": "~1.90.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.0"
+  }
+}

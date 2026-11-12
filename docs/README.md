@@ -18,8 +18,10 @@ packages/core       @kineticons/core: icon data, the renderer and the motion CSS
 packages/react      kineticons: KineticIcon, createIcon, one component per icon (src/icons.ts, generated)
 packages/vue        @kineticons/vue: the same for Vue 3
 packages/svelte     @kineticons/svelte: Icon.svelte (renders the node tree), icon data re-exported
-packages/static     @kineticons/static: svg/<style>/<name>.svg, kineticons.css, icons.json (all generated)
+packages/static     @kineticons/static: svg/<style>/<name>.svg, kineticons.css, icons.json, iconify.json (all generated)
 apps/web            the website: Next.js App Router, static export, Tailwind v4
+extensions/vscode   the VS Code extension (its own npm project, data from @kineticons/static)
+extensions/raycast  the Raycast extension (its own npm project, data from @kineticons/static)
 scripts/
   import-icons.ts     turns source shapes (scripts/source/shapes.json) plus a batch's list into icons/batch-*.ts
   motions/            a.ts-d.ts: motions for the LIST in import-icons.ts; e.ts-w.ts: batches (list, motions, fills)
@@ -91,3 +93,15 @@ trusts `fabwaseem/kineticons` / `release.yml`, so no token is stored, and npm ad
 hand in a `package.json` is published the same way. To publish from a machine: `npm login`, then `pnpm release`.
 
 Before a release: `pnpm check`, `pnpm build`, `pnpm lint:packages` (publint and Are The Types Wrong).
+
+The same workflow then publishes `@kineticons/core` to JSR (`scripts/publish-jsr.mjs`; `packages/core/jsr.json` takes its
+version from `package.json`). It needs the `@kineticons` scope on jsr.io with the package linked to this repository.
+
+## Elsewhere
+
+- **Iconify**: `@kineticons/static/iconify.json` is the icon set at rest (prefix `kineticons`, `-duotone` and `-filled`
+  suffixes), built by `scripts/build-static.ts`. Iconify imports it from npm.
+- **GitHub releases**: one per version, opened by `scripts/publish.mjs` with the React package's changelog section.
+- **Editors**: `extensions/vscode` (VS Code Marketplace and Open VSX) and `extensions/raycast` (Raycast Store); each
+  README says how to publish.
+
