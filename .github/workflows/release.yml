@@ -1,43 +1,62 @@
 name: Release
 
-# Changesets opens a "Version packages" pull request from the changesets on main; merging it publishes to npm
-# (with provenance). Needs an NPM_TOKEN repository secret with publish rights for kineticons and @kineticons/*.
+# Every push to main: if it carries changesets (`pnpm changeset`), they are applied (versions bumped, changelogs
+# written) and committed back to main; then every package whose version is not on npm yet is published.
+# npm sign-in is trusted publishing (OIDC): each package on npmjs.com trusts this workflow, so no token is stored.
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
-concurrency: release-${{ github.ref }}
+concurrency:
+  group: release
+  cancel-in-progress: false
 
 permissions:
   contents: write
-  pull-requests: write
   id-token: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    # nothing to do until an npm token is set up (Settings > Secrets and variables > Actions > NPM_TOKEN)
-    env:
-      HAS_NPM_TOKEN: ${{ secrets.NPM_TOKEN != '' }}
+    # the version commit this workflow pushes does not need a second run
+    if: "!startsWith(github.event.head_commit.message, 'Version packages')"
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
           registry-url: https://registry.npmjs.org
+      # trusted publishing needs npm 11.5.1 or later
+      - run: npm install -g npm@latest
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
-      - uses: changesets/action@v1
-        if: env.HAS_NPM_TOKEN == 'true'
-        with:
-          version: pnpm changeset version
-          publish: pnpm release
-          commit: "Version packages"
-          title: "Version packages"
+
+      - name: Apply changesets
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
+        run: |
+          if ls .changeset/*.md 2>/dev/null | grep -qv 'README.md'; then
+            pnpm changeset version
+            pnpm install --no-frozen-lockfile
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Version packages"
+            git push origin HEAD:main
+          else
+            echo "no changesets"
+          fi
+
+      - run: pnpm build
+      - run: pnpm lint:packages
+
+      - name: Publish to npm
+        run: node scripts/publish.mjs
+
+      - name: Push release tags
+        run: git push origin --tags

@@ -77,12 +77,17 @@ the sitemap and robots are written at build time.
 
 The repository's `Dockerfile` builds the core and React packages, then the site, and serves `apps/web/out` with nginx
 (`deploy/nginx.conf`: clean URLs, long caching for hashed files, gzip, the 404 page). In Coolify: a new resource from
-this repository, build pack "Dockerfile", port 80, domain `kineticons.fabwaseem.com`.
+this repository, build pack "Dockerfile", port 80, domain `kineticons.fabwaseem.com`. Pushes to `main` redeploy
+through a GitHub webhook (repository Settings, Webhooks) pointing at Coolify's manual GitHub webhook, with its secret.
+Cloudflare proxies the domain (A record to the server).
 
 ## Releasing the packages
 
-All packages share one version (Changesets, `fixed`). Describe changes with `pnpm changeset`; on `main` the release
-workflow opens a "Version packages" pull request, and merging it publishes to npm with provenance (it needs the
-`NPM_TOKEN` secret). To publish by hand: `npm login`, then `pnpm release`.
+All packages share one version (Changesets, `fixed`). Describe changes with `pnpm changeset`. On every push to `main`
+the release workflow (`.github/workflows/release.yml`) applies pending changesets, commits the "Version packages"
+change back to `main`, then runs `scripts/publish.mjs`, which publishes each package whose version is not on npm yet
+(core first) and tags it. npm sign-in is trusted publishing: each package on npmjs.com (Settings, Trusted Publisher)
+trusts `fabwaseem/kineticons` / `release.yml`, so no token is stored, and npm adds provenance. A version bumped by
+hand in a `package.json` is published the same way. To publish from a machine: `npm login`, then `pnpm release`.
 
 Before a release: `pnpm check`, `pnpm build`, `pnpm lint:packages` (publint and Are The Types Wrong).

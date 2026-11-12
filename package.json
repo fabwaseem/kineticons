@@ -16,7 +16,7 @@
     "import-icons": "tsx scripts/import-icons.ts",
     "lint:packages": "pnpm -r --filter \"./packages/**\" lint:package",
     "changeset": "changeset",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm build && node scripts/publish.mjs"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
