@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { fmt, ICON_COUNT } from "@/lib/categories";
-import { NPM_URL, REPO_URL } from "@/lib/site";
+import { FIGMA_URL, JSR_URL, NPM_URL, REPO_URL, VSCODE_URL } from "@/lib/site";
 import { Wordmark } from "./bits";
 
 const COLS: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
@@ -36,6 +36,9 @@ const COLS: { title: string; links: { label: string; href: string; external?: bo
     links: [
       { label: "GitHub", href: REPO_URL, external: true },
       { label: "npm", href: NPM_URL, external: true },
+      { label: "JSR", href: JSR_URL, external: true },
+      { label: "Figma", href: FIGMA_URL, external: true },
+      { label: "VS Code", href: VSCODE_URL, external: true },
       { label: "Contributing", href: "/docs/contributing" },
       { label: "Licence", href: "/docs/licence" },
     ],

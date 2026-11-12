@@ -29,7 +29,11 @@ visitors who ask for reduced motion.
 | [`@kineticons/vue`](packages/vue) | Vue 3, Nuxt | `npm install @kineticons/vue` |
 | [`@kineticons/svelte`](packages/svelte) | Svelte 5, SvelteKit | `npm install @kineticons/svelte` |
 | [`@kineticons/static`](packages/static) | Plain HTML, CDNs, design tools: SVG files, one stylesheet, a JSON index | `npm install @kineticons/static` |
-| [`@kineticons/core`](packages/core) | The renderer and motion, without a framework | `npm install @kineticons/core` |
+| [`@kineticons/core`](packages/core) | The renderer and motion, without a framework | `npm install @kineticons/core` or [`jsr add @kineticons/core`](https://jsr.io/@kineticons/core) |
+
+Also on [Iconify](packages/static#readme) (`iconify.json` in `@kineticons/static`), in [Figma](https://www.figma.com/community/file/1702809638068059955/kineticons)
+(every icon a component with a Style property), in [VS Code](https://marketplace.visualstudio.com/items?itemName=fabwaseem.kineticons)
+([source](extensions/vscode)) and in [Raycast](extensions/raycast).
 
 ## Quick start
 
