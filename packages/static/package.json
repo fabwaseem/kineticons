@@ -1,6 +1,6 @@
 {
   "name": "@kineticons/static",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "2,000+ animated SVG icons in outline, duotone and filled, one stylesheet for their motion, and a JSON index. For plain HTML, any framework and CDNs.",
   "keywords": [
     "icons",
