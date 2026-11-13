@@ -10,8 +10,9 @@ import { IconDetail } from "./IconDetail";
 import { Grid } from "./Grid";
 import { countByCategory, loadCatalog, search, sortIcons } from "@/lib/catalog";
 import { CATEGORIES, fmt, ICON_COUNT } from "@/lib/categories";
-import { useLook, type Look } from "@/lib/store";
+import { DEFAULT_LOOK, useLook, type Look } from "@/lib/store";
 import { Segmented } from "@/components/ui/bits";
+import { ColorPicker, Slider, Switch } from "@/components/ui/inputs";
 import { btn, eyebrow, iconBtn, navItem, tag } from "@/components/ui/controls";
 
 const STYLES = ["outline", "duotone", "filled"] as const;
@@ -100,9 +101,12 @@ export default function Browser() {
       {/* every icon's motion in one stylesheet: the grid's icons bring none of their own */}
       <link rel="stylesheet" href="/kineticons.css" precedence="default" />
       {/* the sidebar: customize, then categories */}
-      <aside aria-label="Customize and filter" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[272px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-3 [scrollbar-width:thin] lg:block">
-        <Customize look={look} patch={patch} reset={reset} />
-        <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
+      <aside aria-label="Customize and filter" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden max-h-[calc(100vh-var(--nav-h)-24px)] w-[272px] shrink-0 flex-col self-start overflow-hidden rounded-box border border-line bg-surface-2 lg:flex">
+        {/* the scroller sits inside the rounded box, clear of its corners; on most screens it never needs to scroll */}
+        <div className="scroll-area my-3 mr-1 min-h-0 flex-1 pr-1 pl-3">
+          <Customize look={look} patch={patch} reset={reset} />
+          <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
+        </div>
       </aside>
 
       <div className="min-w-0 flex-1">
@@ -167,8 +171,10 @@ export default function Browser() {
 
       {/* the details: docked on wide screens */}
       {openIcon && (
-        <aside aria-labelledby="panel-title" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[400px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-5 [scrollbar-width:thin] xl:block 2xl:w-[440px]" style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}>
-          <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
+        <aside aria-labelledby="panel-title" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[400px] shrink-0 flex-col overflow-hidden rounded-box border border-line bg-surface-2 xl:flex 2xl:w-[440px]" style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}>
+          <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">
+            <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
+          </div>
         </aside>
       )}
       {/* ...and a drawer below that width */}
@@ -194,77 +200,7 @@ export default function Browser() {
   );
 }
 
-function Customize({ look, patch, reset }: { look: Look; patch: (p: Partial<Look>) => void; reset: () => void }) {
-  return (
-    <section aria-labelledby="customize-title" className="rounded-card border border-line bg-surface p-4 shadow-[var(--shadow-sm)]">
-      <div className="mb-3 flex items-center justify-between">
-        <h2 id="customize-title" className="text-[14px] font-semibold">
-          Customize
-        </h2>
-        <button type="button" onClick={reset} className="ki-trigger inline-flex h-7 items-center gap-1 rounded-full px-2.5 text-[12px] text-muted transition-colors hover:bg-surface-3 hover:text-ink">
-          <KineticIcon icon={refresh} size={13} />
-          Reset
-        </button>
-      </div>
-      <div className="space-y-4">
-        <Row label="Style">
-          <Segmented size="sm" label="Style" value={look.variant} onChange={(v) => patch({ variant: v })} options={STYLES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1) }))} />
-        </Row>
-        <Row label="Motion">
-          <Segmented
-            size="sm"
-            label="When icons move"
-            value={look.trigger}
-            onChange={(v: Trigger) => patch({ trigger: v })}
-            options={[
-              { value: "hover", label: "Hover" },
-              { value: "loop", label: "Always" },
-              { value: "none", label: "Still" },
-            ]}
-          />
-        </Row>
-        <Slider label="Size" value={look.size} min={16} max={48} step={2} unit="px" onChange={(v) => patch({ size: v })} />
-        <Slider label="Stroke" value={look.stroke ?? 1.75} min={1} max={2.5} step={0.25} onChange={(v) => patch({ stroke: v === 1.75 ? null : v })} />
-        <Row label="Colour">
-          <div className="flex flex-wrap items-center gap-1.5" role="radiogroup" aria-label="Colour">
-            {COLOURS.map((c) => (
-              <button
-                key={c || "ink"}
-                type="button"
-                role="radio"
-                aria-checked={look.color === c}
-                aria-label={c || "Ink"}
-                onClick={() => patch({ color: c })}
-                className={`size-6 rounded-full border-2 transition-transform hover:scale-110 ${look.color === c ? "border-ink" : "border-transparent"}`}
-                style={{ background: c || "var(--ink-2)" }}
-              />
-            ))}
-            <label className="relative size-6 cursor-pointer overflow-hidden rounded-full border border-line-strong" title="Any colour" style={{ background: "conic-gradient(red,yellow,lime,aqua,blue,magenta,red)" }}>
-              <input type="color" value={look.color || "#3b3846"} onChange={(e) => patch({ color: e.target.value })} className="absolute inset-0 cursor-pointer opacity-0" aria-label="Any colour" />
-            </label>
-          </div>
-        </Row>
-        <label className="flex cursor-pointer items-center justify-between text-[13px] text-muted">
-          Show names
-          <input type="checkbox" checked={look.labels} onChange={(e) => patch({ labels: e.target.checked })} className="size-4 accent-[var(--accent)]" />
-        </label>
-      </div>
-    </section>
-  );
-}
 
-function Categories({ counts, category, total, onPick }: { counts: Record<string, number> | null; category: Category | null; total: number; onPick: (c: Category | null) => void }) {
-  return (
-    <nav aria-label="Categories" className="mt-4 px-1">
-      <h2 className={`${eyebrow} mb-2 px-3.5`}>Categories</h2>
-      <RailItem on={!category} label="All icons" count={total} onClick={() => onPick(null)} />
-      <div className="mx-3.5 my-2 h-px bg-line" />
-      {CATEGORIES.map((c) => (
-        <RailItem key={c.value} on={category === c.value} label={c.label} count={counts?.[c.value]} onClick={() => onPick(c.value)} />
-      ))}
-    </nav>
-  );
-}
 
 function Details({ icon, look, onClose }: { icon: IconDef; look: Look; onClose: () => void }) {
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -310,10 +246,10 @@ function Drawer({ children, label, onClose, className = "", side = "right" }: { 
     <div className={`fixed inset-0 z-50 flex ${side === "right" ? "justify-end" : "justify-start"} ${className}`} role="dialog" aria-modal="true" aria-label={label}>
       <button type="button" tabIndex={-1} aria-label="Close" className="absolute inset-0 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px]" style={{ animation: "scrim-in .25s ease both" }} onClick={onClose} />
       <div
-        className="relative m-2 h-[calc(100%-16px)] w-full max-w-[460px] overflow-y-auto overscroll-contain rounded-box border border-line bg-bg p-5 shadow-[var(--shadow-lg)]"
+        className="relative m-2 flex h-[calc(100%-16px)] w-full max-w-[460px] flex-col overflow-hidden rounded-box border border-line bg-bg shadow-[var(--shadow-lg)]"
         style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}
       >
-        {children}
+        <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">{children}</div>
       </div>
     </div>
   );
@@ -329,40 +265,75 @@ function Notice({ title, text, children }: { title: string; text: string; childr
   );
 }
 
-function Row({ label, children }: { label: string; children: ReactNode }) {
+/** How the grid draws icons: style, motion, size, stroke, colour, names. Compact, so the sidebar fits a screen. */
+function Customize({ look, patch, reset }: { look: Look; patch: (p: Partial<Look>) => void; reset: () => void }) {
+  const changed = (Object.keys(DEFAULT_LOOK) as (keyof Look)[]).some((k) => look[k] !== DEFAULT_LOOK[k]);
   return (
-    <div>
-      <div className="mb-2 text-[13px] text-muted">{label}</div>
-      {children}
-    </div>
+    <section aria-labelledby="customize-title" className="rounded-card border border-line bg-surface p-3.5 shadow-[var(--shadow-sm)]">
+      <div className="flex h-7 items-center justify-between">
+        <h2 id="customize-title" className="text-[14px] font-semibold">
+          Customize
+        </h2>
+        <button
+          type="button"
+          onClick={reset}
+          disabled={!changed}
+          className="ki-trigger inline-flex h-7 items-center gap-1 rounded-full px-2.5 text-[12px] text-muted transition-[color,background-color,opacity] hover:bg-surface-3 hover:text-ink disabled:pointer-events-none disabled:opacity-0"
+        >
+          <KineticIcon icon={refresh} size={13} />
+          Reset
+        </button>
+      </div>
+      <div className="mt-3 space-y-2">
+        <Segmented size="sm" full label="Style" value={look.variant} onChange={(v) => patch({ variant: v })} options={STYLES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1) }))} />
+        <Segmented
+          size="sm"
+          full
+          label="When icons move"
+          value={look.trigger}
+          onChange={(v: Trigger) => patch({ trigger: v })}
+          options={[
+            { value: "hover", label: "On hover" },
+            { value: "loop", label: "Always" },
+            { value: "none", label: "Still" },
+          ]}
+        />
+      </div>
+      <div className="mt-4 space-y-3">
+        <Slider label="Size" value={look.size} min={16} max={48} step={2} onChange={(v) => patch({ size: v })} format={(v) => `${v}px`} />
+        <Slider label="Stroke" value={look.stroke ?? 1.75} min={1} max={2.5} step={0.25} onChange={(v) => patch({ stroke: v === 1.75 ? null : v })} format={(v) => v.toFixed(2)} />
+      </div>
+      <div className="mt-4">
+        <div className="mb-2 text-[13px] text-muted">Colour</div>
+        <ColorPicker label="Colour" value={look.color} colors={COLOURS} onChange={(c) => patch({ color: c })} />
+      </div>
+      <div className="mt-4 border-t border-line pt-3">
+        <Switch label="Show names" checked={look.labels} onChange={(v) => patch({ labels: v })} />
+      </div>
+    </section>
   );
 }
 
-function RailItem({ on, label, count, onClick }: { on: boolean; label: string; count?: number; onClick: () => void }) {
+function Categories({ counts, category, total, onPick }: { counts: Record<string, number> | null; category: Category | null; total: number; onPick: (c: Category | null) => void }) {
+  const row = (on: boolean) => navItem(on, "py-[5px]");
+  const count = (on: boolean, n?: number) => <span className={`text-[12px] tabular ${on ? "text-accent-ink" : "text-faint"}`}>{n != null ? fmt(n) : ""}</span>;
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-current={on ? "true" : undefined}
-      className={navItem(on)}
-    >
-      {label}
-      <span className={`text-[12px] tabular ${on ? "text-accent-ink" : "text-faint"}`}>{count != null ? fmt(count) : ""}</span>
-    </button>
-  );
-}
-
-function Slider({ label, value, min, max, step, unit = "", onChange }: { label: string; value: number; min: number; max: number; step: number; unit?: string; onChange: (v: number) => void }) {
-  return (
-    <label className="block">
-      <span className="mb-2 flex justify-between text-[13px] text-muted">
-        {label}
-        <span className="text-ink tabular">
-          {value}
-          {unit}
-        </span>
-      </span>
-      <input type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(+e.target.value)} className="w-full accent-[var(--accent)]" aria-label={label} />
-    </label>
+    <nav aria-label="Categories" className="mt-4">
+      <h2 className={`${eyebrow} mb-1.5 px-3.5`}>Categories</h2>
+      <button type="button" onClick={() => onPick(null)} aria-current={!category ? "true" : undefined} className={row(!category)}>
+        All icons
+        {count(!category, total)}
+      </button>
+      <ul className="mt-0.5">
+        {CATEGORIES.map((c) => (
+          <li key={c.value}>
+            <button type="button" onClick={() => onPick(c.value)} aria-current={category === c.value ? "true" : undefined} className={row(category === c.value)}>
+              {c.label}
+              {count(category === c.value, counts?.[c.value])}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

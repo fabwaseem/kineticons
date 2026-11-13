@@ -141,6 +141,7 @@
 
   --color-bg: var(--bg);
   --color-bg-2: var(--bg-2);
+  --color-card: var(--card);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-surface-3: var(--surface-3);
@@ -226,6 +227,14 @@
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm), var(--edge);
+}
+/* a scroll region with a quiet, thin scrollbar (no arrow buttons) that shows the content's colour */
+@utility scroll-area {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink) 20%, transparent) transparent;
 }
 @utility tabular { font-variant-numeric: tabular-nums; }
 @utility accent-gradient { background-image: linear-gradient(135deg, var(--accent-2), var(--accent)); }

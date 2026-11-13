@@ -93,9 +93,9 @@ export function CodeBlock({ code, lang, className = "", maxH, bare = false }: { 
 }
 
 /** A row of choices, one picked. */
-export function Segmented<T extends string>({ value, onChange, options, label, size = "md" }: { value: T; onChange: (v: T) => void; options: { value: T; label: ReactNode; title?: string }[]; label: string; size?: "sm" | "md" }) {
+export function Segmented<T extends string>({ value, onChange, options, label, size = "md", full = false }: { value: T; onChange: (v: T) => void; options: { value: T; label: ReactNode; title?: string }[]; label: string; size?: "sm" | "md"; full?: boolean }) {
   return (
-    <div role="radiogroup" aria-label={label} className={`inline-flex shrink-0 gap-0.5 rounded-full bg-surface-3 p-1 ${size === "sm" ? "h-9" : "h-10"}`}>
+    <div role="radiogroup" aria-label={label} className={`${full ? "flex w-full" : "inline-flex shrink-0"} gap-0.5 rounded-full bg-surface-3 p-1 ${size === "sm" ? "h-9" : "h-10"}`}>
       {options.map((o) => (
         <button
           key={o.value}
@@ -104,7 +104,7 @@ export function Segmented<T extends string>({ value, onChange, options, label, s
           aria-checked={value === o.value}
           title={o.title}
           onClick={() => onChange(o.value)}
-          className={`ki-trigger inline-flex items-center gap-1.5 rounded-full ${size === "sm" ? "px-3" : "px-3.5"} text-[13px] font-medium whitespace-nowrap transition-[background-color,color,box-shadow] duration-200 ${
+          className={`ki-trigger inline-flex items-center gap-1.5 rounded-full ${full ? "flex-1 justify-center" : ""} ${size === "sm" ? "px-3" : "px-3.5"} text-[13px] font-medium whitespace-nowrap transition-[background-color,color,box-shadow] duration-200 ${
             value === o.value ? "bg-surface text-ink shadow-[var(--shadow-sm)]" : "text-muted hover:text-ink"
           }`}
         >
