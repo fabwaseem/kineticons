@@ -1,18 +1,27 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
+import { prefetchCatalog } from "@/lib/catalog";
 import { Nav } from "./Nav";
+import Palette from "./Palette";
 import { onOpenPalette } from "./palette-bus";
-
-const Palette = dynamic(() => import("./Palette"), { ssr: false });
 
 /** Every page: the nav, the page, the footer, and the icon search on ⌘K / Ctrl K. */
 export function Shell({ children, footer }: { children: ReactNode; footer: ReactNode }) {
   const [palette, setPalette] = useState(false);
   const path = usePathname();
   useEffect(() => onOpenPalette(() => setPalette(true)), []);
+  // the search opens instantly: its code ships with the page, and the icon list is fetched once the page is idle
+  useEffect(() => {
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    if (w.requestIdleCallback) {
+      const id = w.requestIdleCallback(prefetchCatalog, { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(prefetchCatalog, 1500);
+    return () => window.clearTimeout(t);
+  }, []);
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
@@ -25,7 +34,7 @@ export function Shell({ children, footer }: { children: ReactNode; footer: React
   }, []);
   useEffect(() => setPalette(false), [path]);
   // the full-width icon browser has no footer: the grid runs on
-  const bare = path === "/icons";
+  const bare = path.replace(/\/$/, "") === "/icons";
   return (
     <>
       <Nav />

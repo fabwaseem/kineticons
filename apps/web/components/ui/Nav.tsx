@@ -1,16 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useEffect, useState } from "react";
 import { KineticIcon } from "kineticons";
-import { arrowRight, close, menu, monitor, moon, search, sun } from "@kineticons/core/icons";
+import { arrowRight, close, menu, moon, search, sun } from "@kineticons/core/icons";
 import { prefetchCatalog } from "@/lib/catalog";
 import { fmt, ICON_COUNT } from "@/lib/categories";
 import { REPO_URL } from "@/lib/site";
-import { useTheme, type ThemeChoice } from "@/lib/theme";
-import { Kbd, Wordmark } from "./bits";
-import { btn, iconBtn } from "./controls";
+import { useTheme } from "@/lib/theme";
+import { Kbd, Mark, Wordmark } from "./bits";
+import { btn, field, iconBtn } from "./controls";
 import { openPalette } from "./palette-bus";
 
 const LINKS = [
@@ -38,7 +38,8 @@ export function Nav() {
   }, [open]);
   const [isMac, setIsMac] = useState(false);
   useEffect(() => setIsMac(/Mac|iPhone|iPad/.test(navigator.platform)), []);
-  const activeIndex = LINKS.findIndex((l) => isActive(path, l.href));
+
+  if (path.replace(/\/$/, "") === "/icons") return <IconsBar path={path} open={open} setOpen={setOpen} />;
 
   return (
     <header className="pointer-events-none sticky top-0 z-40 flex h-[var(--nav-h)] items-center justify-center px-2 sm:px-3">
@@ -54,26 +55,7 @@ export function Nav() {
           <Wordmark />
         </Link>
 
-        <nav aria-label="Main" className="relative ml-2 hidden h-10 items-center rounded-full bg-surface-3 p-1 md:flex">
-          {activeIndex >= 0 && (
-            <span
-              aria-hidden
-              className="absolute top-1 bottom-1 w-[76px] rounded-full bg-card shadow-sm transition-transform duration-300 ease-[cubic-bezier(.34,1.56,.64,1)]"
-              style={{ transform: `translateX(${activeIndex * 76}px)` }}
-            />
-          )}
-          {LINKS.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              onMouseEnter={l.href === "/icons" ? prefetchCatalog : undefined}
-              aria-current={isActive(path, l.href) ? "page" : undefined}
-              className={`relative z-10 grid h-8 w-[76px] place-items-center rounded-full text-[14px] font-medium transition-colors ${isActive(path, l.href) ? "text-ink" : "text-muted hover:text-ink"}`}
-            >
-              {l.label}
-            </Link>
-          ))}
-        </nav>
+        <MainSwitch path={path} className="ml-2 hidden md:flex" />
 
         <div className="ml-auto flex items-center gap-1">
           <button
@@ -116,23 +98,7 @@ export function Nav() {
         </div>
       </div>
 
-      {open && (
-        <div className="pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)-4px)] z-40 rounded-box border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
-          <nav aria-label="Main" className="flex flex-col">
-            {[{ href: "/", label: "Home" }, ...LINKS, { href: "/docs/react", label: "React" }, { href: "/docs/design-system", label: "Design system" }].map((l) => (
-              <Link key={l.href} href={l.href} className={`heading rounded-card px-4 py-3 text-[28px] transition-colors hover:bg-surface-3 ${path === l.href ? "text-ink" : "text-muted"}`}>
-                {l.label}
-              </Link>
-            ))}
-            <a href={REPO_URL} className="heading rounded-card px-4 py-3 text-[28px] text-muted hover:bg-surface-3">
-              GitHub
-            </a>
-            <Link href="/icons" className={btn("accent", "lg", "mt-2 w-full")}>
-              Browse icons
-            </Link>
-          </nav>
-        </div>
-      )}
+      {open && <PhoneMenu path={path} />}
     </header>
   );
 }
@@ -146,27 +112,156 @@ export function GitHubMark({ size = 18 }: { size?: number }) {
   );
 }
 
-const THEMES: { value: ThemeChoice; label: string; icon: typeof sun }[] = [
-  { value: "light", label: "Light", icon: sun },
-  { value: "dark", label: "Dark", icon: moon },
-  { value: "system", label: "System", icon: monitor },
-];
-
-/** Light, dark or the system's: cycles on click. */
+/** Light or dark. The new theme grows out of this button as a circle; the sun turns into the moon. */
 function ThemeButton() {
-  const { choice, setChoice } = useTheme();
-  const i = Math.max(0, THEMES.findIndex((t) => t.value === choice));
-  const next = THEMES[(i + 1) % THEMES.length];
-  const current = THEMES[i];
+  const { theme, toggle } = useTheme();
+  const dark = theme === "dark";
   return (
     <button
       type="button"
-      onClick={() => setChoice(next.value)}
-      aria-label={`Theme: ${current.label}. Switch to ${next.label}`}
-      title={`Theme: ${current.label}`}
-      className={iconBtn(false, "lg")}
+      onClick={(e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        toggle({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+      }}
+      aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
+      title={dark ? "Light theme" : "Dark theme"}
+      className={iconBtn(false, "lg", "relative overflow-hidden")}
     >
-      <KineticIcon icon={current.icon} size={18} variant="duotone" />
+      <span className={`absolute inset-0 grid place-items-center transition-[transform,opacity] duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] ${dark ? "scale-50 -rotate-90 opacity-0" : "opacity-100"}`}>
+        <KineticIcon icon={sun} size={18} variant="duotone" />
+      </span>
+      <span className={`absolute inset-0 grid place-items-center transition-[transform,opacity] duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] ${dark ? "opacity-100" : "scale-50 rotate-90 opacity-0"}`}>
+        <KineticIcon icon={moon} size={18} variant="duotone" />
+      </span>
     </button>
+  );
+}
+
+/** The Icons / Docs switch, a white pill sliding to the current one. */
+function MainSwitch({ path, className = "" }: { path: string; className?: string }) {
+  const activeIndex = LINKS.findIndex((l) => isActive(path, l.href));
+  return (
+    <nav aria-label="Main" className={`relative h-10 items-center rounded-full bg-surface-3 p-1 ${className}`}>
+      {activeIndex >= 0 && (
+        <span
+          aria-hidden
+          className="absolute top-1 bottom-1 w-[76px] rounded-full bg-card shadow-sm transition-transform duration-300 ease-[cubic-bezier(.34,1.56,.64,1)]"
+          style={{ transform: `translateX(${activeIndex * 76}px)` }}
+        />
+      )}
+      {LINKS.map((l) => (
+        <Link
+          key={l.href}
+          href={l.href}
+          onMouseEnter={l.href === "/icons" ? prefetchCatalog : undefined}
+          aria-current={isActive(path, l.href) ? "page" : undefined}
+          className={`relative z-10 grid h-8 w-[76px] place-items-center rounded-full text-[14px] font-medium transition-colors ${isActive(path, l.href) ? "text-ink" : "text-muted hover:text-ink"}`}
+        >
+          {l.label}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+/** The menu on phones: the main pages in display type. */
+function PhoneMenu({ path }: { path: string }) {
+  return (
+    <div className="pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)-4px)] z-40 rounded-box border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
+      <nav aria-label="Main" className="flex flex-col">
+        {[{ href: "/", label: "Home" }, ...LINKS, { href: "/docs/react", label: "React" }, { href: "/docs/design-system", label: "Design system" }].map((l) => (
+          <Link key={l.href} href={l.href} className={`heading rounded-card px-4 py-3 text-[28px] transition-colors hover:bg-surface-3 ${path === l.href ? "text-ink" : "text-muted"}`}>
+            {l.label}
+          </Link>
+        ))}
+        <a href={REPO_URL} className="heading rounded-card px-4 py-3 text-[28px] text-muted hover:bg-surface-3">
+          GitHub
+        </a>
+        <Link href="/icons" className={btn("accent", "lg", "mt-2 w-full")}>
+          Browse icons
+        </Link>
+      </nav>
+    </div>
+  );
+}
+
+/**
+ * The icon browser's own bar: solid and full width, so the grid never shows around it, with the search in the
+ * middle (it drives the browser's ?q=) instead of the way in, since the visitor is already in.
+ */
+function IconsBar({ path, open, setOpen }: { path: string; open: boolean; setOpen: (v: boolean) => void }) {
+  return (
+    <header data-appbar className="sticky top-0 z-40 h-[var(--nav-h)] border-b border-line bg-bg">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-card focus:px-4 focus:py-2">
+        Skip to content
+      </a>
+      <div className="flex h-full items-center gap-3 px-3 sm:px-4 lg:gap-4">
+        <div className="flex shrink-0 items-center gap-3 lg:w-[272px]">
+          <Link href="/" aria-label="Kineticons, home" className="shrink-0 rounded-full">
+            <span className="max-sm:hidden">
+              <Wordmark />
+            </span>
+            <span className="sm:hidden">
+              <Mark size={30} />
+            </span>
+          </Link>
+          <MainSwitch path={path} className="hidden xl:flex" />
+        </div>
+        <Suspense fallback={<div className="h-11 flex-1" />}>
+          <BarSearch />
+        </Suspense>
+        <div className="flex shrink-0 items-center gap-1">
+          <MainSwitch path={path} className="mr-1 hidden md:flex xl:hidden" />
+          <a href={REPO_URL} target="_blank" rel="noreferrer" aria-label="Kineticons on GitHub" className={iconBtn(false, "lg", "max-sm:hidden")}>
+            <GitHubMark />
+          </a>
+          <ThemeButton />
+          <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} onClick={() => setOpen(!open)} className={iconBtn(false, "lg", "md:hidden")}>
+            <KineticIcon icon={open ? close : menu} size={19} />
+          </button>
+        </div>
+      </div>
+      {open && <PhoneMenu path={path} />}
+    </header>
+  );
+}
+
+/** The icon search in the app bar: the browser reads ?q=, so typing here filters the grid. "/" focuses it. */
+function BarSearch() {
+  const params = useSearchParams();
+  const router = useRouter();
+  const q = params.get("q") ?? "";
+  const set = (v: string) => {
+    const next = new URLSearchParams(params.toString());
+    if (v) next.set("q", v);
+    else next.delete("q");
+    const qs = next.toString();
+    router.replace(qs ? `/icons?${qs}` : "/icons", { scroll: false });
+  };
+  return (
+    <label className={field("mx-auto h-11 flex-1 pr-1.5 pl-4 lg:max-w-[760px]")}>
+      <KineticIcon icon={search} size={18} className="shrink-0 text-faint" />
+      <input
+        id="icon-search"
+        value={q}
+        onChange={(e) => set(e.target.value)}
+        placeholder={`Search ${fmt(ICON_COUNT)} icons by name, tag or idea`}
+        aria-label="Search icons"
+        className="h-full min-w-0 flex-1 bg-transparent text-[16px] outline-none placeholder:text-faint"
+        autoComplete="off"
+        spellCheck={false}
+        type="search"
+        enterKeyHint="search"
+      />
+      {q ? (
+        <button type="button" onClick={() => set("")} aria-label="Clear search" className={iconBtn(false, "sm")}>
+          <KineticIcon icon={close} size={16} />
+        </button>
+      ) : (
+        <span className="hidden pr-2.5 sm:inline-grid">
+          <Kbd>/</Kbd>
+        </span>
+      )}
+    </label>
   );
 }

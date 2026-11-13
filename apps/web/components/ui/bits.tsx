@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { KineticIcon } from "kineticons";
 import {
@@ -11,15 +11,17 @@ import { btn, type BtnSize, type BtnVariant } from "./controls";
 
 /** The mark: a rounded tile and a K whose lower leg kicks out when the mark is pointed at. */
 export function Mark({ size = 28 }: { size?: number }) {
+  // each mark its own gradient: a shared id breaks when the first mark on the page is hidden
+  const fill = `ki-mark-fill-${useId().replace(/:/g, "")}`;
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="ki-mark shrink-0">
       <defs>
-        <linearGradient id="ki-mark-fill" x1="0" y1="0" x2="1" y2="1">
+        <linearGradient id={fill} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#ff8a4c" />
           <stop offset="1" stopColor="#ff4a22" />
         </linearGradient>
       </defs>
-      <rect width="32" height="32" rx="9" fill="url(#ki-mark-fill)" />
+      <rect width="32" height="32" rx="9" fill={`url(#${fill})`} />
       <g fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
         <path d="M11 8.5v15" />
         <path d="M21 8.5 14.5 16" />

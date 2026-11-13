@@ -43,6 +43,8 @@
 @media (max-width: 640px) {
   :root { --r-panel: 32px; --nav-h: 72px; }
 }
+/* the icon browser's solid app bar is lower than the floating pill */
+:root:has([data-appbar]) { --nav-h: 64px; }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -69,6 +71,13 @@
   --shadow-lg: 0 34px 80px -30px rgba(0, 0, 0, 0.9);
   --edge: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
+
+/* switching theme: the new page grows out of the switch as a circle (lib/theme.tsx animates the clip). The default
+   cross-fade is off, and so are colour transitions while the snapshot is taken, so the new theme lands crisp. */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { z-index: 2; }
+.theme-swap, .theme-swap *, .theme-swap *::before, .theme-swap *::after { transition: none !important; }
 
 /* the plum panels: always dark, in both themes */
 .night {
@@ -166,7 +175,8 @@
 
 @layer base {
   * { border-color: var(--line); }
-  html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--nav-h) + 16px); }
+  /* the scrollbar's room is always kept, so locking the page under a dialog or a drawer never shifts it sideways */
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--nav-h) + 16px); scrollbar-gutter: stable; }
   body {
     background: var(--bg);
     color: var(--ink);

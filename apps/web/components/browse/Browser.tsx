@@ -5,14 +5,14 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { KineticIcon } from "kineticons";
 import type { Category, IconDef, Trigger, Variant } from "@kineticons/core";
-import { arrowUpRight, close, refresh, search as searchIcon, sliders } from "@kineticons/core/icons";
+import { arrowUpRight, close, refresh, sliders } from "@kineticons/core/icons";
 import { IconDetail } from "./IconDetail";
 import { Grid } from "./Grid";
 import { countByCategory, loadCatalog, search, sortIcons } from "@/lib/catalog";
 import { CATEGORIES, fmt, ICON_COUNT } from "@/lib/categories";
 import { useLook, type Look } from "@/lib/store";
-import { Kbd, Segmented } from "@/components/ui/bits";
-import { btn, eyebrow, field, iconBtn, navItem, tag } from "@/components/ui/controls";
+import { Segmented } from "@/components/ui/bits";
+import { btn, eyebrow, iconBtn, navItem, tag } from "@/components/ui/controls";
 
 const STYLES = ["outline", "duotone", "filled"] as const;
 const COLOURS = ["", "#ff5a2d", "#7c5cff", "#14b8a6", "#f43f5e", "#f59e0b", "#3b82f6"];
@@ -36,7 +36,7 @@ export default function Browser() {
   const sort: Sort = params.get("sort") === "name" ? "name" : "category";
   const open = params.get("icon");
   const dq = useDeferredValue(q);
-  const searchRef = useRef<HTMLInputElement>(null);
+  const searchEl = () => document.getElementById("icon-search") as HTMLInputElement | null;
 
   const load = useCallback(() => {
     setFailed(false);
@@ -74,13 +74,13 @@ export default function Browser() {
   // "/" focuses the search; Escape closes the details or clears the search
   useEffect(() => {
     const on = (e: KeyboardEvent) => {
-      const typing = (e.target as HTMLElement)?.closest("input, textarea, [contenteditable]");
+      const typing = e.target instanceof Element ? e.target.closest("input, textarea, [contenteditable]") : null;
       if (e.key === "/" && !typing) {
         e.preventDefault();
-        searchRef.current?.focus();
+        searchEl()?.focus();
       } else if (e.key === "Escape") {
         if (open) set({ icon: null });
-        else if (typing === searchRef.current && q) set({ q: null });
+        else if (typing && typing === searchEl() && q) set({ q: null });
       }
     };
     window.addEventListener("keydown", on);
@@ -100,57 +100,23 @@ export default function Browser() {
       {/* every icon's motion in one stylesheet: the grid's icons bring none of their own */}
       <link rel="stylesheet" href="/kineticons.css" precedence="default" />
       {/* the sidebar: customize, then categories */}
-      <aside aria-label="Customize and filter" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h)-12px)] w-[272px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-3 [scrollbar-width:thin] lg:block">
+      <aside aria-label="Customize and filter" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[272px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-3 [scrollbar-width:thin] lg:block">
         <Customize look={look} patch={patch} reset={reset} />
         <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
       </aside>
 
       <div className="min-w-0 flex-1">
-        {/* the search */}
-        <div className="sticky top-[var(--nav-h)] z-20 -mx-2 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-2 pt-1 pb-3 backdrop-blur-xl sm:-mx-3 sm:px-3 lg:mx-0 lg:px-0">
-          <div className="flex items-center gap-2">
-            <label className={field("h-12 flex-1 pr-2 pl-5")}>
-              <KineticIcon icon={searchIcon} size={19} className="text-faint" />
-              <input
-                ref={searchRef}
-                value={q}
-                onChange={(e) => set({ q: e.target.value || null })}
-                placeholder={`Search ${fmt(inCategory.length || ICON_COUNT)} icons by name, tag or idea`}
-                aria-label="Search icons"
-                className="h-full min-w-0 flex-1 bg-transparent text-[16px] outline-none placeholder:text-faint"
-                autoComplete="off"
-                spellCheck={false}
-                type="search"
-                enterKeyHint="search"
-              />
-              {q ? (
-                <button type="button" onClick={() => set({ q: null })} aria-label="Clear search" className={iconBtn(false, "sm")}>
-                  <KineticIcon icon={close} size={16} />
-                </button>
-              ) : (
-                <span className="hidden pr-2 sm:inline-grid">
-                  <Kbd>/</Kbd>
-                </span>
-              )}
-            </label>
-            <button
-              type="button"
-              onClick={() => setSheet(true)}
-              className={btn("secondary", "lg", "px-4 lg:hidden")}
-            >
-              <KineticIcon icon={sliders} size={18} />
-              <span className="hidden sm:inline">Customize</span>
-            </button>
-          </div>
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 px-2">
+        {/* the toolbar: what is shown, how many, the order (the search lives in the app bar) */}
+        <div className="sticky top-[var(--nav-h)] z-20 -mx-2 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-2 pt-5 pb-3 backdrop-blur-xl sm:-mx-3 sm:px-3 lg:mx-0 lg:px-0">
+          <div className="flex flex-wrap items-center justify-between gap-3 px-2">
             <h1 className="heading text-[26px] leading-none">
               {label}
               <span className="ml-3 align-middle font-sans text-[14px] font-normal text-faint tabular" aria-live="polite">
                 {!all ? "" : q.trim() ? `${fmt(shown.length)} of ${fmt(inCategory.length)}` : fmt(shown.length)}
               </span>
             </h1>
-            <div className="flex items-center gap-3">
-              <span className="hidden text-[13px] text-faint xl:block">Point at an icon to see it move. Arrow keys move, Enter opens.</span>
+            <div className="flex items-center gap-2">
+              <span className="mr-1 hidden text-[13px] text-faint xl:block">Point at an icon to see it move. Arrow keys move, Enter opens.</span>
               <Segmented
                 size="sm"
                 label="Sort"
@@ -161,6 +127,10 @@ export default function Browser() {
                   { value: "name", label: "A–Z" },
                 ]}
               />
+              <button type="button" onClick={() => setSheet(true)} aria-label="Customize and filter" className={btn("secondary", "sm", "lg:hidden")}>
+                <KineticIcon icon={sliders} size={16} />
+                <span className="hidden sm:inline">Customize</span>
+              </button>
             </div>
           </div>
         </div>
@@ -197,7 +167,7 @@ export default function Browser() {
 
       {/* the details: docked on wide screens */}
       {openIcon && (
-        <aside aria-labelledby="panel-title" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h)-12px)] w-[400px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-5 [scrollbar-width:thin] xl:block 2xl:w-[440px]" style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}>
+        <aside aria-labelledby="panel-title" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[400px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-5 [scrollbar-width:thin] xl:block 2xl:w-[440px]" style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}>
           <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
         </aside>
       )}
