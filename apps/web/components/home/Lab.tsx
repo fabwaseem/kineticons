@@ -53,10 +53,10 @@ export function Lab() {
   useEffect(() => (setPinned(null), setHovered(null)), [icon]);
 
   return (
-    <section className="relative mx-auto max-w-[1280px] px-4 py-28 sm:px-6" aria-labelledby="lab-title">
+    <section className="relative mx-auto max-w-[1240px] px-6 pt-36 pb-32 sm:pt-44" aria-labelledby="lab-title">
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
         {/* the specimen */}
-        <div className="card overflow-hidden rounded-[32px]">
+        <div className="card overflow-hidden rounded-[40px]">
           <div
             className="ki-trigger relative grid place-items-center px-6 py-10 sm:py-14"
             onMouseEnter={() => !loop && playOnce()}
@@ -86,8 +86,8 @@ export function Lab() {
 
         {/* the story */}
         <div className="lg:pt-6">
-          <h2 id="lab-title" className="heading text-[clamp(32px,4.4vw,52px)]">
-            Look closer
+          <h2 id="lab-title" className="display text-[clamp(44px,6vw,88px)]">
+            Look <em>closer.</em>
           </h2>
           <p className="mt-4 max-w-[520px] text-[16.5px] leading-relaxed text-muted">
             Each icon is drawn on a 24-unit grid out of named parts, and each part moves for a reason. Slow it down, pick out a part, switch the style: the drawing is the same in all three.

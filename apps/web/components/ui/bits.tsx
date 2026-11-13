@@ -33,7 +33,7 @@ export function Wordmark() {
   return (
     <span className="flex items-center gap-2.5">
       <Mark size={28} />
-      <span className="heading text-[17px] tracking-[-0.02em]">Kineticons</span>
+      <span className="heading text-[22px] leading-none">Kineticons</span>
     </span>
   );
 }

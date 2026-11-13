@@ -45,7 +45,7 @@ export function HeroSearch() {
 
   return (
     <div ref={boxRef} className="relative text-left" onFocus={() => (warm(), setOpen(true))}>
-      <label className="flex h-[60px] items-center gap-3 rounded-[18px] border border-line-strong bg-surface pr-3 pl-5 shadow-[var(--shadow-md)] transition-[border-color,box-shadow] focus-within:border-[color-mix(in_srgb,var(--accent)_55%,transparent)] focus-within:shadow-[0_0_0_4px_var(--accent-soft),var(--shadow-md)]">
+      <label className="flex h-[60px] items-center gap-3 rounded-full border border-line-strong bg-surface pr-3 pl-5 shadow-[var(--shadow-md)] transition-[border-color,box-shadow] focus-within:border-[color-mix(in_srgb,var(--accent)_55%,transparent)] focus-within:shadow-[0_0_0_4px_var(--accent-soft),var(--shadow-md)]">
         <KineticIcon icon={searchIcon} size={21} className="shrink-0 text-faint" />
         <input
           value={q}
@@ -56,7 +56,7 @@ export function HeroSearch() {
             else if (e.key === "Enter") (e.preventDefault(), go());
             else if (e.key === "Escape") setOpen(false);
           }}
-          placeholder={`Search ${fmt(ICON_COUNT)} icons: try “rocket” or “money”`}
+          placeholder={`Search ${fmt(ICON_COUNT)} icons`}
           aria-label="Search icons"
           role="combobox"
           aria-expanded={open && top.length > 0}
@@ -72,7 +72,7 @@ export function HeroSearch() {
       </label>
 
       {open && (
-        <div className="absolute inset-x-0 top-[calc(100%+8px)] overflow-hidden rounded-[18px] border border-line bg-surface shadow-[var(--shadow-lg)]" style={{ animation: "rise .3s var(--ease-smooth) both" }}>
+        <div className="absolute inset-x-0 top-[calc(100%+8px)] overflow-hidden rounded-[26px] border border-line bg-surface shadow-[var(--shadow-lg)]" style={{ animation: "rise .3s var(--ease-smooth) both" }}>
           {!q.trim() ? (
             <div className="flex flex-wrap items-center gap-1.5 p-3">
               <span className="px-2 text-[12.5px] text-faint">Try</span>

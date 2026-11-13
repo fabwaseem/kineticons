@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { KineticIcon } from "kineticons";
-import { close, menu, monitor, moon, search, sun } from "@kineticons/core/icons";
+import { arrowRight, close, menu, monitor, moon, search, sun } from "@kineticons/core/icons";
 import { prefetchCatalog } from "@/lib/catalog";
 import { fmt, ICON_COUNT } from "@/lib/categories";
 import { REPO_URL } from "@/lib/site";
@@ -15,19 +15,18 @@ import { openPalette } from "./palette-bus";
 const LINKS = [
   { href: "/icons", label: "Icons" },
   { href: "/docs", label: "Docs" },
-  { href: "/docs/react", label: "React" },
-  { href: "/docs/design-system", label: "Design system" },
 ];
 
-const isActive = (path: string, href: string) => (href === "/docs" ? path === "/docs" || (path.startsWith("/docs/") && !LINKS.some((l) => l.href !== "/docs" && path.startsWith(l.href))) : path === href || path.startsWith(href + "/"));
+const isActive = (path: string, href: string) => path === href || path.startsWith(href + "/");
 
+/** The floating pill: the mark, a switch between the icons and the docs, search, GitHub, theme, and the way in. */
 export function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const path = usePathname();
   useEffect(() => setOpen(false), [path]);
   useEffect(() => {
-    const on = () => setScrolled(window.scrollY > 4);
+    const on = () => setScrolled(window.scrollY > 8);
     on();
     window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
@@ -38,61 +37,78 @@ export function Nav() {
   }, [open]);
   const [isMac, setIsMac] = useState(false);
   useEffect(() => setIsMac(/Mac|iPhone|iPad/.test(navigator.platform)), []);
+  const activeIndex = LINKS.findIndex((l) => isActive(path, l.href));
 
   return (
-    <header
-      className={`sticky top-0 z-40 h-[var(--nav-h)] border-b transition-[background-color,border-color] duration-300 ${
-        scrolled || open ? "border-line bg-[color-mix(in_srgb,var(--bg)_82%,transparent)] backdrop-blur-xl backdrop-saturate-150" : "border-transparent bg-transparent"
-      }`}
-    >
-      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-[10px] focus:bg-surface focus:px-3 focus:py-2">
+    <header className="pointer-events-none sticky top-0 z-40 flex h-[var(--nav-h)] items-center justify-center px-2 sm:px-3">
+      <a href="#main" className="pointer-events-auto sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-card focus:px-4 focus:py-2">
         Skip to content
       </a>
-      <div className="mx-auto flex h-full max-w-[1400px] items-center gap-2 px-4 sm:px-6">
-        <Link href="/" aria-label="Kineticons, home" className="mr-3 shrink-0 rounded-[10px]">
+      <div
+        className={`pointer-events-auto flex h-14 w-full max-w-[1120px] items-center gap-2 rounded-full border pr-2 pl-4 transition-[background-color,border-color,box-shadow] duration-300 sm:pl-5 ${
+          scrolled || open ? "border-line bg-[color-mix(in_srgb,var(--card)_86%,transparent)] shadow-[var(--shadow-md)] backdrop-blur-xl backdrop-saturate-150" : "border-line bg-[color-mix(in_srgb,var(--card)_60%,transparent)] backdrop-blur-md"
+        }`}
+      >
+        <Link href="/" aria-label="Kineticons, home" className="mr-1 shrink-0 rounded-full">
           <Wordmark />
         </Link>
-        <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">
+
+        <nav aria-label="Main" className="relative ml-2 hidden h-10 items-center rounded-full bg-surface-3 p-1 md:flex">
+          {activeIndex >= 0 && (
+            <span
+              aria-hidden
+              className="absolute top-1 bottom-1 w-[76px] rounded-full bg-card shadow-sm transition-transform duration-300 ease-[cubic-bezier(.34,1.56,.64,1)]"
+              style={{ transform: `translateX(${activeIndex * 76}px)` }}
+            />
+          )}
           {LINKS.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onMouseEnter={l.href === "/icons" ? prefetchCatalog : undefined}
               aria-current={isActive(path, l.href) ? "page" : undefined}
-              className={`rounded-[10px] px-3 py-2 text-[14px] font-medium transition-colors ${isActive(path, l.href) ? "text-ink" : "text-muted hover:text-ink"}`}
+              className={`relative z-10 grid h-8 w-[76px] place-items-center rounded-full text-[14px] font-medium transition-colors ${isActive(path, l.href) ? "text-ink" : "text-muted hover:text-ink"}`}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-1.5">
+        <div className="ml-auto flex items-center gap-1">
           <button
             type="button"
             onClick={openPalette}
             onMouseEnter={prefetchCatalog}
-            className="ki-trigger hidden h-9 items-center gap-2 rounded-[11px] border border-line bg-surface px-2.5 text-[13px] text-faint shadow-sm transition-colors hover:border-line-strong hover:text-muted sm:flex"
+            className="ki-trigger hidden h-10 items-center gap-2 rounded-full border border-line bg-card px-3.5 text-[13px] text-faint transition-colors hover:border-line-strong hover:text-muted lg:flex"
           >
             <KineticIcon icon={search} size={16} />
-            <span className="w-[150px] text-left">Search {fmt(ICON_COUNT)} icons</span>
+            <span className="w-[132px] text-left">Search {fmt(ICON_COUNT)} icons</span>
             <span className="flex gap-0.5">
               <Kbd>{isMac ? "⌘" : "Ctrl"}</Kbd>
               <Kbd>K</Kbd>
             </span>
           </button>
-          <button type="button" onClick={openPalette} aria-label="Search icons" className="ki-trigger grid size-9 place-items-center rounded-[11px] text-ink-2 hover:bg-surface-3 sm:hidden">
+          <button type="button" onClick={openPalette} aria-label="Search icons" className="ki-trigger grid size-10 place-items-center rounded-full text-ink-2 hover:bg-surface-3 lg:hidden">
             <KineticIcon icon={search} size={18} />
           </button>
-          <a href={REPO_URL} target="_blank" rel="noreferrer" aria-label="Kineticons on GitHub" className="hidden size-9 place-items-center rounded-[11px] text-ink-2 transition-colors hover:bg-surface-3 sm:grid">
+          <a href={REPO_URL} target="_blank" rel="noreferrer" aria-label="Kineticons on GitHub" className="hidden size-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-surface-3 sm:grid">
             <GitHubMark />
           </a>
           <ThemeButton />
+          <Link
+            href="/icons"
+            onMouseEnter={prefetchCatalog}
+            className="ki-trigger ml-1 hidden h-10 items-center gap-1.5 rounded-full bg-accent pr-3.5 pl-4 text-[14px] font-medium text-[#1a0f0a] transition-[transform,background-color] duration-200 hover:-translate-y-px hover:bg-[color-mix(in_srgb,var(--accent)_90%,white)] active:translate-y-0 sm:inline-flex"
+          >
+            Browse icons
+            <KineticIcon icon={arrowRight} size={16} />
+          </Link>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="ki-trigger grid size-9 place-items-center rounded-[11px] text-ink-2 hover:bg-surface-3 md:hidden"
+            className="ki-trigger grid size-10 place-items-center rounded-full text-ink-2 hover:bg-surface-3 md:hidden"
           >
             <KineticIcon icon={open ? close : menu} size={19} />
           </button>
@@ -100,16 +116,19 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="fade-in fixed inset-x-0 top-[var(--nav-h)] bottom-0 z-40 bg-bg px-4 pt-4 md:hidden">
+        <div className="pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)-4px)] z-40 rounded-[28px] border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
           <nav aria-label="Main" className="flex flex-col">
-            {[{ href: "/", label: "Home" }, ...LINKS].map((l) => (
-              <Link key={l.href} href={l.href} className={`heading border-b border-line py-4 text-[26px] ${path === l.href ? "text-ink" : "text-muted"}`}>
+            {[{ href: "/", label: "Home" }, ...LINKS, { href: "/docs/react", label: "React" }, { href: "/docs/design-system", label: "Design system" }].map((l) => (
+              <Link key={l.href} href={l.href} className={`heading rounded-[18px] px-4 py-3 text-[28px] transition-colors hover:bg-surface-3 ${path === l.href ? "text-ink" : "text-muted"}`}>
                 {l.label}
               </Link>
             ))}
-            <a href={REPO_URL} className="heading border-b border-line py-4 text-[26px] text-muted">
+            <a href={REPO_URL} className="heading rounded-[18px] px-4 py-3 text-[28px] text-muted hover:bg-surface-3">
               GitHub
             </a>
+            <Link href="/icons" className="mt-2 grid h-12 place-items-center rounded-full bg-accent text-[15px] font-medium text-[#1a0f0a]">
+              Browse icons
+            </Link>
           </nav>
         </div>
       )}
@@ -144,7 +163,7 @@ function ThemeButton() {
       onClick={() => setChoice(next.value)}
       aria-label={`Theme: ${current.label}. Switch to ${next.label}`}
       title={`Theme: ${current.label}`}
-      className="ki-trigger grid size-9 place-items-center rounded-[11px] text-ink-2 transition-colors hover:bg-surface-3"
+      className="ki-trigger grid size-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-surface-3"
     >
       <KineticIcon icon={current.icon} size={18} variant="duotone" />
     </button>

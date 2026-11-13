@@ -1,81 +1,133 @@
 @import "tailwindcss";
 
-/* Kineticons site. Cool porcelain and white, ink with a plum cast, the kit's signal orange as the one accent, a
-   lilac haze as the second tint, and deep plum for the night sections. Bricolage Grotesque for display (its optical
-   size and width axes do the work), Geist for reading, Geist Mono only for code. */
+/* Kineticons site, v2 (see DESIGN.md). Warm paper, ink with a plum cast, signal orange as the one accent, lilac, and
+   big rounded panels in plum, orange and lilac stacked down the page. Instrument Serif for display (italic for the
+   second clause), Geist for reading, Geist Mono for code. The v1 token names stay and point at the v2 values. */
 
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .night, .night *));
 
 :root {
   color-scheme: light;
-  --bg: #f4f4f7;
-  --bg-2: #ededf2;
-  --surface: #ffffff;
-  --surface-2: #f7f7fa;
-  --surface-3: #ececf1;
-  --ink: #15131c;
-  --ink-2: #3b3846;
-  --muted: #6b6878;
-  --faint: #9a97a6;
-  --line: rgba(21, 19, 28, 0.08);
-  --line-strong: rgba(21, 19, 28, 0.15);
-  --accent: #ff5a2d;
+  --paper: #f7f5f0;
+  --paper-2: #efece5;
+  --card: #ffffff;
+  --orange: #ff5a2d;
+  --lilac: #e6defc;
+  --plum: #15111c;
+  --r-panel: 56px;
+
+  --bg: var(--paper);
+  --bg-2: var(--paper-2);
+  --surface: var(--card);
+  --surface-2: #faf9f6;
+  --surface-3: #efece5;
+  --ink: #15121a;
+  --ink-2: #3a3540;
+  --muted: #6c6672;
+  --faint: #9a94a0;
+  --line: rgba(21, 18, 26, 0.09);
+  --line-strong: rgba(21, 18, 26, 0.16);
+  --accent: var(--orange);
   --accent-2: #ff8a4c;
-  --accent-ink: #d63f15;
+  --accent-ink: #c93c12;
   --accent-soft: rgba(255, 90, 45, 0.1);
-  --haze: #ece8f6;
+  --haze: var(--lilac);
   --haze-ink: #5b4fb3;
-  --plum: #17121f;
-  --ring: rgba(255, 90, 45, 0.55);
-  --shadow-sm: 0 1px 2px rgba(21, 19, 28, 0.05), 0 1px 1px rgba(21, 19, 28, 0.03);
-  --shadow-md: 0 12px 30px -16px rgba(21, 19, 28, 0.22), 0 2px 6px rgba(21, 19, 28, 0.04);
-  --shadow-lg: 0 36px 80px -36px rgba(21, 19, 28, 0.34), 0 10px 24px -14px rgba(21, 19, 28, 0.12);
+  --ring: rgba(255, 90, 45, 0.6);
+  --shadow-sm: 0 1px 2px rgba(21, 18, 26, 0.05);
+  --shadow-md: 0 10px 30px -12px rgba(21, 18, 26, 0.25);
+  --shadow-lg: 0 30px 70px -30px rgba(21, 18, 26, 0.35), 0 8px 20px -12px rgba(21, 18, 26, 0.12);
   --edge: inset 0 0 0 0 transparent;
-  --nav-h: 64px;
+  --nav-h: 84px;
+}
+@media (max-width: 640px) {
+  :root { --r-panel: 32px; --nav-h: 72px; }
 }
 
-:root[data-theme="dark"],
-.night {
+:root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0f0d14;
-  --bg-2: #131118;
-  --surface: #17151e;
-  --surface-2: #1d1b25;
-  --surface-3: #27242f;
-  --ink: #f3f2f7;
-  --ink-2: #d4d1dd;
-  --muted: #a29eaf;
-  --faint: #716d7e;
-  --line: rgba(255, 255, 255, 0.075);
-  --line-strong: rgba(255, 255, 255, 0.14);
-  --accent: #ff6b3d;
+  --paper: #0f0d12;
+  --paper-2: #17141b;
+  --card: #1d1922;
+  --orange: #ff6b3d;
+  --lilac: #2a2340;
+  --plum: #1c1724;
+  --surface-2: #221e28;
+  --surface-3: #2a2531;
+  --ink: #f4f2f7;
+  --ink-2: #d6d2dc;
+  --muted: #a39dab;
+  --faint: #6f6977;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.15);
   --accent-2: #ff9c5e;
   --accent-ink: #ff9c5e;
-  --accent-soft: rgba(255, 107, 61, 0.14);
-  --haze: rgba(167, 150, 255, 0.1);
+  --accent-soft: rgba(255, 107, 61, 0.15);
   --haze-ink: #b4a8ff;
-  --ring: rgba(255, 120, 80, 0.6);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 14px 34px -14px rgba(0, 0, 0, 0.8), 0 0 0 0.5px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 34px 80px -30px rgba(0, 0, 0, 0.9), 0 0 0 0.5px rgba(0, 0, 0, 0.6);
-  --edge: inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  --shadow-md: 0 14px 34px -14px rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 34px 80px -30px rgba(0, 0, 0, 0.9);
+  --edge: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
-/* a night section on the light page: the plum, a little deeper than the dark theme's page */
+
+/* the plum panels: always dark, in both themes */
 .night {
-  --bg: #17121f;
-  --surface: #201a2a;
-  --surface-2: #261f31;
+  color-scheme: dark;
+  --bg: var(--plum);
+  --surface: #211b2a;
+  --surface-2: #261f30;
   --surface-3: #30283c;
+  --ink: #f4f2f7;
+  --ink-2: #d6d2dc;
+  --muted: #a8a1b2;
+  --faint: #756e80;
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --accent: #ff6b3d;
+  --accent-ink: #ff9c5e;
+  --accent-soft: rgba(255, 107, 61, 0.16);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 14px 34px -14px rgba(0, 0, 0, 0.8);
+  --edge: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   background-color: var(--bg);
   color: var(--ink);
 }
-:root[data-theme="dark"] .night {
-  --bg: #15111c;
+/* the orange panel: dark text on orange in both themes; its "accent" is ink */
+.tone-orange {
+  color-scheme: light;
+  --bg: #ff5a2d;
+  --surface: rgba(255, 255, 255, 0.2);
+  --surface-2: rgba(255, 255, 255, 0.14);
+  --surface-3: rgba(26, 15, 10, 0.1);
+  --ink: #1a0f0a;
+  --ink-2: rgba(26, 15, 10, 0.82);
+  --muted: rgba(26, 15, 10, 0.7);
+  --faint: rgba(26, 15, 10, 0.5);
+  --line: rgba(26, 15, 10, 0.14);
+  --line-strong: rgba(26, 15, 10, 0.24);
+  --accent: #1a0f0a;
+  --accent-ink: #1a0f0a;
+  --accent-soft: rgba(26, 15, 10, 0.1);
+  --ring: rgba(26, 15, 10, 0.6);
+  background-color: var(--bg);
+  color: var(--ink);
+}
+.tone-lilac {
+  --bg: var(--lilac);
+  --surface: color-mix(in srgb, var(--lilac) 55%, white);
+  --surface-2: color-mix(in srgb, var(--lilac) 70%, white);
+  --line: color-mix(in srgb, var(--ink) 10%, transparent);
+  background-color: var(--bg);
+  color: var(--ink);
+}
+:root[data-theme="dark"] .tone-lilac {
+  --surface: color-mix(in srgb, var(--lilac) 70%, white 6%);
+  --surface-2: color-mix(in srgb, var(--lilac) 80%, white 4%);
 }
 
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: var(--font-bricolage), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-serif), ui-serif, Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "Cascadia Code", Consolas, monospace;
 
   --color-bg: var(--bg);
@@ -129,20 +181,28 @@
   [hidden] { display: none !important; }
 }
 
-/* display type: Bricolage at its display optical size, tight and a little narrow */
+/* display type: Instrument Serif, tight; italic for the second clause (an <em> inside) */
 @utility display {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 96, "wdth" 90;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
-  font-weight: 650;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  & em { font-style: italic; letter-spacing: -0.035em; }
 }
 @utility heading {
   font-family: var(--font-display);
-  font-variation-settings: "opsz" 48, "wdth" 94;
-  letter-spacing: -0.025em;
-  line-height: 1.08;
-  font-weight: 620;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+  & em { font-style: italic; }
+}
+/* a panel: inset from the viewport, big radius, sliding over the one above */
+@utility panel {
+  position: relative;
+  margin-inline: 12px;
+  border-radius: var(--r-panel);
+  overflow: clip;
+  @media (max-width: 640px) { margin-inline: 8px; }
 }
 @utility card {
   background: var(--surface);
@@ -167,6 +227,7 @@
 @keyframes scrim-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes shimmer { from { background-position: -200% 0; } to { background-position: 200% 0; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee-x { to { transform: translateX(-100%); } }
 
 .rise { animation: rise 0.9s var(--ease-smooth) both; }
 .fade-in { animation: fade 0.6s var(--ease-smooth) both; }
@@ -198,7 +259,7 @@
 /* docs typography */
 .doc p, .doc ul, .doc ol { max-width: 70ch; color: var(--ink-2); font-size: 15.5px; line-height: 1.75; }
 .doc > div > * + * { margin-top: 18px; }
-.doc h2 { font-family: var(--font-display); font-variation-settings: "opsz" 40, "wdth" 94; font-weight: 620; letter-spacing: -0.02em; font-size: 27px; line-height: 1.15; margin-top: 52px; color: var(--ink); }
+.doc h2 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; font-size: 36px; line-height: 1.08; margin-top: 56px; color: var(--ink); }
 .doc h3 { font-weight: 600; font-size: 17px; margin-top: 28px; color: var(--ink); }
 .doc ul { list-style: disc; padding-left: 20px; }
 .doc ol { list-style: decimal; padding-left: 20px; }

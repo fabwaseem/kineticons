@@ -21,11 +21,13 @@ const PLACES: Place[] = [
 /** Where the icons live: one list, every place a designer or developer might reach for them. */
 export function Ecosystem() {
   return (
-    <section className="mx-auto max-w-[1280px] px-4 py-28 sm:px-6" aria-labelledby="eco-title">
+    <section className="mx-auto max-w-[1240px] px-6 pt-36 pb-28 sm:pt-44" aria-labelledby="eco-title">
       <div className="grid gap-12 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] lg:gap-16">
         <Reveal className="lg:sticky lg:top-[calc(var(--nav-h)+48px)] lg:self-start">
-          <h2 id="eco-title" className="heading text-[clamp(32px,4.4vw,52px)]">
-            Wherever you work
+          <h2 id="eco-title" className="display text-[clamp(44px,6vw,88px)]">
+            Wherever
+            <br />
+            <em>you work.</em>
           </h2>
           <p className="mt-4 max-w-[440px] text-[16.5px] leading-relaxed text-muted">
             The same drawings in your code, your design files and your editor. One source, rebuilt and published together on every release.
