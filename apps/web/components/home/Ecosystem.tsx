@@ -29,7 +29,7 @@ export function Ecosystem() {
             <br />
             <em>you work.</em>
           </h2>
-          <p className="mt-4 max-w-[440px] text-[16.5px] leading-relaxed text-muted">
+          <p className="mt-4 max-w-[440px] text-[17px] leading-relaxed text-muted">
             The same drawings in your code, your design files and your editor. One source, rebuilt and published together on every release.
           </p>
         </Reveal>
@@ -42,7 +42,7 @@ export function Ecosystem() {
                 rel="noreferrer"
                 className="ki-trigger group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-5 py-5 transition-colors sm:py-6"
               >
-                <span className="grid size-12 place-items-center rounded-[14px] border border-line bg-surface text-ink-2 transition-[color,border-color,background-color] duration-300 group-hover:border-[color-mix(in_srgb,var(--accent)_40%,transparent)] group-hover:bg-accent-soft group-hover:text-accent-ink">
+                <span className="grid size-12 place-items-center rounded-tile border border-line bg-surface text-ink-2 transition-[color,border-color,background-color] duration-300 group-hover:border-[color-mix(in_srgb,var(--accent)_40%,transparent)] group-hover:bg-accent-soft group-hover:text-accent-ink">
                   <KineticIcon icon={p.icon} size={24} />
                 </span>
                 <span className="min-w-0">
@@ -50,7 +50,7 @@ export function Ecosystem() {
                     <span className="text-[17px] font-semibold text-ink">{p.name}</span>
                     {p.soon && <span className="rounded-full bg-surface-3 px-2 py-0.5 text-[11px] font-medium text-muted">Soon</span>}
                   </span>
-                  <span className="mt-0.5 block text-[14.5px] text-muted">{p.what}</span>
+                  <span className="mt-0.5 block text-[15px] text-muted">{p.what}</span>
                   <span className="mt-1.5 block truncate font-mono text-[12px] text-faint">{p.detail}</span>
                 </span>
                 <span className="grid size-10 place-items-center rounded-full text-faint transition-[color,transform,background-color] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-surface-3 group-hover:text-ink">

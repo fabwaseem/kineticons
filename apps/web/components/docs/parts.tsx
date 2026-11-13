@@ -44,7 +44,7 @@ export function Install({ pkg }: { pkg: string }) {
 /** A note set apart from the text: a tip or a caution. */
 export function Callout({ kind = "tip", children }: { kind?: "tip" | "caution"; children: ReactNode }) {
   return (
-    <div className={`not-prose rounded-[16px] border px-4 py-3 text-[14.5px] leading-relaxed ${kind === "tip" ? "border-[color-mix(in_srgb,var(--haze-ink)_30%,transparent)] bg-haze text-ink-2" : "border-[color-mix(in_srgb,var(--accent)_35%,transparent)] bg-accent-soft text-ink-2"}`}>
+    <div className={`not-prose rounded-card border px-4 py-3 text-[15px] leading-relaxed ${kind === "tip" ? "border-[color-mix(in_srgb,var(--haze-ink)_30%,transparent)] bg-haze text-ink-2" : "border-[color-mix(in_srgb,var(--accent)_35%,transparent)] bg-accent-soft text-ink-2"}`}>
       {children}
     </div>
   );
@@ -53,9 +53,9 @@ export function Callout({ kind = "tip", children }: { kind?: "tip" | "caution"; 
 /** A table of props or options. */
 export function Props({ rows, head = ["Prop", "Type", "Default", "What it does"] }: { rows: (string | ReactNode)[][]; head?: string[] }) {
   return (
-    <div className="overflow-x-auto rounded-[16px] border border-line">
+    <div className="overflow-x-auto rounded-card border border-line">
       <table className="w-full text-left text-[14px]">
-        <thead className="bg-surface-2 text-[12.5px] text-muted">
+        <thead className="bg-surface-2 text-[13px] text-muted">
           <tr>
             {head.map((h) => (
               <th key={h} className="px-4 py-2.5 font-medium whitespace-nowrap">
@@ -68,7 +68,7 @@ export function Props({ rows, head = ["Prop", "Type", "Default", "What it does"]
           {rows.map((r, i) => (
             <tr key={i} className="border-t border-line align-top">
               {r.map((c, j) => (
-                <td key={j} className={j === 0 ? "px-4 py-3 font-mono text-[13px] whitespace-nowrap text-ink" : j < head.length - 1 ? "px-4 py-3 font-mono text-[12.5px] text-muted" : "px-4 py-3 text-ink-2"}>
+                <td key={j} className={j === 0 ? "px-4 py-3 font-mono text-[13px] whitespace-nowrap text-ink" : j < head.length - 1 ? "px-4 py-3 font-mono text-[13px] text-muted" : "px-4 py-3 text-ink-2"}>
                   {c}
                 </td>
               ))}

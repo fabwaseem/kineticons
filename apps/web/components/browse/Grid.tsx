@@ -75,7 +75,7 @@ export function Grid({ icons, look, selected, onOpen }: { icons: IconDef[]; look
         const el = e.currentTarget.querySelector<HTMLButtonElement>('[aria-pressed="true"]') ?? [...e.currentTarget.querySelectorAll<HTMLButtonElement>("[data-i]")].find((b) => b.getBoundingClientRect().top >= 0);
         el?.focus();
       }}
-      className="relative w-full rounded-[16px] outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]"
+      className="relative w-full rounded-card outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]"
       style={{ height: v.getTotalSize() }}
     >
       {v.getVirtualItems().map((row) => (
@@ -106,7 +106,7 @@ const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon
         title={icon.title}
         aria-label={`${icon.title} (${icon.name})`}
         aria-pressed={on}
-        className={`ki-trigger group relative flex h-full w-full flex-col items-center justify-center gap-2.5 rounded-[16px] border px-2 outline-none transition-[background-color,border-color,color] duration-200 focus-visible:border-[color-mix(in_srgb,var(--accent)_60%,transparent)] focus-visible:bg-surface ${
+        className={`ki-trigger group relative flex h-full w-full flex-col items-center justify-center gap-2.5 rounded-tile border px-2 outline-none transition-[background-color,border-color,color] duration-200 focus-visible:border-[color-mix(in_srgb,var(--accent)_60%,transparent)] focus-visible:bg-surface focus-visible:shadow-[0_0_0_3px_var(--accent-soft)] ${
           on ? "border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-accent-soft text-accent-ink" : "border-transparent text-ink-2 hover:border-line hover:bg-surface"
         }`}
         style={look.color && !on ? { color: look.color } : undefined}
@@ -115,7 +115,7 @@ const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon
         {look.labels ? (
           <span className="w-full truncate text-center text-[12px] text-muted group-hover:text-ink">{icon.name}</span>
         ) : (
-          <span className="pointer-events-none absolute inset-x-1 bottom-1 truncate text-center text-[10.5px] text-faint opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">{icon.name}</span>
+          <span className="pointer-events-none absolute inset-x-1 bottom-1 truncate text-center text-[11px] text-faint opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">{icon.name}</span>
         )}
       </button>
     </div>

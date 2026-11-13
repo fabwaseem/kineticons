@@ -43,7 +43,7 @@ export default function Palette({ onClose }: { onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-[60] flex items-start justify-center px-3 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Search icons">
       <button type="button" aria-label="Close search" tabIndex={-1} className="absolute inset-0 bg-[rgba(15,13,20,.38)] backdrop-blur-[3px]" style={{ animation: "scrim-in .2s ease both" }} onClick={onClose} />
-      <div className="card relative flex max-h-[min(620px,76vh)] w-full max-w-[640px] flex-col overflow-hidden rounded-[20px] shadow-lg" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
+      <div className="card relative flex max-h-[min(620px,76vh)] w-full max-w-[640px] flex-col overflow-hidden rounded-box shadow-[var(--shadow-lg)]" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
         <div className="flex items-center gap-3 border-b border-line px-4">
           <svg viewBox="0 0 24 24" className="size-5 text-faint" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" aria-hidden>
             <circle cx="10.75" cy="10.75" r="6.5" />
@@ -77,7 +77,7 @@ export default function Palette({ onClose }: { onClose: () => void }) {
           <div className="px-5 py-8 text-[14px] text-muted">The icon list could not be loaded. Check your connection and open the search again.</div>
         ) : !all.length ? (
           <div className="px-5 py-8" aria-busy="true">
-            <div className="skeleton h-4 w-56 rounded-[6px]" />
+            <div className="skeleton h-4 w-56 rounded-xs" />
           </div>
         ) : shown.length === 0 ? (
           <div className="px-5 py-8 text-[14px] text-muted">No icon matches “{q.trim()}”. Try a simpler word, or what the icon shows.</div>
@@ -89,21 +89,21 @@ export default function Palette({ onClose }: { onClose: () => void }) {
                   type="button"
                   onMouseMove={() => setSel(i)}
                   onClick={() => go(icon)}
-                  className={`ki-trigger flex w-full items-center gap-3 rounded-[12px] px-3 py-2 text-left ${i === sel ? "bg-surface-3" : ""}`}
+                  className={`ki-trigger flex w-full items-center gap-3 rounded-tile px-3 py-2 text-left transition-colors ${i === sel ? "bg-surface-3" : ""}`}
                 >
-                  <span className="grid size-9 place-items-center rounded-[10px] bg-surface-2 text-ink-2">
+                  <span className="grid size-10 place-items-center rounded-tile border border-line bg-surface-2 text-ink-2">
                     <KineticIcon icon={icon} size={20} trigger={i === sel ? "manual" : "hover"} active={i === sel} />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-[14px] font-medium">{icon.title}</span>
-                    <span className="block truncate font-mono text-[11.5px] text-faint">{icon.name}</span>
+                    <span className="block truncate font-mono text-[12px] text-faint">{icon.name}</span>
                   </span>
                   <span className="text-[12px] text-faint">{categoryLabel(icon.category)}</span>
                 </button>
               </li>
             ))}
             {results.length > shown.length && (
-              <li className="px-3 py-2 text-[12.5px] text-faint">
+              <li className="px-3 py-2 text-[13px] text-faint">
                 {fmt(results.length - shown.length)} more: keep typing, or{" "}
                 <button type="button" className="text-accent-ink underline-offset-2 hover:underline" onClick={() => (onClose(), nav(`/icons?q=${encodeURIComponent(q.trim())}`))}>
                   see them all
@@ -124,7 +124,7 @@ export default function Palette({ onClose }: { onClose: () => void }) {
 
 function Hint({ q, set }: { q: string; set: (q: string) => void }) {
   return (
-    <button type="button" onClick={() => set(q)} className="rounded-[7px] bg-surface-3 px-1.5 py-0.5 font-medium text-ink-2 hover:text-ink">
+    <button type="button" onClick={() => set(q)} className="rounded-full bg-surface-3 px-2.5 py-0.5 font-medium text-ink-2 transition-colors hover:text-ink">
       {q}
     </button>
   );

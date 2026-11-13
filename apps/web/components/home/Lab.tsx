@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { KineticIcon } from "kineticons";
+import { btn } from "@/components/ui/controls";
 import type { IconDef, Variant } from "@kineticons/core";
 import {
   batteryCharging, bell, camera, grid as gridIcon, lock, mail, pause, play, rocket, send, snail, trash, umbrella, wifi,
@@ -56,15 +57,15 @@ export function Lab() {
     <section className="relative mx-auto max-w-[1240px] px-6 pt-36 pb-32 sm:pt-44" aria-labelledby="lab-title">
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-16">
         {/* the specimen */}
-        <div className="card overflow-hidden rounded-[40px]">
+        <div className="card overflow-hidden rounded-box">
           <div
             className="ki-trigger relative grid place-items-center px-6 py-10 sm:py-14"
             onMouseEnter={() => !loop && playOnce()}
             style={{ background: "radial-gradient(circle at 50% 45%, var(--accent-soft), transparent 62%)" }}
           >
             <Specimen icon={icon} variant={variant} size={300} active={active} slow={slow ? SLOW : 1} grid={grid} focus={focus} className="max-w-full text-ink" />
-            <span className="absolute top-4 left-5 font-mono text-[11.5px] text-faint">{icon.name}.svg · 24 × 24</span>
-            {slow && <span className="absolute top-4 right-5 rounded-full bg-accent-soft px-2.5 py-0.5 text-[11.5px] font-medium text-accent-ink">5× slower</span>}
+            <span className="absolute top-4 left-5 font-mono text-[12px] text-faint">{icon.name}.svg · 24 × 24</span>
+            {slow && <span className="absolute top-4 right-5 rounded-full bg-accent-soft px-3 py-1 text-[12px] font-medium text-accent-ink">5× slower</span>}
           </div>
           <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-3 py-3">
             <Segmented size="sm" label="Style" value={variant} onChange={setVariant} options={STYLES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1) }))} />
@@ -75,7 +76,7 @@ export function Lab() {
                 type="button"
                 onClick={() => (loop ? setLoop(false) : playOnce())}
                 onDoubleClick={() => setLoop(true)}
-                className="ki-trigger inline-flex h-9 items-center gap-1.5 rounded-[11px] bg-ink px-3.5 text-[13px] font-medium text-bg"
+                className={btn("primary", "sm")}
               >
                 <KineticIcon icon={loop ? pause : play} size={15} variant="filled" />
                 {loop ? "Stop" : "Play"}
@@ -89,7 +90,7 @@ export function Lab() {
           <h2 id="lab-title" className="display text-[clamp(44px,6vw,88px)]">
             Look <em>closer.</em>
           </h2>
-          <p className="mt-4 max-w-[520px] text-[16.5px] leading-relaxed text-muted">
+          <p className="mt-4 max-w-[520px] text-[17px] leading-relaxed text-muted">
             Each icon is drawn on a 24-unit grid out of named parts, and each part moves for a reason. Slow it down, pick out a part, switch the style: the drawing is the same in all three.
           </p>
 
@@ -103,7 +104,7 @@ export function Lab() {
                 aria-label={p.title}
                 title={p.title}
                 onClick={() => setIcon(p)}
-                className={`ki-trigger grid size-11 place-items-center rounded-[13px] border transition-[background-color,border-color,color] ${
+                className={`ki-trigger grid size-11 place-items-center rounded-tile border transition-[background-color,border-color,color] ${
                   icon === p ? "border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-accent-soft text-accent-ink" : "border-line bg-surface text-ink-2 hover:border-line-strong hover:text-ink"
                 }`}
               >
@@ -156,7 +157,7 @@ function Toggle({ on, onClick, icon, label }: { on: boolean; onClick: () => void
       onClick={onClick}
       aria-pressed={on}
       title={label}
-      className={`ki-trigger inline-flex h-9 items-center gap-1.5 rounded-[11px] px-3 text-[13px] font-medium transition-colors ${on ? "bg-accent-soft text-accent-ink" : "text-muted hover:bg-surface-3 hover:text-ink"}`}
+      className={`ki-trigger inline-flex h-9 items-center gap-1.5 rounded-full px-3 text-[13px] font-medium transition-colors ${on ? "bg-accent-soft text-accent-ink" : "text-muted hover:bg-surface-3 hover:text-ink"}`}
     >
       <KineticIcon icon={icon} size={16} />
       <span className="hidden sm:inline">{label}</span>

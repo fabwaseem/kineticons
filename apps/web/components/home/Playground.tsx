@@ -49,7 +49,7 @@ export function Playground() {
           text="Size, stroke, colour, style and when they move: every icon takes the same few settings. Try them here; the code under the controls follows along."
         />
         <div className="mt-14 grid gap-6 lg:grid-cols-[360px_1fr]">
-          <div className="flex flex-col gap-6 rounded-[24px] border border-line bg-surface p-6">
+          <div className="flex flex-col gap-6 rounded-box border border-line bg-surface p-6">
             <Field label="Style">
               <Segmented label="Style" value={variant} onChange={setVariant} options={(["outline", "duotone", "filled"] as const).map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1) }))} />
             </Field>
@@ -86,9 +86,9 @@ export function Playground() {
             </Field>
           </div>
           <div className="flex min-w-0 flex-col gap-4">
-            <div className="grid flex-1 grid-cols-[repeat(auto-fill,minmax(68px,1fr))] gap-1 rounded-[24px] border border-line bg-surface p-4" style={{ color: color || undefined }}>
+            <div className="grid flex-1 grid-cols-[repeat(auto-fill,minmax(68px,1fr))] gap-1 rounded-box border border-line bg-surface p-4" style={{ color: color || undefined }}>
               {ICONS.map((icon) => (
-                <span key={icon.name} className="ki-trigger grid aspect-square place-items-center rounded-[14px] transition-colors hover:bg-surface-3" title={icon.title}>
+                <span key={icon.name} className="ki-trigger grid aspect-square place-items-center rounded-tile transition-colors hover:bg-surface-3" title={icon.title}>
                   <KineticIcon icon={icon} variant={variant} size={size} strokeWidth={stroke} trigger={trigger} loopEvery={2200} />
                 </span>
               ))}

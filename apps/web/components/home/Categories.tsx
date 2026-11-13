@@ -46,7 +46,7 @@ export function Categories() {
             <Link
               href={`/icons?category=${c.value}`}
               onMouseEnter={prefetchCatalog}
-              className="ki-trigger group card flex h-full flex-col justify-between gap-6 rounded-[20px] p-5 transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-line-strong"
+              className="ki-trigger group card flex h-full flex-col justify-between gap-6 rounded-card p-5 transition-[border-color,transform] duration-300 hover:-translate-y-0.5 hover:border-line-strong"
             >
               <span className="flex gap-3 text-ink-2 transition-colors group-hover:text-accent">
                 {(SAMPLES[c.value] ?? []).map((icon) => (

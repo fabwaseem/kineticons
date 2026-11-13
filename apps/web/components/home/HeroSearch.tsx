@@ -9,6 +9,7 @@ import { arrowRight, search as searchIcon } from "@kineticons/core/icons";
 import { loadCatalog, search } from "@/lib/catalog";
 import { fmt, ICON_COUNT } from "@/lib/categories";
 import { Kbd } from "@/components/ui/bits";
+import { field } from "@/components/ui/controls";
 
 const IDEAS = ["rocket", "upload", "heart", "weather", "money", "chat"];
 
@@ -45,7 +46,7 @@ export function HeroSearch() {
 
   return (
     <div ref={boxRef} className="relative text-left" onFocus={() => (warm(), setOpen(true))}>
-      <label className="flex h-[60px] items-center gap-3 rounded-full border border-line-strong bg-surface pr-3 pl-5 shadow-[var(--shadow-md)] transition-[border-color,box-shadow] focus-within:border-[color-mix(in_srgb,var(--accent)_55%,transparent)] focus-within:shadow-[0_0_0_4px_var(--accent-soft),var(--shadow-md)]">
+      <label className={field("h-[60px] gap-3 pr-3 pl-5 shadow-[var(--shadow-md)] focus-within:shadow-[0_0_0_4px_var(--accent-soft),var(--shadow-md)]")}>
         <KineticIcon icon={searchIcon} size={21} className="shrink-0 text-faint" />
         <input
           value={q}
@@ -64,7 +65,7 @@ export function HeroSearch() {
           aria-activedescendant={cursor >= 0 ? `${listId}-${cursor}` : undefined}
           autoComplete="off"
           spellCheck={false}
-          className="h-full min-w-0 flex-1 bg-transparent text-[16.5px] outline-none placeholder:text-faint"
+          className="h-full min-w-0 flex-1 bg-transparent text-[17px] outline-none placeholder:text-faint"
         />
         <span className="hidden sm:inline-grid">
           <Kbd>Enter</Kbd>
@@ -72,10 +73,10 @@ export function HeroSearch() {
       </label>
 
       {open && (
-        <div className="absolute inset-x-0 top-[calc(100%+8px)] overflow-hidden rounded-[26px] border border-line bg-surface shadow-[var(--shadow-lg)]" style={{ animation: "rise .3s var(--ease-smooth) both" }}>
+        <div className="absolute inset-x-0 top-[calc(100%+8px)] overflow-hidden rounded-box border border-line bg-surface shadow-[var(--shadow-lg)]" style={{ animation: "rise .3s var(--ease-smooth) both" }}>
           {!q.trim() ? (
             <div className="flex flex-wrap items-center gap-1.5 p-3">
-              <span className="px-2 text-[12.5px] text-faint">Try</span>
+              <span className="px-2 text-[13px] text-faint">Try</span>
               {IDEAS.map((w) => (
                 <button key={w} type="button" onClick={() => setQ(w)} className="rounded-full bg-surface-3 px-3 py-1 text-[13px] text-ink-2 hover:text-ink">
                   {w}
@@ -83,7 +84,7 @@ export function HeroSearch() {
               ))}
             </div>
           ) : !all ? (
-            <p className="p-4 text-[13.5px] text-muted">Loading the icons…</p>
+            <p className="p-4 text-[14px] text-muted">Loading the icons…</p>
           ) : top.length ? (
             <>
               <ul id={listId} role="listbox" aria-label="Matching icons" className="grid grid-cols-2 gap-1 p-2 sm:grid-cols-4">
@@ -92,24 +93,24 @@ export function HeroSearch() {
                     <Link
                       href={`/icons/${icon.name}`}
                       onMouseEnter={() => setCursor(i)}
-                      className={`ki-trigger flex flex-col items-center gap-2 rounded-[13px] px-2 py-3.5 text-center transition-colors ${cursor === i ? "bg-accent-soft text-accent-ink" : "text-ink-2 hover:bg-surface-2"}`}
+                      className={`ki-trigger flex flex-col items-center gap-2 rounded-tile px-2 py-3.5 text-center transition-colors ${cursor === i ? "bg-accent-soft text-accent-ink" : "text-ink-2 hover:bg-surface-2"}`}
                     >
                       <KineticIcon icon={icon} size={26} />
-                      <span className="w-full truncate text-[12.5px]">{icon.title}</span>
+                      <span className="w-full truncate text-[13px]">{icon.title}</span>
                     </Link>
                   </li>
                 ))}
               </ul>
               <Link
                 href={`/icons?q=${encodeURIComponent(q.trim())}`}
-                className="ki-trigger flex items-center justify-between border-t border-line px-4 py-3 text-[13.5px] font-medium text-ink-2 hover:bg-surface-2 hover:text-ink"
+                className="ki-trigger flex items-center justify-between border-t border-line px-4 py-3 text-[14px] font-medium text-ink-2 hover:bg-surface-2 hover:text-ink"
               >
                 See all {fmt(results.length)} {results.length === 1 ? "match" : "matches"}
                 <KineticIcon icon={arrowRight} size={16} />
               </Link>
             </>
           ) : (
-            <p className="p-4 text-[13.5px] text-muted">No icon matches “{q.trim()}”. Try what it shows: “money” instead of “payment”.</p>
+            <p className="p-4 text-[14px] text-muted">No icon matches “{q.trim()}”. Try what it shows: “money” instead of “payment”.</p>
           )}
         </div>
       )}

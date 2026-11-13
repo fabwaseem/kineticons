@@ -20,11 +20,11 @@ export function Hero() {
         <a
           href="/icons"
           onMouseEnter={prefetchCatalog}
-          className="rise group inline-flex items-center gap-2 rounded-full border border-line bg-card py-1 pr-3.5 pl-1 text-[13.5px] text-ink-2 shadow-sm transition-colors hover:border-line-strong"
+          className="rise group inline-flex items-center gap-2 rounded-full border border-line bg-card py-1 pr-3.5 pl-1 text-[14px] text-ink-2 shadow-sm transition-colors hover:border-line-strong"
         >
           <span className="rounded-full bg-accent px-2.5 py-0.5 text-[12px] font-medium text-[#1a0f0a]">New</span>
           Now in Figma, VS Code and JSR
-          <span className="text-faint transition-transform duration-300 group-hover:translate-x-0.5">→</span>
+          <KineticIcon icon={arrowRight} size={14} className="text-faint transition-transform duration-300 group-hover:translate-x-0.5" />
         </a>
         <h1 id="hero-title" className="display rise mt-8 text-[clamp(44px,10vw,148px)] text-balance text-ink" style={{ animationDelay: "90ms" }}>
           Icons that move,
@@ -38,17 +38,17 @@ export function Hero() {
           <HeroSearch />
         </div>
         <div className="rise relative z-10 mt-5 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "430ms" }}>
-          <Button to="/icons" size="lg" className="rounded-full pr-4">
+          <Button to="/icons" size="lg" variant="accent" className="pr-5">
             <span onMouseEnter={prefetchCatalog} className="contents">
               Browse the icons
               <KineticIcon icon={arrowRight} size={18} />
             </span>
           </Button>
-          <span className="inline-flex h-12 items-center gap-3 rounded-full border border-line bg-card pr-1.5 pl-5 font-mono text-[13.5px] text-ink-2">
+          <span className="inline-flex h-12 items-center gap-3 rounded-full border border-line bg-card pr-1.5 pl-5 font-mono text-[14px] text-ink-2">
             <span>
               <span className="text-faint">$</span> npm i kineticons
             </span>
-            <CopyButton text="npm i kineticons" compact label="Copy the install command" className="rounded-full" />
+            <CopyButton text="npm i kineticons" compact label="Copy the install command" />
           </span>
         </div>
       </div>

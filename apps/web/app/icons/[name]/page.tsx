@@ -7,6 +7,7 @@ import { chevronLeft, chevronRight, ICONS } from "@kineticons/core/icons";
 import { DetailClient } from "@/components/browse/DetailClient";
 import { CATEGORIES, categoryLabel } from "@/lib/categories";
 import { componentName } from "@/lib/code";
+import { btn, chip, eyebrow, tag } from "@/components/ui/controls";
 import { abs, SITE_NAME } from "@/lib/site";
 
 // every icon page is built ahead of time; an unknown name is a 404
@@ -79,8 +80,8 @@ export default async function IconPage({ params }: Props) {
   };
 
   return (
-    <div className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6">
-      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13.5px] text-muted">
+    <div className="mx-auto max-w-[1280px] px-4 pt-6 pb-20 sm:px-6">
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[14px] text-muted">
         <Link href="/icons" className="hover:text-ink">
           Icons
         </Link>
@@ -94,72 +95,73 @@ export default async function IconPage({ params }: Props) {
         </span>
       </nav>
 
-      <div className="mt-6 grid gap-12 lg:grid-cols-[1.3fr_1fr]">
-        <div>
-          <h1 className="display text-[clamp(40px,5.5vw,68px)]">{icon.title}</h1>
+      {/* phones: title, the icon, then the details; wide screens: the icon on the left, title and details beside it */}
+      <div className="mt-6 grid items-start gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:grid-rows-[auto_1fr]">
+        <div className="lg:col-start-2 lg:row-start-1">
+          <p className={eyebrow}>{categoryLabel(icon.category)} icon</p>
+          <h1 className="display mt-3 text-[clamp(48px,6vw,88px)]">{icon.title}</h1>
           <p className="mt-3 font-mono text-[14px] text-faint">
             {icon.name}, &lt;{componentName(icon.name)} /&gt;
           </p>
-          <div className="mt-8">
-            <DetailClient icon={icon} />
+          <p className="mt-6 max-w-[52ch] text-[17px] leading-relaxed text-ink-2">{icon.motionNote}</p>
+        </div>
+        <div className="min-w-0 lg:col-start-1 lg:row-span-2 lg:row-start-1">
+          <DetailClient icon={icon} />
+        </div>
+        <div className="lg:col-start-2 lg:row-start-2">
+          <div className="flex flex-col gap-6 border-t border-line pt-6">
+            <section>
+              <h2 className={eyebrow}>Category</h2>
+              <Link href={`/icons?category=${icon.category}`} className={chip(false, "mt-2.5")}>
+                {categoryLabel(icon.category)}
+              </Link>
+            </section>
+            <section>
+              <h2 className={eyebrow}>Search words</h2>
+              <div className="mt-2.5 flex flex-wrap gap-1.5">
+                {icon.tags.map((t) => (
+                  <Link key={t} href={`/icons?q=${encodeURIComponent(t)}`} className={tag("transition-colors hover:text-ink")}>
+                    {t}
+                  </Link>
+                ))}
+              </div>
+            </section>
+            <nav aria-label="Neighbouring icons" className="grid grid-cols-2 gap-2">
+              {prev ? (
+                <Link href={`/icons/${prev.name}`} rel="prev" className="ki-trigger card flex min-w-0 items-center gap-3 rounded-card p-3 transition-colors hover:border-line-strong">
+                  <KineticIcon icon={chevronLeft} size={16} className="shrink-0 text-faint" />
+                  <KineticIcon icon={prev} size={22} className="shrink-0" />
+                  <span className="min-w-0 truncate text-[14px]">{prev.title}</span>
+                </Link>
+              ) : (
+                <span />
+              )}
+              {next && (
+                <Link href={`/icons/${next.name}`} rel="next" className="ki-trigger card flex min-w-0 items-center justify-end gap-3 rounded-card p-3 text-right transition-colors hover:border-line-strong">
+                  <span className="min-w-0 truncate text-[14px]">{next.title}</span>
+                  <KineticIcon icon={next} size={22} className="shrink-0" />
+                  <KineticIcon icon={chevronRight} size={16} className="shrink-0 text-faint" />
+                </Link>
+              )}
+            </nav>
           </div>
         </div>
-        <aside className="flex flex-col gap-8 lg:pt-[118px]">
-          <section>
-            <h2 className="text-[13px] font-semibold text-muted">How it moves</h2>
-            <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{icon.motionNote}</p>
-          </section>
-          <section>
-            <h2 className="text-[13px] font-semibold text-muted">Category</h2>
-            <Link href={`/icons?category=${icon.category}`} className="mt-2 inline-flex rounded-full bg-surface-3 px-3 py-1.5 text-[13.5px] font-medium text-ink-2 hover:text-ink">
-              {categoryLabel(icon.category)}
-            </Link>
-          </section>
-          <section>
-            <h2 className="text-[13px] font-semibold text-muted">Search words</h2>
-            <div className="mt-2 flex flex-wrap gap-1.5">
-              {icon.tags.map((t) => (
-                <Link key={t} href={`/icons?q=${encodeURIComponent(t)}`} className="rounded-full border border-line px-3 py-1.5 text-[13px] text-ink-2 hover:border-line-strong hover:text-ink">
-                  {t}
-                </Link>
-              ))}
-            </div>
-          </section>
-          <section aria-label="Neighbouring icons" className="grid grid-cols-2 gap-2">
-            {prev ? (
-              <Link href={`/icons/${prev.name}`} rel="prev" className="ki-trigger card flex items-center gap-3 rounded-[16px] p-3 hover:border-line-strong">
-                <KineticIcon icon={chevronLeft} size={16} className="text-faint" />
-                <KineticIcon icon={prev} size={22} />
-                <span className="min-w-0 truncate text-[13.5px]">{prev.title}</span>
-              </Link>
-            ) : (
-              <span />
-            )}
-            {next && (
-              <Link href={`/icons/${next.name}`} rel="next" className="ki-trigger card flex items-center justify-end gap-3 rounded-[16px] p-3 text-right hover:border-line-strong">
-                <span className="min-w-0 truncate text-[13.5px]">{next.title}</span>
-                <KineticIcon icon={next} size={22} />
-                <KineticIcon icon={chevronRight} size={16} className="text-faint" />
-              </Link>
-            )}
-          </section>
-        </aside>
       </div>
 
       {like.length > 0 && (
-        <section className="mt-20" aria-labelledby="like-title">
+        <section className="mt-24 border-t border-line pt-12" aria-labelledby="like-title">
           <div className="flex items-baseline justify-between gap-4">
-            <h2 id="like-title" className="heading text-[28px]">
+            <h2 id="like-title" className="heading text-[clamp(30px,3.6vw,44px)]">
               Icons like {icon.title.toLowerCase()}
             </h2>
-            <Link href={`/icons?category=${icon.category}`} className="text-[14px] font-medium text-muted hover:text-ink">
+            <Link href={`/icons?category=${icon.category}`} className={btn("ghost", "sm")}>
               More in {categoryLabel(icon.category)}
             </Link>
           </div>
           <ul className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2">
             {like.map((r) => (
               <li key={r.name}>
-                <Link href={`/icons/${r.name}`} className="ki-trigger flex flex-col items-center gap-2.5 rounded-[16px] border border-transparent px-2 py-5 text-ink-2 hover:border-line hover:bg-surface">
+                <Link href={`/icons/${r.name}`} className="ki-trigger flex flex-col items-center gap-2.5 rounded-tile border border-line bg-surface px-2 py-5 text-ink-2 transition-colors hover:border-line-strong hover:text-ink">
                   <KineticIcon icon={r} size={28} />
                   <span className="w-full truncate text-center text-[12px] text-muted">{r.name}</span>
                 </Link>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { KineticIcon } from "kineticons";
+import { btn } from "@/components/ui/controls";
 import type { Category, IconDef } from "@kineticons/core";
 import { arrowRight } from "@kineticons/core/icons";
 import { loadCatalog, sortIcons } from "@/lib/catalog";
@@ -88,10 +89,10 @@ export function Motions() {
                   <Link
                     href={`/icons/${icon.name}`}
                     title={icon.title}
-                    className="ki-trigger group flex aspect-square flex-col items-center justify-center gap-2 rounded-[22px] bg-surface text-ink-2 transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:bg-card hover:text-ink"
+                    className="ki-trigger group flex aspect-square flex-col items-center justify-center gap-2 rounded-card bg-surface text-ink-2 transition-[background-color,color,transform] duration-300 hover:-translate-y-0.5 hover:bg-card hover:text-ink"
                   >
                     <KineticIcon icon={icon} size={30} variant="duotone" className="transition-colors duration-300 [&[data-active]]:text-accent" />
-                    <span className="hidden max-w-[85%] truncate text-[11.5px] text-faint group-hover:text-muted sm:block">{icon.name}</span>
+                    <span className="hidden max-w-[85%] truncate text-[12px] text-faint group-hover:text-muted sm:block">{icon.name}</span>
                   </Link>
                 </li>
               ))}
@@ -99,12 +100,12 @@ export function Motions() {
           ) : (
             <div className="grid grid-cols-4 gap-2 sm:grid-cols-6 lg:grid-cols-8" aria-busy="true" aria-label="Loading icons">
               {Array.from({ length: SHOWN }, (_, i) => (
-                <div key={i} className="aspect-square rounded-[22px] bg-surface opacity-60" />
+                <div key={i} className="aspect-square rounded-card bg-surface opacity-60" />
               ))}
             </div>
           )}
           <div className="mt-8 flex justify-center">
-            <Link href={`/icons?category=${tab}`} className="ki-trigger inline-flex h-12 items-center gap-2 rounded-full bg-ink px-6 text-[15px] font-medium text-bg transition-transform hover:-translate-y-px">
+            <Link href={`/icons?category=${tab}`} className={btn("primary", "lg")}>
               All {fmt(CATEGORY_COUNTS[tab] ?? 0)} {CATEGORIES.find((x) => x.value === tab)?.label.toLowerCase()} icons
               <KineticIcon icon={arrowRight} size={17} />
             </Link>

@@ -10,6 +10,7 @@ import { fmt, ICON_COUNT } from "@/lib/categories";
 import { REPO_URL } from "@/lib/site";
 import { useTheme, type ThemeChoice } from "@/lib/theme";
 import { Kbd, Wordmark } from "./bits";
+import { btn, iconBtn } from "./controls";
 import { openPalette } from "./palette-bus";
 
 const LINKS = [
@@ -88,17 +89,17 @@ export function Nav() {
               <Kbd>K</Kbd>
             </span>
           </button>
-          <button type="button" onClick={openPalette} aria-label="Search icons" className="ki-trigger grid size-10 place-items-center rounded-full text-ink-2 hover:bg-surface-3 lg:hidden">
+          <button type="button" onClick={openPalette} aria-label="Search icons" className={iconBtn(false, "lg", "lg:hidden")}>
             <KineticIcon icon={search} size={18} />
           </button>
-          <a href={REPO_URL} target="_blank" rel="noreferrer" aria-label="Kineticons on GitHub" className="hidden size-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-surface-3 sm:grid">
+          <a href={REPO_URL} target="_blank" rel="noreferrer" aria-label="Kineticons on GitHub" className={iconBtn(false, "lg", "max-sm:hidden")}>
             <GitHubMark />
           </a>
           <ThemeButton />
           <Link
             href="/icons"
             onMouseEnter={prefetchCatalog}
-            className="ki-trigger ml-1 hidden h-10 items-center gap-1.5 rounded-full bg-accent pr-3.5 pl-4 text-[14px] font-medium text-[#1a0f0a] transition-[transform,background-color] duration-200 hover:-translate-y-px hover:bg-[color-mix(in_srgb,var(--accent)_90%,white)] active:translate-y-0 sm:inline-flex"
+            className={btn("accent", "md", "ml-1 pr-3.5 max-sm:hidden")}
           >
             Browse icons
             <KineticIcon icon={arrowRight} size={16} />
@@ -108,7 +109,7 @@ export function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
-            className="ki-trigger grid size-10 place-items-center rounded-full text-ink-2 hover:bg-surface-3 md:hidden"
+            className={iconBtn(false, "lg", "md:hidden")}
           >
             <KineticIcon icon={open ? close : menu} size={19} />
           </button>
@@ -116,17 +117,17 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)-4px)] z-40 rounded-[28px] border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
+        <div className="pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)-4px)] z-40 rounded-box border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
           <nav aria-label="Main" className="flex flex-col">
             {[{ href: "/", label: "Home" }, ...LINKS, { href: "/docs/react", label: "React" }, { href: "/docs/design-system", label: "Design system" }].map((l) => (
-              <Link key={l.href} href={l.href} className={`heading rounded-[18px] px-4 py-3 text-[28px] transition-colors hover:bg-surface-3 ${path === l.href ? "text-ink" : "text-muted"}`}>
+              <Link key={l.href} href={l.href} className={`heading rounded-card px-4 py-3 text-[28px] transition-colors hover:bg-surface-3 ${path === l.href ? "text-ink" : "text-muted"}`}>
                 {l.label}
               </Link>
             ))}
-            <a href={REPO_URL} className="heading rounded-[18px] px-4 py-3 text-[28px] text-muted hover:bg-surface-3">
+            <a href={REPO_URL} className="heading rounded-card px-4 py-3 text-[28px] text-muted hover:bg-surface-3">
               GitHub
             </a>
-            <Link href="/icons" className="mt-2 grid h-12 place-items-center rounded-full bg-accent text-[15px] font-medium text-[#1a0f0a]">
+            <Link href="/icons" className={btn("accent", "lg", "mt-2 w-full")}>
               Browse icons
             </Link>
           </nav>
@@ -163,7 +164,7 @@ function ThemeButton() {
       onClick={() => setChoice(next.value)}
       aria-label={`Theme: ${current.label}. Switch to ${next.label}`}
       title={`Theme: ${current.label}`}
-      className="ki-trigger grid size-10 place-items-center rounded-full text-ink-2 transition-colors hover:bg-surface-3"
+      className={iconBtn(false, "lg")}
     >
       <KineticIcon icon={current.icon} size={18} variant="duotone" />
     </button>

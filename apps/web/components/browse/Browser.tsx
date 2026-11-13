@@ -12,6 +12,7 @@ import { countByCategory, loadCatalog, search, sortIcons } from "@/lib/catalog";
 import { CATEGORIES, fmt, ICON_COUNT } from "@/lib/categories";
 import { useLook, type Look } from "@/lib/store";
 import { Kbd, Segmented } from "@/components/ui/bits";
+import { btn, eyebrow, field, iconBtn, navItem, tag } from "@/components/ui/controls";
 
 const STYLES = ["outline", "duotone", "filled"] as const;
 const COLOURS = ["", "#ff5a2d", "#7c5cff", "#14b8a6", "#f43f5e", "#f59e0b", "#3b82f6"];
@@ -95,20 +96,20 @@ export default function Browser() {
   const label = category ? (CATEGORIES.find((c) => c.value === category)?.label ?? category) : "All icons";
 
   return (
-    <div className="mx-auto flex w-full max-w-[1920px] gap-6 px-4 sm:px-6">
+    <div className="flex w-full gap-3 px-2 sm:px-3 lg:gap-4">
       {/* every icon's motion in one stylesheet: the grid's icons bring none of their own */}
       <link rel="stylesheet" href="/kineticons.css" precedence="default" />
       {/* the sidebar: customize, then categories */}
-      <aside aria-label="Customize and filter" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h))] w-[256px] shrink-0 overflow-y-auto py-6 pr-2 [scrollbar-width:thin] lg:block">
+      <aside aria-label="Customize and filter" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h)-12px)] w-[272px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-3 [scrollbar-width:thin] lg:block">
         <Customize look={look} patch={patch} reset={reset} />
         <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
       </aside>
 
       <div className="min-w-0 flex-1">
         {/* the search */}
-        <div className="sticky top-[var(--nav-h)] z-20 -mx-4 bg-[color-mix(in_srgb,var(--bg)_90%,transparent)] px-4 pt-5 pb-3 backdrop-blur-xl sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
+        <div className="sticky top-[var(--nav-h)] z-20 -mx-2 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-2 pt-1 pb-3 backdrop-blur-xl sm:-mx-3 sm:px-3 lg:mx-0 lg:px-0">
           <div className="flex items-center gap-2">
-            <label className="flex h-12 min-w-0 flex-1 items-center gap-2.5 rounded-[14px] border border-line bg-surface px-4 shadow-sm transition-colors focus-within:border-[color-mix(in_srgb,var(--accent)_55%,transparent)]">
+            <label className={field("h-12 flex-1 pr-2 pl-5")}>
               <KineticIcon icon={searchIcon} size={19} className="text-faint" />
               <input
                 ref={searchRef}
@@ -116,18 +117,18 @@ export default function Browser() {
                 onChange={(e) => set({ q: e.target.value || null })}
                 placeholder={`Search ${fmt(inCategory.length || ICON_COUNT)} icons by name, tag or idea`}
                 aria-label="Search icons"
-                className="h-full min-w-0 flex-1 bg-transparent text-[15.5px] outline-none placeholder:text-faint"
+                className="h-full min-w-0 flex-1 bg-transparent text-[16px] outline-none placeholder:text-faint"
                 autoComplete="off"
                 spellCheck={false}
                 type="search"
                 enterKeyHint="search"
               />
               {q ? (
-                <button type="button" onClick={() => set({ q: null })} aria-label="Clear search" className="ki-trigger grid size-8 place-items-center rounded-[9px] text-faint hover:bg-surface-3 hover:text-ink">
+                <button type="button" onClick={() => set({ q: null })} aria-label="Clear search" className={iconBtn(false, "sm")}>
                   <KineticIcon icon={close} size={16} />
                 </button>
               ) : (
-                <span className="hidden sm:inline-grid">
+                <span className="hidden pr-2 sm:inline-grid">
                   <Kbd>/</Kbd>
                 </span>
               )}
@@ -135,21 +136,21 @@ export default function Browser() {
             <button
               type="button"
               onClick={() => setSheet(true)}
-              className="ki-trigger inline-flex h-12 shrink-0 items-center gap-2 rounded-[14px] border border-line bg-surface px-4 text-[14px] font-medium shadow-sm lg:hidden"
+              className={btn("secondary", "lg", "px-4 lg:hidden")}
             >
               <KineticIcon icon={sliders} size={18} />
               <span className="hidden sm:inline">Customize</span>
             </button>
           </div>
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 px-1">
-            <h1 className="heading text-[20px]">
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 px-2">
+            <h1 className="heading text-[26px] leading-none">
               {label}
-              <span className="ml-2.5 align-middle text-[13.5px] font-normal text-faint tabular" aria-live="polite">
+              <span className="ml-3 align-middle font-sans text-[14px] font-normal text-faint tabular" aria-live="polite">
                 {!all ? "" : q.trim() ? `${fmt(shown.length)} of ${fmt(inCategory.length)}` : fmt(shown.length)}
               </span>
             </h1>
             <div className="flex items-center gap-3">
-              <span className="hidden text-[12.5px] text-faint xl:block">Point at an icon to see it move. Arrow keys move, Enter opens.</span>
+              <span className="hidden text-[13px] text-faint xl:block">Point at an icon to see it move. Arrow keys move, Enter opens.</span>
               <Segmented
                 size="sm"
                 label="Sort"
@@ -167,25 +168,25 @@ export default function Browser() {
         <div className="pb-24">
           {failed ? (
             <Notice title="The icons could not be loaded" text="Check your connection, then try again.">
-              <button type="button" onClick={load} className="h-10 rounded-[12px] bg-ink px-4 text-[14px] font-medium text-bg">
+              <button type="button" onClick={load} className={btn("primary")}>
                 Try again
               </button>
             </Notice>
           ) : !all ? (
             <div className="grid grid-cols-[repeat(auto-fill,minmax(116px,1fr))] gap-2" aria-busy="true" aria-label="Loading icons">
               {Array.from({ length: 48 }, (_, i) => (
-                <div key={i} className="skeleton h-[116px] rounded-[16px]" />
+                <div key={i} className="skeleton h-[116px] rounded-tile" />
               ))}
             </div>
           ) : shown.length ? (
             <Grid icons={shown} look={look} selected={open} onOpen={onOpen} />
           ) : (
             <Notice title={`No icon matches “${q.trim()}”`} text="Try a simpler word, or what the icon shows: “money” instead of “payment gateway”.">
-              <button type="button" onClick={() => set({ q: null })} className="h-10 rounded-[12px] bg-ink px-4 text-[14px] font-medium text-bg">
+              <button type="button" onClick={() => set({ q: null })} className={btn("primary")}>
                 Clear the search
               </button>
               {category && (
-                <button type="button" onClick={() => goCategory(null)} className="h-10 rounded-[12px] border border-line px-4 text-[14px] font-medium">
+                <button type="button" onClick={() => goCategory(null)} className={btn("secondary")}>
                   Search every category
                 </button>
               )}
@@ -196,7 +197,7 @@ export default function Browser() {
 
       {/* the details: docked on wide screens */}
       {openIcon && (
-        <aside aria-labelledby="panel-title" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h))] w-[380px] shrink-0 overflow-y-auto border-l border-line py-6 pl-6 [scrollbar-width:thin] xl:block 2xl:w-[420px]">
+        <aside aria-labelledby="panel-title" className="sticky top-[var(--nav-h)] hidden h-[calc(100vh-var(--nav-h)-12px)] w-[400px] shrink-0 overflow-y-auto rounded-box border border-line bg-surface-2 p-5 [scrollbar-width:thin] xl:block 2xl:w-[440px]" style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}>
           <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
         </aside>
       )}
@@ -210,8 +211,8 @@ export default function Browser() {
       {sheet && (
         <Drawer label="Customize" onClose={() => setSheet(false)} className="lg:hidden" side="left">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="heading text-[22px]">Customize</h2>
-            <button type="button" onClick={() => setSheet(false)} aria-label="Close" className="ki-trigger grid size-9 place-items-center rounded-[11px] text-muted hover:bg-surface-3">
+            <h2 className="heading text-[26px]">Customize and filter</h2>
+            <button type="button" onClick={() => setSheet(false)} aria-label="Close" className={iconBtn()}>
               <KineticIcon icon={close} size={18} />
             </button>
           </div>
@@ -225,12 +226,12 @@ export default function Browser() {
 
 function Customize({ look, patch, reset }: { look: Look; patch: (p: Partial<Look>) => void; reset: () => void }) {
   return (
-    <section aria-labelledby="customize-title" className="rounded-[18px] border border-line bg-surface p-4">
+    <section aria-labelledby="customize-title" className="rounded-card border border-line bg-surface p-4 shadow-[var(--shadow-sm)]">
       <div className="mb-3 flex items-center justify-between">
-        <h2 id="customize-title" className="text-[13px] font-semibold">
+        <h2 id="customize-title" className="text-[14px] font-semibold">
           Customize
         </h2>
-        <button type="button" onClick={reset} className="ki-trigger inline-flex items-center gap-1 rounded-[8px] px-1.5 py-1 text-[12px] text-muted hover:bg-surface-3 hover:text-ink">
+        <button type="button" onClick={reset} className="ki-trigger inline-flex h-7 items-center gap-1 rounded-full px-2.5 text-[12px] text-muted transition-colors hover:bg-surface-3 hover:text-ink">
           <KineticIcon icon={refresh} size={13} />
           Reset
         </button>
@@ -284,9 +285,10 @@ function Customize({ look, patch, reset }: { look: Look; patch: (p: Partial<Look
 
 function Categories({ counts, category, total, onPick }: { counts: Record<string, number> | null; category: Category | null; total: number; onPick: (c: Category | null) => void }) {
   return (
-    <nav aria-label="Categories" className="mt-5">
+    <nav aria-label="Categories" className="mt-4 px-1">
+      <h2 className={`${eyebrow} mb-2 px-3.5`}>Categories</h2>
       <RailItem on={!category} label="All icons" count={total} onClick={() => onPick(null)} />
-      <div className="my-2 h-px bg-line" />
+      <div className="mx-3.5 my-2 h-px bg-line" />
       {CATEGORIES.map((c) => (
         <RailItem key={c.value} on={category === c.value} label={c.label} count={counts?.[c.value]} onClick={() => onPick(c.value)} />
       ))}
@@ -304,14 +306,14 @@ function Details({ icon, look, onClose }: { icon: IconDef; look: Look; onClose: 
           <h2 id="panel-title" className="heading truncate text-[24px]">
             {icon.title}
           </h2>
-          <p className="mt-0.5 truncate font-mono text-[12.5px] text-faint">{icon.name}</p>
+          <p className="mt-0.5 truncate font-mono text-[13px] text-faint">{icon.name}</p>
         </div>
         <div className="flex shrink-0 gap-1">
-          <Link href={`/icons/${icon.name}`} className="ki-trigger inline-flex h-9 items-center gap-1.5 rounded-[11px] px-3 text-[13px] font-medium text-ink-2 hover:bg-surface-3 hover:text-ink">
+          <Link href={`/icons/${icon.name}`} className={btn("ghost", "sm", "px-3")}>
             Page
             <KineticIcon icon={arrowUpRight} size={15} />
           </Link>
-          <button ref={closeRef} type="button" onClick={onClose} aria-label="Close details" className="ki-trigger grid size-9 place-items-center rounded-[11px] text-muted hover:bg-surface-3 hover:text-ink">
+          <button ref={closeRef} type="button" onClick={onClose} aria-label="Close details" className={iconBtn()}>
             <KineticIcon icon={close} size={18} />
           </button>
         </div>
@@ -319,7 +321,7 @@ function Details({ icon, look, onClose }: { icon: IconDef; look: Look; onClose: 
       <IconDetail icon={icon} look={look} />
       <div className="mt-6 flex flex-wrap gap-1.5">
         {icon.tags.map((t) => (
-          <Link key={t} href={`/icons?q=${encodeURIComponent(t)}`} className="rounded-full bg-surface-3 px-2.5 py-1 text-[12px] text-muted hover:text-ink">
+          <Link key={t} href={`/icons?q=${encodeURIComponent(t)}`} className={tag("transition-colors hover:text-ink")}>
             {t}
           </Link>
         ))}
@@ -338,7 +340,7 @@ function Drawer({ children, label, onClose, className = "", side = "right" }: { 
     <div className={`fixed inset-0 z-50 flex ${side === "right" ? "justify-end" : "justify-start"} ${className}`} role="dialog" aria-modal="true" aria-label={label}>
       <button type="button" tabIndex={-1} aria-label="Close" className="absolute inset-0 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px]" style={{ animation: "scrim-in .25s ease both" }} onClick={onClose} />
       <div
-        className={`relative h-full w-full max-w-[460px] overflow-y-auto bg-bg px-5 py-5 shadow-lg ${side === "right" ? "border-l" : "border-r"} border-line`}
+        className="relative m-2 h-[calc(100%-16px)] w-full max-w-[460px] overflow-y-auto overscroll-contain rounded-box border border-line bg-bg p-5 shadow-[var(--shadow-lg)]"
         style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}
       >
         {children}
@@ -349,8 +351,8 @@ function Drawer({ children, label, onClose, className = "", side = "right" }: { 
 
 function Notice({ title, text, children }: { title: string; text: string; children?: ReactNode }) {
   return (
-    <div className="grid place-items-center rounded-[24px] border border-dashed border-line-strong px-6 py-24 text-center">
-      <h2 className="heading text-[24px]">{title}</h2>
+    <div className="grid place-items-center rounded-box border border-dashed border-line-strong px-6 py-24 text-center">
+      <h2 className="heading text-[32px]">{title}</h2>
       <p className="mt-3 max-w-[420px] text-[15px] text-muted">{text}</p>
       <div className="mt-6 flex flex-wrap justify-center gap-2">{children}</div>
     </div>
@@ -360,7 +362,7 @@ function Notice({ title, text, children }: { title: string; text: string; childr
 function Row({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div>
-      <div className="mb-1.5 text-[12.5px] text-muted">{label}</div>
+      <div className="mb-2 text-[13px] text-muted">{label}</div>
       {children}
     </div>
   );
@@ -372,7 +374,7 @@ function RailItem({ on, label, count, onClick }: { on: boolean; label: string; c
       type="button"
       onClick={onClick}
       aria-current={on ? "true" : undefined}
-      className={`flex w-full items-center justify-between rounded-[10px] px-3 py-1.5 text-left text-[14px] transition-colors ${on ? "bg-surface font-medium text-ink shadow-sm" : "text-muted hover:text-ink"}`}
+      className={navItem(on)}
     >
       {label}
       <span className={`text-[12px] tabular ${on ? "text-accent-ink" : "text-faint"}`}>{count != null ? fmt(count) : ""}</span>
@@ -383,7 +385,7 @@ function RailItem({ on, label, count, onClick }: { on: boolean; label: string; c
 function Slider({ label, value, min, max, step, unit = "", onChange }: { label: string; value: number; min: number; max: number; step: number; unit?: string; onChange: (v: number) => void }) {
   return (
     <label className="block">
-      <span className="mb-1.5 flex justify-between text-[12.5px] text-muted">
+      <span className="mb-2 flex justify-between text-[13px] text-muted">
         {label}
         <span className="text-ink tabular">
           {value}

@@ -7,6 +7,7 @@ import {
   check, copy as copyIcon,
 } from "@kineticons/core/icons";
 import { copyText, highlight } from "@/lib/code";
+import { btn, type BtnSize, type BtnVariant } from "./controls";
 
 /** The mark: a rounded tile and a K whose lower leg kicks out when the mark is pointed at. */
 export function Mark({ size = 28 }: { size?: number }) {
@@ -38,20 +39,11 @@ export function Wordmark() {
   );
 }
 
-type BtnProps = { children: ReactNode; to?: string; href?: string; onClick?: () => void; variant?: "primary" | "secondary" | "ghost"; size?: "md" | "lg"; className?: string; type?: "button" | "submit" };
+type BtnProps = { children: ReactNode; to?: string; href?: string; onClick?: () => void; variant?: BtnVariant; size?: BtnSize; className?: string; type?: "button" | "submit" };
 
-/** A button or a link that looks like one. Every one is an icon trigger, so an icon inside moves with it. */
+/** A button or a link that looks like one (see controls.ts). Every one is an icon trigger, so an icon inside moves with it. */
 export function Button({ children, to, href, onClick, variant = "primary", size = "md", className = "", type = "button" }: BtnProps) {
-  const base = `ki-trigger inline-flex select-none items-center justify-center gap-2 whitespace-nowrap font-medium transition-[background-color,color,box-shadow,transform] duration-200 active:scale-[.98] ${
-    size === "lg" ? "h-12 rounded-[14px] px-5 text-[15px]" : "h-10 rounded-[12px] px-4 text-[14px]"
-  }`;
-  const look =
-    variant === "primary"
-      ? "bg-ink text-bg shadow-[0_1px_0_rgba(255,255,255,.12)_inset,0_10px_24px_-12px_rgba(21,19,28,.6)] hover:bg-[color-mix(in_srgb,var(--ink)_88%,var(--accent))]"
-      : variant === "secondary"
-        ? "card text-ink hover:border-line-strong"
-        : "text-ink-2 hover:bg-surface-3 hover:text-ink";
-  const cls = `${base} ${look} ${className}`;
+  const cls = btn(variant, size, className);
   if (to) return <Link href={to} className={cls}>{children}</Link>;
   if (href) return <a href={href} className={cls} target="_blank" rel="noreferrer">{children}</a>;
   return <button type={type} onClick={onClick} className={cls}>{children}</button>;
@@ -73,7 +65,7 @@ export function CopyButton({ text, label = "Copy", className = "", compact = fal
           t.current = window.setTimeout(() => setDone(false), 1500);
         }
       }}
-      className={`ki-trigger inline-flex h-8 items-center gap-1.5 rounded-[9px] px-2.5 text-[12.5px] font-medium transition-colors ${
+      className={`ki-trigger inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full text-[13px] font-medium transition-colors ${compact ? "w-8 justify-center" : "px-3"} ${
         done ? "bg-accent-soft text-accent-ink" : "bg-surface-3 text-ink-2 hover:text-ink"
       } ${className}`}
     >
@@ -86,12 +78,12 @@ export function CopyButton({ text, label = "Copy", className = "", compact = fal
 /** Code with a copy button and light highlighting. */
 export function CodeBlock({ code, lang, className = "", maxH, bare = false }: { code: string; lang?: string; className?: string; maxH?: number; bare?: boolean }) {
   return (
-    <div className={`code group relative overflow-hidden ${bare ? "" : "rounded-[16px] border border-line bg-surface-2"} ${className}`}>
+    <div className={`code group relative overflow-hidden ${bare ? "" : "rounded-card border border-line bg-surface-2"} ${className}`}>
       <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-2">
         {lang && <span className="text-[11px] text-faint">{lang}</span>}
         <CopyButton text={code} compact />
       </div>
-      <pre className="overflow-auto p-4 pr-16 text-[12.5px] leading-[1.7] text-ink-2" style={maxH ? { maxHeight: maxH } : undefined}>
+      <pre className="overflow-auto p-4 pr-16 text-[13px] leading-[1.7] text-ink-2" style={maxH ? { maxHeight: maxH } : undefined}>
         <code dangerouslySetInnerHTML={{ __html: highlight(code) }} />
       </pre>
     </div>
@@ -101,7 +93,7 @@ export function CodeBlock({ code, lang, className = "", maxH, bare = false }: { 
 /** A row of choices, one picked. */
 export function Segmented<T extends string>({ value, onChange, options, label, size = "md" }: { value: T; onChange: (v: T) => void; options: { value: T; label: ReactNode; title?: string }[]; label: string; size?: "sm" | "md" }) {
   return (
-    <div role="radiogroup" aria-label={label} className={`inline-flex shrink-0 gap-0.5 rounded-[12px] bg-surface-3 p-1 ${size === "sm" ? "h-9" : "h-10"}`}>
+    <div role="radiogroup" aria-label={label} className={`inline-flex shrink-0 gap-0.5 rounded-full bg-surface-3 p-1 ${size === "sm" ? "h-9" : "h-10"}`}>
       {options.map((o) => (
         <button
           key={o.value}
@@ -110,8 +102,8 @@ export function Segmented<T extends string>({ value, onChange, options, label, s
           aria-checked={value === o.value}
           title={o.title}
           onClick={() => onChange(o.value)}
-          className={`ki-trigger inline-flex items-center gap-1.5 rounded-[9px] px-3 text-[13px] font-medium transition-[background-color,color,box-shadow] ${
-            value === o.value ? "bg-surface text-ink shadow-[0_1px_2px_rgba(0,0,0,.12)]" : "text-muted hover:text-ink"
+          className={`ki-trigger inline-flex items-center gap-1.5 rounded-full ${size === "sm" ? "px-3" : "px-3.5"} text-[13px] font-medium whitespace-nowrap transition-[background-color,color,box-shadow] duration-200 ${
+            value === o.value ? "bg-surface text-ink shadow-[var(--shadow-sm)]" : "text-muted hover:text-ink"
           }`}
         >
           {o.label}
@@ -122,7 +114,7 @@ export function Segmented<T extends string>({ value, onChange, options, label, s
 }
 
 export function Kbd({ children }: { children: ReactNode }) {
-  return <kbd className="inline-grid h-5 min-w-5 place-items-center rounded-[6px] border border-line-strong bg-surface px-1 text-[11px] text-muted">{children}</kbd>;
+  return <kbd className="inline-grid h-5 min-w-5 place-items-center rounded-xs border border-line-strong bg-surface px-1 text-[11px] text-muted">{children}</kbd>;
 }
 
 /** Shows its children with a quiet fade the first time they scroll into view (once; nothing for reduced motion). */
@@ -169,7 +161,7 @@ export function SectionHead({ title, text, className = "", align = "left" }: { t
   return (
     <div className={`${align === "center" ? "mx-auto text-center" : ""} max-w-[640px] ${className}`}>
       <h2 className="heading text-[clamp(30px,4.2vw,48px)]">{title}</h2>
-      {text && <p className={`mt-4 text-[16.5px] leading-relaxed text-muted ${align === "center" ? "mx-auto" : ""} max-w-[560px]`}>{text}</p>}
+      {text && <p className={`mt-4 text-[17px] leading-relaxed text-muted ${align === "center" ? "mx-auto" : ""} max-w-[560px]`}>{text}</p>}
     </div>
   );
 }

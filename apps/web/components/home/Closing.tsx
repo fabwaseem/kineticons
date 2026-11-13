@@ -18,7 +18,7 @@ export function Closing() {
     <section className="tone-orange panel py-24 sm:py-32" aria-labelledby="close-title">
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-10 flex justify-center gap-[clamp(28px,6vw,90px)] opacity-90">
         {ORBIT.map((icon, i) => (
-          <span key={icon.name} className="ki-trigger pointer-events-auto grid size-14 place-items-center rounded-[18px] bg-surface" style={{ transform: `translateY(${[18, 0, 26, 4, 14][i]}px) rotate(${[-8, 4, -3, 7, -5][i]}deg)` }}>
+          <span key={icon.name} className="ki-trigger pointer-events-auto grid size-14 place-items-center rounded-card bg-surface" style={{ transform: `translateY(${[18, 0, 26, 4, 14][i]}px) rotate(${[-8, 4, -3, 7, -5][i]}deg)` }}>
             <KineticIcon icon={icon} size={26} variant="filled" />
           </span>
         ))}
@@ -43,18 +43,18 @@ export function Closing() {
             onFocus={prefetchCatalog}
             placeholder="Try “upload”, “weather” or “money”"
             aria-label="Search icons"
-            className="h-12 min-w-0 flex-1 bg-transparent text-[16.5px] outline-none placeholder:text-[rgba(26,15,10,.45)]"
+            className="h-12 min-w-0 flex-1 bg-transparent text-[17px] outline-none placeholder:text-[rgba(26,15,10,.45)]"
           />
           <button type="submit" className="ki-trigger inline-flex h-12 items-center gap-2 rounded-full bg-[#1a0f0a] px-6 text-[15px] font-medium text-[#fff7f2] transition-transform hover:-translate-y-px">
             Search
             <KineticIcon icon={arrowRight} size={17} />
           </button>
         </form>
-        <span className="mt-5 inline-flex h-12 items-center gap-3 rounded-full border border-line pr-1.5 pl-5 font-mono text-[13.5px]">
+        <span className="mt-5 inline-flex h-12 items-center gap-3 rounded-full border border-line pr-1.5 pl-5 font-mono text-[14px]">
           <span>
             <span className="opacity-50">$</span> npm i kineticons
           </span>
-          <CopyButton text="npm i kineticons" compact label="Copy the install command" className="rounded-full" />
+          <CopyButton text="npm i kineticons" compact label="Copy the install command" />
         </span>
       </div>
     </section>

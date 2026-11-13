@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { docBySlug, DOCS } from "@/components/docs/registry";
+import { eyebrow, navItem } from "@/components/ui/controls";
 import { abs, REPO_URL, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -54,20 +55,20 @@ export default async function DocPage({ params }: Props) {
   };
 
   return (
-    <div className="mx-auto grid max-w-[1400px] gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[230px_minmax(0,1fr)] xl:grid-cols-[230px_minmax(0,1fr)_200px]">
+    <div className="mx-auto grid max-w-[1400px] gap-10 px-4 pt-6 pb-20 sm:px-6 lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[240px_minmax(0,1fr)_200px] xl:gap-14">
       {/* the docs' sidebar (a scrolling row on small screens) */}
-      <nav aria-label="Docs" className="lg:sticky lg:top-[calc(var(--nav-h)+32px)] lg:h-[calc(100vh-var(--nav-h)-48px)] lg:overflow-y-auto lg:[scrollbar-width:thin]">
-        <div className="no-scrollbar -mx-4 flex gap-1.5 overflow-x-auto px-4 lg:mx-0 lg:block lg:space-y-7 lg:overflow-visible lg:px-0">
+      <nav aria-label="Docs" className="lg:sticky lg:top-[var(--nav-h)] lg:h-[calc(100vh-var(--nav-h)-12px)] lg:overflow-y-auto lg:rounded-box lg:border lg:border-line lg:bg-surface-2 lg:p-3 lg:[scrollbar-width:thin]">
+        <div className="no-scrollbar -mx-4 flex gap-1.5 overflow-x-auto px-4 lg:mx-0 lg:block lg:space-y-6 lg:overflow-visible lg:px-0 lg:pt-2">
           {GROUPS.map((g) => (
             <div key={g} className="contents lg:block">
-              <h2 className="mb-2 hidden text-[12.5px] font-semibold text-faint lg:block">{g}</h2>
+              <h2 className={`${eyebrow} mb-2 hidden px-3.5 lg:block`}>{g}</h2>
               <ul className="contents lg:block lg:space-y-0.5">
                 {DOCS.filter((d) => d.group === g).map((d) => (
                   <li key={d.slug} className="shrink-0">
                     <Link
                       href={href(d.slug)}
                       aria-current={d === doc ? "page" : undefined}
-                      className={`block rounded-[10px] px-3 py-1.5 text-[14px] whitespace-nowrap transition-colors ${d === doc ? "bg-surface font-medium text-ink shadow-sm" : "text-muted hover:text-ink"}`}
+                      className={`${navItem(d === doc, "whitespace-nowrap")} ${d === doc ? "" : "max-lg:border max-lg:border-line"}`}
                     >
                       {d.title}
                     </Link>
@@ -79,15 +80,15 @@ export default async function DocPage({ params }: Props) {
         </div>
       </nav>
 
-      <article className="doc min-w-0 max-w-[780px]">
-        <p className="text-[13.5px] text-faint">{doc.group}</p>
-        <h1 className="display mt-2 text-[clamp(40px,5vw,60px)]">{doc.title}</h1>
-        <p className="mt-4 text-[17px] leading-relaxed text-muted">{doc.description}</p>
+      <article className="doc min-w-0 max-w-[780px] lg:pt-8">
+        <p className={eyebrow}>{doc.group}</p>
+        <h1 className="display mt-3 text-[clamp(44px,5.5vw,72px)]">{doc.title}</h1>
+        <p className="mt-5 max-w-[60ch] text-[18px] leading-relaxed text-muted">{doc.description}</p>
         <div className="mt-10">{doc.body()}</div>
 
         <nav aria-label="More docs" className="mt-16 grid gap-3 border-t border-line pt-8 sm:grid-cols-2">
           {prev ? (
-            <Link href={href(prev.slug)} rel="prev" className="card rounded-[18px] p-5 hover:border-line-strong">
+            <Link href={href(prev.slug)} rel="prev" className="card rounded-card p-5 transition-colors hover:border-line-strong">
               <span className="block text-[13px] text-faint">Previous</span>
               <span className="heading mt-1 block text-[19px]">{prev.title}</span>
             </Link>
@@ -95,7 +96,7 @@ export default async function DocPage({ params }: Props) {
             <span />
           )}
           {next && (
-            <Link href={href(next.slug)} rel="next" className="card rounded-[18px] p-5 text-right hover:border-line-strong">
+            <Link href={href(next.slug)} rel="next" className="card rounded-card p-5 text-right transition-colors hover:border-line-strong">
               <span className="block text-[13px] text-faint">Next</span>
               <span className="heading mt-1 block text-[19px]">{next.title}</span>
             </Link>
@@ -112,12 +113,12 @@ export default async function DocPage({ params }: Props) {
 
       {/* on this page */}
       <aside aria-label="On this page" className="hidden xl:block">
-        <div className="sticky top-[calc(var(--nav-h)+32px)]">
-          <h2 className="text-[12.5px] font-semibold text-faint">On this page</h2>
+        <div className="sticky top-[calc(var(--nav-h)+32px)] pt-8">
+          <h2 className={eyebrow}>On this page</h2>
           <ul className="mt-3 space-y-2 border-l border-line">
             {doc.toc.map((t) => (
               <li key={t.id}>
-                <a href={`#${t.id}`} className="-ml-px block border-l border-transparent pl-3 text-[13.5px] text-muted hover:border-ink hover:text-ink">
+                <a href={`#${t.id}`} className="-ml-px block border-l border-transparent pl-3 text-[14px] text-muted transition-colors hover:border-ink hover:text-ink">
                   {t.title}
                 </a>
               </li>

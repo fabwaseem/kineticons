@@ -43,10 +43,13 @@ Panels keep their colour in both themes; only paper and its text change. On the 
 | `title` | 24px / 1.2, Geist 600 | card and step titles |
 | `lead` | 19px / 1.55 | the line under a headline |
 | `body` | 16px / 1.6 | text, max 68 characters a line |
-| `small` | 14px / 1.5 | labels, captions |
-| `micro` | 12.5px / 1.4 | metadata, kbd |
+| `small` | 14px / 1.5 | labels, captions, controls |
+| `micro` | 12-13px / 1.4 | metadata, kbd, tags |
 
-No all-caps labels and no eyebrows above headlines.
+Interface text uses whole pixels only: 11, 12, 13, 14, 15, 16, 17, 18 (no 12.5 or 13.5).
+
+No all-caps labels and no eyebrows above display headlines. Small group headings (sidebar groups, "On this page",
+"Category") are 13px Geist 500 in `--faint`: `eyebrow` in `components/ui/controls.ts`.
 
 ## Spacing and layout
 
@@ -57,8 +60,11 @@ No all-caps labels and no eyebrows above headlines.
 
 ## Shape and depth
 
-- Radius: `--r-sm` 10px (chips, kbd), `--r-md` 16px (inputs, tiles), `--r-lg` 28px (cards), `--r-panel` 56px
-  (panels; 32px on phones), and full pills for buttons and the nav.
+- Radius, as Tailwind utilities: `rounded-xs` 6px (kbd), `rounded-tile` 14px (grid cells, palette rows, small
+  icon tiles), `rounded-card` 20px (code, tables, notices, neighbour links, the customize card), `rounded-box` 28px
+  (big cards, sidebars, the details panel, drawers, menus, dialogs), `--r-panel` 56px (panels; 32px on phones).
+  Every control is a full pill: buttons, icon buttons, fields, chips, tags, segmented switches, sidebar items.
+  No other radius values.
 - Shadows: `--shadow-float` (the nav, menus: `0 10px 30px -12px rgba(21,18,26,.25)`) and `--shadow-lift` (a card being
   pointed at). Nothing else casts a shadow.
 
@@ -73,9 +79,17 @@ No all-caps labels and no eyebrows above headlines.
 
 - **Nav:** a floating pill (card colour, 1px line, float shadow) centred at the top: the K mark and name, a
   segmented Icons / Docs switch, GitHub, and an orange "Browse icons" pill. Collapses to mark, search and menu on phones.
-- **Buttons:** pills. Primary: ink on paper, paper on plum. Accent: orange with dark text. Quiet: a line and no fill.
-  Hover lifts 1px and deepens; focus is a 2px orange ring offset 2px; disabled at 45% opacity.
+- **Controls live in `components/ui/controls.ts`** as class recipes, used by server and client components alike;
+  never restyle a control inline.
+  - `btn(variant, size)`: `accent` (orange, dark text: the one loud action on a screen), `primary` (ink),
+    `secondary` (card with a line), `ghost` (toolbars), `soft` (small utilities). Sizes 36 / 40 / 48px.
+  - `iconBtn(on)`: a round icon-only button (32 / 36 / 40px); `on` for a pressed toggle (orange tint).
+  - `chip(on)`: one of several choices shown side by side; the chosen one is ink.
+  - `tag()`: a search word or small label. `field()`: a pill text field frame. `navItem(on)`: sidebar rows.
+  - Focus is a 2px orange ring offset 2px everywhere; disabled at 50% opacity.
 - **Inputs:** pill search fields with the search icon, a kbd hint, and results in a card below.
+- **Sidebars** (icon browser, docs): a `rounded-box` card in `--surface-2`, sticky under the nav, with `navItem` rows;
+  the chosen row is a white pill. The icon browser runs the full width of the window.
 - **Cards and tiles:** `--card` with a line; tiles on panels use the panel's colour mixed 8% with white or black.
 - **Footer:** a plum panel.
 

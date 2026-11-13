@@ -118,7 +118,7 @@ import { Bell } from "@kineticons/vue";
           tabs count as triggers on their own too.
         </p>
         <div className="flex flex-wrap gap-3">
-          <button type="button" className="ki-trigger card inline-flex h-11 items-center gap-2.5 rounded-[13px] px-4 text-[14px] font-medium">
+          <button type="button" className="ki-trigger card inline-flex h-11 items-center gap-2.5 rounded-full px-5 text-[14px] font-medium">
             <KineticIcon icon={bell} variant="duotone" size={20} />
             Notifications
           </button>
@@ -451,11 +451,11 @@ const icon = props.unread ? mail : bell;
           ]}
         />
         <div className="flex flex-wrap gap-3">
-          <button type="button" className="ki-trigger card inline-flex h-11 items-center gap-2.5 rounded-[13px] px-4 text-[14px] font-medium">
+          <button type="button" className="ki-trigger card inline-flex h-11 items-center gap-2.5 rounded-full px-5 text-[14px] font-medium">
             <KineticIcon icon={bell} variant="duotone" size={20} />
             The whole button wakes the bell
           </button>
-          <span className="card inline-flex h-11 items-center gap-2.5 rounded-[13px] px-4 text-[14px] text-muted">
+          <span className="card inline-flex h-11 items-center gap-2.5 rounded-full px-5 text-[14px] text-muted">
             <KineticIcon icon={mic} variant="duotone" size={20} trigger="loop" />
             Loop
           </span>
@@ -606,7 +606,7 @@ document.querySelector("#start")!.innerHTML = toSvg(rocket, { variant: "duotone"
         <p>A 24-unit square with a 2-unit margin. Round shapes go a touch past square ones, so they look the same size.</p>
         <div className="flex flex-wrap gap-4">
           {[home, mic, settings, dictionary].map((i) => (
-            <div key={i.name} className="ki-trigger relative grid size-[156px] place-items-center rounded-[20px] bg-surface-2 text-ink-2">
+            <div key={i.name} className="ki-trigger relative grid size-[156px] place-items-center rounded-card bg-surface-2 text-ink-2">
               <GridLines />
               <KineticIcon icon={i} size={132} strokeWidth={1.75} />
             </div>
@@ -698,7 +698,7 @@ function StyleRow() {
   return (
     <div className="not-prose grid gap-3 sm:grid-cols-3">
       {(["outline", "duotone", "filled"] as Variant[]).map((v) => (
-        <div key={v} className="card ki-trigger flex flex-col items-center gap-4 rounded-[20px] py-8">
+        <div key={v} className="card ki-trigger flex flex-col items-center gap-4 rounded-card py-8">
           <div className="flex gap-5 text-ink-2">
             {[home, bell, trash, play].map((i) => (
               <KineticIcon key={i.name} icon={i} variant={v} size={28} />

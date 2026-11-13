@@ -63,7 +63,7 @@ export function Reel() {
             <h2 id="reel-title" className="heading text-[clamp(32px,4.4vw,52px)]">
               {fmt(ICON_COUNT)} icons, {fmt(ICON_COUNT)} motions
             </h2>
-            <p className="mt-4 text-[16.5px] leading-relaxed text-muted">
+            <p className="mt-4 text-[17px] leading-relaxed text-muted">
               No icon borrows another’s motion. Parts move against each other around real pivots, lines draw themselves, shapes give and spring back. All of it is CSS, and it stays still for anyone who asks for less motion.
             </p>
           </div>
@@ -72,16 +72,16 @@ export function Reel() {
           </Button>
         </div>
 
-        <ul ref={ref} className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[28px] border border-line bg-line sm:grid-cols-3 lg:grid-cols-4">
+        <ul ref={ref} className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-box border border-line bg-line sm:grid-cols-3 lg:grid-cols-4">
           {REEL.map((icon) => (
             <li key={icon.name} className="reel-tile group bg-bg">
               <div className="ki-trigger flex h-full flex-col gap-6 p-6 transition-colors duration-500 hover:bg-surface">
-                <span className="reel-icon grid size-14 place-items-center rounded-[16px] bg-surface text-ink-2 transition-[color,background-color,box-shadow] duration-500">
+                <span className="reel-icon grid size-14 place-items-center rounded-card bg-surface text-ink-2 transition-[color,background-color,box-shadow] duration-500">
                   <KineticIcon icon={icon} size={30} variant="duotone" />
                 </span>
                 <span>
                   <span className="block text-[15px] font-semibold text-ink">{icon.title}</span>
-                  <span className="mt-1.5 line-clamp-2 block text-[13.5px] leading-relaxed text-muted">{icon.motionNote}</span>
+                  <span className="mt-1.5 line-clamp-2 block text-[14px] leading-relaxed text-muted">{icon.motionNote}</span>
                 </span>
               </div>
             </li>

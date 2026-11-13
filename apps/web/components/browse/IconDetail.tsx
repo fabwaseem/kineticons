@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { KineticIcon } from "kineticons";
+import { btn, chip, iconBtn } from "@/components/ui/controls";
 import { VARIANTS, type IconDef, type Variant } from "@kineticons/core";
 import {
   download as downloadIcon, grid as gridIcon, pause, play, snail,
@@ -40,7 +41,7 @@ export function IconDetail({ icon, look, big = false }: { icon: IconDef; look: L
 
   return (
     <div className="flex flex-col gap-5">
-      <div className="card relative overflow-hidden rounded-[24px]">
+      <div className="card relative overflow-hidden rounded-box">
         <div
           className={`ki-trigger relative grid place-items-center ${big ? "py-12" : "py-8"}`}
           style={{ background: "radial-gradient(circle at 50% 45%, var(--accent-soft), transparent 65%)" }}
@@ -57,17 +58,17 @@ export function IconDetail({ icon, look, big = false }: { icon: IconDef; look: L
             options={variants.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1) }))}
           />
           <div className="flex items-center gap-1">
-            <button type="button" onClick={() => setSlow(!slow)} aria-pressed={slow} title="Slow motion" aria-label="Slow motion" className={`ki-trigger grid size-9 place-items-center rounded-[11px] transition-colors ${slow ? "bg-accent-soft text-accent-ink" : "text-muted hover:bg-surface-3 hover:text-ink"}`}>
+            <button type="button" onClick={() => setSlow(!slow)} aria-pressed={slow} title="Slow motion" aria-label="Slow motion" className={iconBtn(slow)}>
               <KineticIcon icon={snail} size={17} />
             </button>
-            <button type="button" onClick={() => setGrid(!grid)} aria-pressed={grid} title="Grid" aria-label="Grid" className={`ki-trigger grid size-9 place-items-center rounded-[11px] transition-colors ${grid ? "bg-accent-soft text-accent-ink" : "text-muted hover:bg-surface-3 hover:text-ink"}`}>
+            <button type="button" onClick={() => setGrid(!grid)} aria-pressed={grid} title="Grid" aria-label="Grid" className={iconBtn(grid)}>
               <KineticIcon icon={gridIcon} size={17} />
             </button>
             <button
               type="button"
               onClick={() => setPlaying(!playing)}
               aria-pressed={playing}
-              className="ki-trigger inline-flex h-9 items-center gap-1.5 rounded-[11px] bg-ink px-3 text-[13px] font-medium text-bg"
+              className={btn("primary", "sm")}
             >
               <KineticIcon icon={playing ? pause : play} size={15} variant="filled" />
               {playing ? "Stop" : "Play"}
@@ -85,7 +86,7 @@ export function IconDetail({ icon, look, big = false }: { icon: IconDef; look: L
                 onMouseEnter={() => setFocus(pt.name)}
                 onFocus={() => setFocus(pt.name)}
                 onBlur={() => setFocus(null)}
-                className={`inline-flex h-7 items-center gap-1.5 rounded-full border px-2.5 text-[12px] transition-colors ${focus === pt.name ? "border-ink bg-ink text-bg" : "border-line text-ink-2 hover:border-line-strong"}`}
+                className={chip(focus === pt.name, "h-8 px-3 text-[12px] font-normal")}
               >
                 {partLabel(pt.name)}
                 <span className={focus === pt.name ? "opacity-60" : "text-faint"}>{pt.role}</span>
@@ -95,9 +96,9 @@ export function IconDetail({ icon, look, big = false }: { icon: IconDef; look: L
         </ul>
       )}
 
-      <p className="text-[14.5px] leading-relaxed text-ink-2">{icon.motionNote}</p>
+      <p className="text-[15px] leading-relaxed text-ink-2">{icon.motionNote}</p>
 
-      <div className="flex items-end justify-around rounded-[18px] border border-line px-4 py-4 text-ink-2">
+      <div className="flex items-end justify-around rounded-card border border-line bg-surface px-4 py-4 text-ink-2">
         {(small ? [10, 12, 14, 16, 20] : [16, 20, 24, 32, 40]).map((s) => (
           <span key={s} className="ki-trigger flex flex-col items-center gap-2">
             <KineticIcon icon={icon} variant={variant} size={s} strokeWidth={stroke} />
@@ -122,14 +123,14 @@ function Code({ icon, variant, stroke }: { icon: IconDef; variant: Variant; stro
         <Segmented size="sm" label="Code for" value={tab} onChange={setTab} options={CODE_TABS.map((t) => ({ value: t.value, label: t.label }))} />
       </div>
       <CodeBlock code={code} lang={meta.lang} maxH={320} />
-      <p className="text-[12.5px] leading-relaxed text-muted">{meta.note}</p>
+      <p className="text-[13px] leading-relaxed text-muted">{meta.note}</p>
       <div className="flex flex-wrap gap-2">
         <CopyButton text={svg} label="Copy SVG" />
         <CopyButton text={componentName(icon.name)} label={`Copy <${componentName(icon.name)} />`} />
         <button
           type="button"
           onClick={() => download(`${icon.name}${variant === "outline" ? "" : "-" + variant}.svg`, svg, "image/svg+xml")}
-          className="ki-trigger inline-flex h-8 items-center gap-1.5 rounded-[9px] bg-surface-3 px-2.5 text-[12.5px] font-medium text-ink-2 hover:text-ink"
+          className="ki-trigger inline-flex h-8 items-center gap-1.5 rounded-full bg-surface-3 px-3 text-[13px] font-medium text-ink-2 transition-colors hover:text-ink"
         >
           <KineticIcon icon={downloadIcon} size={14} />
           Download SVG

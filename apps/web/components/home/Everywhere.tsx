@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { KineticIcon } from "kineticons";
+import { chip } from "@/components/ui/controls";
 import {
   send,
 } from "@kineticons/core/icons";
@@ -89,18 +90,18 @@ export function Everywhere() {
         </h2>
         <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:gap-14">
           <div className="flex flex-col gap-6">
-            <div className="grid place-items-center rounded-[28px] border border-line bg-surface px-6 py-14">
+            <div className="grid place-items-center rounded-box border border-line bg-surface px-6 py-14">
               <button type="button" className="ki-trigger inline-flex h-14 items-center gap-3 rounded-full bg-accent pr-6 pl-5 text-[16px] font-medium text-[#1a0f0a] shadow-[0_18px_40px_-18px_var(--accent)] transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0">
                 <KineticIcon icon={send} variant="duotone" size={22} />
                 Point at this button
               </button>
-              <p className="mt-5 text-[13.5px] text-muted">The button is the trigger: its icon wakes when you point anywhere on it.</p>
+              <p className="mt-5 text-[14px] text-muted">The button is the trigger: its icon wakes when you point anywhere on it.</p>
             </div>
-            <dl className="grid gap-px overflow-hidden rounded-[28px] border border-line bg-line sm:grid-cols-2">
+            <dl className="grid gap-px overflow-hidden rounded-box border border-line bg-line sm:grid-cols-2">
               {FACTS.map((f) => (
                 <div key={f.title} className="bg-bg p-6">
                   <dt className="text-[16px] font-semibold text-ink">{f.title}</dt>
-                  <dd className="mt-1.5 text-[14.5px] leading-relaxed text-muted">{f.text}</dd>
+                  <dd className="mt-1.5 text-[15px] leading-relaxed text-muted">{f.text}</dd>
                 </div>
               ))}
             </dl>
@@ -114,16 +115,16 @@ export function Everywhere() {
                   role="tab"
                   aria-selected={tab === t}
                   onClick={() => setTab(t)}
-                  className={`h-10 rounded-full border px-5 text-[14px] font-medium transition-colors ${tab === t ? "border-ink bg-ink text-bg" : "border-line text-ink-2 hover:border-line-strong hover:text-ink"}`}
+                  className={chip(tab === t)}
                 >
                   {{ react: "React", vue: "Vue", svelte: "Svelte", html: "HTML" }[t]}
                 </button>
               ))}
             </div>
-            <CodeBlock code={s.code} lang={s.lang} className="rounded-[24px]" />
+            <CodeBlock code={s.code} lang={s.lang} className="rounded-box" />
             <p className="text-[14px] text-muted">{s.note}</p>
             <div className="mt-2">
-              <Button variant="secondary" to="/docs" className="rounded-full">
+              <Button variant="secondary" to="/docs">
                 Read the docs
               </Button>
             </div>

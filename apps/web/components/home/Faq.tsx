@@ -16,7 +16,7 @@ export function Faq() {
         <div className="divide-y divide-line border-y border-line">
           {FAQS.map((f) => (
             <details key={f.q} className="group ki-trigger">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-[16px] py-6 text-[18px] font-medium transition-colors hover:text-accent-ink [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 rounded-card py-6 text-[18px] font-medium transition-colors hover:text-accent-ink [&::-webkit-details-marker]:hidden">
                 {f.q}
                 <span className="transition-transform duration-300 group-open:rotate-180">
                   <KineticIcon icon={chevronDown} size={20} className="text-muted" />
