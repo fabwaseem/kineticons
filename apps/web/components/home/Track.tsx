@@ -13,7 +13,9 @@ const PATH = "M -80 150 C 260 40, 520 40, 800 120 S 1340 220, 1680 90";
 const VIEW_W = 1600;
 const VIEW_H = 240;
 const STEPS = 120; // keyframes along the curve
-const LENS = 0.045; // fraction of the width either side of the centre where an icon wakes
+const PILL_W = 140; // the lens, in px
+const WAKE = PILL_W / 2 - 18; // px either side of the centre: an icon wakes only while fully inside the pill
+const GROW = PILL_W * 0.85; // px either side of the centre over which an icon grows and shrinks
 
 /**
  * Icons riding a curve, waking as they pass the lens in the middle. The movement runs on the compositor: the curve is
@@ -29,28 +31,54 @@ export function Track() {
   const [lensY, setLensY] = useState(50);
   const xsRef = useRef<number[]>([]);
 
-  // sample the curve into keyframes, once
+  const [width, setWidth] = useState(0);
+  const widthRef = useRef(0);
+  widthRef.current = width;
+  // the track's width: the growth and the wake zone are measured in pixels, so they follow the pill on any screen
+  useEffect(() => {
+    const host = hostRef.current;
+    if (!host) return;
+    let t = 0;
+    setWidth(host.clientWidth);
+    const ro = new ResizeObserver(() => {
+      window.clearTimeout(t);
+      t = window.setTimeout(() => setWidth(host.clientWidth), 150);
+    });
+    ro.observe(host);
+    return () => (ro.disconnect(), window.clearTimeout(t));
+  }, []);
+
+  // sample the curve into keyframes (again whenever the width changes)
   useEffect(() => {
     const path = pathRef.current;
-    if (!path) return;
+    if (!path || !width) return;
     const len = path.getTotalLength();
     const pts = Array.from({ length: STEPS + 1 }, (_, i) => path.getPointAtLength((i / STEPS) * len));
     const xs = pts.map((p) => p.x / VIEW_W);
     xsRef.current = xs;
     const move = pts.map((p, i) => `${((i / STEPS) * 100).toFixed(3)}%{transform:translate(${((p.x / VIEW_W) * 100).toFixed(3)}%,${((p.y / VIEW_H) * 100).toFixed(3)}%)}`).join("");
-    const grow = xs
-      .map((x, i) => {
-        const near = Math.max(0, 1 - Math.abs(x - 0.5) / (LENS * 2.4));
-        const s = 1 + near * near * (3 - 2 * near) * 0.85;
-        return `${((i / STEPS) * 100).toFixed(3)}%{transform:scale(${s.toFixed(3)})}`;
-      })
-      .join("");
-    setCss(`@keyframes ki-track-move{${move}}@keyframes ki-track-grow{${grow}}`);
+    // growth: by the icon's distance from the centre in pixels. A pixel-based ramp needs finer keyframes near the
+    // centre than STEPS gives on a wide screen, so the grow animation gets its own, denser sampling there
+    const growStops: string[] = [];
+    const G = 600;
+    let prev = "";
+    for (let i = 0; i <= G; i++) {
+      const f = i / G;
+      const x = path.getPointAtLength(f * len).x / VIEW_W;
+      const d = Math.abs(x - 0.5) * width;
+      const near = Math.max(0, 1 - d / GROW);
+      const sc = (1 + near * near * (3 - 2 * near) * 0.85).toFixed(3);
+      if (sc === prev && i !== G && i !== 0) continue; // flat stretches need no keyframes
+      if (prev === "1.000" && sc !== "1.000" && i > 0) growStops.push(`${(((i - 1) / G) * 100).toFixed(3)}%{transform:scale(1)}`);
+      growStops.push(`${(f * 100).toFixed(3)}%{transform:scale(${sc})}`);
+      prev = sc;
+    }
+    setCss(`@keyframes ki-track-move{${move}}@keyframes ki-track-grow{${growStops.join("")}}`);
     // the lens sits on the curve at the centre
     let best = 0;
     pts.forEach((p, i) => Math.abs(p.x - VIEW_W / 2) < Math.abs(pts[best].x - VIEW_W / 2) && (best = i));
     setLensY((pts[best].y / VIEW_H) * 100);
-  }, []);
+  }, [width]);
 
   // once the keyframes exist: offsets, waking, slowing, pausing
   useEffect(() => {
@@ -83,8 +111,10 @@ export function Track() {
       const t = a ? ((Number(a.currentTime ?? 0) / 1000 / LOOP_S) % 1) : 0;
       riders.forEach((el, i) => {
         const f = (t + i / riders.length) % 1;
-        const x = xs[Math.round(f * STEPS)] ?? 0;
-        const on = Math.abs(x - 0.5) < LENS;
+        const k = f * STEPS;
+        const lo = Math.floor(k);
+        const x = (xs[lo] ?? 0) + ((xs[Math.min(STEPS, lo + 1)] ?? 0) - (xs[lo] ?? 0)) * (k - lo);
+        const on = Math.abs(x - 0.5) * widthRef.current < WAKE;
         if (on !== awake.has(i)) {
           const svg = el.querySelector("svg");
           if (on) (awake.add(i), svg?.setAttribute("data-active", "true"), el.setAttribute("data-awake", ""));
@@ -136,7 +166,7 @@ export function Track() {
       <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} preserveAspectRatio="none" className="absolute inset-0 size-full overflow-visible">
         <path ref={pathRef} d={PATH} fill="none" stroke="var(--line-strong)" strokeWidth="1.5" strokeDasharray="2 10" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
       </svg>
-      <div className="absolute left-1/2 h-[92px] w-[140px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-line-strong bg-card shadow-[var(--shadow-md)]" style={{ top: `${lensY}%` }} />
+      <div className="absolute left-1/2 h-[92px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-line-strong bg-card shadow-[var(--shadow-md)]" style={{ top: `${lensY}%`, width: PILL_W }} />
       {TRACK.map((icon, i) => (
         // the outer box is the size of the track, so translate(%) moves along the track; the inner box grows
         <div key={icon.name} data-rider className="rider pointer-events-none absolute inset-0 will-change-transform">
