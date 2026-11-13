@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import { CodeBlock } from "@/components/ui/bits";
 import { CodeTabs } from "./CodeTabs";
+import { KineticIcon } from "kineticons";
+import { circleAlert, lightbulb } from "@kineticons/core/icons";
 
 /** A section heading with an anchor (the page's table of contents links to it). */
 export function H2({ id, children }: { id: string; children: ReactNode }) {
@@ -44,8 +46,9 @@ export function Install({ pkg }: { pkg: string }) {
 /** A note set apart from the text: a tip or a caution. */
 export function Callout({ kind = "tip", children }: { kind?: "tip" | "caution"; children: ReactNode }) {
   return (
-    <div className={`not-prose rounded-card border px-4 py-3 text-[15px] leading-relaxed ${kind === "tip" ? "border-[color-mix(in_srgb,var(--haze-ink)_30%,transparent)] bg-haze text-ink-2" : "border-[color-mix(in_srgb,var(--accent)_35%,transparent)] bg-accent-soft text-ink-2"}`}>
-      {children}
+    <div className={`ki-trigger not-prose flex gap-3 rounded-card border px-4 py-3.5 text-[15px] leading-relaxed ${kind === "tip" ? "border-[color-mix(in_srgb,var(--haze-ink)_30%,transparent)] bg-haze text-ink-2" : "border-[color-mix(in_srgb,var(--accent)_35%,transparent)] bg-accent-soft text-ink-2"}`}>
+      <KineticIcon icon={kind === "tip" ? lightbulb : circleAlert} size={19} variant="duotone" className={`mt-0.5 shrink-0 ${kind === "tip" ? "text-haze-ink" : "text-accent-ink"}`} />
+      <div className="min-w-0">{children}</div>
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { CATEGORIES, fmt, ICON_COUNT } from "@/lib/categories";
 import { DEFAULT_LOOK, useLook, type Look } from "@/lib/store";
 import { Segmented } from "@/components/ui/bits";
 import { ColorPicker, Slider, Switch } from "@/components/ui/inputs";
+import { usePresence } from "@/components/ui/presence";
 import { btn, eyebrow, iconBtn, navItem, tag } from "@/components/ui/controls";
 
 const STYLES = ["outline", "duotone", "filled"] as const;
@@ -170,22 +171,13 @@ export default function Browser() {
       </div>
 
       {/* the details: docked on wide screens */}
-      {openIcon && (
-        <aside aria-labelledby="panel-title" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[400px] shrink-0 flex-col overflow-hidden rounded-box border border-line bg-surface-2 xl:flex 2xl:w-[440px]" style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}>
-          <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">
-            <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
-          </div>
-        </aside>
-      )}
-      {/* ...and a drawer below that width */}
-      {openIcon && (
-        <Drawer label={openIcon.title} onClose={() => set({ icon: null })} className="xl:hidden">
-          <Details icon={openIcon} look={look} onClose={() => set({ icon: null })} />
-        </Drawer>
-      )}
+      <DetailsDock icon={openIcon} look={look} onClose={() => set({ icon: null })} />
+      {/* ...and a sheet below that width */}
+      <Drawer open={openIcon} label={openIcon?.title ?? "Icon"} onClose={() => set({ icon: null })} hideAt={1280} className="xl:hidden">
+        {(icon) => <Details icon={icon} look={look} onClose={() => set({ icon: null })} />}
+      </Drawer>
       {/* customize and categories on small screens */}
-      {sheet && (
-        <Drawer label="Customize" onClose={() => setSheet(false)} className="lg:hidden" side="left">
+      <Drawer open={sheet} label="Customize and filter" onClose={() => setSheet(false)} hideAt={1024} className="lg:hidden" side="left">
           <div className="mb-4 flex items-center justify-between">
             <h2 className="heading text-[26px]">Customize and filter</h2>
             <button type="button" onClick={() => setSheet(false)} aria-label="Close" className={iconBtn()}>
@@ -195,7 +187,6 @@ export default function Browser() {
           <Customize look={look} patch={patch} reset={reset} />
           <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
         </Drawer>
-      )}
     </div>
   );
 }
@@ -236,20 +227,42 @@ function Details({ icon, look, onClose }: { icon: IconDef; look: Look; onClose: 
   );
 }
 
-function Drawer({ children, label, onClose, className = "", side = "right" }: { children: ReactNode; label: string; onClose: () => void; className?: string; side?: "left" | "right" }) {
+/** The details docked beside the grid on wide screens: slides in, and out again when closed. */
+function DetailsDock({ icon, look, onClose }: { icon: IconDef | null; look: Look; onClose: () => void }) {
+  const { mounted, state, last } = usePresence(icon, 260);
+  if (!mounted || !last) return null;
+  return (
+    <aside
+      aria-labelledby="panel-title"
+      data-state={state}
+      className="anim-panel sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[400px] shrink-0 flex-col overflow-hidden rounded-box border border-line bg-surface-2 xl:flex 2xl:w-[440px]"
+    >
+      <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">
+        <Details icon={last} look={look} onClose={onClose} />
+      </div>
+    </aside>
+  );
+}
+
+/** A sheet from the side over a dimmed page; slides in and out. Children can be a function of the last open value. */
+function Drawer<T>({ open, children, label, onClose, hideAt, className = "", side = "right" }: { open: T | null | false | undefined; children: ReactNode | ((v: T) => ReactNode); label: string; onClose: () => void; hideAt: number; className?: string; side?: "left" | "right" }) {
+  const { mounted, state, last } = usePresence(open, 300);
   useEffect(() => {
+    // lock the page only while the sheet is actually showing (it is hidden from `hideAt` px up)
+    if (!open || window.innerWidth >= hideAt) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => void (document.body.style.overflow = prev);
-  }, []);
+  }, [open]);
+  if (!mounted || last == null) return null;
   return (
-    <div className={`fixed inset-0 z-50 flex ${side === "right" ? "justify-end" : "justify-start"} ${className}`} role="dialog" aria-modal="true" aria-label={label}>
-      <button type="button" tabIndex={-1} aria-label="Close" className="absolute inset-0 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px]" style={{ animation: "scrim-in .25s ease both" }} onClick={onClose} />
+    <div className={`fixed inset-0 z-50 flex ${side === "right" ? "justify-end" : "justify-start"} ${className}`} role="dialog" aria-modal="true" aria-label={label} data-state={state}>
+      <button type="button" tabIndex={-1} aria-label="Close" data-state={state} className="anim-scrim absolute inset-0 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px]" onClick={onClose} />
       <div
-        className="relative m-2 flex h-[calc(100%-16px)] w-full max-w-[460px] flex-col overflow-hidden rounded-box border border-line bg-bg shadow-[var(--shadow-lg)]"
-        style={{ animation: "drawer-in .4s var(--ease-smooth) both" }}
+        data-state={state}
+        className={`${side === "right" ? "anim-sheet-r" : "anim-sheet-l"} relative m-2 flex h-[calc(100%-16px)] w-full max-w-[460px] flex-col overflow-hidden rounded-box border border-line bg-bg shadow-[var(--shadow-lg)]`}
       >
-        <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">{children}</div>
+        <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">{typeof children === "function" ? children(last as T) : children}</div>
       </div>
     </div>
   );

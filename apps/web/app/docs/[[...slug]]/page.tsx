@@ -3,6 +3,28 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { docBySlug, DOCS } from "@/components/docs/registry";
 import { eyebrow, navItem } from "@/components/ui/controls";
+import { KineticIcon } from "kineticons";
+import type { IconDef } from "@kineticons/core";
+import { accessibility, arrowLeft, arrowRight, atom, braces, component, fileCode, flame, gitPullRequest, palette, penTool, rocket, ruler, scroll, sparkles, triangle } from "@kineticons/core/icons";
+
+/** Each doc's icon: in the sidebar, on its page and on the previous / next links. */
+const DOC_ICON: Record<string, IconDef> = {
+  "": rocket,
+  react: atom,
+  nextjs: triangle,
+  vue: component,
+  svelte: flame,
+  static: fileCode,
+  styles: palette,
+  motion: sparkles,
+  sizing: ruler,
+  accessibility,
+  api: braces,
+  "design-system": penTool,
+  contributing: gitPullRequest,
+  licence: scroll,
+};
+const iconOf = (slug: string) => DOC_ICON[slug] ?? rocket;
 import { abs, REPO_URL, SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -68,8 +90,9 @@ export default async function DocPage({ params }: Props) {
                     <Link
                       href={href(d.slug)}
                       aria-current={d === doc ? "page" : undefined}
-                      className={`${navItem(d === doc, "whitespace-nowrap")} ${d === doc ? "" : "max-lg:border max-lg:border-line"}`}
+                      className={`ki-trigger ${navItem(d === doc, "justify-start whitespace-nowrap")} ${d === doc ? "" : "max-lg:border max-lg:border-line"}`}
                     >
+                      <KineticIcon icon={iconOf(d.slug)} size={17} variant={d === doc ? "duotone" : "outline"} className={`shrink-0 ${d === doc ? "text-accent" : "text-faint"}`} />
                       {d.title}
                     </Link>
                   </li>
@@ -81,24 +104,41 @@ export default async function DocPage({ params }: Props) {
       </nav>
 
       <article className="doc min-w-0 max-w-[780px] lg:pt-8">
-        <p className={eyebrow}>{doc.group}</p>
-        <h1 className="display mt-3 text-[clamp(44px,5.5vw,72px)]">{doc.title}</h1>
+        <div className="flex items-center gap-3">
+          <span className="ki-trigger grid size-11 place-items-center rounded-tile border border-line bg-surface text-accent shadow-[var(--shadow-sm)]">
+            <KineticIcon icon={iconOf(doc.slug)} size={22} variant="duotone" trigger="loop" loopEvery={3200} />
+          </span>
+          <p className={eyebrow}>{doc.group}</p>
+        </div>
+        <h1 className="display mt-4 text-[clamp(44px,5.5vw,72px)]">{doc.title}</h1>
         <p className="mt-5 max-w-[60ch] text-[18px] leading-relaxed text-muted">{doc.description}</p>
         <div className="mt-10">{doc.body()}</div>
 
         <nav aria-label="More docs" className="mt-16 grid gap-3 border-t border-line pt-8 sm:grid-cols-2">
           {prev ? (
-            <Link href={href(prev.slug)} rel="prev" className="card rounded-card p-5 transition-colors hover:border-line-strong">
-              <span className="block text-[13px] text-faint">Previous</span>
-              <span className="heading mt-1 block text-[19px]">{prev.title}</span>
+            <Link href={href(prev.slug)} rel="prev" className="ki-trigger card group flex items-center gap-4 rounded-card p-5 transition-colors hover:border-line-strong">
+              <KineticIcon icon={arrowLeft} size={18} className="shrink-0 text-faint transition-transform duration-300 group-hover:-translate-x-0.5" />
+              <span className="min-w-0">
+                <span className="block text-[13px] text-faint">Previous</span>
+                <span className="heading mt-1 flex items-center gap-2 text-[20px]">
+                  <KineticIcon icon={iconOf(prev.slug)} size={18} className="shrink-0 text-accent" />
+                  {prev.title}
+                </span>
+              </span>
             </Link>
           ) : (
             <span />
           )}
           {next && (
-            <Link href={href(next.slug)} rel="next" className="card rounded-card p-5 text-right transition-colors hover:border-line-strong">
-              <span className="block text-[13px] text-faint">Next</span>
-              <span className="heading mt-1 block text-[19px]">{next.title}</span>
+            <Link href={href(next.slug)} rel="next" className="ki-trigger card group flex items-center justify-end gap-4 rounded-card p-5 text-right transition-colors hover:border-line-strong sm:col-start-2">
+              <span className="min-w-0">
+                <span className="block text-[13px] text-faint">Next</span>
+                <span className="heading mt-1 flex items-center justify-end gap-2 text-[20px]">
+                  <KineticIcon icon={iconOf(next.slug)} size={18} className="shrink-0 text-accent" />
+                  {next.title}
+                </span>
+              </span>
+              <KineticIcon icon={arrowRight} size={18} className="shrink-0 text-faint transition-transform duration-300 group-hover:translate-x-0.5" />
             </Link>
           )}
         </nav>

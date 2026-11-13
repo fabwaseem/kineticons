@@ -85,7 +85,7 @@ export function CodeBlock({ code, lang, className = "", maxH, bare = false }: { 
         {lang && <span className="text-[11px] text-faint">{lang}</span>}
         <CopyButton text={code} compact />
       </div>
-      <pre className="overflow-auto p-4 pr-16 text-[13px] leading-[1.7] text-ink-2" style={maxH ? { maxHeight: maxH } : undefined}>
+      <pre className="scroll-x overflow-auto p-4 pr-16 text-[13px] leading-[1.7] text-ink-2" style={maxH ? { maxHeight: maxH } : undefined}>
         <code dangerouslySetInnerHTML={{ __html: highlight(code) }} />
       </pre>
     </div>

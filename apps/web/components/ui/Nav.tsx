@@ -11,6 +11,7 @@ import { REPO_URL } from "@/lib/site";
 import { useTheme } from "@/lib/theme";
 import { Kbd, Mark, Wordmark } from "./bits";
 import { btn, field, iconBtn } from "./controls";
+import { usePresence } from "./presence";
 import { openPalette } from "./palette-bus";
 
 const LINKS = [
@@ -98,7 +99,7 @@ export function Nav() {
         </div>
       </div>
 
-      {open && <PhoneMenu path={path} onClose={() => setOpen(false)} />}
+      <PhoneMenu open={open} path={path} onClose={() => setOpen(false)} />
     </header>
   );
 }
@@ -165,11 +166,13 @@ function MainSwitch({ path, className = "" }: { path: string; className?: string
 }
 
 /** The menu on phones: the main pages in display type. */
-function PhoneMenu({ path, onClose }: { path: string; onClose: () => void }) {
+function PhoneMenu({ open, path, onClose }: { open: boolean; path: string; onClose: () => void }) {
+  const { mounted, state } = usePresence(open, 280);
+  if (!mounted) return null;
   return (
     <>
-      <button type="button" tabIndex={-1} aria-label="Close menu" onClick={onClose} className="pointer-events-auto fixed inset-0 top-[var(--nav-h)] z-30 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px] md:hidden" style={{ animation: "scrim-in .25s ease both" }} />
-    <div className="pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)-4px)] z-40 rounded-box border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
+      <button type="button" tabIndex={-1} aria-label="Close menu" onClick={onClose} data-state={state} className="anim-scrim pointer-events-auto fixed inset-0 top-[var(--nav-h)] z-30 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px] md:hidden" />
+    <div data-state={state} className="anim-pop pointer-events-auto fixed inset-x-2 top-[calc(var(--nav-h)+8px)] z-40 rounded-box border border-line bg-card p-3 shadow-[var(--shadow-lg)] md:hidden">
       <nav aria-label="Main" className="flex flex-col">
         {[{ href: "/", label: "Home" }, ...LINKS, { href: "/docs/react", label: "React" }, { href: "/docs/design-system", label: "Design system" }].map((l) => (
           <Link key={l.href} href={l.href} className={`heading rounded-card px-4 py-3 text-[28px] transition-colors hover:bg-surface-3 ${path === l.href ? "text-ink" : "text-muted"}`}>
@@ -224,7 +227,7 @@ function IconsBar({ path, open, setOpen }: { path: string; open: boolean; setOpe
           </button>
         </div>
       </div>
-      {open && <PhoneMenu path={path} onClose={() => setOpen(false)} />}
+      <PhoneMenu open={open} path={path} onClose={() => setOpen(false)} />
     </header>
   );
 }

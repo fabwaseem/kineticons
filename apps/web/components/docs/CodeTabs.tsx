@@ -28,7 +28,7 @@ export function CodeTabs({ tabs, label }: { tabs: { label: string; code: string;
   };
   const t = tabs[i] ?? tabs[0];
   return (
-    <div className="not-prose flex flex-col gap-2">
+    <div className="not-prose flex flex-col items-start gap-2 [&>*:last-child]:self-stretch">
       <Segmented size="sm" label={label} value={t.label} onChange={pick} options={tabs.map((x) => ({ value: x.label, label: x.label }))} />
       <CodeBlock code={t.code} lang={t.lang} />
     </div>

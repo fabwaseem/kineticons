@@ -76,7 +76,8 @@ export function Grid({ icons, look, selected, onOpen }: { icons: IconDef[]; look
         el?.focus();
       }}
       className="relative w-full rounded-card outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)]"
-      style={{ height: v.getTotalSize() }}
+      // how far a hovered icon rises so its name fits beneath with room to spare (names hidden only)
+      style={{ height: v.getTotalSize(), ["--lift" as string]: `${Math.max(8, Math.round(look.size / 2 - rowH / 2 + 28))}px` }}
     >
       {v.getVirtualItems().map((row) => (
         <div
@@ -111,11 +112,13 @@ const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon
         }`}
         style={look.color && !on ? { color: look.color } : undefined}
       >
-        <KineticIcon icon={icon} variant={look.variant} size={look.size} strokeWidth={look.stroke ?? undefined} trigger={look.trigger} loopEvery={2200} css={false} />
+        <span className={look.labels ? "contents" : "transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-hover:-translate-y-[var(--lift)] group-focus-visible:-translate-y-[var(--lift)]"}>
+          <KineticIcon icon={icon} variant={look.variant} size={look.size} strokeWidth={look.stroke ?? undefined} trigger={look.trigger} loopEvery={2200} css={false} />
+        </span>
         {look.labels ? (
           <span className="w-full truncate text-center text-[12px] text-muted group-hover:text-ink">{icon.name}</span>
         ) : (
-          <span className="pointer-events-none absolute inset-x-1 bottom-1 truncate text-center text-[11px] text-faint opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100">{icon.name}</span>
+          <span className="pointer-events-none absolute inset-x-1.5 bottom-1 translate-y-1 truncate text-center text-[11px] leading-tight text-muted opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100">{icon.name}</span>
         )}
       </button>
     </div>

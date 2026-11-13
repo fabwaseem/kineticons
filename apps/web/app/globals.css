@@ -236,6 +236,10 @@
   scrollbar-width: thin;
   scrollbar-color: color-mix(in srgb, var(--ink) 20%, transparent) transparent;
 }
+@utility scroll-x {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink) 20%, transparent) transparent;
+}
 @utility tabular { font-variant-numeric: tabular-nums; }
 @utility accent-gradient { background-image: linear-gradient(135deg, var(--accent-2), var(--accent)); }
 @utility no-scrollbar {
@@ -257,6 +261,31 @@
 @keyframes marquee-x { to { transform: translateX(-100%); } }
 
 .rise { animation: rise 0.9s var(--ease-smooth) both; }
+
+/* opening and closing: every menu, sheet and panel enters on the smooth curve and leaves a little faster, on
+   transform and opacity only. data-state comes from usePresence (components/ui/presence.ts). */
+@keyframes pop-in { from { opacity: 0; transform: translate3d(0, -10px, 0) scale(0.97); } }
+@keyframes pop-out { to { opacity: 0; transform: translate3d(0, -6px, 0) scale(0.98); } }
+@keyframes fade-out { to { opacity: 0; } }
+@keyframes sheet-in-r { from { transform: translate3d(calc(100% + 16px), 0, 0); } }
+@keyframes sheet-out-r { to { transform: translate3d(calc(100% + 16px), 0, 0); } }
+@keyframes sheet-in-l { from { transform: translate3d(calc(-100% - 16px), 0, 0); } }
+@keyframes sheet-out-l { to { transform: translate3d(calc(-100% - 16px), 0, 0); } }
+@keyframes panel-in { from { opacity: 0; transform: translate3d(28px, 0, 0); } }
+@keyframes panel-out { to { opacity: 0; transform: translate3d(28px, 0, 0); } }
+[data-state="closed"] { pointer-events: none; }
+.anim-pop { transform-origin: top center; will-change: transform, opacity; }
+.anim-pop[data-state="open"] { animation: pop-in 0.38s var(--ease-smooth) both; }
+.anim-pop[data-state="closed"] { animation: pop-out 0.22s cubic-bezier(0.4, 0, 1, 1) both; }
+.anim-scrim[data-state="open"] { animation: fade 0.3s ease both; }
+.anim-scrim[data-state="closed"] { animation: fade-out 0.28s ease both; }
+.anim-sheet-r, .anim-sheet-l { will-change: transform; }
+.anim-sheet-r[data-state="open"] { animation: sheet-in-r 0.5s var(--ease-smooth) both; }
+.anim-sheet-r[data-state="closed"] { animation: sheet-out-r 0.3s cubic-bezier(0.4, 0, 1, 1) both; }
+.anim-sheet-l[data-state="open"] { animation: sheet-in-l 0.5s var(--ease-smooth) both; }
+.anim-sheet-l[data-state="closed"] { animation: sheet-out-l 0.3s cubic-bezier(0.4, 0, 1, 1) both; }
+.anim-panel[data-state="open"] { animation: panel-in 0.45s var(--ease-smooth) both; }
+.anim-panel[data-state="closed"] { animation: panel-out 0.24s cubic-bezier(0.4, 0, 1, 1) both; }
 .fade-in { animation: fade 0.6s var(--ease-smooth) both; }
 .skeleton {
   background: linear-gradient(90deg, var(--surface-3) 25%, var(--surface-2) 50%, var(--surface-3) 75%);
