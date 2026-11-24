@@ -1,8 +1,11 @@
 <div align="center">
 
-# Kineticons
-
-**Icons that move like they mean it.**
+<a href="https://kineticons.fabwaseem.com">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/banner-dark.png" />
+  <img src=".github/assets/banner-light.png" alt="Kineticons: icons that move like they mean it" width="720" />
+</picture>
+</a>
 
 2,800+ open-source, rounded icons and tech logos in outline, duotone and filled, each with a motion of its own.<br />
 For React, Vue, Svelte and plain HTML.
@@ -20,6 +23,30 @@ For React, Vue, Svelte and plain HTML.
 Every icon moves the way its object does: a bell swings from its top, a padlock's shackle drops shut, a battery fills up.
 The motion is plain CSS, so it plays the same in every framework, needs no animation library, and stays still for
 visitors who ask for reduced motion.
+
+<a href="https://kineticons.fabwaseem.com">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/home-dark.png" />
+  <img src=".github/assets/home-light.png" alt="The Kineticons home page: a glowing icon key above the headline “Icons with a pulse.” and a search field" />
+</picture>
+</a>
+
+<table>
+  <tr>
+    <td width="50%"><a href="https://kineticons.fabwaseem.com/icons"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/browse-dark.png" />
+  <img src=".github/assets/browse-light.png" alt="The icon browser: a grid of 2,850 icons with style, sort and category filters" />
+</picture></a></td>
+    <td width="50%"><a href="https://kineticons.fabwaseem.com/icons/bell"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/icon-dark.png" />
+  <img src=".github/assets/icon-light.png" alt="An icon page: the bell drawn large on its grid, with styles, sizes and code" />
+</picture></a></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Browse</b> every icon, filter by style and category</td>
+    <td align="center"><b>Inspect</b> one icon, play its motion, copy the code</td>
+  </tr>
+</table>
 
 ## Packages
 

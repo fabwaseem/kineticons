@@ -351,7 +351,7 @@ export const robotVacuum: IconDef = {
   category: "devices",
   tags: ["vacuum","robot","cleaning","home"],
   motionNote: "The bumper swings round as the vacuum turns, its light blinks, and the brushes flick.",
-  parts: [{"p":"p0","role":"detail","d":"M11 17h2"},{"p":"p1","role":"detail","d":"M12 12h.01"},{"p":"p2","role":"detail","d":"M17 12a5 5 0 00-10 0"},{"p":"p3","role":"line","d":"M19 2v2.8"},{"p":"p4","role":"line","d":"M2 5h2.8"},{"p":"p5","role":"line","d":"M22 5h-2.8"},{"p":"p6","role":"line","d":"M5 2v2.8"},{"p":"p7","role":"body","d":"M2 12 A10 10 0 1 0 22 12 A10 10 0 1 0 2 12 Z"}],
+  parts: [{"p":"p0","role":"detail","d":"M11 17h2"},{"p":"p1","role":"line","d":"M12 12h.01"},{"p":"p2","role":"detail","d":"M17 12a5 5 0 00-10 0"},{"p":"p3","role":"line","d":"M19 2v2.8"},{"p":"p4","role":"line","d":"M2 5h2.8"},{"p":"p5","role":"line","d":"M22 5h-2.8"},{"p":"p6","role":"line","d":"M5 2v2.8"},{"p":"p7","role":"body","d":"M2 12 A10 10 0 1 0 22 12 A10 10 0 1 0 2 12 Z"}],
   motion: {"p2":{"box":"view-box","origin":"12px 12px","animation":"ki-robot-vacuum-turn 850ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"box":"view-box","origin":"12px 12px","animation":"ki-robot-vacuum-turn 850ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"ki-robot-vacuum-blink 800ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p3":{"animation":"ki-robot-vacuum-brush 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p5":{"animation":"ki-robot-vacuum-brush 550ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p6":{"animation":"ki-robot-vacuum-brush 550ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p4":{"animation":"ki-robot-vacuum-brush 550ms cubic-bezier(.22,1,.36,1) 180ms backwards"}},
   keyframes: "@keyframes ki-robot-vacuum-turn{0%{transform:none}35%{transform:rotate(-25deg)}65%{transform:rotate(18deg)}85%{transform:rotate(-4deg)}100%{transform:none}}@keyframes ki-robot-vacuum-blink{0%,100%{opacity:1}18%{opacity:0}36%{opacity:1}54%{opacity:0}72%{opacity:1}}@keyframes ki-robot-vacuum-brush{0%{transform:none;opacity:1}30%{transform:scale(.4);opacity:0}70%{transform:scale(1.1);opacity:1}100%{transform:none;opacity:1}}",
 };
@@ -622,7 +622,7 @@ export const university: IconDef = {
   category: "travel",
   tags: ["university","college","education","campus"],
   motionNote: "The building settles, the round window swells, the door swings open and the windows light up in turn.",
-  parts: [{"p":"p0","role":"detail","d":"M14 21v-3a2 2 0 0 0-4 0v3"},{"p":"p1","role":"detail","d":"M18 12h.01"},{"p":"p2","role":"detail","d":"M18 16h.01"},{"p":"p3","role":"body","d":"M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z"},{"p":"p4","role":"detail","d":"M6 12h.01"},{"p":"p5","role":"detail","d":"M6 16h.01"},{"p":"p6","role":"detail","d":"M10 10 A2 2 0 1 0 14 10 A2 2 0 1 0 10 10 Z"}],
+  parts: [{"p":"p0","role":"detail","d":"M14 21v-3a2 2 0 0 0-4 0v3"},{"p":"p1","role":"line","d":"M18 12h.01"},{"p":"p2","role":"line","d":"M18 16h.01"},{"p":"p3","role":"body","d":"M22 7a1 1 0 0 0-1-1h-2a2 2 0 0 1-1.143-.359L13.143 2.36a2 2 0 0 0-2.286-.001L6.143 5.64A2 2 0 0 1 5 6H3a1 1 0 0 0-1 1v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2z"},{"p":"p4","role":"line","d":"M6 12h.01"},{"p":"p5","role":"line","d":"M6 16h.01"},{"p":"p6","role":"detail","d":"M10 10 A2 2 0 1 0 14 10 A2 2 0 1 0 10 10 Z"}],
   motion: {"p3":{"origin":"50% 100%","animation":"ki-university-settle 600ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p6":{"animation":"ki-university-window 600ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p0":{"origin":"0% 100%","animation":"ki-university-door 700ms cubic-bezier(.22,1,.36,1) 100ms backwards"},"p5":{"animation":"ki-university-light 400ms cubic-bezier(.22,1,.36,1) 150ms backwards"},"p1":{"animation":"ki-university-light 400ms cubic-bezier(.22,1,.36,1) 220ms backwards"},"p2":{"animation":"ki-university-light 400ms cubic-bezier(.22,1,.36,1) 290ms backwards"},"p4":{"animation":"ki-university-light 400ms cubic-bezier(.22,1,.36,1) 360ms backwards"}},
   keyframes: "@keyframes ki-university-settle{0%{transform:none}30%{transform:scaleY(.96)}60%{transform:scaleY(1.02)}100%{transform:none}}@keyframes ki-university-window{0%{transform:none}40%{transform:scale(1.2)}100%{transform:none}}@keyframes ki-university-door{0%{transform:none}35%,60%{transform:scaleX(.45)}100%{transform:none}}@keyframes ki-university-light{0%{opacity:1}40%{opacity:.15}100%{opacity:1}}",
 };
@@ -713,7 +713,7 @@ export const searchAlert: IconDef = {
   category: "status",
   tags: ["search","warning","alert","problem"],
   motionNote: "The lens shakes and the warning mark drops into it, dot last.",
-  parts: [{"p":"p0","role":"body","d":"M3 11 A8 8 0 1 0 19 11 A8 8 0 1 0 3 11 Z"},{"p":"p1","role":"line","d":"m21 21-4.3-4.3"},{"p":"p2","role":"detail","d":"M11 7v4"},{"p":"p3","role":"detail","d":"M11 15h.01"}],
+  parts: [{"p":"p0","role":"body","d":"M3 11 A8 8 0 1 0 19 11 A8 8 0 1 0 3 11 Z"},{"p":"p1","role":"line","d":"m21 21-4.3-4.3"},{"p":"p2","role":"detail","d":"M11 7v4"},{"p":"p3","role":"line","d":"M11 15h.01"}],
   motion: {"p0":{"animation":"ki-search-alert-shake 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"ki-search-alert-shake 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"animation":"ki-search-alert-mark 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p3":{"animation":"ki-search-alert-dot 350ms cubic-bezier(.22,1,.36,1) 320ms backwards"}},
   keyframes: "@keyframes ki-search-alert-shake{0%{transform:none}20%{transform:translateX(-.9px)}40%{transform:translateX(.8px)}60%{transform:translateX(-.5px)}80%{transform:translateX(.3px)}100%{transform:none}}@keyframes ki-search-alert-mark{0%{transform:translateY(-2px);opacity:0}60%{transform:translateY(.3px);opacity:1}100%{transform:none;opacity:1}}@keyframes ki-search-alert-dot{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:none;opacity:1}}",
 };
@@ -768,7 +768,7 @@ export const serverNas: IconDef = {
   category: "development",
   tags: ["nas","storage","server","network"],
   motionNote: "The drive bays lift in turn and the lights blink.",
-  parts: [{"p":"p0","role":"detail","d":"M10 16V8"},{"p":"p1","role":"detail","d":"M14 16V8"},{"p":"p2","role":"detail","d":"M18 16V8"},{"p":"p3","role":"detail","d":"M6 12h.01"},{"p":"p4","role":"detail","d":"M6 16h.01"},{"p":"p5","role":"body","d":"M4 4 H20 A2 2 0 0 1 22 6 V18 A2 2 0 0 1 20 20 H4 A2 2 0 0 1 2 18 V6 A2 2 0 0 1 4 4 Z"}],
+  parts: [{"p":"p0","role":"detail","d":"M10 16V8"},{"p":"p1","role":"detail","d":"M14 16V8"},{"p":"p2","role":"detail","d":"M18 16V8"},{"p":"p3","role":"line","d":"M6 12h.01"},{"p":"p4","role":"line","d":"M6 16h.01"},{"p":"p5","role":"body","d":"M4 4 H20 A2 2 0 0 1 22 6 V18 A2 2 0 0 1 20 20 H4 A2 2 0 0 1 2 18 V6 A2 2 0 0 1 4 4 Z"}],
   motion: {"p0":{"animation":"ki-server-nas-bay 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"animation":"ki-server-nas-bay 550ms cubic-bezier(.22,1,.36,1) 70ms backwards"},"p2":{"animation":"ki-server-nas-bay 550ms cubic-bezier(.22,1,.36,1) 140ms backwards"},"p3":{"animation":"ki-server-nas-blink 700ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p4":{"animation":"ki-server-nas-blink 700ms cubic-bezier(.22,1,.36,1) 120ms backwards"}},
   keyframes: "@keyframes ki-server-nas-bay{0%{transform:none}30%{transform:translateY(-.8px)}60%{transform:translateY(.2px)}100%{transform:none}}@keyframes ki-server-nas-blink{0%,100%{opacity:1}18%{opacity:0}36%{opacity:1}54%{opacity:0}72%{opacity:1}}",
 };
@@ -779,7 +779,7 @@ export const serverPlus: IconDef = {
   category: "development",
   tags: ["server","add","new","host"],
   motionNote: "The plus spins in beside the rack, the units give a little knock and their lights blink.",
-  parts: [{"p":"p0","role":"body","area":"M12.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2A6.75 6.75 0 0 0 12.5 10Z M12.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2A6.75 6.75 0 0 1 12.5 14Z"},{"p":"p0","role":"line","d":"M12.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2"},{"p":"p1","role":"line","d":"M16 12h6"},{"p":"p2","role":"line","d":"M19 9v6"},{"p":"p3","role":"line","d":"M22 18v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h8.5"},{"p":"p4","role":"detail","d":"M6 18h.01"},{"p":"p5","role":"detail","d":"M6 6h.01"}],
+  parts: [{"p":"p0","role":"body","area":"M12.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2A6.75 6.75 0 0 0 12.5 10Z M12.5 14H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2A6.75 6.75 0 0 1 12.5 14Z"},{"p":"p0","role":"line","d":"M12.5 10H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v2"},{"p":"p1","role":"line","d":"M16 12h6"},{"p":"p2","role":"line","d":"M19 9v6"},{"p":"p3","role":"line","d":"M22 18v2a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h8.5"},{"p":"p4","role":"line","d":"M6 18h.01"},{"p":"p5","role":"line","d":"M6 6h.01"}],
   motion: {"p1":{"box":"view-box","origin":"19px 12px","animation":"ki-server-plus-plus 500ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"box":"view-box","origin":"19px 12px","animation":"ki-server-plus-plus 500ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p0":{"animation":"ki-server-plus-knock 550ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p3":{"animation":"ki-server-plus-knock 550ms cubic-bezier(.22,1,.36,1) 180ms backwards"},"p5":{"animation":"ki-server-plus-blink 700ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p4":{"animation":"ki-server-plus-blink 700ms cubic-bezier(.22,1,.36,1) 200ms backwards"}},
   keyframes: "@keyframes ki-server-plus-plus{0%{transform:scale(.3) rotate(-90deg);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:none;opacity:1}}@keyframes ki-server-plus-knock{0%{transform:none}30%{transform:translateY(.6px) scale(1.02,.97)}60%{transform:translateY(-.2px)}100%{transform:none}}@keyframes ki-server-plus-blink{0%,100%{opacity:1}18%{opacity:0}36%{opacity:1}54%{opacity:0}72%{opacity:1}}",
 };
@@ -834,7 +834,7 @@ export const shieldEllipsis: IconDef = {
   category: "status",
   tags: ["security","pending","checking","shield"],
   motionNote: "The three dots hop one after another, as if the check is still running.",
-  parts: [{"p":"p0","role":"body","d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"},{"p":"p1","role":"detail","d":"M8 12h.01"},{"p":"p2","role":"detail","d":"M12 12h.01"},{"p":"p3","role":"detail","d":"M16 12h.01"}],
+  parts: [{"p":"p0","role":"body","d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"},{"p":"p1","role":"line","d":"M8 12h.01"},{"p":"p2","role":"line","d":"M12 12h.01"},{"p":"p3","role":"line","d":"M16 12h.01"}],
   motion: {"p1":{"animation":"ki-shield-ellipsis-hop 550ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"animation":"ki-shield-ellipsis-hop 550ms cubic-bezier(.22,1,.36,1) 90ms backwards"},"p3":{"animation":"ki-shield-ellipsis-hop 550ms cubic-bezier(.22,1,.36,1) 180ms backwards"}},
   keyframes: "@keyframes ki-shield-ellipsis-hop{0%{transform:none}30%{transform:translateY(-1.5px)}60%{transform:translateY(.2px)}100%{transform:none}}",
 };
@@ -900,7 +900,7 @@ export const signalHigh: IconDef = {
   category: "status",
   tags: ["signal","bars","reception","strong"],
   motionNote: "The dot blinks and the bars grow up from the base, shortest first.",
-  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"p1","role":"line","d":"M7 20v-4"},{"p":"p2","role":"line","d":"M12 20v-8"},{"p":"p3","role":"line","d":"M17 20V8"}],
+  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"p1","role":"line","d":"M7 20v-4"},{"p":"p2","role":"line","d":"M12 20v-8"},{"p":"p3","role":"line","d":"M17 20v-12"},{"p":"g4","role":"line","d":"M22 20h.01M22 16h.01M22 12h.01M22 8h.01M22 4h.01"}],
   motion: {"p0":{"animation":"ki-signal-high-dot 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"origin":"50% 100%","animation":"ki-signal-high-bar 450ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p2":{"origin":"50% 100%","animation":"ki-signal-high-bar 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"},"p3":{"origin":"50% 100%","animation":"ki-signal-high-bar 450ms cubic-bezier(.22,1,.36,1) 180ms backwards"}},
   keyframes: "@keyframes ki-signal-high-dot{0%{transform:none}40%{transform:scale(1.6)}100%{transform:none}}@keyframes ki-signal-high-bar{0%{transform:scaleY(0)}60%{transform:scaleY(1.12)}100%{transform:none}}",
 };
@@ -911,7 +911,7 @@ export const signalLow: IconDef = {
   category: "status",
   tags: ["signal","bars","reception","weak"],
   motionNote: "The dot blinks and the bars grow up from the base, shortest first.",
-  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"p1","role":"line","d":"M7 20v-4"}],
+  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"p1","role":"line","d":"M7 20v-4"},{"p":"g2","role":"line","d":"M12 20h.01M12 16h.01M12 12h.01"},{"p":"g3","role":"line","d":"M17 20h.01M17 16h.01M17 12h.01M17 8h.01"},{"p":"g4","role":"line","d":"M22 20h.01M22 16h.01M22 12h.01M22 8h.01M22 4h.01"}],
   motion: {"p0":{"animation":"ki-signal-low-dot 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"origin":"50% 100%","animation":"ki-signal-low-bar 450ms cubic-bezier(.22,1,.36,1) 60ms backwards"}},
   keyframes: "@keyframes ki-signal-low-dot{0%{transform:none}40%{transform:scale(1.6)}100%{transform:none}}@keyframes ki-signal-low-bar{0%{transform:scaleY(0)}60%{transform:scaleY(1.12)}100%{transform:none}}",
 };
@@ -922,7 +922,7 @@ export const signalMedium: IconDef = {
   category: "status",
   tags: ["signal","bars","reception","medium"],
   motionNote: "The dot blinks and the bars grow up from the base, shortest first.",
-  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"p1","role":"line","d":"M7 20v-4"},{"p":"p2","role":"line","d":"M12 20v-8"}],
+  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"p1","role":"line","d":"M7 20v-4"},{"p":"p2","role":"line","d":"M12 20v-8"},{"p":"g3","role":"line","d":"M17 20h.01M17 16h.01M17 12h.01M17 8h.01"},{"p":"g4","role":"line","d":"M22 20h.01M22 16h.01M22 12h.01M22 8h.01M22 4h.01"}],
   motion: {"p0":{"animation":"ki-signal-medium-dot 400ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"origin":"50% 100%","animation":"ki-signal-medium-bar 450ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p2":{"origin":"50% 100%","animation":"ki-signal-medium-bar 450ms cubic-bezier(.22,1,.36,1) 120ms backwards"}},
   keyframes: "@keyframes ki-signal-medium-dot{0%{transform:none}40%{transform:scale(1.6)}100%{transform:none}}@keyframes ki-signal-medium-bar{0%{transform:scaleY(0)}60%{transform:scaleY(1.12)}100%{transform:none}}",
 };
@@ -932,10 +932,10 @@ export const signalZero: IconDef = {
   title: "No signal",
   category: "status",
   tags: ["signal","none","reception","offline"],
-  motionNote: "The lone dot swells and blinks, looking for a signal.",
-  parts: [{"p":"p0","role":"line","d":"M2 20h.01"}],
-  motion: {"p0":{"animation":"ki-signal-zero-search 800ms cubic-bezier(.22,1,.36,1) 0ms backwards"}},
-  keyframes: "@keyframes ki-signal-zero-search{0%{transform:none;opacity:1}18%{transform:scale(1.6);opacity:0}36%{transform:scale(1.3);opacity:1}54%{transform:scale(1.3);opacity:0}72%{transform:none;opacity:1}100%{transform:none;opacity:1}}",
+  motionNote: "The dot swells and the empty bars blink in turn, looking for a signal.",
+  parts: [{"p":"p0","role":"line","d":"M2 20h.01"},{"p":"g1","role":"line","d":"M7 20h.01M7 16h.01"},{"p":"g2","role":"line","d":"M12 20h.01M12 16h.01M12 12h.01"},{"p":"g3","role":"line","d":"M17 20h.01M17 16h.01M17 12h.01M17 8h.01"},{"p":"g4","role":"line","d":"M22 20h.01M22 16h.01M22 12h.01M22 8h.01M22 4h.01"}],
+  motion: {"p0":{"animation":"ki-signal-zero-dot 500ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"g1":{"animation":"ki-signal-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"g2":{"animation":"ki-signal-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 110ms backwards"},"g3":{"animation":"ki-signal-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 220ms backwards"},"g4":{"animation":"ki-signal-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 330ms backwards"}},
+  keyframes: "@keyframes ki-signal-zero-dot{0%{transform:none}40%{transform:scale(1.6)}100%{transform:none}}@keyframes ki-signal-zero-ghost{0%{opacity:1}30%{opacity:.15}65%,100%{opacity:1}}",
 };
 
 export const signpostBig: IconDef = {
@@ -998,7 +998,7 @@ export const smartphoneUser: IconDef = {
   category: "devices",
   tags: ["phone","contact","profile","account"],
   motionNote: "The person beside the phone nods hello, head first, and the phone tips towards them.",
-  parts: [{"p":"p0","role":"body","area":"M10 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4A7 7 0 0 0 12.4 10.8V18.2Z"},{"p":"p0","role":"line","d":"M10 22H6a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"},{"p":"p1","role":"detail","d":"M11 18h.01"},{"p":"p2","role":"line","d":"M22 22a4 4 0 00-8 0"},{"p":"p3","role":"body","d":"M15 15 A3 3 0 1 0 21 15 A3 3 0 1 0 15 15 Z"}],
+  parts: [{"p":"p0","role":"body","area":"M10 22H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4A7 7 0 0 0 12.4 10.8V18.2Z"},{"p":"p0","role":"line","d":"M10 22H6a2 2 0 01-2-2V4a2 2 0 012-2h10a2 2 0 012 2v4"},{"p":"p1","role":"line","d":"M11 18h.01"},{"p":"p2","role":"line","d":"M22 22a4 4 0 00-8 0"},{"p":"p3","role":"body","d":"M15 15 A3 3 0 1 0 21 15 A3 3 0 1 0 15 15 Z"}],
   motion: {"p3":{"animation":"ki-smartphone-user-nod 600ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p2":{"animation":"ki-smartphone-user-nod 600ms cubic-bezier(.22,1,.36,1) 60ms backwards"},"p0":{"box":"view-box","origin":"11px 22px","animation":"ki-smartphone-user-tip 700ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"p1":{"box":"view-box","origin":"11px 22px","animation":"ki-smartphone-user-tip 700ms cubic-bezier(.22,1,.36,1) 0ms backwards"}},
   keyframes: "@keyframes ki-smartphone-user-nod{0%{transform:none}30%{transform:translateY(-.8px)}60%{transform:translateY(.2px)}100%{transform:none}}@keyframes ki-smartphone-user-tip{0%{transform:none}30%{transform:rotate(3deg)}60%{transform:rotate(-1deg)}100%{transform:none}}",
 };

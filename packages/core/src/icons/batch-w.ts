@@ -129,7 +129,7 @@ export const trainFrontTunnel: IconDef = {
   category: "travel",
   tags: ["subway","tunnel","metro","underground"],
   motionNote: "The train draws back into the tunnel and rolls out towards you on its rails.",
-  parts: [{"p":"p0","role":"line","d":"M2 22V12a10 10 0 1 1 20 0v10"},{"p":"p1","role":"detail","d":"M15 6.8v1.4a3 2.8 0 1 1-6 0V6.8"},{"p":"p2","role":"detail","d":"M10 15h.01"},{"p":"p3","role":"detail","d":"M14 15h.01"},{"p":"p4","role":"body","d":"M10 19a4 4 0 0 1-4-4v-3a6 6 0 1 1 12 0v3a4 4 0 0 1-4 4Z"},{"p":"p5","role":"line","d":"m9 19-2 3"},{"p":"p6","role":"line","d":"m15 19 2 3"}],
+  parts: [{"p":"p0","role":"line","d":"M2 22V12a10 10 0 1 1 20 0v10"},{"p":"p1","role":"detail","d":"M15 6.8v1.4a3 2.8 0 1 1-6 0V6.8"},{"p":"p2","role":"line","d":"M10 15h.01"},{"p":"p3","role":"line","d":"M14 15h.01"},{"p":"p4","role":"body","d":"M10 19a4 4 0 0 1-4-4v-3a6 6 0 1 1 12 0v3a4 4 0 0 1-4 4Z"},{"p":"p5","role":"line","d":"m9 19-2 3"},{"p":"p6","role":"line","d":"m15 19 2 3"}],
   motion: {"p4":{"box":"view-box","origin":"12px 19px","animation":"ki-train-front-tunnel-come 750ms cubic-bezier(.22,1,.36,1) 0ms"},"p1":{"box":"view-box","origin":"12px 19px","animation":"ki-train-front-tunnel-come 750ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"box":"view-box","origin":"12px 19px","animation":"ki-train-front-tunnel-come 750ms cubic-bezier(.22,1,.36,1) 0ms"},"p3":{"box":"view-box","origin":"12px 19px","animation":"ki-train-front-tunnel-come 750ms cubic-bezier(.22,1,.36,1) 0ms"}},
   keyframes: "@keyframes ki-train-front-tunnel-come{0%{transform:none}25%{transform:scale(.9)}60%{transform:scale(1.06)}100%{transform:none}}",
 };
@@ -651,7 +651,7 @@ export const walletMinimal: IconDef = {
   category: "commerce",
   tags: ["wallet","money","pay","purse"],
   motionNote: "The wallet gives as the coin on its clasp pops up and drops back.",
-  parts: [{"p":"p1","role":"body","area":"M5 3h14v4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"},{"p":"p0","role":"detail","d":"M17 14h.01"},{"p":"p1","role":"line","d":"M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"}],
+  parts: [{"p":"p1","role":"body","area":"M5 3h14v4a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"},{"p":"p0","role":"line","d":"M17 14h.01"},{"p":"p1","role":"line","d":"M7 7h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14"}],
   motion: {"p1":{"origin":"50% 100%","animation":"ki-wallet-minimal-body 650ms cubic-bezier(.22,1,.36,1) 0ms"},"p0":{"animation":"ki-wallet-minimal-coin 650ms cubic-bezier(.22,1,.36,1) 60ms"}},
   keyframes: "@keyframes ki-wallet-minimal-body{0%{transform:none}30%{transform:scale(1.02,.96)}60%{transform:scale(.99,1.01)}100%{transform:none}}@keyframes ki-wallet-minimal-coin{0%{transform:none}35%{transform:translateY(-1.5px)}65%{transform:translateY(.3px)}100%{transform:none}}",
 };
@@ -774,7 +774,7 @@ export const wifiHigh: IconDef = {
   category: "status",
   tags: ["wifi","signal","strong","network"],
   motionNote: "The signal lights up arc by arc, from the dot outwards.",
-  parts: [{"p":"p0","role":"line","d":"M12 20h.01"},{"p":"p1","role":"line","d":"M5 12.859a10 10 0 0 1 14 0"},{"p":"p2","role":"line","d":"M8.5 16.429a5 5 0 0 1 7 0"}],
+  parts: [{"p":"p0","role":"line","d":"M12 20h.01"},{"p":"p2","role":"line","d":"M8.5 16.429a5 5 0 0 1 7 0"},{"p":"p1","role":"line","d":"M5 12.859a10 10 0 0 1 14 0"},{"p":"g3","role":"line","d":"M2 8.82h.01M4.99 6.74h.01M8.39 5.44h.01M12 5h.01M15.61 5.44h.01M19.01 6.74h.01M22 8.82h.01"}],
   motion: {"p0":{"animation":"ki-wifi-high-arc 600ms cubic-bezier(.22,1,.36,1) 0ms"},"p2":{"animation":"ki-wifi-high-arc 600ms cubic-bezier(.22,1,.36,1) 80ms"},"p1":{"animation":"ki-wifi-high-arc 600ms cubic-bezier(.22,1,.36,1) 160ms"}},
   keyframes: "@keyframes ki-wifi-high-arc{0%{opacity:1}15%{opacity:.2}60%,100%{opacity:1}}",
 };
@@ -808,10 +808,10 @@ export const wifiZero: IconDef = {
   title: "No signal",
   category: "status",
   tags: ["wifi","signal","none","weak"],
-  motionNote: "The lone dot pulses, looking for a signal.",
-  parts: [{"p":"p0","role":"line","d":"M12 20h.01"}],
-  motion: {"p0":{"origin":"50% 50%","animation":"ki-wifi-zero-pulse 650ms cubic-bezier(.22,1,.36,1) 0ms"}},
-  keyframes: "@keyframes ki-wifi-zero-pulse{0%{transform:none;opacity:1}35%{transform:scale(1.8);opacity:.5}70%{transform:scale(.9);opacity:1}100%{transform:none;opacity:1}}",
+  motionNote: "The dot pulses and the empty arcs blink outwards, looking for a signal.",
+  parts: [{"p":"p0","role":"line","d":"M12 20h.01"},{"p":"g1","role":"line","d":"M8.5 16.43h.01M12 15h.01M15.5 16.43h.01"},{"p":"g2","role":"line","d":"M5 12.86h.01M8.22 10.74h.01M12 10h.01M15.78 10.74h.01M19 12.86h.01"},{"p":"g3","role":"line","d":"M2 8.82h.01M4.99 6.74h.01M8.39 5.44h.01M12 5h.01M15.61 5.44h.01M19.01 6.74h.01M22 8.82h.01"}],
+  motion: {"p0":{"origin":"50% 50%","animation":"ki-wifi-zero-pulse 650ms cubic-bezier(.22,1,.36,1) 0ms"},"g1":{"animation":"ki-wifi-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 0ms backwards"},"g2":{"animation":"ki-wifi-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 110ms backwards"},"g3":{"animation":"ki-wifi-zero-ghost 900ms cubic-bezier(.22,1,.36,1) 220ms backwards"}},
+  keyframes: "@keyframes ki-wifi-zero-pulse{0%{transform:none}35%{transform:scale(1.8)}70%{transform:scale(.9)}100%{transform:none}}@keyframes ki-wifi-zero-ghost{0%{opacity:1}30%{opacity:.15}65%,100%{opacity:1}}",
 };
 
 export const windArrowDown: IconDef = {

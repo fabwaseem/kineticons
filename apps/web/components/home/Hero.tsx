@@ -47,7 +47,7 @@ export function Hero() {
   }, [active, icon]);
 
   return (
-    <section className="relative isolate -mt-[var(--nav-h)] overflow-hidden pt-[var(--nav-h)]" aria-labelledby="hero-title">
+    <section className="relative isolate z-10 -mt-[var(--nav-h)] overflow-x-clip pt-[var(--nav-h)]" aria-labelledby="hero-title">
       <div aria-hidden className="pointer-events-none absolute top-[-220px] left-1/2 -z-10 h-[680px] w-[min(1000px,140vw)] -translate-x-1/2 opacity-60" style={{ background: "radial-gradient(closest-side, var(--glow), transparent 72%)" }} />
 
       <div className="mx-auto flex max-w-[960px] flex-col items-center px-5 pt-14 pb-24 text-center sm:pt-20">
