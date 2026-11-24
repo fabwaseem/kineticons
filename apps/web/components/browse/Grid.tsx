@@ -98,7 +98,7 @@ export function Grid({ icons, look, selected, onOpen }: { icons: IconDef[]; look
 
 const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon: IconDef; look: Look; on: boolean; onOpen: (i: IconDef) => void }) {
   return (
-    <div role="gridcell" className="p-1">
+    <div role="gridcell" className="p-[5px]">
       <button
         type="button"
         data-i={i}
@@ -107,10 +107,10 @@ const Cell = memo(function Cell({ i, icon, look, on, onOpen }: { i: number; icon
         title={icon.title}
         aria-label={`${icon.title} (${icon.name})`}
         aria-pressed={on}
-        className={`ki-trigger group relative flex h-full w-full flex-col items-center justify-center gap-2.5 rounded-tile border px-2 outline-none transition-[background-color,border-color,color] duration-200 focus-visible:border-[color-mix(in_srgb,var(--accent)_60%,transparent)] focus-visible:bg-surface focus-visible:shadow-[0_0_0_3px_var(--accent-soft)] ${
-          on ? "border-[color-mix(in_srgb,var(--accent)_45%,transparent)] bg-accent-soft text-accent-ink" : "border-transparent text-ink-2 hover:border-line hover:bg-surface"
+        className={`ki-trigger group relative flex h-full w-full flex-col items-center justify-center gap-2.5 rounded-tile px-2 outline-none transition-[background-color,color,box-shadow] duration-200 focus-visible:shadow-[inset_0_0_0_1.5px_var(--accent),0_0_0_4px_var(--accent-soft)] ${
+          on ? "bg-surface-2 text-ink shadow-[inset_0_0_0_1.5px_var(--accent)]" : "bg-surface text-ink-2 shadow-[var(--edge)] hover:bg-surface-2 hover:text-ink"
         }`}
-        style={look.color && !on ? { color: look.color } : undefined}
+        style={!on && ((look.brand && icon.brandColor) || look.color) ? { color: (look.brand && icon.brandColor) || look.color } : undefined}
       >
         <span className={look.labels ? "contents" : "transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-hover:-translate-y-[var(--lift)] group-focus-visible:-translate-y-[var(--lift)]"}>
           <KineticIcon icon={icon} variant={look.variant} size={look.size} strokeWidth={look.stroke ?? undefined} trigger={look.trigger} loopEvery={2200} css={false} />

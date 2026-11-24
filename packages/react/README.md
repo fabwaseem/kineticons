@@ -1,6 +1,6 @@
 # kineticons
 
-**2,000+ animated React icons** in outline, duotone and filled, each with a motion of its own. Server Component
+**2,800+ animated React icons** in outline, duotone and filled, each with a motion of its own. Server Component
 friendly, tree-shakeable, typed.
 
 [Browse the icons](https://kineticons.fabwaseem.com/icons) · [Docs](https://kineticons.fabwaseem.com/docs/react)

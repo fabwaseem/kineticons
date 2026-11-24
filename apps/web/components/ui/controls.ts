@@ -1,6 +1,6 @@
 /**
  * The site's controls as class recipes, so every button, icon button, chip and field looks and behaves the same on
- * every page (see DESIGN.md). Plain strings, so server and client components can both use them. Every control is a
+ * every page (see DESIGN.md, v3 "Spotlight"). Plain strings, so server and client components can both use them. Every control is a
  * pill; sizes share one height scale (36, 40, 48) and one type scale.
  */
 
@@ -18,11 +18,11 @@ const SIZE: Record<BtnSize, string> = {
 
 const LOOK: Record<BtnVariant, string> = {
   // the one loud action on a screen
-  accent: "bg-accent text-[#1a0f0a] shadow-[0_10px_24px_-14px_var(--accent)] hover:bg-[color-mix(in_srgb,var(--accent)_88%,white)]",
+  accent: "bg-[linear-gradient(135deg,var(--accent),var(--accent-2))] text-white shadow-[0_12px_30px_-12px_var(--glow),inset_0_1px_0_rgba(255,255,255,.25)] hover:brightness-110",
   // the usual action
-  primary: "bg-ink text-bg hover:bg-[color-mix(in_srgb,var(--ink)_86%,var(--accent))]",
+  primary: "bg-ink text-bg hover:bg-[color-mix(in_srgb,var(--ink)_88%,var(--bg))]",
   // a second choice beside a primary
-  secondary: "border border-line-strong bg-surface text-ink hover:border-[color-mix(in_srgb,var(--ink)_32%,transparent)]",
+  secondary: "bg-surface text-ink shadow-[var(--edge)] hover:bg-surface-2",
   // quiet, in toolbars and headers
   ghost: "text-ink-2 hover:bg-surface-3 hover:text-ink",
   // small utilities (copy, download)
@@ -40,7 +40,7 @@ export const iconBtn = (on = false, size: "sm" | "md" | "lg" = "md", extra = "")
 /** A choice among several shown as separate pills (category tabs, parts, frameworks). */
 export const chip = (on = false, extra = "") =>
   `ki-trigger inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border px-4 text-[13px] font-medium transition-colors duration-200 ${
-    on ? "border-ink bg-ink text-bg" : "border-line bg-surface text-ink-2 hover:border-line-strong hover:text-ink"
+    on ? "border-transparent bg-ink text-bg" : "border-transparent text-muted hover:bg-surface hover:text-ink"
   } ${extra}`;
 
 /** A small label: a tag, a count, a note on a demo. */
@@ -48,15 +48,15 @@ export const tag = (extra = "") => `inline-flex items-center rounded-full bg-sur
 
 /** A text field's frame (a label wrapping an icon and an input). */
 export const field = (extra = "") =>
-  `flex min-w-0 items-center gap-2.5 rounded-full border border-line-strong bg-surface transition-[border-color,box-shadow] duration-200 focus-within:border-[color-mix(in_srgb,var(--accent)_55%,transparent)] ${
+  `flex min-w-0 items-center gap-2.5 rounded-full bg-surface transition-[background-color,box-shadow] duration-200 ${
     // a caller that sets its own shadows replaces these (two arbitrary shadows would fight over the cascade)
-    extra.includes("shadow-") ? "" : "shadow-[var(--shadow-sm)] focus-within:shadow-[0_0_0_4px_var(--accent-soft)]"
+    extra.includes("shadow-") ? "" : "shadow-[var(--edge)] focus-within:shadow-[var(--edge),0_0_0_4px_var(--accent-soft)]"
   } ${extra}`;
 
 /** A sidebar or menu item; `on` for the current one. */
 export const navItem = (on = false, extra = "") =>
   `flex w-full items-center justify-between gap-3 rounded-full px-3.5 py-1.5 text-left text-[14px] transition-colors duration-200 ${
-    on ? "bg-surface font-medium text-ink shadow-[var(--shadow-sm)]" : "text-muted hover:bg-[color-mix(in_srgb,var(--surface)_60%,transparent)] hover:text-ink"
+    on ? "bg-surface font-medium text-ink" : "text-muted hover:bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] hover:text-ink"
   } ${extra}`;
 
 /** A small heading over a group (sidebar groups, footer columns, details on the icon page). */

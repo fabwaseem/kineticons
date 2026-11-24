@@ -27,9 +27,11 @@
     loopEvery?: number;
     /** an accessible name; the icon is then announced as an image */
     title?: string;
+    /** brand logos: draw in the brand's own colour instead of the text colour */
+    brand?: boolean;
   }
 
-  let { icon, variant = "outline", size, strokeWidth, trigger = "hover", active = false, loopEvery = 1800, title, class: cls = "", ...rest }: Props = $props();
+  let { icon, variant = "outline", size, strokeWidth, trigger = "hover", active = false, loopEvery = 1800, title, brand = false, class: cls = "", ...rest }: Props = $props();
 
   let beat = $state(false);
   $effect(() => {
@@ -45,7 +47,7 @@
 
   const node = $derived.by(() => {
     const loop = trigger === "loop";
-    const n = render(icon, { variant, size, strokeWidth, trigger: loop ? "manual" : trigger, active: loop ? beat : active, title, className: cls || undefined });
+    const n = render(icon, { variant, size, strokeWidth, trigger: loop ? "manual" : trigger, active: loop ? beat : active, title, className: cls || undefined, brand });
     const labelled = rest["aria-label"] != null || rest["aria-labelledby"] != null;
     return { ...n, attrs: { ...n.attrs, ...(labelled ? { "aria-hidden": undefined, role: "img" } : {}), ...(rest as Record<string, string | number | undefined>) } };
   });

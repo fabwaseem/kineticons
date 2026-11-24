@@ -24,6 +24,8 @@ export interface RenderOptions {
   title?: string;
   /** extra classes on the <svg> */
   className?: string;
+  /** brand logos: draw in the brand's own colour instead of the text colour */
+  brand?: boolean;
 }
 
 /** The style an icon actually draws in (window controls come in outline only). */
@@ -54,7 +56,7 @@ export function render(def: IconDef, o: RenderOptions = {}): SvgNode {
 
   const stroke = (pt: Part, extra: SvgNode["attrs"] = {}) =>
     pt.d ? el("path", { "data-p": pt.p, d: pt.d, pathLength: pt.draw ? 1 : undefined, ...extra }) : null;
-  const solid = (pt: Part) => el("path", { "data-p": pt.p, d: pt.area ?? pt.d, fill: "currentColor", pathLength: 1 });
+  const solid = (pt: Part) => el("path", { "data-p": pt.p, d: pt.area ?? pt.d, fill: "currentColor", stroke: pt.exact ? "none" : undefined, pathLength: 1 });
   const fullRect = (fill: string) => el("rect", { x: -grid, y: -grid, width: grid * 3, height: grid * 3, fill });
   const maskEl = (id: string, children: (SvgNode | null)[]) =>
     el("mask", { id, maskUnits: "userSpaceOnUse", x: -grid, y: -grid, width: grid * 3, height: grid * 3 }, [fullRect("#fff"), ...children]);
@@ -68,12 +70,15 @@ export function render(def: IconDef, o: RenderOptions = {}): SvgNode {
     const k = 0.62;
     const c = grid / 2;
     const inset = grid / 12;
-    const glyph = parts.map((pt) => stroke(pt, { stroke: "#000", "stroke-width": (sw * 1.15) / k }));
+    // lines are cut out at a weight that stays legible on the tile; a solid shape (a line-art logo) is cut out as drawn
+    const glyph = parts.map((pt) => (pt.solid ? el("path", { d: pt.area ?? pt.d, fill: "#000", stroke: "none" }) : stroke(pt, { stroke: "#000", "stroke-width": (sw * 1.15) / k })));
+    // a logo cut out of the tile moves as the tile (its motion would not play inside a mask)
+    const tileP = parts.find((pt) => pt.solid)?.p;
     body = [
       maskEl(mask, [
         el("g", { transform: `translate(${c} ${c}) scale(${k}) translate(${-c} ${-c})` }, def.motion?.root ? [el("g", { "data-p": "root" }, glyph)] : glyph),
       ]),
-      el("rect", { x: inset, y: inset, width: grid - 2 * inset, height: grid - 2 * inset, rx: grid / 4, fill: "currentColor", stroke: "none", mask: `url(#${mask})` }),
+      el("rect", { "data-p": tileP, x: inset, y: inset, width: grid - 2 * inset, height: grid - 2 * inset, rx: grid / 4, fill: "currentColor", stroke: "none", mask: `url(#${mask})` }),
     ];
     wrapped = true;
   } else if (lineOnly && variant === "duotone") {
@@ -97,12 +102,17 @@ export function render(def: IconDef, o: RenderOptions = {}): SvgNode {
       knocks.length
         ? maskEl(`${mask}-out`, bodies.map((pt) => el("path", { "data-p": pt.p, d: pt.area ?? pt.d, fill: "#000", stroke: "#000", "stroke-width": sw })))
         : null,
-      el("g", { mask: cut ? `url(#${mask})` : undefined }, bodies.flatMap((pt) => [solid(pt), stroke(pt)])),
+      el("g", { mask: cut ? `url(#${mask})` : undefined }, bodies.flatMap((pt) => [solid(pt), pt.exact ? null : stroke(pt)])),
       ...lines.map((pt) => (pt.solid ? solid(pt) : pt.knock ? el("g", { mask: `url(#${mask}-out)` }, [stroke(pt)]) : stroke(pt))),
     ].filter(Boolean) as SvgNode[];
   } else {
+    const inset = grid / 12;
     body = [
-      ...(variant === "duotone" ? parts.filter((p) => p.role === "body").map((pt) => el("path", { class: "ki-tone", "data-p": pt.p, d: pt.area ?? pt.d })) : []),
+      // a line-art logo has little area of its own to tint: duotone lays it on a soft tile, the one filled cuts it from
+      variant === "duotone" && def.tile
+        ? el("rect", { class: "ki-tone", x: inset, y: inset, width: grid - 2 * inset, height: grid - 2 * inset, rx: grid / 4 })
+        : null,
+      ...(variant === "duotone" && !def.tile ? parts.filter((p) => p.role === "body" || p.tint).map((pt) => el("path", { class: "ki-tone", "data-p": pt.p, d: pt.tint ?? pt.area ?? pt.d })) : []),
       ...parts.map((pt) => (pt.solid ? solid(pt) : stroke(pt))),
     ].filter(Boolean) as SvgNode[];
   }
@@ -128,6 +138,8 @@ export function render(def: IconDef, o: RenderOptions = {}): SvgNode {
       "stroke-width": sw,
       "stroke-linecap": "round",
       "stroke-linejoin": "round",
+      // a brand logo in its own colour: `color` sets currentColor for the drawing
+      color: o.brand && def.brandColor ? def.brandColor : undefined,
       class: ["ki", `ki-${def.name}`, o.className].filter(Boolean).join(" "),
       "data-icon": def.name,
       "data-variant": variant,

@@ -44,9 +44,11 @@ export interface Look {
   trigger: Trigger;
   /** names under the icons in the grid */
   labels: boolean;
+  /** brand logos in their own colours */
+  brand?: boolean;
 }
 
-export const DEFAULT_LOOK: Look = { variant: "outline", size: 28, stroke: null, color: "", trigger: "hover", labels: true };
+export const DEFAULT_LOOK: Look = { variant: "outline", size: 28, stroke: null, color: "", trigger: "hover", labels: true, brand: false };
 
 export function useLook() {
   const [look, setLook] = usePersisted<Look>("ki.look", DEFAULT_LOOK);

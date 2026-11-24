@@ -8,7 +8,7 @@ export type Theme = "light" | "dark";
 type Origin = { x: number; y: number };
 const Ctx = createContext<{ theme: Theme; toggle: (from?: Origin) => void }>({ theme: "light", toggle: () => {} });
 
-const THEME_COLOR: Record<Theme, string> = { light: "#f7f5f0", dark: "#0f0d12" };
+const THEME_COLOR: Record<Theme, string> = { light: "#ffffff", dark: "#09090b" };
 
 /** The theme the page was painted with (the inline script in the layout set it before paint). */
 const painted = (): Theme => (document.documentElement.dataset.theme === "dark" ? "dark" : "light");

@@ -34,7 +34,12 @@ export const TRIGGERS: string = `:is(.ki-trigger,button,a,summary,[role="button"
 /** Where an icon is active: pointed at or focused (itself, or the control around it), or set active. */
 const ACTIVE = `${TRIGGERS}:is(:hover,:focus-visible) svg.ki[data-trigger="hover"],svg.ki[data-trigger="hover"]:hover,svg.ki[data-active="true"]:not([data-trigger="none"])`;
 
-/** What every icon shares: the box, the duotone fill, the way parts move, and calm for reduced motion. */
+/** The brand logos' motion, as a part's `animation`: a traced outline draws itself along its path; a logo drawn as
+ * a fill (filled, and line-art logos) is revealed across, at its exact shape. The keyframes are in the base CSS, so a thousand logos share one set. */
+export const REDRAW = "var(--ki-redraw) 1.15s cubic-bezier(.65,0,.35,1) both";
+
+/** What every icon shares: the box, the duotone fill, the way parts move, the redraw keyframes, and calm for reduced
+ * motion. */
 export function baseCss(): string {
   const t = TOKENS;
   return `
@@ -44,6 +49,9 @@ svg.ki .ki-tone{fill:currentColor;stroke:none;fill-opacity:var(--ki-tone);transi
 svg.ki .ki-halo{stroke-opacity:var(--ki-tone);transition:stroke-opacity .25s ${t.smooth}}
 ${ACTIVE}{--ki-tone:${t.toneActive}}
 svg.ki:is(${ACTIVE}) [data-p]{transition-duration:var(--ki-in,${t.durationIn}ms);transition-timing-function:var(--ki-ease,${t.springIn});transition-delay:var(--ki-delay,0ms)}
+svg.ki{--ki-redraw:ki-redraw-line}svg.ki [data-p][fill]{--ki-redraw:ki-redraw-fill}
+@keyframes ki-redraw-line{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes ki-redraw-fill{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 @media (prefers-reduced-motion:reduce){svg.ki [data-p]{transition:none!important;animation:none!important}}
 `.trim();
 }

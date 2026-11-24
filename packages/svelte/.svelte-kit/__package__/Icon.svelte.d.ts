@@ -19,6 +19,8 @@ interface Props extends Omit<SVGAttributes<SVGSVGElement>, "stroke-width" | "cla
     loopEvery?: number;
     /** an accessible name; the icon is then announced as an image */
     title?: string;
+    /** brand logos: draw in the brand's own colour instead of the text colour */
+    brand?: boolean;
 }
 declare const Icon: import("svelte").Component<Props, {}, "">;
 type Icon = ReturnType<typeof Icon>;

@@ -45,30 +45,31 @@ const COLS: { title: string; links: { label: string; href: string; external?: bo
   },
 ];
 
+/** The foot of every page: quiet columns of links on the page colour, a hairline above. */
 export function Footer() {
   return (
-    <footer className="night panel mt-6 mb-3 sm:mb-3">
-      <div className="mx-auto grid max-w-[1240px] gap-12 px-6 pt-20 pb-10 sm:px-10 md:grid-cols-[1.5fr_repeat(4,1fr)]">
-        <div className="max-w-[340px]">
+    <footer className="mt-10 border-t border-line">
+      <div className="mx-auto grid max-w-[1200px] gap-12 px-4 pt-16 pb-12 sm:px-6 md:grid-cols-[1.5fr_repeat(4,1fr)]">
+        <div className="max-w-[320px]">
           <Link href="/" aria-label="Kineticons, home" className="inline-block rounded-full">
             <Wordmark />
           </Link>
-          <p className="mt-5 text-[15px] leading-relaxed text-muted">
+          <p className="mt-4 text-[14px] leading-relaxed text-muted">
             {fmt(ICON_COUNT)} open-source icons in outline, duotone and filled. Each one has a motion of its own that plays when you point at it.
           </p>
         </div>
         {COLS.map((c) => (
           <nav key={c.title} aria-label={c.title}>
-            <h3 className="text-[13px] font-medium text-faint">{c.title}</h3>
+            <h3 className="text-[13px] text-faint">{c.title}</h3>
             <ul className="mt-4 space-y-2.5">
               {c.links.map((l) => (
                 <li key={l.label}>
                   {l.external ? (
-                    <a href={l.href} target="_blank" rel="noreferrer" className="text-[15px] text-ink-2 transition-colors hover:text-accent-ink">
+                    <a href={l.href} target="_blank" rel="noreferrer" className="text-[14px] text-muted transition-colors hover:text-ink">
                       {l.label}
                     </a>
                   ) : (
-                    <Link href={l.href} className="text-[15px] text-ink-2 transition-colors hover:text-accent-ink">
+                    <Link href={l.href} className="text-[14px] text-muted transition-colors hover:text-ink">
                       {l.label}
                     </Link>
                   )}
@@ -78,10 +79,7 @@ export function Footer() {
           </nav>
         ))}
       </div>
-      <div aria-hidden className="display pointer-events-none mx-auto max-w-[1240px] px-4 text-center text-[clamp(72px,19vw,280px)] leading-[0.8] text-[color-mix(in_srgb,var(--ink)_9%,transparent)] select-none">
-        Kinet<em>icons</em>
-      </div>
-      <div className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-3 border-t border-line px-6 py-6 text-[13px] text-faint sm:px-10">
+      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-4 pb-10 text-[13px] text-faint sm:px-6">
         <span>© {new Date().getFullYear()} Kineticons. Released under the MIT licence.</span>
         <span>Made for interfaces that feel alive.</span>
       </div>

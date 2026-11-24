@@ -23,6 +23,7 @@ import * as moreT from "./icons/batch-t";
 import * as moreU from "./icons/batch-u";
 import * as moreV from "./icons/batch-v";
 import * as moreW from "./icons/batch-w";
+import * as brands from "./icons/brands";
 import type { IconDef } from "./types";
 
 export * from "./icons/app";
@@ -49,6 +50,7 @@ export * from "./icons/batch-t";
 export * from "./icons/batch-u";
 export * from "./icons/batch-v";
 export * from "./icons/batch-w";
+export * from "./icons/brands";
 
 /** Every icon in the given modules. No side effects: a bundle that never uses ICONS drops it, and with it every icon
  * the bundle does not import by name. */
@@ -62,6 +64,7 @@ export const ICONS: IconDef[] = /*#__PURE__*/ all(
   app, actions, media, win, more,
   moreE, moreF, moreG, moreH, moreI, moreJ, moreK, moreL, moreM,
   moreN, moreO, moreP, moreQ, moreR, moreS, moreT, moreU, moreV, moreW,
+  brands,
 );
 
 /** An icon by its name ("arrow-right"), or undefined. */

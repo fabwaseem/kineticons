@@ -1,5 +1,5 @@
 /**
- * Kineticons for React: 2,000+ rounded icons in outline, duotone and filled, each with a motion of its own.
+ * Kineticons for React: 2,800+ rounded icons in outline, duotone and filled, each with a motion of its own.
  *
  *   import { Bell } from "kineticons";
  *   <button className="ki-trigger"><Bell variant="duotone" size={20} /> Notifications</button>

@@ -4,7 +4,7 @@
 
 **Icons that move like they mean it.**
 
-2,000+ open-source, rounded icons in outline, duotone and filled, each with a motion of its own.<br />
+2,800+ open-source, rounded icons and tech logos in outline, duotone and filled, each with a motion of its own.<br />
 For React, Vue, Svelte and plain HTML.
 
 [Website](https://kineticons.fabwaseem.com) · [Browse icons](https://kineticons.fabwaseem.com/icons) · [Docs](https://kineticons.fabwaseem.com/docs) · [npm](https://www.npmjs.com/package/kineticons)
@@ -75,7 +75,7 @@ import { Bell } from "@kineticons/vue";
 
 ## Features
 
-- **2,000+ icons** across 20 categories, from app chrome to weather, food and finance.
+- **2,800+ icons** across 21 categories, from app chrome to weather, food and finance, including 750+ tech stack logos (languages, frameworks, databases, cloud and developer tools).
 - **Three styles from one drawing**: outline, duotone and filled switch without anything shifting.
 - **A motion for every icon**, triggered on hover or focus, while something is on, on a loop, or never.
 - **Server-first**: in React 19 icons render in Server Components with no client JavaScript.

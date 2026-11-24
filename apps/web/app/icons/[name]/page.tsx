@@ -99,7 +99,7 @@ export default async function IconPage({ params }: Props) {
       <div className="mt-6 grid items-start gap-x-14 gap-y-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:grid-rows-[auto_1fr]">
         <div className="lg:col-start-2 lg:row-start-1">
           <p className={eyebrow}>{categoryLabel(icon.category)} icon</p>
-          <h1 className="display mt-3 text-[clamp(48px,6vw,88px)]">{icon.title}</h1>
+          <h1 className="display mt-3 text-[clamp(44px,5.5vw,72px)]">{icon.title}</h1>
           <p className="mt-3 font-mono text-[14px] text-faint">
             {icon.name}, &lt;{componentName(icon.name)} /&gt;
           </p>
@@ -109,7 +109,7 @@ export default async function IconPage({ params }: Props) {
           <DetailClient icon={icon} />
         </div>
         <div className="lg:col-start-2 lg:row-start-2">
-          <div className="flex flex-col gap-6 border-t border-line pt-6">
+          <div className="flex flex-col gap-6">
             <section>
               <h2 className={eyebrow}>Category</h2>
               <Link href={`/icons?category=${icon.category}`} className={chip(false, "mt-2.5")}>
@@ -128,7 +128,7 @@ export default async function IconPage({ params }: Props) {
             </section>
             <nav aria-label="Neighbouring icons" className="grid grid-cols-2 gap-2">
               {prev ? (
-                <Link href={`/icons/${prev.name}`} rel="prev" className="ki-trigger card flex min-w-0 items-center gap-3 rounded-card p-3 transition-colors hover:border-line-strong">
+                <Link href={`/icons/${prev.name}`} rel="prev" className="ki-trigger card flex min-w-0 items-center gap-3 rounded-card p-3 transition-colors hover:bg-surface-2">
                   <KineticIcon icon={chevronLeft} size={16} className="shrink-0 text-faint" />
                   <KineticIcon icon={prev} size={22} className="shrink-0" />
                   <span className="min-w-0 truncate text-[14px]">{prev.title}</span>
@@ -137,7 +137,7 @@ export default async function IconPage({ params }: Props) {
                 <span />
               )}
               {next && (
-                <Link href={`/icons/${next.name}`} rel="next" className="ki-trigger card flex min-w-0 items-center justify-end gap-3 rounded-card p-3 text-right transition-colors hover:border-line-strong">
+                <Link href={`/icons/${next.name}`} rel="next" className="ki-trigger card flex min-w-0 items-center justify-end gap-3 rounded-card p-3 text-right transition-colors hover:bg-surface-2">
                   <span className="min-w-0 truncate text-[14px]">{next.title}</span>
                   <KineticIcon icon={next} size={22} className="shrink-0" />
                   <KineticIcon icon={chevronRight} size={16} className="shrink-0 text-faint" />
@@ -149,7 +149,7 @@ export default async function IconPage({ params }: Props) {
       </div>
 
       {like.length > 0 && (
-        <section className="mt-24 border-t border-line pt-12" aria-labelledby="like-title">
+        <section className="mt-24" aria-labelledby="like-title">
           <div className="flex items-baseline justify-between gap-4">
             <h2 id="like-title" className="heading text-[clamp(30px,3.6vw,44px)]">
               Icons like {icon.title.toLowerCase()}
@@ -161,7 +161,7 @@ export default async function IconPage({ params }: Props) {
           <ul className="mt-6 grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-2">
             {like.map((r) => (
               <li key={r.name}>
-                <Link href={`/icons/${r.name}`} className="ki-trigger flex flex-col items-center gap-2.5 rounded-tile border border-line bg-surface px-2 py-5 text-ink-2 transition-colors hover:border-line-strong hover:text-ink">
+                <Link href={`/icons/${r.name}`} className="ki-trigger tile flex flex-col items-center gap-2.5 rounded-tile px-2 py-5 text-ink-2 transition-colors hover:bg-surface-2 hover:text-ink">
                   <KineticIcon icon={r} size={28} />
                   <span className="w-full truncate text-center text-[12px] text-muted">{r.name}</span>
                 </Link>

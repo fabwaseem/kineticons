@@ -23,6 +23,8 @@ export interface CodeOptions {
   size?: number;
   strokeWidth?: number;
   trigger?: Trigger;
+  /** brand logos in their own colour */
+  brand?: boolean;
 }
 
 function props(o: CodeOptions, style: "jsx" | "vue" | "svelte"): string {
@@ -32,6 +34,7 @@ function props(o: CodeOptions, style: "jsx" | "vue" | "svelte"): string {
   if (o.size && o.size !== 24) out.push(num("size", o.size));
   if (o.strokeWidth && o.strokeWidth !== 1.75) out.push(num(style === "vue" ? "stroke-width" : "strokeWidth", o.strokeWidth));
   if (o.trigger && o.trigger !== "hover") out.push(`trigger="${o.trigger}"`);
+  if (o.brand) out.push("brand");
   return out.length ? " " + out.join(" ") : "";
 }
 
@@ -67,8 +70,8 @@ import { ${C} } from "@kineticons/vue";
   <Icon icon={${d}}${props(o, "svelte")} />
   ${icon.title}
 </button>`;
-  if (tab === "svg") return toSvg(icon, { variant: o.variant, size: o.size, strokeWidth: o.strokeWidth });
-  return toHtml(icon, { variant: o.variant, size: o.size, strokeWidth: o.strokeWidth });
+  if (tab === "svg") return toSvg(icon, { variant: o.variant, size: o.size, strokeWidth: o.strokeWidth, brand: o.brand });
+  return toHtml(icon, { variant: o.variant, size: o.size, strokeWidth: o.strokeWidth, brand: o.brand });
 }
 
 export function download(name: string, text: string, type: string) {

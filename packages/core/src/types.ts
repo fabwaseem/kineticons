@@ -21,6 +21,11 @@ export interface Part {
   area?: string;
   /** always drawn solid, whatever the style (equalizer bars, a play triangle) */
   solid?: boolean;
+  /** filled is drawn exactly as given, a fill with no stroke around it (brand logos, whose shapes are exact) */
+  exact?: boolean;
+  /** duotone's soft fill for this part, when it differs from its own shape (a line-art logo: the areas its lines
+   * enclose) */
+  tint?: string;
   /** a line that crosses a body (a slash, a power line, an arrow coming out of a cloud): the filled style cuts a gap
    * around it out of the body, so it stays visible on the solid shape */
   knock?: boolean;
@@ -74,7 +79,8 @@ export type Category =
   | "nature"
   | "food"
   | "health"
-  | "shapes";
+  | "shapes"
+  | "brands";
 
 export interface IconDef {
   name: string;
@@ -92,7 +98,9 @@ export interface IconDef {
   grid?: number;
   /** stroke at the default size (1.75 on 24, 1.2 on the window controls) */
   stroke?: number;
-  /** styles it comes in (window controls are outline only) */
+  /** the brand's own colour, for brand logos ("#1877F2"); drawn in it only when asked (`brandColor` option) */
+  brandColor?: string;
+  /** styles it comes in (window controls are outline only, brand logos filled only) */
   variants?: Variant[];
   /** filled draws the whole drawing cut out of a solid tile (set for icons that are mostly lines, with only small
    * solid shapes); icons with no body at all always do */

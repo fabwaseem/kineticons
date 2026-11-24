@@ -1,6 +1,6 @@
 # @kineticons/static
 
-**2,000+ animated SVG icons** in outline, duotone and filled, for plain HTML, any framework, CDNs and design tools.
+**2,800+ animated SVG icons** in outline, duotone and filled, for plain HTML, any framework, CDNs and design tools.
 
 [Browse the icons](https://kineticons.fabwaseem.com/icons) · [Docs](https://kineticons.fabwaseem.com/docs/static)
 

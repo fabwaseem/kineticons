@@ -18,6 +18,8 @@ const props = {
   loopEvery: { type: Number, default: 1800 },
   /** an accessible name; the icon is then announced as an image */
   title: { type: String, default: undefined },
+  /** brand logos: draw in the brand's own colour instead of the text colour */
+  brand: { type: Boolean, default: false },
 };
 
 function toVNode(n: SvgNode, extra?: Record<string, unknown>): VNode {
@@ -59,6 +61,7 @@ export const KineticIcon = defineComponent({
         trigger: loop ? "manual" : p.trigger,
         active: loop ? beat.value : p.active,
         title: p.title,
+        brand: p.brand,
       });
       const labelled = attrs["aria-label"] != null || attrs["aria-labelledby"] != null;
       return toVNode(node, {

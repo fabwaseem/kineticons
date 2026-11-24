@@ -46,8 +46,8 @@ export function Install({ pkg }: { pkg: string }) {
 /** A note set apart from the text: a tip or a caution. */
 export function Callout({ kind = "tip", children }: { kind?: "tip" | "caution"; children: ReactNode }) {
   return (
-    <div className={`ki-trigger not-prose flex gap-3 rounded-card border px-4 py-3.5 text-[15px] leading-relaxed ${kind === "tip" ? "border-[color-mix(in_srgb,var(--haze-ink)_30%,transparent)] bg-haze text-ink-2" : "border-[color-mix(in_srgb,var(--accent)_35%,transparent)] bg-accent-soft text-ink-2"}`}>
-      <KineticIcon icon={kind === "tip" ? lightbulb : circleAlert} size={19} variant="duotone" className={`mt-0.5 shrink-0 ${kind === "tip" ? "text-haze-ink" : "text-accent-ink"}`} />
+    <div className={`ki-trigger not-prose flex gap-3 rounded-card px-4 py-3.5 text-[15px] leading-relaxed text-ink-2 ${kind === "tip" ? "tile" : "bg-accent-soft"}`}>
+      <KineticIcon icon={kind === "tip" ? lightbulb : circleAlert} size={19} variant="duotone" className={`mt-0.5 shrink-0 ${kind === "tip" ? "text-ink" : "text-accent-ink"}`} />
       <div className="min-w-0">{children}</div>
     </div>
   );
@@ -56,9 +56,9 @@ export function Callout({ kind = "tip", children }: { kind?: "tip" | "caution"; 
 /** A table of props or options. */
 export function Props({ rows, head = ["Prop", "Type", "Default", "What it does"] }: { rows: (string | ReactNode)[][]; head?: string[] }) {
   return (
-    <div className="overflow-x-auto rounded-card border border-line">
+    <div className="overflow-x-auto rounded-card shadow-[inset_0_0_0_1px_var(--line)]">
       <table className="w-full text-left text-[14px]">
-        <thead className="bg-surface-2 text-[13px] text-muted">
+        <thead className="bg-surface text-[13px] text-muted">
           <tr>
             {head.map((h) => (
               <th key={h} className="px-4 py-2.5 font-medium whitespace-nowrap">

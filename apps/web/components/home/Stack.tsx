@@ -2,35 +2,37 @@
 
 import { KineticIcon } from "kineticons";
 import type { IconDef } from "@kineticons/core";
-import { atom, box, braces, cloud, code, command, component, feather, fileCode, flame, globe, hexagon, layers, mountain, packageIcon, paintbrush, penTool, server, triangle, wind } from "@kineticons/core/icons";
+import { astroLogo, box, braces, code, command, figmaLogo, flame, html5Logo, iconifyLogo, jsdelivrLogo, nextjsLogo, npmLogo, nuxtLogo, reactLogo, remixLogo, server, tailwindCssLogo, unocssLogo, unpkgLogo, vuejsLogo } from "@kineticons/core/icons";
 
 type Item = { name: string; icon: IconDef };
 
-// what Kineticons runs in and ships to, named in words (no brand logos)
+// what Kineticons runs in and ships to, with each one's own logo (from the Brands set; a generic icon where there is
+// no logo to show)
 const ROW_A: Item[] = [
-  { name: "React", icon: atom },
-  { name: "Next.js", icon: triangle },
-  { name: "Remix", icon: layers },
-  { name: "Vue", icon: component },
-  { name: "Nuxt", icon: mountain },
+  { name: "React", icon: reactLogo },
+  { name: "Next.js", icon: nextjsLogo },
+  { name: "Remix", icon: remixLogo },
+  { name: "Vue", icon: vuejsLogo },
+  { name: "Nuxt", icon: nuxtLogo },
   { name: "Svelte", icon: flame },
   { name: "SvelteKit", icon: box },
-  { name: "Astro", icon: feather },
-  { name: "Plain HTML", icon: fileCode },
+  { name: "Astro", icon: astroLogo },
+  { name: "Plain HTML", icon: html5Logo },
   { name: "Server Components", icon: server },
 ];
 const ROW_B: Item[] = [
-  { name: "Figma", icon: penTool },
+  { name: "Figma", icon: figmaLogo },
   { name: "VS Code", icon: code },
   { name: "Raycast", icon: command },
-  { name: "Iconify", icon: hexagon },
-  { name: "Tailwind CSS", icon: wind },
-  { name: "UnoCSS", icon: paintbrush },
+  { name: "Iconify", icon: iconifyLogo },
+  { name: "Tailwind CSS", icon: tailwindCssLogo },
+  { name: "UnoCSS", icon: unocssLogo },
   { name: "JSR", icon: braces },
-  { name: "npm", icon: packageIcon },
-  { name: "jsDelivr", icon: globe },
-  { name: "unpkg", icon: cloud },
+  { name: "npm", icon: npmLogo },
+  { name: "jsDelivr", icon: jsdelivrLogo },
+  { name: "unpkg", icon: unpkgLogo },
 ];
+
 
 /** A plum panel: what the icons work with, on two rows drifting in opposite directions. Pointing pauses a row. */
 export function Stack() {
@@ -60,8 +62,8 @@ function Row({ items, reverse = false }: { items: Item[]; reverse?: boolean }) {
         >
           {/* three rounds of the list per copy, so a copy is always wider than the screen and the loop never shows a gap */}
           {[...items, ...items, ...items].map((it, i) => (
-            <li key={`${it.name}-${i}`} className="ki-trigger flex h-14 shrink-0 items-center gap-3 rounded-full border border-line bg-surface px-5 text-[16px] text-ink-2 transition-colors hover:border-line-strong hover:text-ink">
-              <KineticIcon icon={it.icon} size={20} className="text-accent" />
+            <li key={`${it.name}-${i}`} className="ki-trigger group/item flex h-14 shrink-0 items-center gap-3 rounded-full border border-line bg-surface px-5 text-[16px] text-ink-2 transition-colors hover:border-line-strong hover:text-ink">
+              <KineticIcon icon={it.icon} size={20} className="text-ink-2 transition-colors group-hover/item:text-accent" />
               {it.name}
             </li>
           ))}

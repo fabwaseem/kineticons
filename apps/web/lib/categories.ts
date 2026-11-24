@@ -23,6 +23,7 @@ export const CATEGORIES: { value: Category; label: string; blurb: string }[] = [
   { value: "food", label: "Food", blurb: "Food, drink and the kitchen" },
   { value: "health", label: "Health", blurb: "Medicine, fitness and care" },
   { value: "shapes", label: "Shapes & math", blurb: "Shapes, symbols and math" },
+  { value: "brands", label: "Brands", blurb: "Logos of the companies, apps and tools people use" },
   { value: "window", label: "Window", blurb: "Title-bar controls for desktop apps" },
 ];
 

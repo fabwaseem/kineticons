@@ -14,15 +14,15 @@ import { DEFAULT_LOOK, useLook, type Look } from "@/lib/store";
 import { Segmented } from "@/components/ui/bits";
 import { ColorPicker, Slider, Switch } from "@/components/ui/inputs";
 import { usePresence } from "@/components/ui/presence";
-import { btn, eyebrow, iconBtn, navItem, tag } from "@/components/ui/controls";
+import { btn, chip, iconBtn, tag } from "@/components/ui/controls";
 
 const STYLES = ["outline", "duotone", "filled"] as const;
 const COLOURS = ["", "#ff5a2d", "#7c5cff", "#14b8a6", "#f43f5e", "#f59e0b", "#3b82f6"];
 type Sort = "category" | "name";
 
 /**
- * Every icon, full width: a sidebar to customize how icons are drawn and to pick a category, a sticky search, a
- * virtualized grid, and the chosen icon's details (docked beside the grid on wide screens, a drawer otherwise). The
+ * Every icon, full width: a sticky toolbar (style, order, a customizer behind one button, the categories as a row of
+ * chips), a virtualized grid of soft tiles, and the chosen icon's details (docked beside the grid on wide screens, a drawer otherwise). The
  * search, category, sort and open icon live in the URL, so any view can be shared.
  */
 export default function Browser() {
@@ -98,49 +98,54 @@ export default function Browser() {
   const label = category ? (CATEGORIES.find((c) => c.value === category)?.label ?? category) : "All icons";
 
   return (
-    <div className="flex w-full gap-3 px-2 sm:px-3 lg:gap-4">
+    <div className="flex w-full gap-4 px-3 sm:px-5 lg:gap-6">
       {/* every icon's motion in one stylesheet: the grid's icons bring none of their own */}
       <link rel="stylesheet" href="/kineticons.css" precedence="default" />
-      {/* the sidebar: customize, then categories */}
-      <aside aria-label="Customize and filter" className="sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden max-h-[calc(100vh-var(--nav-h)-24px)] w-[272px] shrink-0 flex-col self-start overflow-hidden rounded-box border border-line bg-surface-2 lg:flex">
-        {/* the scroller sits inside the rounded box, clear of its corners; on most screens it never needs to scroll */}
-        <div className="scroll-area my-3 mr-1 min-h-0 flex-1 pr-1 pl-3">
-          <Customize look={look} patch={patch} reset={reset} />
-          <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
-        </div>
-      </aside>
 
       <div className="min-w-0 flex-1">
-        {/* the toolbar: what is shown, how many, the order (the search lives in the app bar) */}
-        <div className="sticky top-[var(--nav-h)] z-20 -mx-2 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-2 pt-5 pb-3 backdrop-blur-xl sm:-mx-3 sm:px-3 lg:mx-0 lg:px-0">
-          <div className="flex flex-wrap items-center justify-between gap-3 px-2">
-            <h1 className="heading text-[26px] leading-none">
+        {/* the toolbar: what is shown and how many, style, order and the customizer; then the categories as one row */}
+        <div className="sticky top-[var(--nav-h)] z-20 -mx-3 bg-[color-mix(in_srgb,var(--bg)_88%,transparent)] px-3 pt-6 pb-3 backdrop-blur-xl sm:-mx-5 sm:px-5">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h1 className="heading text-[26px] leading-none sm:text-[30px]">
               {label}
-              <span className="ml-3 align-middle font-sans text-[14px] font-normal text-faint tabular" aria-live="polite">
+              <span className="ml-3 align-middle font-sans text-[14px] font-normal tracking-normal text-faint tabular" aria-live="polite">
                 {!all ? "" : q.trim() ? `${fmt(shown.length)} of ${fmt(inCategory.length)}` : fmt(shown.length)}
               </span>
             </h1>
             <div className="flex items-center gap-2">
-              <span className="mr-1 hidden text-[13px] text-faint xl:block">Point at an icon to see it move. Arrow keys move, Enter opens.</span>
-              <Segmented
-                size="sm"
-                label="Sort"
-                value={sort}
-                onChange={(v: Sort) => set({ sort: v === "category" ? null : v })}
-                options={[
-                  { value: "category", label: "By category" },
-                  { value: "name", label: "A–Z" },
-                ]}
-              />
-              <button type="button" onClick={() => setSheet(true)} aria-label="Customize and filter" className={btn("secondary", "sm", "lg:hidden")}>
-                <KineticIcon icon={sliders} size={16} />
-                <span className="hidden sm:inline">Customize</span>
-              </button>
+              <span className="hidden sm:block">
+                <Segmented size="sm" label="Style" value={look.variant} onChange={(v) => patch({ variant: v })} options={STYLES.map((v) => ({ value: v, label: v[0].toUpperCase() + v.slice(1) }))} />
+              </span>
+              <span className="hidden md:block">
+                <Segmented
+                  size="sm"
+                  label="Sort"
+                  value={sort}
+                  onChange={(v: Sort) => set({ sort: v === "category" ? null : v })}
+                  options={[
+                    { value: "category", label: "By category" },
+                    { value: "name", label: "A–Z" },
+                  ]}
+                />
+              </span>
+              <CustomizeMenu look={look} patch={patch} reset={reset} onPhone={() => setSheet(true)} />
             </div>
           </div>
+          <nav aria-label="Categories" className="no-scrollbar -mx-3 mt-4 flex gap-1 overflow-x-auto px-3 sm:-mx-5 sm:px-5">
+            <button type="button" onClick={() => goCategory(null)} aria-current={!category ? "true" : undefined} className={chip(!category, "h-8 px-3.5")}>
+              All
+              <span className="text-[11.5px] opacity-60 tabular">{fmt(all?.length ?? ICON_COUNT)}</span>
+            </button>
+            {CATEGORIES.map((c) => (
+              <button key={c.value} type="button" onClick={() => goCategory(c.value)} aria-current={category === c.value ? "true" : undefined} className={chip(category === c.value, "h-8 px-3.5")}>
+                {c.label}
+                <span className="text-[11.5px] opacity-60 tabular">{counts?.[c.value] != null ? fmt(counts[c.value]) : ""}</span>
+              </button>
+            ))}
+          </nav>
         </div>
 
-        <div className="pb-24">
+        <div className="pt-2 pb-24">
           {failed ? (
             <Notice title="The icons could not be loaded" text="Check your connection, then try again.">
               <button type="button" onClick={load} className={btn("primary")}>
@@ -177,15 +182,17 @@ export default function Browser() {
         {(icon) => <Details icon={icon} look={look} onClose={() => set({ icon: null })} />}
       </Drawer>
       {/* customize and categories on small screens */}
-      <Drawer open={sheet} label="Customize and filter" onClose={() => setSheet(false)} hideAt={1024} className="lg:hidden" side="left">
+      <Drawer open={sheet} label="Customize" onClose={() => setSheet(false)} hideAt={768} className="md:hidden" side="right">
           <div className="mb-4 flex items-center justify-between">
-            <h2 className="heading text-[26px]">Customize and filter</h2>
+            <h2 className="heading text-[26px]">Customize</h2>
             <button type="button" onClick={() => setSheet(false)} aria-label="Close" className={iconBtn()}>
               <KineticIcon icon={close} size={18} />
             </button>
           </div>
           <Customize look={look} patch={patch} reset={reset} />
-          <Categories counts={counts} category={category} total={all?.length ?? ICON_COUNT} onPick={goCategory} />
+          <div className="mt-4 px-3.5">
+            <Segmented size="sm" full label="Sort" value={sort} onChange={(v: Sort) => set({ sort: v === "category" ? null : v })} options={[{ value: "category", label: "By category" }, { value: "name", label: "A–Z" }]} />
+          </div>
         </Drawer>
     </div>
   );
@@ -235,7 +242,7 @@ function DetailsDock({ icon, look, onClose }: { icon: IconDef | null; look: Look
     <aside
       aria-labelledby="panel-title"
       data-state={state}
-      className="anim-panel sticky top-[calc(var(--nav-h)+12px)] mt-3 hidden h-[calc(100vh-var(--nav-h)-24px)] w-[400px] shrink-0 flex-col overflow-hidden rounded-box border border-line bg-surface-2 xl:flex 2xl:w-[440px]"
+      className="anim-panel sticky top-[calc(var(--nav-h)+16px)] mt-4 hidden h-[calc(100vh-var(--nav-h)-32px)] w-[380px] shrink-0 flex-col overflow-hidden rounded-[28px] bg-surface shadow-[var(--edge)] xl:flex 2xl:w-[420px]"
     >
       <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">
         <Details icon={last} look={look} onClose={onClose} />
@@ -257,10 +264,10 @@ function Drawer<T>({ open, children, label, onClose, hideAt, className = "", sid
   if (!mounted || last == null) return null;
   return (
     <div className={`fixed inset-0 z-50 flex ${side === "right" ? "justify-end" : "justify-start"} ${className}`} role="dialog" aria-modal="true" aria-label={label} data-state={state}>
-      <button type="button" tabIndex={-1} aria-label="Close" data-state={state} className="anim-scrim absolute inset-0 bg-[rgba(15,13,20,.32)] backdrop-blur-[2px]" onClick={onClose} />
+      <button type="button" tabIndex={-1} aria-label="Close" data-state={state} className="anim-scrim absolute inset-0 bg-[rgba(0,0,0,.42)] backdrop-blur-[2px]" onClick={onClose} />
       <div
         data-state={state}
-        className={`${side === "right" ? "anim-sheet-r" : "anim-sheet-l"} relative m-2 flex h-[calc(100%-16px)] w-full max-w-[460px] flex-col overflow-hidden rounded-box border border-line bg-bg shadow-[var(--shadow-lg)]`}
+        className={`${side === "right" ? "anim-sheet-r" : "anim-sheet-l"} relative m-2 flex h-[calc(100%-16px)] w-full max-w-[460px] flex-col overflow-hidden rounded-[28px] bg-card shadow-[var(--shadow-lg),var(--edge)]`}
       >
         <div className="scroll-area my-4 mr-1 min-h-0 flex-1 pr-3 pl-5">{typeof children === "function" ? children(last as T) : children}</div>
       </div>
@@ -270,10 +277,46 @@ function Drawer<T>({ open, children, label, onClose, hideAt, className = "", sid
 
 function Notice({ title, text, children }: { title: string; text: string; children?: ReactNode }) {
   return (
-    <div className="grid place-items-center rounded-box border border-dashed border-line-strong px-6 py-24 text-center">
+    <div className="tile grid place-items-center rounded-[28px] px-6 py-24 text-center">
       <h2 className="heading text-[32px]">{title}</h2>
       <p className="mt-3 max-w-[420px] text-[15px] text-muted">{text}</p>
       <div className="mt-6 flex flex-wrap justify-center gap-2">{children}</div>
+    </div>
+  );
+}
+
+/** The customizer behind one button: a popover under it on wider screens, a sheet on phones. */
+function CustomizeMenu({ look, patch, reset, onPhone }: { look: Look; patch: (p: Partial<Look>) => void; reset: () => void; onPhone: () => void }) {
+  const [open, setOpen] = useState(false);
+  const box = useRef<HTMLDivElement>(null);
+  const { mounted, state } = usePresence(open, 220);
+  useEffect(() => {
+    if (!open) return;
+    const away = (e: PointerEvent) => !box.current?.contains(e.target as Node) && setOpen(false);
+    const esc = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("pointerdown", away);
+    window.addEventListener("keydown", esc);
+    return () => (document.removeEventListener("pointerdown", away), window.removeEventListener("keydown", esc));
+  }, [open]);
+  const changed = (Object.keys(DEFAULT_LOOK) as (keyof Look)[]).some((k) => look[k] !== DEFAULT_LOOK[k]);
+  return (
+    <div ref={box} className="relative">
+      <button
+        type="button"
+        onClick={() => (window.innerWidth < 768 ? onPhone() : setOpen(!open))}
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        className={btn(open ? "primary" : "secondary", "sm", "relative")}
+      >
+        <KineticIcon icon={sliders} size={16} />
+        <span className="hidden sm:inline">Customize</span>
+        {changed && <span aria-label="changed" className="absolute top-1 right-1 size-2 rounded-full bg-accent" />}
+      </button>
+      {mounted && (
+        <div role="dialog" aria-label="Customize" data-state={state} className="anim-pop absolute top-[calc(100%+8px)] right-0 z-30 w-[300px] rounded-box bg-card p-1.5 shadow-[var(--shadow-lg),var(--edge)]">
+          <Customize look={look} patch={patch} reset={reset} />
+        </div>
+      )}
     </div>
   );
 }
@@ -282,7 +325,7 @@ function Notice({ title, text, children }: { title: string; text: string; childr
 function Customize({ look, patch, reset }: { look: Look; patch: (p: Partial<Look>) => void; reset: () => void }) {
   const changed = (Object.keys(DEFAULT_LOOK) as (keyof Look)[]).some((k) => look[k] !== DEFAULT_LOOK[k]);
   return (
-    <section aria-labelledby="customize-title" className="rounded-card border border-line bg-surface p-3.5 shadow-[var(--shadow-sm)]">
+    <section aria-labelledby="customize-title" className="rounded-card p-3.5">
       <div className="flex h-7 items-center justify-between">
         <h2 id="customize-title" className="text-[14px] font-semibold">
           Customize
@@ -322,31 +365,10 @@ function Customize({ look, patch, reset }: { look: Look; patch: (p: Partial<Look
       </div>
       <div className="mt-4 border-t border-line pt-3">
         <Switch label="Show names" checked={look.labels} onChange={(v) => patch({ labels: v })} />
+        <div className="mt-2.5">
+          <Switch label="Brand colours" hint="Logos in their own colours" checked={!!look.brand} onChange={(v) => patch({ brand: v })} />
+        </div>
       </div>
     </section>
-  );
-}
-
-function Categories({ counts, category, total, onPick }: { counts: Record<string, number> | null; category: Category | null; total: number; onPick: (c: Category | null) => void }) {
-  const row = (on: boolean) => navItem(on, "py-[5px]");
-  const count = (on: boolean, n?: number) => <span className={`text-[12px] tabular ${on ? "text-accent-ink" : "text-faint"}`}>{n != null ? fmt(n) : ""}</span>;
-  return (
-    <nav aria-label="Categories" className="mt-4">
-      <h2 className={`${eyebrow} mb-1.5 px-3.5`}>Categories</h2>
-      <button type="button" onClick={() => onPick(null)} aria-current={!category ? "true" : undefined} className={row(!category)}>
-        All icons
-        {count(!category, total)}
-      </button>
-      <ul className="mt-0.5">
-        {CATEGORIES.map((c) => (
-          <li key={c.value}>
-            <button type="button" onClick={() => onPick(c.value)} aria-current={category === c.value ? "true" : undefined} className={row(category === c.value)}>
-              {c.label}
-              {count(category === c.value, counts?.[c.value])}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </nav>
   );
 }

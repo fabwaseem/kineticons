@@ -17,8 +17,8 @@ export function Mark({ size = 28 }: { size?: number }) {
     <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden className="ki-mark shrink-0">
       <defs>
         <linearGradient id={fill} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#ff8a4c" />
-          <stop offset="1" stopColor="#ff4a22" />
+          <stop offset="0" stopColor="#ff6a2b" />
+          <stop offset="1" stopColor="#ff2e63" />
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="9" fill={`url(#${fill})`} />
@@ -36,7 +36,7 @@ export function Wordmark() {
   return (
     <span className="flex items-center gap-2.5">
       <Mark size={28} />
-      <span className="heading text-[22px] leading-none">Kineticons</span>
+      <span className="font-display text-[17px] leading-none font-semibold tracking-[-0.02em]">Kineticons</span>
     </span>
   );
 }
@@ -80,7 +80,7 @@ export function CopyButton({ text, label = "Copy", className = "", compact = fal
 /** Code with a copy button and light highlighting. */
 export function CodeBlock({ code, lang, className = "", maxH, bare = false }: { code: string; lang?: string; className?: string; maxH?: number; bare?: boolean }) {
   return (
-    <div className={`code group relative overflow-hidden ${bare ? "" : "rounded-card border border-line bg-surface-2"} ${className}`}>
+    <div className={`code group relative overflow-hidden ${bare ? "" : "rounded-card bg-surface shadow-[var(--edge)]"} ${className}`}>
       <div className="absolute top-2.5 right-2.5 z-10 flex items-center gap-2">
         {lang && <span className="text-[11px] text-faint">{lang}</span>}
         <CopyButton text={code} compact />
@@ -95,7 +95,7 @@ export function CodeBlock({ code, lang, className = "", maxH, bare = false }: { 
 /** A row of choices, one picked. */
 export function Segmented<T extends string>({ value, onChange, options, label, size = "md", full = false }: { value: T; onChange: (v: T) => void; options: { value: T; label: ReactNode; title?: string }[]; label: string; size?: "sm" | "md"; full?: boolean }) {
   return (
-    <div role="radiogroup" aria-label={label} className={`${full ? "flex w-full" : "inline-flex shrink-0"} gap-0.5 rounded-full bg-surface-3 p-1 ${size === "sm" ? "h-9" : "h-10"}`}>
+    <div role="radiogroup" aria-label={label} className={`${full ? "flex w-full" : "inline-flex shrink-0"} gap-0.5 rounded-full bg-surface p-1 shadow-[var(--edge)] ${size === "sm" ? "h-9" : "h-10"}`}>
       {options.map((o) => (
         <button
           key={o.value}
@@ -105,7 +105,7 @@ export function Segmented<T extends string>({ value, onChange, options, label, s
           title={o.title}
           onClick={() => onChange(o.value)}
           className={`ki-trigger inline-flex items-center gap-1.5 rounded-full ${full ? "flex-1 justify-center" : ""} ${size === "sm" ? "px-3" : "px-3.5"} text-[13px] font-medium whitespace-nowrap transition-[background-color,color,box-shadow] duration-200 ${
-            value === o.value ? "bg-surface text-ink shadow-[var(--shadow-sm)]" : "text-muted hover:text-ink"
+            value === o.value ? "bg-[color-mix(in_srgb,var(--ink)_11%,var(--surface))] text-ink" : "text-muted hover:text-ink"
           }`}
         >
           {o.label}
@@ -116,7 +116,7 @@ export function Segmented<T extends string>({ value, onChange, options, label, s
 }
 
 export function Kbd({ children }: { children: ReactNode }) {
-  return <kbd className="inline-grid h-5 min-w-5 place-items-center rounded-xs border border-line-strong bg-surface px-1 text-[11px] text-muted">{children}</kbd>;
+  return <kbd className="inline-grid h-5 min-w-5 place-items-center rounded-xs bg-surface-3 px-1 text-[11px] text-muted">{children}</kbd>;
 }
 
 /** Shows its children with a quiet fade the first time they scroll into view (once; nothing for reduced motion). */
@@ -162,7 +162,7 @@ export const reducedMotion = () => typeof window !== "undefined" && window.match
 export function SectionHead({ title, text, className = "", align = "left" }: { title: ReactNode; text?: ReactNode; className?: string; align?: "left" | "center" }) {
   return (
     <div className={`${align === "center" ? "mx-auto text-center" : ""} max-w-[640px] ${className}`}>
-      <h2 className="heading text-[clamp(30px,4.2vw,48px)]">{title}</h2>
+      <h2 className="heading text-[clamp(32px,4.4vw,48px)]">{title}</h2>
       {text && <p className={`mt-4 text-[17px] leading-relaxed text-muted ${align === "center" ? "mx-auto" : ""} max-w-[560px]`}>{text}</p>}
     </div>
   );

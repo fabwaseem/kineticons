@@ -678,7 +678,10 @@ export const motions = {
     title: "Licence",
     group: "Project",
     description: "Kineticons is free and open source under the MIT licence.",
-    toc: [{ id: "mit", title: "MIT licence" }],
+    toc: [
+      { id: "mit", title: "MIT licence" },
+      { id: "brands", title: "Brand logos" },
+    ],
     body: () => (
       <>
         <H2 id="mit">MIT licence</H2>
@@ -687,6 +690,12 @@ export const motions = {
           <a href={`${REPO_URL}/blob/main/LICENSE`}>LICENSE file</a>.
         </p>
         <Callout>You don’t need to credit Kineticons in your product. A link back is always appreciated.</Callout>
+        <H2 id="brands">Brand logos</H2>
+        <p>
+          The Brands category holds the logos of companies, apps and tools. The logos and names are trademarks of their owners: the MIT licence covers
+          the drawings in Kineticons, not the right to use a brand. Use a logo the way its owner’s brand guidelines allow, usually to link to or name
+          that product.
+        </p>
       </>
     ),
   },

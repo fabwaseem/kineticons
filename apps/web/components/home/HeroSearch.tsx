@@ -46,7 +46,7 @@ export function HeroSearch() {
 
   return (
     <div ref={boxRef} className="relative text-left" onFocus={() => (warm(), setOpen(true))}>
-      <label className={field("h-[60px] gap-3 pr-3 pl-5 shadow-[var(--shadow-md)] focus-within:shadow-[0_0_0_4px_var(--accent-soft),var(--shadow-md)]")}>
+      <label className={field("h-[60px] gap-3 pr-3 pl-5 shadow-[var(--edge),var(--shadow-md)] focus-within:shadow-[var(--edge),0_0_0_4px_var(--accent-soft),var(--shadow-md)]")}>
         <KineticIcon icon={searchIcon} size={21} className="shrink-0 text-faint" />
         <input
           value={q}
@@ -73,7 +73,7 @@ export function HeroSearch() {
       </label>
 
       {open && (
-        <div className="absolute inset-x-0 top-[calc(100%+8px)] overflow-hidden rounded-box border border-line bg-surface shadow-[var(--shadow-lg)]" style={{ animation: "rise .3s var(--ease-smooth) both" }}>
+        <div className="absolute inset-x-0 top-[calc(100%+8px)] overflow-hidden rounded-box bg-card shadow-[var(--shadow-lg),var(--edge)]" style={{ animation: "rise .3s var(--ease-smooth) both" }}>
           {!q.trim() ? (
             <div className="flex flex-wrap items-center gap-1.5 p-3">
               <span className="px-2 text-[13px] text-faint">Try</span>

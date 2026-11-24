@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const config: NextConfig = {
-  // every page is static (2,000+ icon pages included): the site deploys to any static host
+  // every page is static (2,800+ icon pages included): the site deploys to any static host
   output: "export",
   // /icons/bell/index.html: clean URLs on any static host (GitHub Pages, S3, Netlify, Cloudflare)
   trailingSlash: true,

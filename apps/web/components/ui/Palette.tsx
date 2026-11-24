@@ -42,7 +42,7 @@ export default function Palette({ onClose }: { onClose: () => void }) {
 
   return (
     <div className="fixed inset-0 z-[60] flex items-start justify-center px-3 pt-[12vh]" role="dialog" aria-modal="true" aria-label="Search icons">
-      <button type="button" aria-label="Close search" tabIndex={-1} className="absolute inset-0 bg-[rgba(15,13,20,.38)] backdrop-blur-[3px]" style={{ animation: "scrim-in .2s ease both" }} onClick={onClose} />
+      <button type="button" aria-label="Close search" tabIndex={-1} className="absolute inset-0 bg-[rgba(0,0,0,.45)] backdrop-blur-[3px]" style={{ animation: "scrim-in .2s ease both" }} onClick={onClose} />
       <div className="card relative flex max-h-[min(620px,76vh)] w-full max-w-[640px] flex-col overflow-hidden rounded-box shadow-[var(--shadow-lg)]" style={{ animation: "rise .35s var(--ease-smooth) both" }}>
         <div className="flex items-center gap-3 border-b border-line px-4">
           <svg viewBox="0 0 24 24" className="size-5 text-faint" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" aria-hidden>
@@ -91,7 +91,7 @@ export default function Palette({ onClose }: { onClose: () => void }) {
                   onClick={() => go(icon)}
                   className={`ki-trigger flex w-full items-center gap-3 rounded-tile px-3 py-2 text-left transition-colors ${i === sel ? "bg-surface-3" : ""}`}
                 >
-                  <span className="grid size-10 place-items-center rounded-tile border border-line bg-surface-2 text-ink-2">
+                  <span className="grid size-10 place-items-center rounded-tile bg-surface text-ink-2 shadow-[var(--edge)]">
                     <KineticIcon icon={icon} size={20} trigger={i === sel ? "manual" : "hover"} active={i === sel} />
                   </span>
                   <span className="min-w-0 flex-1">

@@ -5,7 +5,7 @@ import { abs } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-/** Every page: home, the browser, each docs page and each of the 2,000+ icon pages. */
+/** Every page: home, the browser, each docs page and each of the 2,800+ icon pages. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [

@@ -24,6 +24,8 @@ export interface KineticIconProps extends Omit<SVGProps<SVGSVGElement>, "childre
   /** false: leave the icon's CSS out, for pages that load every icon's motion at once (`@kineticons/static/kineticons.css`).
    * Many icons each bringing a stylesheet slow a page down; one stylesheet does not. Default true. */
   css?: boolean;
+  /** brand logos: draw in the brand's own colour (e.g. Spotify green) instead of the text colour */
+  brand?: boolean;
   className?: string;
   style?: CSSProperties;
 }
@@ -56,13 +58,13 @@ function useLegacyStyles(icon: IconDef, on: boolean) {
  *   <button className="ki-trigger"><KineticIcon icon={bell} variant="duotone" /> Notifications</button>
  */
 export const KineticIcon = forwardRef<SVGSVGElement, KineticIconProps>(function KineticIcon(
-  { icon, variant, size, strokeWidth, trigger = "hover", active, loopEvery = 1800, title, className, style, css = true, ...rest },
+  { icon, variant, size, strokeWidth, trigger = "hover", active, loopEvery = 1800, title, className, style, css = true, brand, ...rest },
   ref,
 ) {
   useLegacyStyles(icon, css);
-  if (trigger === "loop") return <LoopIcon ref={ref} icon={icon} every={loopEvery} {...{ variant, size, strokeWidth, title, className, style, css, ...rest }} />;
+  if (trigger === "loop") return <LoopIcon ref={ref} icon={icon} every={loopEvery} {...{ variant, size, strokeWidth, title, className, style, css, brand, ...rest }} />;
   const px = typeof size === "string" ? parseFloat(size) : size;
-  const node = render(icon, { variant, size: px, strokeWidth, trigger, active, title, className });
+  const node = render(icon, { variant, size: px, strokeWidth, trigger, active, title, className, brand });
   const labelled = rest["aria-label"] != null || rest["aria-labelledby"] != null;
   const svg = toElement(node, undefined, {
     ref,

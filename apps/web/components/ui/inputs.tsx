@@ -34,11 +34,11 @@ export function Slider({ label, value, min, max, step, onChange, format = (v) =>
           className="peer absolute inset-0 z-10 h-full w-full cursor-pointer appearance-none opacity-0"
         />
         <span aria-hidden className="absolute inset-x-0 top-1/2 h-1.5 -translate-y-1/2 overflow-hidden rounded-full bg-surface-3">
-          <span className="absolute inset-y-0 left-0 rounded-full bg-accent" style={{ width: `${pct}%` }} />
+          <span className="absolute inset-y-0 left-0 rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-2))]" style={{ width: `${pct}%` }} />
         </span>
         <span
           aria-hidden
-          className="absolute top-1/2 size-[18px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-line-strong bg-card shadow-[0_1px_3px_rgba(0,0,0,.18)] transition-[transform,box-shadow] duration-150 peer-hover:scale-110 peer-active:scale-95 peer-focus-visible:shadow-[0_0_0_4px_var(--accent-soft)] peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--ring)]"
+          className="absolute top-1/2 size-[18px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_1px_4px_rgba(0,0,0,.3)] transition-[transform,box-shadow] duration-150 peer-hover:scale-110 peer-active:scale-95 peer-focus-visible:shadow-[0_0_0_4px_var(--accent-soft)] peer-focus-visible:ring-2 peer-focus-visible:ring-[var(--ring)]"
           style={{ left: `clamp(9px, ${pct}%, calc(100% - 9px))` }}
         />
       </div>
@@ -86,7 +86,7 @@ export function Switch({ label, checked, onChange, hint }: { label: ReactNode; c
       </span>
       <span className={`relative h-6 w-10 shrink-0 rounded-full transition-colors duration-200 ${checked ? "bg-accent" : "bg-surface-3 shadow-[inset_0_0_0_1px_var(--line)]"}`}>
         <span
-          className={`absolute top-0.5 left-0.5 size-5 rounded-full bg-card shadow-[0_1px_3px_rgba(0,0,0,.25)] transition-transform duration-300 ease-[cubic-bezier(.34,1.56,.64,1)] ${checked ? "translate-x-4" : ""}`}
+          className={`absolute top-0.5 left-0.5 size-5 rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,.25)] transition-transform duration-300 ease-[cubic-bezier(.34,1.56,.64,1)] ${checked ? "translate-x-4" : ""}`}
         />
       </span>
     </button>
